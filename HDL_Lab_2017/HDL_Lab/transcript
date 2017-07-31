@@ -1,0 +1,371 @@
+# //  ModelSim SE-64 10.3d Oct  6 2014 Linux 3.16.0-0.bpo.4-amd64
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim modelsim 
+# Start time: 17:28:29 on Jul 31,2017
+# ** Error: (vsim-19) Failed to access library 'work' at "work".
+# No such file or directory. (errno = ENOENT)
+# Error loading design
+vlib work
+vlog -reportprogress 300 -work work /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# Start time: 17:29:16 on Jul 31,2017
+# vlog -reportprogress 300 -work work /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v 
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(33): near "input": syntax error, unexpected input, expecting ';'
+# End time: 17:29:16 on Jul 31,2017, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlog -reportprogress 300 -work work /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# Start time: 17:29:19 on Jul 31,2017
+# vlog -reportprogress 300 -work work /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v 
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(33): near "input": syntax error, unexpected input, expecting ';'
+# End time: 17:29:19 on Jul 31,2017, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlog -reportprogress 300 -work work /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# Start time: 17:30:17 on Jul 31,2017
+# vlog -reportprogress 300 -work work /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v 
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(33): near "input": syntax error, unexpected input, expecting ';'
+# End time: 17:30:17 on Jul 31,2017, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlog -reportprogress 300 -work work /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# Start time: 17:31:29 on Jul 31,2017
+# vlog -reportprogress 300 -work work /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v 
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(33): near "input": syntax error, unexpected input, expecting ';'
+# End time: 17:31:29 on Jul 31,2017, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlog -reportprogress 300 -work work /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# Start time: 17:32:04 on Jul 31,2017
+# vlog -reportprogress 300 -work work /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v 
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(58): (vlog-2730) Undefined variable: 'R0'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(59): (vlog-2730) Undefined variable: 'R1'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(60): (vlog-2730) Undefined variable: 'R2'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(61): (vlog-2730) Undefined variable: 'R3'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(62): (vlog-2730) Undefined variable: 'R4'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(63): (vlog-2730) Undefined variable: 'R5'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(64): (vlog-2730) Undefined variable: 'R6'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(65): (vlog-2730) Undefined variable: 'R7'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(66): (vlog-2730) Undefined variable: 'SP'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(67): (vlog-2730) Undefined variable: 'PC'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(68): (vlog-2730) Undefined variable: 'LR'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(69): (vlog-2730) Undefined variable: 'IMM'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(104): (vlog-2730) Undefined variable: 'r0in'.
+# End time: 17:32:04 on Jul 31,2017, Elapsed time: 0:00:00
+# Errors: 13, Warnings: 0
+vlib processor
+vmap processor processor
+# Model Technology ModelSim SE-64 vmap 10.3d Lib Mapping Utility 2014.10 Oct  6 2014
+# vmap -modelsim_quiet processor processor 
+# Copying /cad/mentor/tools/ModelSim_SE10.3D/modeltech/linux_x86_64/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /cad/mentor/tools/ModelSim_SE10.3D/modeltech/linux_x86_64/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# reading /cad/mentor/tools/ModelSim_SE10.3D/modeltech/linux_x86_64/../modelsim.ini
+# Loading project HDL
+# Compile of register_file.v failed with 1 errors.
+# Compile of top.v was successful.
+# 2 compiles, 1 failed with 1 error.
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(58): (vlog-2730) Undefined variable: 'R0'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(59): (vlog-2730) Undefined variable: 'R1'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(60): (vlog-2730) Undefined variable: 'R2'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(61): (vlog-2730) Undefined variable: 'R3'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(62): (vlog-2730) Undefined variable: 'R4'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(63): (vlog-2730) Undefined variable: 'R5'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(64): (vlog-2730) Undefined variable: 'R6'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(65): (vlog-2730) Undefined variable: 'R7'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(66): (vlog-2730) Undefined variable: 'SP'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(67): (vlog-2730) Undefined variable: 'PC'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(68): (vlog-2730) Undefined variable: 'LR'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(69): (vlog-2730) Undefined variable: 'IMM'.
+# 
+# 
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/top.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# 
+# 
+# 2 compiles, 1 failed with 1 error.
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(33): near "input": syntax error, unexpected input, expecting ';'
+# 
+# 
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/top.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# 
+# 
+# 2 compiles, 1 failed with 1 error.
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(59): (vlog-2730) Undefined variable: 'R1'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(60): (vlog-2730) Undefined variable: 'R2'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(61): (vlog-2730) Undefined variable: 'R3'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(62): (vlog-2730) Undefined variable: 'R4'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(63): (vlog-2730) Undefined variable: 'R5'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(64): (vlog-2730) Undefined variable: 'R6'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(65): (vlog-2730) Undefined variable: 'R7'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(66): (vlog-2730) Undefined variable: 'SP'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(67): (vlog-2730) Undefined variable: 'PC'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(68): (vlog-2730) Undefined variable: 'LR'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(69): (vlog-2730) Undefined variable: 'IMM'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(77): (vlog-2730) Undefined variable: 'R0'.
+# 
+# 
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/top.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# 
+# 
+# 2 compiles, 1 failed with 1 error.
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(103): (vlog-2730) Undefined variable: 'R0'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(111): (vlog-2730) Undefined variable: 'R1'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(119): (vlog-2730) Undefined variable: 'R2'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(127): (vlog-2730) Undefined variable: 'R3'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(135): (vlog-2730) Undefined variable: 'R4'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(143): (vlog-2730) Undefined variable: 'R5'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(151): (vlog-2730) Undefined variable: 'R6'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(159): (vlog-2730) Undefined variable: 'R7'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(167): (vlog-2730) Undefined variable: 'SP'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(175): (vlog-2730) Undefined variable: 'LR'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(183): (vlog-2730) Undefined variable: 'PC'.
+# 
+# 
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/top.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# 
+# 
+# 2 compiles, 1 failed with 1 error.
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(46): In, out, or inout does not appear in port list: cpsr_out.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(58): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(59): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(60): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(61): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(62): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(63): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(64): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(65): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(66): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(67): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(68): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(69): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(77): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(78): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(79): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(80): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(81): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(82): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(83): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(84): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(85): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(86): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(87): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(88): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(104): (vlog-2110) Illegal reference to net "r0in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(106): (vlog-2110) Illegal reference to net "r0in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(112): (vlog-2110) Illegal reference to net "r1in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(114): (vlog-2110) Illegal reference to net "r1in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(120): (vlog-2110) Illegal reference to net "r2in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(122): (vlog-2110) Illegal reference to net "r2in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(128): (vlog-2110) Illegal reference to net "r3in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(130): (vlog-2110) Illegal reference to net "r3in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(136): (vlog-2110) Illegal reference to net "r4in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(138): (vlog-2110) Illegal reference to net "r4in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(144): (vlog-2110) Illegal reference to net "r5in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(146): (vlog-2110) Illegal reference to net "r5in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(152): (vlog-2110) Illegal reference to net "r6in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(154): (vlog-2110) Illegal reference to net "r6in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(160): (vlog-2110) Illegal reference to net "r7in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(162): (vlog-2110) Illegal reference to net "r7in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(168): (vlog-2110) Illegal reference to net "spin".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(170): (vlog-2110) Illegal reference to net "spin".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(176): (vlog-2110) Illegal reference to net "lrin".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(178): (vlog-2110) Illegal reference to net "lrin".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(184): (vlog-2110) Illegal reference to net "pcin".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(186): (vlog-2110) Illegal reference to net "pcin".
+# 
+# 
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/top.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# 
+# 
+# 2 compiles, 1 failed with 1 error.
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(31): Identifier must be declared with a port mode: cpsr.
+# 
+# 
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/top.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# 
+# 
+# 2 compiles, 1 failed with 1 error.
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(59): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(60): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(61): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(62): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(63): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(64): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(65): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(66): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(67): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(68): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(69): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(70): (vlog-2110) Illegal reference to net "regA_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(78): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(79): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(80): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(81): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(82): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(83): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(84): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(85): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(86): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(87): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(88): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(89): (vlog-2110) Illegal reference to net "regB_out".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(105): (vlog-2110) Illegal reference to net "r0in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(107): (vlog-2110) Illegal reference to net "r0in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(113): (vlog-2110) Illegal reference to net "r1in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(115): (vlog-2110) Illegal reference to net "r1in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(121): (vlog-2110) Illegal reference to net "r2in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(123): (vlog-2110) Illegal reference to net "r2in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(129): (vlog-2110) Illegal reference to net "r3in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(131): (vlog-2110) Illegal reference to net "r3in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(137): (vlog-2110) Illegal reference to net "r4in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(139): (vlog-2110) Illegal reference to net "r4in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(145): (vlog-2110) Illegal reference to net "r5in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(147): (vlog-2110) Illegal reference to net "r5in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(153): (vlog-2110) Illegal reference to net "r6in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(155): (vlog-2110) Illegal reference to net "r6in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(161): (vlog-2110) Illegal reference to net "r7in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(163): (vlog-2110) Illegal reference to net "r7in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(169): (vlog-2110) Illegal reference to net "spin".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(171): (vlog-2110) Illegal reference to net "spin".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(177): (vlog-2110) Illegal reference to net "lrin".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(179): (vlog-2110) Illegal reference to net "lrin".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(185): (vlog-2110) Illegal reference to net "pcin".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(187): (vlog-2110) Illegal reference to net "pcin".
+# 
+# 
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/top.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# 
+# 
+# 2 compiles, 1 failed with 1 error.
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(45): near "regA_out": syntax error, unexpected IDENTIFIER, expecting ';'
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(59): (vlog-2730) Undefined variable: 'regA_out'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(78): (vlog-2730) Undefined variable: 'regB_out'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(28): Identifier must be declared with a port mode: regA_out.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(29): Identifier must be declared with a port mode: regB_out.
+# 
+# 
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/top.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# 
+# 
+# 2 compiles, 1 failed with 1 error.
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(45): near "regA_out": syntax error, unexpected IDENTIFIER, expecting ';'
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(46): near "regB_out": syntax error, unexpected IDENTIFIER, expecting ';'
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(60): (vlog-2730) Undefined variable: 'regA_out'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(79): (vlog-2730) Undefined variable: 'regB_out'.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(28): Identifier must be declared with a port mode: regA_out.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(29): Identifier must be declared with a port mode: regB_out.
+# 
+# 
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/top.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# 
+# 
+# 2 compiles, 1 failed with 1 error.
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(45): (vlog-2163) Macro `output is undefined.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(45): near "[": syntax error, unexpected '[', expecting IDENTIFIER or TYPE_IDENTIFIER
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(46): (vlog-2163) Macro `output is undefined.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(28): Identifier must be declared with a port mode: regA_out.
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(29): Identifier must be declared with a port mode: regB_out.
+# 
+# 
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/top.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# 
+# 
+# 2 compiles, 1 failed with 1 error.
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# -- Compiling module register_file
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(106): (vlog-2110) Illegal reference to net "r0in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(108): (vlog-2110) Illegal reference to net "r0in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(114): (vlog-2110) Illegal reference to net "r1in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(116): (vlog-2110) Illegal reference to net "r1in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(122): (vlog-2110) Illegal reference to net "r2in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(124): (vlog-2110) Illegal reference to net "r2in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(130): (vlog-2110) Illegal reference to net "r3in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(132): (vlog-2110) Illegal reference to net "r3in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(138): (vlog-2110) Illegal reference to net "r4in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(140): (vlog-2110) Illegal reference to net "r4in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(146): (vlog-2110) Illegal reference to net "r5in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(148): (vlog-2110) Illegal reference to net "r5in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(154): (vlog-2110) Illegal reference to net "r6in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(156): (vlog-2110) Illegal reference to net "r6in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(162): (vlog-2110) Illegal reference to net "r7in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(164): (vlog-2110) Illegal reference to net "r7in".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(170): (vlog-2110) Illegal reference to net "spin".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(172): (vlog-2110) Illegal reference to net "spin".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(178): (vlog-2110) Illegal reference to net "lrin".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(180): (vlog-2110) Illegal reference to net "lrin".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(186): (vlog-2110) Illegal reference to net "pcin".
+# ** Error: /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v(188): (vlog-2110) Illegal reference to net "pcin".
+# 
+# 
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/top.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# 
+# 
+# 2 compiles, 1 failed with 1 error.
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+# 
+# 
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/top.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# 
+# 
+# 2 compiles, 0 failed with no errors.
