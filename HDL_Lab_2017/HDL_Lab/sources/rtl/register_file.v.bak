@@ -1,0 +1,28 @@
+module register_file (
+regA_select, 
+regB_select, 
+write_dest, 
+write_en,
+write_in, 
+clk, 
+regA_out,
+regB_out
+)
+
+input [3:0] regA_select, regB_select, write_dest;
+input [31:0] write_in; 
+input write_en;
+input clk;
+
+output[31:0] regA_out, regB_out;
+
+//registers
+reg [31:0] r0, r1, r2, r3, r4, r5, r6, r7, sp, pc, lr;
+
+//make them flipflops
+always @(posedge clk) begin
+end
+
+
+
+endmodule
