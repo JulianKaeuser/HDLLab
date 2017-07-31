@@ -369,3 +369,24 @@ vmap processor processor
 # 
 # 
 # 2 compiles, 0 failed with no errors.
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+# 
+# 
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/top.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# 
+# 
+# vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file_tb.v
+# Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+# -- Compiling module register_file_tb
+# 
+# Top level modules:
+# 	register_file_tb
+# 
+# 
+# 3 compiles, 0 failed with no errors.

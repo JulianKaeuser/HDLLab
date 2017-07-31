@@ -9,22 +9,42 @@ z2
 cModel Technology
 d/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab
 vregister_file
-!s110 1501516169
+Z0 !s110 1501516767
 !i10b 1
 !s100 M3:^5diHjG7VBDI7>IH8a2
 IzacZ=0NQc<aFb3]YWdZV82
-V`JN@9S9cnhjKRR_L]QIcM3
-d/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+Z2 d/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl
 w1501516167
 8/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
 F/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
 L0 17
-OL;L;10.3d;59
+Z3 OL;L;10.3d;59
 r1
 !s85 0
 31
-!s108 1501516169.605405
+!s108 1501516767.826800
 !s107 /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v|
 !i113 0
-o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z4 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vregister_file_tb
+R0
+!i10b 1
+!s100 @cSJ8QQ9heMf5We]55W8@0
+IENKlEeBkIeJ?dzo^laG0;3
+R1
+R2
+w1501516762
+8/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file_tb.v
+F/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file_tb.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1501516767.965278
+!s107 /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file_tb.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file_tb.v|
+!i113 0
+R4
