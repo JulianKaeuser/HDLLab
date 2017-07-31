@@ -28,9 +28,12 @@ clk,
 regA_out,
 regB_out,
 pc_out,
-)
+cpsr_out
+);
 
-input [3:0] regA_select, regB_select, write_dest;
+input [3:0] regA_select;
+input [3:0] regB_select;
+input [3:0] write_dest;
 input [31:0] write_in;
 input [31:0] next_pc;
 input [31:0] immediate_in;
@@ -39,7 +42,8 @@ input pc_en;
 input write_en;
 input clk;
 
-output[31:0] regA_out, regB_out;
+output reg[31:0] regA_out;
+output reg [31:0] regB_out;
 output[31:0] pc_out;
 output[31:0] cpsr_out;
 
@@ -47,24 +51,24 @@ output[31:0] cpsr_out;
 reg [31:0] r0, r1, r2, r3, r4, r5, r6, r7, sp, pc, lr, cpsr;
 
 wire [31:0] pc_input;
-wire [31:0] r0In, r1in, r2in, r3in, r4in, r5in, r6in, r7in, spin, lrin, pcin, cpsrin;
+reg [31:0] r0in, r1in, r2in, r3in, r4in, r5in, r6in, r7in, spin, lrin, pcin, cpsrin;
 
 
 // regA out assignment with multiplexor
 always @(*) begin
     case(regA_select)
-      R0 : regA_out = r0;
-      R1 : regA_out = r1;
-      R2 : regA_out = r2;
-      R3 : regA_out = r3;
-      R4 : regA_out = r4;
-      R5 : regA_out = r5;
-      R6 : regA_out = r6;
-      R7 : regA_out = r7;
-      SP : regA_out = sp;
-      PC : regA_out = pc;
-      LR : regA_out = lr;
-      IMM : regA_out = immediate_in;
+      `R0 : regA_out = r0;
+      `R1 : regA_out = r1;
+      `R2 : regA_out = r2;
+      `R3 : regA_out = r3;
+      `R4 : regA_out = r4;
+      `R5 : regA_out = r5;
+      `R6 : regA_out = r6;
+      `R7 : regA_out = r7;
+      `SP : regA_out = sp;
+      `PC : regA_out = pc;
+      `LR : regA_out = lr;
+      `IMM : regA_out = immediate_in;
       //default : regA_out = 32'b0;
     endcase
 end
@@ -72,18 +76,18 @@ end
 // regB out assignment with multiplexor
 always @(*) begin
     case(regA_select)
-      R0 : regB_out = r0;
-      R1 : regB_out = r1;
-      R2 : regB_out = r2;
-      R3 : regB_out = r3;
-      R4 : regB_out = r4;
-      R5 : regB_out = r5;
-      R6 : regB_out = r6;
-      R7 : regB_out = r7;
-      SP : regB_out = sp;
-      PC : regB_out = pc;
-      LR : regB_out = lr;
-      IMM : regB_out = immediate_in;
+      `R0 : regB_out = r0;
+      `R1 : regB_out = r1;
+      `R2 : regB_out = r2;
+      `R3 : regB_out = r3;
+      `R4 : regB_out = r4;
+      `R5 : regB_out = r5;
+      `R6 : regB_out = r6;
+      `R7 : regB_out = r7;
+      `SP : regB_out = sp;
+      `PC : regB_out = pc;
+      `LR : regB_out = lr;
+      `IMM : regB_out = immediate_in;
       //default : regA_out = 32'b0;
     endcase
 end
@@ -98,7 +102,7 @@ assign cpsr_out = cpsr;
 
 // r0
 always @(*) begin
-    if (write_dest==R0)
+    if (write_dest==`R0)
         r0in = write_in;
     else
         r0in= r0;
@@ -106,7 +110,7 @@ end
 
 // r1
 always @(*) begin
-    if (write_dest==R1)
+    if (write_dest==`R1)
         r1in = write_in;
     else
         r1in= r1;
@@ -114,7 +118,7 @@ end
 
 // r2
 always @(*) begin
-    if (write_dest==R2)
+    if (write_dest==`R2)
         r2in = write_in;
     else
         r2in= r2;
@@ -122,7 +126,7 @@ end
 
 // r3
 always @(*) begin
-    if (write_dest==R3)
+    if (write_dest==`R3)
         r3in = write_in;
     else
         r3in= r3;
@@ -130,7 +134,7 @@ end
 
 // r4
 always @(*) begin
-    if (write_dest==R4)
+    if (write_dest==`R4)
         r4in = write_in;
     else
         r4in= r4;
@@ -138,7 +142,7 @@ end
 
 // r5
 always @(*) begin
-    if (write_dest==R5)
+    if (write_dest==`R5)
         r5in = write_in;
     else
         r5in= r5;
@@ -146,7 +150,7 @@ end
 
 // r6
 always @(*) begin
-    if (write_dest==R6)
+    if (write_dest==`R6)
         r6in = write_in;
     else
         r6in= r6;
@@ -154,7 +158,7 @@ end
 
 // r7
 always @(*) begin
-    if (write_dest==R7)
+    if (write_dest==`R7)
         r7in = write_in;
     else
         r7in= r7;
@@ -162,7 +166,7 @@ end
 
 // sp
 always @(*) begin
-    if (write_dest==SP)
+    if (write_dest==`SP)
         spin = write_in;
     else
         spin= sp;
@@ -170,7 +174,7 @@ end
 
 // lr
 always @(*) begin
-    if (write_dest==LR)
+    if (write_dest==`LR)
         lrin = write_in;
     else
         lrin= lr;
@@ -178,7 +182,7 @@ end
 
 //PC output
 always @(*) begin
-if (write_dest==PC)
+if (write_dest==`PC)
     pcin = write_in;
 else
     pcin= next_pc;
@@ -210,3 +214,18 @@ end
 
 
 endmodule
+
+
+`undef R0
+`undef R1
+`undef R2
+`undef R3
+`undef R4
+`undef R5
+`undef R6
+`undef R7
+
+`undef PC
+`undef LR
+`undef IMM
+`undef SP
