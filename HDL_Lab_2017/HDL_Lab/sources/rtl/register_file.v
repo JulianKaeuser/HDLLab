@@ -10,7 +10,7 @@
 `define SP 4'b1000
 `define PC 4'b1001
 `define LR 4'b1010
-`define IMM 4'b1010
+`define IMM 4'b1111
 
 
 
