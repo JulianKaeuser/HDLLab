@@ -17,14 +17,15 @@ module register_file_tb ();
 
 // needed wires
 reg [31:0] write_in, immediate1_in, immediate2_in, next_pc, cpsr_in;
-wire [31:0] regA, regB, pc_out, cpsr_out;
+wire [31:0] regA, regB, regC, pc_out, cpsr_out;
 reg clk, write_en, pc_en;
-reg [3:0] regA_sel, regB_sel, write_dest;
+reg [3:0] regA_sel, regB_sel, regC_sel, write_dest;
 
 //dut
 register_file rf (
 .regA_select(regA_sel),
 .regB_select(regB_sel),
+.regC_select(regC_sel),
 .write_dest(write_dest),
 .write_en(write_en),
 .write_in(write_in),
@@ -36,6 +37,7 @@ register_file rf (
 .clk(clk),
 .regA_out(regA),
 .regB_out(regB),
+.regC_out(regC),
 .pc_out(pc_out),
 .cpsr_out(cpsr_out)
 );
@@ -50,6 +52,7 @@ initial begin
    // 4 bit signals
    regA_sel = `R0;
    regB_sel = `R0;
+   regC_sel = `R0;
    write_dest = `R1;
 
    // 32 bit signals
@@ -70,13 +73,14 @@ initial begin
    $dumpvars;
 
    //$display("\t\ttime,\tclk");
-   $monitor("%d,\t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b",
+   $monitor("%d,\t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b,, \t%b, \t%b, \t%b",
    $time,
     clk,
     pc_en,
     write_en,
     regA_sel,
     regB_sel,
+    regC_sel,
     write_dest,
     write_in,
     immediate1_in,
@@ -85,6 +89,7 @@ initial begin
     next_pc,
     regA,
     regB,
+    regC,
     pc_out,
     cpsr_out);
 end
@@ -158,6 +163,12 @@ initial begin
   immediate2_in = 32'hbeebbaab;
   regA_sel = `IMM;
   regB_sel = `IMM;
+
+  #10;
+  regC_sel = `R4;
+
+  #10;
+  regC_sel = `R1;
    #200;
    $finish;
 end

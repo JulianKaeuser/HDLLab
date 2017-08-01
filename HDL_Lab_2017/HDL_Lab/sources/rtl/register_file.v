@@ -17,6 +17,7 @@
 module register_file (
 regA_select,
 regB_select,
+regC_select,
 write_dest,
 write_en,
 write_in,
@@ -28,12 +29,14 @@ pc_en,
 clk,
 regA_out,
 regB_out,
+regC_out,
 pc_out,
 cpsr_out
 );
 
 input [3:0] regA_select;
 input [3:0] regB_select;
+input [3:0] regC_select;
 input [3:0] write_dest;
 input [31:0] write_in;
 input [31:0] next_pc;
@@ -46,6 +49,7 @@ input clk;
 
 output reg[31:0] regA_out;
 output reg [31:0] regB_out;
+output reg [31:0] regC_out;
 output[31:0] pc_out;
 output[31:0] cpsr_out;
 
@@ -90,6 +94,25 @@ always @(*) begin
       `PC : regB_out = pc;
       `LR : regB_out = lr;
       `IMM : regB_out = immediate2_in;
+      //default : regA_out = 32'b0;
+    endcase
+end
+
+// regC out assignment with multiplexor
+always @(*) begin
+    case(regC_select)
+      `R0 : regC_out = r0;
+      `R1 : regC_out = r1;
+      `R2 : regC_out = r2;
+      `R3 : regC_out = r3;
+      `R4 : regC_out = r4;
+      `R5 : regC_out = r5;
+      `R6 : regC_out = r6;
+      `R7 : regC_out = r7;
+      `SP : regC_out = sp;
+      `PC : regC_out = pc;
+      `LR : regC_out = lr;
+      `IMM : regC_out = immediate2_in;
       //default : regA_out = 32'b0;
     endcase
 end
