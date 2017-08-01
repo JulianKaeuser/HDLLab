@@ -12,8 +12,6 @@
 `define LR 4'b1010
 `define IMM 4'b1111
 
-
-
 module register_file (
 regA_select,
 regB_select,
@@ -33,31 +31,33 @@ regC_out,
 pc_out,
 cpsr_out
 );
+localparam WIDE = 32;
+
 
 input [3:0] regA_select;
 input [3:0] regB_select;
 input [3:0] regC_select;
 input [3:0] write_dest;
-input [31:0] write_in;
-input [31:0] next_pc;
-input [31:0] immediate1_in;
-input [31:0] immediate2_in;
-input [31:0] cpsr_in;
+input [WIDE-1:0] write_in;
+input [WIDE-1:0] next_pc;
+input [WIDE-1:0] immediate1_in;
+input [WIDE-1:0] immediate2_in;
+input [WIDE-1:0] cpsr_in;
 input pc_en;
 input write_en;
 input clk;
 
-output reg[31:0] regA_out;
-output reg [31:0] regB_out;
-output reg [31:0] regC_out;
-output[31:0] pc_out;
-output[31:0] cpsr_out;
+output reg[WIDE-1:0] regA_out;
+output reg [WIDE-1:0] regB_out;
+output reg [WIDE-1:0] regC_out;
+output[WIDE-1:0] pc_out;
+output[WIDE-1:0] cpsr_out;
 
 //registers
-reg [31:0] r0, r1, r2, r3, r4, r5, r6, r7, sp, pc, lr, cpsr;
+reg [WIDE-1:0] r0, r1, r2, r3, r4, r5, r6, r7, sp, pc, lr, cpsr;
 
-wire [31:0] pc_input;
-reg [31:0] r0in, r1in, r2in, r3in, r4in, r5in, r6in, r7in, spin, lrin, pcin, cpsrin;
+wire [WIDE-1:0] pc_input;
+reg [WIDE-1:0] r0in, r1in, r2in, r3in, r4in, r5in, r6in, r7in, spin, lrin, pcin, cpsrin;
 
 
 // regA out assignment with multiplexor
@@ -75,7 +75,7 @@ always @(*) begin
       `PC : regA_out = pc;
       `LR : regA_out = lr;
       `IMM : regA_out = immediate1_in;
-      //default : regA_out = 32'b0;
+      //default : regA_out = BITWIDTH'b0;
     endcase
 end
 
@@ -94,7 +94,7 @@ always @(*) begin
       `PC : regB_out = pc;
       `LR : regB_out = lr;
       `IMM : regB_out = immediate2_in;
-      //default : regA_out = 32'b0;
+      //default : regA_out = BITWIDTH'b0;
     endcase
 end
 
@@ -113,7 +113,7 @@ always @(*) begin
       `PC : regC_out = pc;
       `LR : regC_out = lr;
       `IMM : regC_out = immediate2_in;
-      //default : regA_out = 32'b0;
+      //default : regA_out = BITWIDTH'b0;
     endcase
 end
 

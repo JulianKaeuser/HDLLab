@@ -14,10 +14,11 @@
 
 `timescale 1ns/10ps
 module register_file_tb ();
+localparam WIDE = 32;
 
 // needed wires
-reg [31:0] write_in, immediate1_in, immediate2_in, next_pc, cpsr_in;
-wire [31:0] regA, regB, regC, pc_out, cpsr_out;
+reg [WIDE-1:0] write_in, immediate1_in, immediate2_in, next_pc, cpsr_in;
+wire [WIDE-1:0] regA, regB, regC, pc_out, cpsr_out;
 reg clk, write_en, pc_en;
 reg [3:0] regA_sel, regB_sel, regC_sel, write_dest;
 
@@ -55,7 +56,7 @@ initial begin
    regC_sel = `R0;
    write_dest = `R1;
 
-   // 32 bit signals
+   // BITWIDTH bit signals
    write_in = 32'h0;
    immediate1_in = 32'h11;
    immediate2_in = 32'h22;
