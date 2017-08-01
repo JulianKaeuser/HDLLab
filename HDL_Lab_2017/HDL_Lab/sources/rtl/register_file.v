@@ -75,7 +75,7 @@ end
 
 // regB out assignment with multiplexor
 always @(*) begin
-    case(regA_select)
+    case(regB_select)
       `R0 : regB_out = r0;
       `R1 : regB_out = r1;
       `R2 : regB_out = r2;
@@ -102,7 +102,7 @@ assign cpsr_out = cpsr;
 
 // r0
 always @(*) begin
-    if (write_dest==`R0)
+    if (write_dest==`R0 && write_en)
         r0in = write_in;
     else
         r0in= r0;
@@ -110,7 +110,7 @@ end
 
 // r1
 always @(*) begin
-    if (write_dest==`R1)
+    if (write_dest==`R1 && write_en)
         r1in = write_in;
     else
         r1in= r1;
@@ -118,7 +118,7 @@ end
 
 // r2
 always @(*) begin
-    if (write_dest==`R2)
+    if (write_dest==`R2 && write_en)
         r2in = write_in;
     else
         r2in= r2;
@@ -126,7 +126,7 @@ end
 
 // r3
 always @(*) begin
-    if (write_dest==`R3)
+    if (write_dest==`R3 && write_en)
         r3in = write_in;
     else
         r3in= r3;
@@ -134,7 +134,7 @@ end
 
 // r4
 always @(*) begin
-    if (write_dest==`R4)
+    if (write_dest==`R4 && write_en)
         r4in = write_in;
     else
         r4in= r4;
@@ -142,7 +142,7 @@ end
 
 // r5
 always @(*) begin
-    if (write_dest==`R5)
+    if (write_dest==`R5 && write_en)
         r5in = write_in;
     else
         r5in= r5;
@@ -150,7 +150,7 @@ end
 
 // r6
 always @(*) begin
-    if (write_dest==`R6)
+    if (write_dest==`R6 && write_en)
         r6in = write_in;
     else
         r6in= r6;
@@ -158,7 +158,7 @@ end
 
 // r7
 always @(*) begin
-    if (write_dest==`R7)
+    if (write_dest==`R7 && write_en)
         r7in = write_in;
     else
         r7in= r7;
@@ -166,7 +166,7 @@ end
 
 // sp
 always @(*) begin
-    if (write_dest==`SP)
+    if (write_dest==`SP && write_en)
         spin = write_in;
     else
         spin= sp;
@@ -174,7 +174,7 @@ end
 
 // lr
 always @(*) begin
-    if (write_dest==`LR)
+    if (write_dest==`LR && write_en)
         lrin = write_in;
     else
         lrin= lr;
@@ -182,10 +182,10 @@ end
 
 //PC output
 always @(*) begin
-if (write_dest==`PC)
+if (write_dest==`PC  && write_en)
     pcin = write_in;
 else
-    pcin= next_pc;
+    pcin= (pc_en) ? next_pc: pc;
 end
 
 // make all registers flipflops:

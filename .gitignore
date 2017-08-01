@@ -2,3 +2,5 @@
 *.log
 *.ini
 */@_opt/*
+*dut*
+*.vcd*

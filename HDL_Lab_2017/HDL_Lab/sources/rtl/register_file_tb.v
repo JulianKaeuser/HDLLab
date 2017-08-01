@@ -42,7 +42,7 @@ register_file rf (
 
 initial begin
    // 1 bit signals
-   clk = 0;
+   clk = 1;
    pc_en = 1;
    write_en = 0;
 
@@ -67,14 +67,74 @@ initial begin
    $dumpfile("register_file.vcd");
    $dumpvars;
 
-   $display("\t\ttime,\tclk"); 
-   $monitor("%d,\t%b, \t%b, \t%b ",$time, clk, pc_en, write_en, regA_sel, regB_sel, write_dest, ); 
+   //$display("\t\ttime,\tclk");
+   $monitor("%d,\t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b",
+   $time,
+    clk,
+    pc_en,
+    write_en,
+    regA_sel,
+    regB_sel,
+    write_dest,
+    write_in,
+    immediate_in,
+    cpsr_in,
+    next_pc,
+    regA,
+    regB,
+    pc_out,
+    cpsr_out);
 end
 
 initial begin
 
-   #5;
-   #100;
+   #10;
+   // write deadbeef to r0
+   write_en = 1;
+   write_dest = `R0;
+   write_in = 32'hdeadbeef;
+
+   #10;
+   // change output to R1
+   regA_sel = `R1;
+   write_in = 32'headabed;
+   write_dest = `R2;
+   next_pc = 32'h4;
+
+   #10;
+   // change something with pc, without enable
+   next_pc = 32'h8;
+   pc_en = 0;
+
+   // more changes, no enable for pc
+   #10;
+   next_pc = 32'hc;
+   pc_en = 0;
+
+   // allow pc changes again
+   #10;
+   pc_en = 1;
+
+   // apply changes to registers
+   #10;
+   regA_sel = `IMM;
+   immediate_in = 32'habababab;
+
+   #10;
+   regB_sel = `IMM;
+   regA_sel = `R0;
+   immediate_in = 32'hdededede;
+
+   #10;
+   regB_sel = `R2;
+   regA_sel = `PC;
+   write_en = 0;
+   write_in = 32'hdeedaaaa;
+
+   #10;
+   write_en = 1;
+
+   #200;
    $finish;
 end
 endmodule
