@@ -11,8 +11,18 @@
 
 
 module memory_control_fsm(
-  word,
-  
+  .is_signed,
+  word_type,
+  output_valid,
+  write_ready,
   en,
   rw,
+  direct_or_delayed_din,
+  old_or_new_byte_remainder,
+  modified_or_original_address,
+  added_or_delayed_address,
+  first_two_bytes_out_select,
+  third_byte_out_select
   );
+
+  endmodule

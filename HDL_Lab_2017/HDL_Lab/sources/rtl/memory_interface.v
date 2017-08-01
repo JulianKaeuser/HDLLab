@@ -26,7 +26,16 @@
 
 // abstracts the memory interface from the processor
 module memory_interface (
-  // fill with inputs, outputs
+  address,
+  data_in,
+  data_out,
+  write_ready,
+  output_valid,
+  clk,
+  load,
+  store,
+  is_signed,
+  word_type
   );
 
 localparam WIDE = 16;
@@ -37,15 +46,17 @@ localparam ADDR_WIDTH = 12;
 input [ADDR_WIDTH-1:0] address;
 input [LARGE-1:0] data_in;
 input rw;
-input en;
+input load;
+input store;
 input clk;
 
 input is_signed;
 input [1:0] word_type;
 
 output reg [LARGE-1:0] data_out;
-output reg valid;
-output reg addr_overflow;
+output reg write_ready;
+output reg output_valid;
+//output reg addr_overflow;
 
 // mux control wires
 wire direct_or_delayed_din;
@@ -87,6 +98,10 @@ wire [15:0] zero_halfword;
 
 
 // assigns for wires (fixed)
+
+// some fixing of inputs
+assign en = load | store;
+assign rw = ~store;
 
 // address path
 assign modified_address = added_or_delayed_address ? (delay_addr_for_adder+MEM_LINE_OFFSET) : delay_addr_single;
@@ -158,7 +173,18 @@ memory mem(
 // state machine for control
 
 memory_control_fsm fsm (
-
+   .is_signed(is_signed),
+   .word_type(word_type),
+   .output_valid(output_valid),
+   .write_ready(write_ready),
+   .en(en),
+   .rw(rw),
+   .direct_or_delayed_din(direct_or_delayed_din),
+   .old_or_new_byte_remainder(old_or_new_byte_remainder),
+   .modified_or_original_address(modified_or_original_address),
+   .added_or_delayed_address(added_or_delayed_address),
+   .first_two_bytes_out_select(first_two_bytes_out_select),
+   .third_byte_out_select(third_byte_out_select)
   );
 
 endmodule
