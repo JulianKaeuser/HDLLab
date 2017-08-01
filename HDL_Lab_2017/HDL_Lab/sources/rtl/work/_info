@@ -7,43 +7,50 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-d/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab
+Z0 d/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab
+T_opt
+!s110 1501573723
+VZdWD23mVgk]Hz3BR21GOL2
+04 16 4 work register_file_tb fast 0
+=1-001e675896af-5980325b-b86-20b09
+o-quiet -auto_acc_if_foreign -work work
+n@_opt
+OL;O;10.3d;59
+R0
 vregister_file
-Z0 !s110 1501516767
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+r1
+!s85 0
+31
 !i10b 1
 !s100 M3:^5diHjG7VBDI7>IH8a2
 IzacZ=0NQc<aFb3]YWdZV82
-Z1 V`JN@9S9cnhjKRR_L]QIcM3
 Z2 d/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl
 w1501516167
 8/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
 F/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v
 L0 17
 Z3 OL;L;10.3d;59
-r1
-!s85 0
-31
-!s108 1501516767.826800
+!s108 1501573881.588311
 !s107 /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file.v|
 !i113 0
 Z4 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 vregister_file_tb
-R0
-!i10b 1
-!s100 @cSJ8QQ9heMf5We]55W8@0
-IENKlEeBkIeJ?dzo^laG0;3
 R1
-R2
-w1501516762
-8/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file_tb.v
-F/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file_tb.v
-L0 1
-R3
 r1
 !s85 0
 31
-!s108 1501516767.965278
+!i10b 1
+!s100 :F=?h@I:Rg8ki4c0XcIzW1
+I7kF=_29E9NSLgZ@:C7D2?0
+R2
+w1501573878
+8/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file_tb.v
+F/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file_tb.v
+L0 16
+R3
+!s108 1501573881.777381
 !s107 /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file_tb.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/register_file_tb.v|
 !i113 0
