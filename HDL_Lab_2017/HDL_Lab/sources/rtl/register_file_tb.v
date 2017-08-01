@@ -1,3 +1,6 @@
+// ATUHORS: Group 06/ Julian Käuser
+//Tuesday 08/01/2017
+
 `define R0 4'b0000
 `define R1 4'b0001
 `define R2 4'b0010
