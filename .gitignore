@@ -4,3 +4,6 @@
 */@_opt/*
 *dut*
 *.vcd*
+*.mti*
+*.mpf*
+
