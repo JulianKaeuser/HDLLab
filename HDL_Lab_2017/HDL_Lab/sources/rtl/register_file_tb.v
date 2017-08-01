@@ -16,7 +16,7 @@
 module register_file_tb ();
 
 // needed wires
-reg [31:0] write_in, immediate_in, next_pc, cpsr_in;
+reg [31:0] write_in, immediate1_in, immediate2_in, next_pc, cpsr_in;
 wire [31:0] regA, regB, pc_out, cpsr_out;
 reg clk, write_en, pc_en;
 reg [3:0] regA_sel, regB_sel, write_dest;
@@ -28,7 +28,8 @@ register_file rf (
 .write_dest(write_dest),
 .write_en(write_en),
 .write_in(write_in),
-.immediate_in(immediate_in),
+.immediate1_in(immediate1_in),
+.immediate2_in(immediate2_in),
 .cpsr_in(cpsr_in),
 .next_pc(next_pc),
 .pc_en(pc_en),
@@ -52,10 +53,11 @@ initial begin
    write_dest = `R1;
 
    // 32 bit signals
-   write_in = 31'b0;
-   immediate_in = 31'b11;
-   cpsr_in = 31'b0;
-   next_pc = 31'b0;
+   write_in = 32'h0;
+   immediate1_in = 32'h11;
+   immediate2_in = 32'h22;
+   cpsr_in = 32'h0;
+   next_pc = 32'h0;
 end
 
 // some clock action
@@ -68,7 +70,7 @@ initial begin
    $dumpvars;
 
    //$display("\t\ttime,\tclk");
-   $monitor("%d,\t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b",
+   $monitor("%d,\t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b",
    $time,
     clk,
     pc_en,
@@ -77,7 +79,8 @@ initial begin
     regB_sel,
     write_dest,
     write_in,
-    immediate_in,
+    immediate1_in,
+    immediate2_in,
     cpsr_in,
     next_pc,
     regA,
@@ -118,12 +121,12 @@ initial begin
    // apply changes to registers
    #10;
    regA_sel = `IMM;
-   immediate_in = 32'habababab;
+   immediate1_in = 32'habababab;
 
    #10;
    regB_sel = `IMM;
    regA_sel = `R0;
-   immediate_in = 32'hdededede;
+   immediate1_in = 32'hdededede;
 
    #10;
    regB_sel = `R2;
@@ -134,6 +137,27 @@ initial begin
    #10;
    write_en = 1;
 
+   #10;
+   next_pc = 32'hf;
+
+   #9;
+   next_pc = 32'h10;
+  write_dest = `PC;
+  write_in = 32'heeeeffff;
+  write_en = 1;
+
+  #9;
+  write_en = 0;
+  pc_en = 0;
+
+  #12;
+  pc_en = 0;
+  next_pc = 32'h32;
+
+  #9;
+  immediate2_in = 32'hbeebbaab;
+  regA_sel = `IMM;
+  regB_sel = `IMM;
    #200;
    $finish;
 end

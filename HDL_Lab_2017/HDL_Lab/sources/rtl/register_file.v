@@ -20,7 +20,8 @@ regB_select,
 write_dest,
 write_en,
 write_in,
-immediate_in,
+immediate1_in,
+immediate2_in,
 cpsr_in,
 next_pc,
 pc_en,
@@ -36,7 +37,8 @@ input [3:0] regB_select;
 input [3:0] write_dest;
 input [31:0] write_in;
 input [31:0] next_pc;
-input [31:0] immediate_in;
+input [31:0] immediate1_in;
+input [31:0] immediate2_in;
 input [31:0] cpsr_in;
 input pc_en;
 input write_en;
@@ -68,7 +70,7 @@ always @(*) begin
       `SP : regA_out = sp;
       `PC : regA_out = pc;
       `LR : regA_out = lr;
-      `IMM : regA_out = immediate_in;
+      `IMM : regA_out = immediate1_in;
       //default : regA_out = 32'b0;
     endcase
 end
@@ -87,7 +89,7 @@ always @(*) begin
       `SP : regB_out = sp;
       `PC : regB_out = pc;
       `LR : regB_out = lr;
-      `IMM : regB_out = immediate_in;
+      `IMM : regB_out = immediate2_in;
       //default : regA_out = 32'b0;
     endcase
 end
