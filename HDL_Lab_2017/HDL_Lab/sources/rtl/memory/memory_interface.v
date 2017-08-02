@@ -178,61 +178,39 @@ end
 // memory instantiation
 
 memory mem(
-  .clk(clk);
-  .en(mem_enable),
-  .rd_en(mem_read_enable),
-  .wr_en(mem_write_enable),
-  .addr(mem_addr_in),
-  .din(mem_data_in),
-  .dout(mem_data_out)
+
   );
 
 // state machine for control
 
 memory_control_fsm fsm (
-   .is_signed(is_signed),
-   .word_type(word_type),
-   .output_valid(output_valid),
-   .write_ready(write_ready),
-   .load(load),
-   .store(store),
-   .direct_or_delayed_din(direct_or_delayed_din),
-   .old_or_new_byte_remainder(old_or_new_byte_remainder),
-   .modified_or_original_address(modified_or_original_address),
-   .added_or_delayed_address(added_or_delayed_address),
-   .first_two_bytes_out_select(first_two_bytes_out_select),
-   .third_byte_out_select(third_byte_out_select),
-   .mem_read_enable(mem_read_enable),
-   .mem_write_enable(mem_write_enable),
-   .mem_enable(mem_enable),
-   .clk(clk),
-   .reset(mem_control_reset)
+
   );
 
 endmodule
 
 
 
-`undef READ 0
-`undef WRITE 1
+`undef WRITE
+`undef READ
 
-`undef WORD 2'10
-`undef HALFWORD 2'01
-`undef BYTE 2'00
+`undef WORD
+`undef HALFWORD
+`undef BYTE
 
-`undef MEM_LINE_OFFSET 1
+`undef MEM_LINE_OFFSET
 
-`undef SIGN_BIT_BYTE 7 // the bit of a byte which is the sign bit in K2 complement
-`undef SIGN_BIT_HW 15 // the bit of a halfword which is the sign in K2 complement
+`undef SIGN_BIT_BYTE  // the bit of a byte which is the sign bit in K2 complement
+`undef SIGN_BIT_HW  // the bit of a halfword which is the sign in K2 complement
 
 // codes for multiplexor which assigns sign extensions
-`undef TOP_HALFWORD 2'b00
-`undef SIGN_B 2'b01
-`undef SIGN_A 2'11
-`undef ZEROS 2'b00
+`undef TOP_HALFWORD
+`undef SIGN_B
+`undef SIGN_A
+`undef ZEROS
 
 // codes for direct_or_delayed_din
-`undef DIRECT_TOP16 2'b10
-`undef DIRECT_LOW16 2'b11
-`undef DELAYED_TOP16 2'b00
-`undef DELAYED_LOW16 2'b01
+`undef DIRECT_TOP16
+`undef DIRECT_LOW16
+`undef DELAYED_TOP16
+`undef DELAYED_LOW16

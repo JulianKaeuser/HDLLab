@@ -23,12 +23,15 @@
 `define DELAYED_TOP16 2'b10
 `define DELAYED_LOW16 2'b11
 
+`define TOP16 31:16
+`define LOW16 15:0
+
 
 
 
 
 module memory_control_fsm(
-  .is_signed,
+  is_signed,
   word_type,
   output_valid,
   write_ready,
@@ -41,6 +44,8 @@ module memory_control_fsm(
   first_two_bytes_out_select,
   third_byte_out_select,
   mem_read_enable,
+  mem_write_enable,
+  mem_enable,
   clk,
   reset
   );
@@ -85,11 +90,11 @@ module memory_control_fsm(
 
 // make state register flipflop
   always @(posedge clk) begin
-    if (!(reset) begin
+    if (!reset) begin
       state <= nextstate;
     end
     else begin
-      state <= `IDLE;
+      state <= IDLE;
     end
   end
 
@@ -152,22 +157,37 @@ module memory_control_fsm(
     case (state)
     IDLE: begin
 
-    end
-    LOAD_INIT: begin
+    end // case idle
+    LOAD_HW: begin
 
-    end
-    LOAD_T2: begin
 
-    end
-    LOAD_WRITEOUT: begin
+    end // case LOAD_HW
+    LOAD_BYTE: begin
 
-    end
-    WRITE_INIT: begin
+    end// case LOAD_BYTE
+    LOAD_WORD_A: begin
 
-    end
-    WRITE: begin
+    end // case load wordA
+    LOAD_WORD_B: begin
 
-    end
+    end // case load wordB
+    STORE_HW: begin
+
+    end // case STORE_HW
+    STORE_WORD_A: begin
+
+    end // case STORE_WORD_A
+    STORE_WORD_B: begin
+
+    end // case store word b
+    STORE_BYTE_A: begin
+
+    end //case store_byte a
+    STORE_BYTE_B: begin
+
+    end //case store_byte b
+
+
    endcase
   end
 
@@ -176,23 +196,26 @@ module memory_control_fsm(
 
 
   // codes for word_type
-  `undef WORD 2'b10
-  `undef HALFWORD 2'b01
-  `undef BYTE 2'b00
+  `undef WORD
+  `undef HALFWORD
+  `undef BYTE
 
   // codes for first_two_bytes_out_select
-  `undef TOP_HALFWORD 2'b00
-  `undef SIGN_B 2'b01
-  `undef SIGN_A 2'11
-  `undef ZEROS 2'b00
+  `undef TOP_HALFWORD
+  `undef SIGN_B
+  `undef SIGN_A
+  `undef ZEROS
 
   // codes for third_byte_out_select
-  `undef THIRD_BYTE_ORIGINAL 2'b10
-  `undef THIRD_BYTE_SIGN_EXTENDED 2'b00
-  `undef THIRD_BYTE_ZERO_EXTENDED 2'b01
+  `undef THIRD_BYTE_ORIGINAL
+  `undef THIRD_BYTE_SIGN_EXTENDED
+  `undef THIRD_BYTE_ZERO_EXTENDED
 
   // codes for direct_or_delayed_din
-  `undef DIRECT_TOP16 2'b00
-  `undef DIRECT_LOW16 2'b01
-  `undef DELAYED_TOP16 2'b10
-  `undef DELAYED_LOW16 2'b11
+  `undef DIRECT_TOP16
+  `undef DIRECT_LOW16
+  `undef DELAYED_TOP16
+  `undef DELAYED_LOW16
+
+  `undef TOP16
+  `undef LOW16

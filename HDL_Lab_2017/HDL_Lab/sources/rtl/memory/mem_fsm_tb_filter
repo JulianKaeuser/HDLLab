@@ -1,0 +1,8 @@
+## some filter to ease the analysis of the memory controller fsm testbench
+
+00000 INIT
+00001 LOAD_HW_TEST
+00010 LOAD_HW_TEST2
+00011 LOAD_HW_TEST3
+00100 RESET_AFTER_HW
+00101 LOAD_W_TEST
