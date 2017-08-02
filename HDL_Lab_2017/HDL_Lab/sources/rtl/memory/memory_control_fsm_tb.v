@@ -46,6 +46,9 @@ localparam HW       = 2'b01;
 localparam BYTE     = 2'b00;
 
 
+
+
+
 // outputs of dut
 wire output_valid;
 wire write_ready;
@@ -56,6 +59,22 @@ wire added_or_delayed_address;
 wire mem_read_enable;
 wire mem_write_enable;
 wire mem_enable;
+
+wire fsm_read_control;
+wire fsm_write_control;
+wire fsm_read_out;
+wire fsm_write_out;
+
+// some assignments to make it easier
+wire r;
+wire s;
+wire word_dep;
+
+assign word_dep = word_type[0] | word_type[1];
+assign r = word_dep ? load : 1'b1;
+assign w = word_dep ? store: 1'b0;
+assign mem_read_enable = fsm_read_control ? fsm_read_out : r;
+assign mem_write_enable = fsm_write_control ? fsm_write_out : w;
 
 wire [1:0] first_two_bytes_out_select;
 wire [1:0] third_byte_out_select;
@@ -74,23 +93,25 @@ reg [4:0] display;
 
 
 memory_control_fsm dut (
-  .is_signed(is_signed),
-  .word_type(word_type),
-  .output_valid(write_ready),
-  .write_ready(write_ready),
-  .load(load),
-  .store(store),
-  .direct_or_delayed_din(direct_or_delayed_din),
-  .old_or_new_byte_remainder,
-  .modified_or_original_address(modified_or_original_address),
-  .added_or_delayed_address(added_or_delayed_address),
-  .first_two_bytes_out_select (first_two_bytes_out_select),
-  .third_byte_out_select(third_byte_out_select),
-  .mem_read_enable(mem_read_enable),
-  .mem_write_enable(mem_write_enable),
-  .mem_enable(mem_enable),
-  .clk(clk),
-  .reset(reset)
+ .is_signed(is_signed),
+ .word_type(word_type),
+ .load(r),
+ .store(w),
+ .clk(clk),
+ .reset(reset),
+ .output_valid(output_valid),
+ .direct_or_delayed_din(direct_or_delayed_din),
+ .write_ready(write_ready),
+ .old_or_new_byte_remainder(old_or_new_byte_remainder),
+ .modified_or_original_address(modified_or_original_address),
+ .added_or_delayed_address(added_or_delayed_address),
+ .first_two_bytes_out_select(first_two_bytes_out_select),
+ .third_byte_out_select(third_byte_out_select),
+ .mem_read_enable(fsm_read_out),
+ .mem_write_enable(fsm_write_out),
+ .mem_enable(mem_enable),
+ .fsm_read_control(fsm_read_control),
+ .fsm_write_control(fsm_write_control)
   );
 
 initial begin

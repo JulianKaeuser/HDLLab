@@ -9,7 +9,7 @@
 // codes for first_two_bytes_out_select
 `define TOP_HALFWORD 2'b00
 `define SIGN_B 2'b01
-`define SIGN_A 2'11
+`define SIGN_A 2'b11
 `define ZEROS 2'b00
 
 // codes for third_byte_out_select
@@ -35,11 +35,13 @@
 module memory_control_fsm(
   is_signed,
   word_type,
-  output_valid,
-  write_ready,
   load,
   store,
+  clk,
+  reset,
+  output_valid,
   direct_or_delayed_din,
+  write_ready,
   old_or_new_byte_remainder,
   modified_or_original_address,
   added_or_delayed_address,
@@ -49,9 +51,7 @@ module memory_control_fsm(
   mem_write_enable,
   mem_enable,
   fsm_read_control,
-  fsm_write_control,
-  clk,
-  reset
+  fsm_write_control
   );
 
   input is_signed;
@@ -75,7 +75,7 @@ module memory_control_fsm(
   output reg mem_enable;
 
   output reg fsm_read_control;
-  output reg fsm_write_control
+  output reg fsm_write_control;
 
 
 

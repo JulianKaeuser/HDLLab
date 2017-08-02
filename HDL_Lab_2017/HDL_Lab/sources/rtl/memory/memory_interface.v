@@ -4,9 +4,9 @@
 `define READ 0
 `define WRITE 1
 
-`define WORD 2'10
-`define HALFWORD 2'01
-`define BYTE 2'00
+`define WORD 2'b10
+`define HALFWORD 2'b01
+`define BYTE 2'b00
 
 `define MEM_LINE_OFFSET 1
 
@@ -16,7 +16,7 @@
 // codes for multiplexor which assigns sign extensions
 `define TOP_HALFWORD 2'b00
 `define SIGN_B 2'b01
-`define SIGN_A 2'11
+`define SIGN_A 2'b11
 `define ZEROS 2'b00
 
 // codes for direct_or_delayed_din
