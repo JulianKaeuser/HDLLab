@@ -62,6 +62,16 @@ input reset;
 input is_signed;
 input [1:0] word_type;
 
+// inputs from memory
+input [WIDE-1:0] from_mem_data;
+
+// outputs going to the memory
+output reg to_mem_read_enable;
+output reg to_mem_write_enable;
+output reg to_mem_mem_enable;
+output reg [ADDR_WIDTH-1:0] to_mem_address;
+output reg [WIDE-1:0] to_mem_data;
+
 output reg [LARGE-1:0] data_out;
 output reg write_ready;
 output reg output_valid;
@@ -106,16 +116,17 @@ wire [15:0] sign_b_extension;
 wire [15:0] sign_a_extension;
 wire [15:0] zero_halfword;
 
-
+//fsm connection wires
+wire fsm_read_control;
+wire fsm_read_out
+wire fsm_write_out;
+wire fsm_write_control;
 
 
 // assigns for wires (fixed)
 
 assign mem_control_reset = reset;
 
-// some fixing of inputs
-//assign en = load | store;
-//assign rw = ~store;
 
 // address path
 assign modified_address = added_or_delayed_address ? (delay_addr_for_adder+`MEM_LINE_OFFSET) : delay_addr_single;
@@ -175,11 +186,13 @@ always @(posedge clk) begin
    delay_addr_single <= address;
 end
 
-// memory instantiation
-
-memory mem(
-
-  );
+// memory instantiation/ connections
+assign to_mem_address = mem_addr_in;
+assign to_mem_data = mem_data_in;
+assign to_mem_mem_enable = mem_enable;
+assign to_mem_read_enable = mem_read_enable;
+assign to_mem_write_enable = mem_write_enable;
+assign mem_data_out = from_mem_data;
 
 // state machine for control
 
@@ -187,7 +200,21 @@ memory_control_fsm fsm (
 
   );
 
+// final assignments regarding the control
+
+wire w;
+wire r;
+wire word_dep;
+
+assign word_dep = word_type[0] | word_type[1];
+
+assign r = word_dep ? load : 1'b1;
+assign w = word_dep ? store: 1'b0;
+assign mem_read_enable = fsm_read_control ? fsm_read_out : r;
+assign mem_write_enable = fsm_write_control ? fsm_write_out : w;
+
 endmodule
+
 
 
 

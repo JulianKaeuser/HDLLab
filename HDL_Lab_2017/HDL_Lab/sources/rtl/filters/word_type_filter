@@ -1,0 +1,9 @@
+### filters word type signals for memory selection
+
+#localparam WORD     = 2'b10;
+#localparam HW       = 2'b01;
+#localparam BYTE     = 2'b00;
+
+10 WORD
+01 HW
+00 BYTE

@@ -4,6 +4,8 @@
 `timescale 1ns/10ps
 module memory_fsm_tb ();
 
+localparam output_file = "memory_control_fsm_tb.vcd";
+
 // data display helper values
 localparam INIT           = 00000;
 localparam LOAD_HW_TEST   = 5'b00001;
@@ -92,7 +94,7 @@ memory_control_fsm dut (
   );
 
 initial begin
-$dumpfile("memory_control_fsm.vcd");
+$dumpfile(output_file);
 $dumpvars;
 
 //$display("\t\ttime,\tclk");
@@ -126,6 +128,16 @@ end
 
 initial begin
 clk = 1;
+
+// initial values
+display   = INIT;
+is_signed = 0   ;
+word_type = HW  ;
+load      = 0   ;
+store     = 0   ;
+reset     = 1   ;
+
+#10;
 // initial values
 display   = INIT;
 is_signed = 0   ;
