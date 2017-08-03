@@ -45,8 +45,8 @@ logic store;
 logic is_signed;
 logic [1:0] word_type;
 logic [ADDR_WIDTH-1:0] addr_input;
-logic [15:0] data_input;
-logic [15:0] data_output;
+logic [31:0] data_input;
+logic [31:0] data_output;
 
 
 

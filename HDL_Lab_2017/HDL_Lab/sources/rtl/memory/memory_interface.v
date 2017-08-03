@@ -8,7 +8,7 @@
 `define HALFWORD 2'b01
 `define BYTE 2'b00
 
-`define MEM_LINE_OFFSET 1
+`define MEM_LINE_OFFSET 12'b1
 
 `define SIGN_BIT_BYTE 7 // the bit of a byte which is the sign bit in K2 complement
 `define SIGN_BIT_HW 15 // the bit of a halfword which is the sign in K2 complement
