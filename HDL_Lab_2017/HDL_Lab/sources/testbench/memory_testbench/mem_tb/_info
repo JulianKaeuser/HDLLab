@@ -8,3 +8,69 @@ z2
 !i10f 100
 cModel Technology
 d/home/vhdlp22/Desktop
+vmemory
+Z0 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
+Z1 !s110 1501763770
+!i10b 1
+!s100 An=R:H>h3K[onT5[DN1<;0
+IFP;JmPAe`6DMzcz5cb]XK3
+Z2 V`JN@9S9cnhjKRR_L]QIcM3
+!s105 memory_sv_unit
+S1
+Z3 d/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench
+w1501509755
+8/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/memory.sv
+F/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/memory.sv
+L0 9
+Z4 OL;L;10.3d;59
+r1
+!s85 0
+31
+!s108 1501763770.822570
+!s107 /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/memory.sv|
+!s90 -reportprogress|300|-work|mem_tb|-vopt|-sv|-stats=none|/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/memory.sv|
+!i113 0
+Z5 o-work mem_tb -sv -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vmemory_control_fsm
+!s110 1501763771
+!i10b 1
+!s100 =fI1=6e6lF=je4H<OYJHK2
+IY8KQo?hgglgOIE1SX33gg2
+R2
+R3
+w1501759026
+8/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_control_fsm.v
+F/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_control_fsm.v
+L0 35
+R4
+r1
+!s85 0
+31
+!s108 1501763770.985614
+!s107 /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_control_fsm.v|
+!s90 -reportprogress|300|-work|mem_tb|-vopt|-stats=none|/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_control_fsm.v|
+!i113 0
+o-work mem_tb -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vtestbench
+R0
+R1
+!i10b 1
+!s100 NLC@fFO=^[;@gzT[E:KnF0
+IK]o7mi592G8z1fhOcZ_zf0
+R2
+!s105 testbench_sv_unit
+S1
+R3
+w1501763573
+8/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv
+F/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv
+L0 12
+R4
+r1
+!s85 0
+31
+!s108 1501763770.908182
+!s107 /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv|
+!s90 -reportprogress|300|-work|mem_tb|-vopt|-sv|-stats=none|/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv|
+!i113 0
+R5
