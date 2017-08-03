@@ -8,3 +8,85 @@ z2
 !i10f 100
 cModel Technology
 d/home/vhdlp22/Desktop
+vmemory
+Z0 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+r1
+!s85 0
+31
+!i10b 1
+!s100 An=R:H>h3K[onT5[DN1<;0
+IFP;JmPAe`6DMzcz5cb]XK3
+!s105 memory_sv_unit
+S1
+Z2 d/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench
+w1501509755
+8/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/memory.sv
+F/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/memory.sv
+L0 9
+Z3 OL;L;10.3d;59
+!s108 1501768482.946494
+!s107 /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/memory.sv|
+!s90 -reportprogress|300|-work|mem_tb|-vopt|-sv|-stats=none|/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/memory.sv|
+!i113 0
+Z4 o-work mem_tb -sv -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vmemory_control_fsm
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 =fI1=6e6lF=je4H<OYJHK2
+IY8KQo?hgglgOIE1SX33gg2
+R2
+w1501759026
+8/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_control_fsm.v
+F/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_control_fsm.v
+Z5 L0 35
+R3
+!s108 1501768483.120900
+!s107 /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_control_fsm.v|
+!s90 -reportprogress|300|-work|mem_tb|-vopt|-stats=none|/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_control_fsm.v|
+!i113 0
+Z6 o-work mem_tb -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vmemory_interface
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 HbAzo:73IOb>z8DojST1_0
+IGFj[SfE8Xgg8mbW?j1IBl3
+R2
+w1501764938
+8/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_interface.v
+F/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_interface.v
+R5
+R3
+!s108 1501768483.197311
+!s107 /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_interface.v|
+!s90 -reportprogress|300|-work|mem_tb|-vopt|-stats=none|/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_interface.v|
+!i113 0
+R6
+vtestbench
+R0
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 QhN6gfaB]`O:j_VBXW]2A2
+INMzoe0L7Taf5D4=;:P22[0
+!s105 testbench_sv_unit
+S1
+R2
+w1501768453
+8/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv
+F/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv
+L0 13
+R3
+!s108 1501768483.039729
+!s107 /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv|
+!s90 -reportprogress|300|-work|mem_tb|-vopt|-sv|-stats=none|/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv|
+!i113 0
+R4
