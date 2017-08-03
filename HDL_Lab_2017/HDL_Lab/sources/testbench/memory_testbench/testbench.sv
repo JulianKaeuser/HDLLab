@@ -15,7 +15,7 @@ module testbench();
 // PARAMETERS
 parameter MEM_DEPTH   		= 2**12;	//8192 Bytes 4096*2B
 parameter ADDR_WIDTH   		= $clog2(MEM_DEPTH);
-parameter string filename	= "sources/software/count32.bin";
+parameter string filename	= "count32.bin";
 
 // memory access codes
 localparam WORD     =2'b10;
