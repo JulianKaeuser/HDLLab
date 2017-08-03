@@ -88,18 +88,17 @@ initial begin
 	forever #1  clk = !clk;
 end
 
-//RESET GENERATOR
+//RESET GENERATOR & TESTS
 initial begin
 	rst			= 1'b0;
 	file		= $fopen(filename, "r");
 	#3 rst		= 1'b1;     // 3   ns
 	status		= $fread(memory_i.ram, file);
 	#2.1 rst	= 1'b0;  //2.1 ns
-	$finish;
-end
+
 
 // do the tests
-initial begin
+
 
 // check something
 // 0
@@ -111,6 +110,17 @@ load 				 = 1;
 store				 = 0;
 is_signed    = 0;
 word_type    = HALFWORD;
+
+// check something
+#2;
+rst 				 = 0;
+data_input   = 32'h00000000;
+addr_input   = 12'h000;
+load 				 = 1;
+store				 = 0;
+is_signed    = 1;
+word_type    = HALFWORD;
+
 
 
 
