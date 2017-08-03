@@ -26,7 +26,7 @@
 `define TOP16 31:16
 `define LOW16 15:0
 
-`define DC 1'bx
+`define DC 1'b1
 
 
 
