@@ -7,7 +7,7 @@
 
 // ATTENTION: This version is there to test the memory interface, NOT the processor. look at the right folder!
 
-localparam
+
 `timescale 1 ns / 1 ps
 
 module testbench();
