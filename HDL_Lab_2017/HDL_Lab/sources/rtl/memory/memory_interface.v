@@ -35,16 +35,22 @@
 module memory_interface (
   address,
   data_in,
+  load,
+  store,
+  clk,
+  reset,
+  is_signed,
+  word_type,
+  from_mem_data,
+  to_mem_read_enable,
+  to_mem_write_enable,
+  to_mem_mem_enable,
+  to_mem_address,
+  to_mem_data,
   data_out,
   write_ready,
   output_valid,
-  clk,
-  load,
-  store,
-  is_signed,
-  word_type,
-  busy,
-  reset
+  busy
   );
 
 localparam WIDE = 16;
@@ -54,7 +60,6 @@ localparam ADDR_WIDTH = 12;
 
 input [ADDR_WIDTH-1:0] address;
 input [LARGE-1:0] data_in;
-input rw;
 input load;
 input store;
 input clk;
