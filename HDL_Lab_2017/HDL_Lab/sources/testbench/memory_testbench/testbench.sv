@@ -79,7 +79,7 @@ memory_i (
 	  .to_mem_write_enable(wr_en),
 	  .to_mem_mem_enable(en),
 	  .to_mem_address(addr_cpu2mem),
-	  .to_mem_data(data_output),
+	  .to_mem_data(data_cpu2mem),
 	  .data_out(data_output),
 	  .write_ready(write_ready),
 	  .output_valid(output_valid),
