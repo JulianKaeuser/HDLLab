@@ -71,16 +71,16 @@ input [1:0] word_type;
 input [WIDE-1:0] from_mem_data;
 
 // outputs going to the memory
-output reg to_mem_read_enable;
-output reg to_mem_write_enable;
-output reg to_mem_mem_enable;
-output reg [ADDR_WIDTH-1:0] to_mem_address;
-output reg [WIDE-1:0] to_mem_data;
+output  to_mem_read_enable;
+output to_mem_write_enable;
+output to_mem_mem_enable;
+output [ADDR_WIDTH-1:0] to_mem_address;
+output [WIDE-1:0] to_mem_data;
 
-output reg [LARGE-1:0] data_out;
-output reg write_ready;
-output reg output_valid;
-output reg busy;
+output [LARGE-1:0] data_out;
+output write_ready;
+output output_valid;
+output busy;
 //output reg addr_overflow;
 
 // mux control wires
@@ -124,7 +124,7 @@ wire [15:0] zero_halfword;
 
 //fsm connection wires
 wire fsm_read_control;
-wire fsm_read_out
+wire fsm_read_out;
 wire fsm_write_out;
 wire fsm_write_control;
 
@@ -140,7 +140,7 @@ assign mem_addr_in = modified_or_original_address ? address : modified_address;
 
 // data_in path
 assign direct_data_in16 = (direct_or_delayed_din[0]) ? data_in[15:0] : data_in[31:16];
-assign delayed_data_in16 = (direct_or_delayed_din[0]) ? delayed_data_in32[15:0] : delayed_data_in32[31:0];
+assign delayed_data_in16 = (direct_or_delayed_din[0]) ? delay_data_in32[15:0] : delay_data_in32[31:16];
 
 assign data_bus_to_mem = direct_or_delayed_din[1] ?  direct_data_in16 : delayed_data_in16;
 assign mem_data_in[7:0] = data_bus_to_mem[7:0];
@@ -179,7 +179,7 @@ end
 
 // delay second half of input data
 always @(posedge clk) begin
-   delay_data_in_upper <= data_in[15:0];
+   delay_data_in32 <= data_in;
 end
 
 // delay before adder
