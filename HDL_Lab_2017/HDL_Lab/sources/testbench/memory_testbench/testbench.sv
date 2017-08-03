@@ -106,11 +106,11 @@ initial begin
 // check something
 // 0
 #2;
-rst 				 = 0;
+rst 				       = 0;
 data_input   			 = 32'h00000000;
 addr_input  			 = 12'h000;
-load 				 = 1;
-store				 = 0;
+load 				       = 1;
+store				       = 0;
 is_signed    			 = 0;
 word_type    			 = HALFWORD;
 
