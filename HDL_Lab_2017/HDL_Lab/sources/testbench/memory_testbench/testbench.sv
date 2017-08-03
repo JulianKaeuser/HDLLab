@@ -7,6 +7,7 @@
 
 // ATTENTION: This version is there to test the memory interface, NOT the processor. look at the right folder!
 
+localparam
 `timescale 1 ns / 1 ps
 
 module testbench();
@@ -46,6 +47,8 @@ logic [1:0] word_type;
 logic [ADDR_WIDTH-1:0] addr_input;
 logic [15:0] data_input;
 logic [15:0] data_output;
+
+
 
 
 
@@ -112,6 +115,7 @@ is_signed    			 = 0;
 word_type    			 = HALFWORD;
 
 // check something
+// 1
 #2;
 rst 				 = 0;
 data_input   = 32'h00000000;
@@ -121,9 +125,188 @@ store				 = 0;
 is_signed    = 1;
 word_type    = HALFWORD;
 
+// store deadbeef halfword at 12'heee
+// 2
+#2;
+rst 				 = 0;
+data_input   = 32'hdeadbeef;
+addr_input   = 12'heee;
+load 				 = 0;
+store				 = 1;
+is_signed    = 1;
+word_type    = HALFWORD;
+
+// check something
+// 3
+#2;
+rst 				 = 0;
+data_input   = 32'h00000000;
+addr_input   = 12'h000;
+load 				 = 0;
+store				 = 1;
+is_signed    = 1;
+word_type    = HALFWORD;
+
+// do nothing
+// 4
+#2;
+rst 				 = 0;
+data_input   = 32'h00000000;
+addr_input   = 12'h000;
+load 				 = 0;
+store				 = 0;
+is_signed    = 1;
+word_type    = HALFWORD;
+
+// do nothing
+// 5
+#2;
+rst 				 = 0;
+data_input   = 32'h00000000;
+addr_input   = 12'h000;
+load 				 = 0;
+store				 = 0;
+is_signed    = 1;
+word_type    = HALFWORD;
+
+// load halfword from eee, signed
+// 6
+#2;
+rst 				 = 0;
+data_input   = 32'h00000000;
+addr_input   = 12'heee;
+load 				 = 1;
+store				 = 0;
+is_signed    = 1;
+word_type    = HALFWORD;
+
+// do nothing
+// 7
+#2;
+rst 				 = 0;
+data_input   = 32'h00000000;
+addr_input   = 12'h000;
+load 				 = 0;
+store				 = 0;
+is_signed    = 1;
+word_type    = HALFWORD;
+
+// load word from 12'heed
+// 8
+#2;
+rst 				 = 0;
+data_input   = 32'h00000000;
+addr_input   = 12'heed;
+load 				 = 1;
+store				 = 0;
+is_signed    = 1;
+word_type    = WORD;
+
+// do nothing
+// 9
+#2;
+rst 				 = 0;
+data_input   = 32'h00000000;
+addr_input   = 12'h000;
+load 				 = 0;
+store				 = 0;
+is_signed    = 1;
+word_type    = WORD;
+
+// do nothing
+// 10
+#2;
+rst 				 = 0;
+data_input   = 32'h00000000;
+addr_input   = 12'h000;
+load 				 = 0;
+store				 = 0;
+is_signed    = 1;
+word_type    = WORD;
+
+// store byte
+// 11
+#2;
+rst 				 = 0;
+data_input   = 32'h000000aa;
+addr_input   = 12'heee;
+load 				 = 0;
+store				 = 1;
+is_signed    = 1;
+word_type    = BYTE;
+
+// store byte
+// 12
+#2;
+rst 				 = 0;
+data_input   = 32'h000000aa;
+addr_input   = 12'heee;
+load 				 = 0;
+store				 = 1;
+is_signed    = 1;
+word_type    = BYTE;
+
+// store byte
+// 13
+#2;
+rst 				 = 0;
+data_input   = 32'h000000aa;
+addr_input   = 12'heee;
+load 				 = 0;
+store				 = 1;
+is_signed    = 1;
+word_type    = BYTE;
+
+// load byte signed
+// 14
+#2;
+rst 				 = 0;
+data_input   = 32'h00000000;
+addr_input   = 12'heee;
+load 				 = 1;
+store				 = 0;
+is_signed    = 1;
+word_type    = BYTE;
+
+// load byte signed
+// 15
+#2;
+rst 				 = 0;
+data_input   = 32'h00000000;
+addr_input   = 12'heee;
+load 				 = 1;
+store				 = 0;
+is_signed    = 1;
+word_type    = BYTE;
+
+// load byte unsigned
+// 16
+#2;
+rst 				 = 0;
+data_input   = 32'h00000000;
+addr_input   = 12'heee;
+load 				 = 1;
+store				 = 0;
+is_signed    = 0;
+word_type    = BYTE;
+
+// load byte unsigned
+// 17
+#2;
+rst 				 = 0;
+data_input   = 32'h00000000;
+addr_input   = 12'heee;
+load 				 = 1;
+store				 = 0;
+is_signed    = 0;
+word_type    = BYTE;
 
 
 
+
+
+
+$stop;
 end
 
 endmodule
