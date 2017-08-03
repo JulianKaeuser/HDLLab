@@ -97,7 +97,7 @@ initial begin
 	file		= $fopen(filename, "r");
 	#3 rst		= 1'b1;     // 3   ns
 	status		= $fread(memory_i.ram, file);
-	#2.1 rst	= 1'b0;  //2.1 ns
+	#2 rst	= 1'b0;  //2.1 ns
 
 
 // do the tests
