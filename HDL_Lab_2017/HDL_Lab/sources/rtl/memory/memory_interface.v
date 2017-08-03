@@ -43,6 +43,7 @@ module memory_interface (
   store,
   is_signed,
   word_type,
+  busy,
   reset
   );
 
@@ -58,7 +59,6 @@ input load;
 input store;
 input clk;
 input reset;
-
 input is_signed;
 input [1:0] word_type;
 
@@ -75,6 +75,7 @@ output reg [WIDE-1:0] to_mem_data;
 output reg [LARGE-1:0] data_out;
 output reg write_ready;
 output reg output_valid;
+output reg busy;
 //output reg addr_overflow;
 
 // mux control wires
@@ -197,7 +198,26 @@ assign mem_data_out = from_mem_data;
 // state machine for control
 
 memory_control_fsm fsm (
-
+  .is_signed(is_signed),
+  .word_type(word_type),
+  .load(load),
+  .store(store),
+  .clk(clk),
+  .reset(reset),
+  .output_valid(output_valid),
+  .direct_or_delayed_din(direct_or_delayed_din),
+  .write_ready(write_ready),
+  .old_or_new_byte_remainder(old_or_new_byte_remainder),
+  .modified_or_original_address(modified_or_original_address),
+  .added_or_delayed_address(added_or_delayed_address),
+  .first_two_bytes_out_select(first_two_bytes_out_select),
+  .third_byte_out_select(third_byte_out_select),
+  .mem_read_enable(fsm_read_out),
+  .mem_write_enable(fsm_write_out),
+  .mem_enable(mem_enable),
+  .fsm_read_control(fsm_read_control),
+  .fsm_write_control(fsm_write_control),
+  .busy(busy)
   );
 
 // final assignments regarding the control

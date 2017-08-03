@@ -7,43 +7,46 @@ module memory_fsm_tb ();
 localparam output_file = "memory_control_fsm_tb.vcd";
 
 // data display helper values
-localparam INIT           = 00000;
-localparam LOAD_HW_TEST   = 5'b00001;
-localparam LOAD_HW_TEST2  = 5'b00010;
-localparam LOAD_HW_TEST3  = 5'b00011;
-localparam RESET_AFTER_HW = 5'b00100;
-localparam LOAD_W_TEST    = 5'b00101;
-//localparam                = 5'00110;
-//localparam                = 5'00111;
-//localparam                = 5'01000;
-//localparam                = 5'01001;
-//localparam                = 5'01010;
-//localparam                = 5'01011;
-//localparam                = 5'01100;
-//localparam                = 5'01101;
-//localparam                = 5'01110;
-//localparam                = 5'01111;
-//localparam                = 5'10000;
-//localparam                = 5'10001;
-//localparam                = 5'10010;
-//localparam                = 5'10011;
-//localparam                = 5'10100;
-//localparam                = 5'10101;
-//localparam                = 5'10110;
-//localparam                = 5'10111;
-//localparam                = 5'11000;
-//localparam                = 5'11001;
-//localparam                = 5'11010;
-//localparam                = 5'11011;
-//localparam                = 5'11100;
-//localparam                = 5'11101;
-//localparam                = 5'11110;
-//localparam                = 5'11111;
+localparam INIT                  = 5'b00000;
+localparam LOAD_HW_TEST_SIGNED   = 5'b00001;
+localparam LOAD_HW_TEST_UNSIGNED = 5'b00010;
+localparam LOAD_HW_TEST3         = 5'b00011;
+localparam RESET_AFTER_HW        = 5'b00100;
+localparam LOAD_W_TEST           = 5'b00101;
+localparam LOAD_HW_TEST_RESET    = 5'b00110;
+localparam LOAD_BYTE_TEST_SIGNED = 5'b00111;
+localparam LOAD_BYTE_TEST_RESET  = 5'b01000;
+localparam LOAD_BYTE_TEST_UNSIGN = 5'b01001;
+localparam LOAD_W_TEST_RESET     = 5'b01010;
+//localparam                     = 5'b01011;
+localparam STORE_HW_TEST         = 5'b01100;
+localparam STORE_HW_TEST_RESET   = 5'b01101;
+localparam STORE_WORD_TEST       = 5'b01110;
+localparam STORE_WORD_TEST_RESET = 5'b01111;
+localparam STORE_BYTE_TEST       = 5'b10000;
+localparam STORE_BYTE_TEST_RESET = 5'b10001;
+//localparam                     = 5'b10010;
+//localparam                     = 5'b10011;
+//localparam                     = 5'b10100;
+//localparam                     = 5'b10101;
+//localparam                     = 5'b10110;
+//localparam                     = 5'b10111;
+//localparam                     = 5'b11000;
+//localparam                     = 5'b11001;
+//localparam                     = 5'b11010;
+//localparam                     = 5'b11011;
+//localparam                     = 5'b11100;
+//localparam                     = 5'b11101;
+//localparam                     = 5'b11110;
+//localparam                     = 5'b11111;
 
 // word type
 localparam WORD     = 2'b10;
 localparam HW       = 2'b01;
 localparam BYTE     = 2'b00;
+
+localparam DC2      = 2'bxx;
+localparam DC       = 1'bx;
 
 
 
@@ -73,12 +76,15 @@ wire word_dep;
 assign word_dep = word_type[0] | word_type[1];
 assign r = word_dep ? load : 1'b1;
 assign w = word_dep ? store: 1'b0;
+
 assign mem_read_enable = fsm_read_control ? fsm_read_out : r;
 assign mem_write_enable = fsm_write_control ? fsm_write_out : w;
 
 wire [1:0] first_two_bytes_out_select;
 wire [1:0] third_byte_out_select;
 wire [1:0] direct_or_delayed_din;
+
+wire busy;
 
 // inputs for dut
 reg is_signed;
@@ -95,8 +101,8 @@ reg [4:0] display;
 memory_control_fsm dut (
  .is_signed(is_signed),
  .word_type(word_type),
- .load(r),
- .store(w),
+ .load(load),
+ .store(store),
  .clk(clk),
  .reset(reset),
  .output_valid(output_valid),
@@ -111,7 +117,8 @@ memory_control_fsm dut (
  .mem_write_enable(fsm_write_out),
  .mem_enable(mem_enable),
  .fsm_read_control(fsm_read_control),
- .fsm_write_control(fsm_write_control)
+ .fsm_write_control(fsm_write_control),
+ .busy(busy)
   );
 
 initial begin
@@ -119,7 +126,7 @@ $dumpfile(output_file);
 $dumpvars;
 
 //$display("\t\ttime,\tclk");
-$monitor("%d, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b",
+$monitor("%d, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b",
 $time,
  output_valid,
  write_ready,
@@ -138,7 +145,8 @@ $time,
  store,
  clk,
  reset,
- display
+ display,
+ busy
  );
 
 end
@@ -161,8 +169,8 @@ reset     = 1   ;
 #10;
 // initial values
 display   = INIT;
-is_signed = 0   ;
-word_type = HW  ;
+is_signed = DC  ;
+word_type = DC2 ;
 load      = 0   ;
 store     = 0   ;
 reset     = 0   ;
@@ -170,8 +178,8 @@ reset     = 0   ;
 // check if it goes into load HW state
 // 0
 #10;
-display   = LOAD_HW_TEST;
-is_signed = 0   ;
+display   = LOAD_HW_TEST_SIGNED;
+is_signed = 1  ;
 word_type = HW  ;
 load      = 1   ;
 store     = 0   ;
@@ -180,9 +188,9 @@ reset     = 0   ;
 // check if it goes into state
 // 1
 #10;
-display   = LOAD_HW_TEST2;
-is_signed = 1   ;
-word_type = HW  ;
+display   = LOAD_HW_TEST_SIGNED;
+is_signed = 1  ;
+word_type = DC  ;
 load      = 1   ;
 store     = 0   ;
 reset     = 0   ;
@@ -190,36 +198,320 @@ reset     = 0   ;
 // check if it goes into state
 //2
 #10;
-display   = LOAD_HW_TEST3;
-is_signed = 1   ;
+display   = LOAD_HW_TEST_RESET;
+is_signed = DC  ;
 word_type = HW  ;
+load      = 1   ;
+store     = 0   ;
+reset     = 1   ;
+
+// check if it goes into state
+//3
+#10;
+display   = LOAD_W_TEST;
+is_signed = DC   ;
+word_type = WORD ;
 load      = 1   ;
 store     = 0   ;
 reset     = 0   ;
 
 // check if it goes into state
+//4
+#10;
+display   = LOAD_W_TEST;
+is_signed = DC   ;
+word_type = WORD ;
+load      = 1   ;
+store     = 0   ;
+reset     = 0   ;
+
+// check if it goes into state IDLE again
+//5
+#10;
+display   = LOAD_W_TEST;
+is_signed = DC   ;
+word_type = WORD ;
+load      = 1   ;
+store     = 0   ;
+reset     = 0   ;
+
+// check if it goes into state IDLE at reset
+//6
+#10;
+display   = LOAD_W_TEST_RESET;
+is_signed = DC   ;
+word_type = WORD ;
+load      = 1   ;
+store     = 0   ;
+reset     = 1   ;
+
+
+// check if it goes into state
+//7
+#10;
+display   = LOAD_BYTE_TEST_SIGNED;
+is_signed = 1   ;
+word_type = BYTE ;
+load      = 1   ;
+store     = 0   ;
+reset     = 0   ;
+
+// check if it goes into state IDLE again
+//8
+#10;
+display   = LOAD_BYTE_TEST_SIGNED;
+is_signed = 1   ;
+word_type = BYTE ;
+load      = 1   ;
+store     = 0   ;
+reset     = 0   ;
+
+// check if it goes into state
+//9
+#10;
+display   = LOAD_BYTE_TEST_SIGNED;
+is_signed = 1   ;
+word_type = BYTE ;
+load      = 1   ;
+store     = 0   ;
+reset     = 0   ;
+
+// check if it goes into state
+//10
+#10;
+display   = LOAD_BYTE_TEST_RESET;
+is_signed = 1   ;
+word_type = BYTE ;
+load      = 1   ;
+store     = 0   ;
+reset     = 1   ;
+
+// check if it goes into state
+//11
+#10;
+display   = LOAD_BYTE_TEST_UNSIGN;
+is_signed = 0   ;
+word_type = BYTE ;
+load      = 1   ;
+store     = 0   ;
+reset     = 0   ;
+
+// check if it goes into state IDLE again
+//12
+#10;
+display   = LOAD_BYTE_TEST_UNSIGN;
+is_signed = 0   ;
+word_type = BYTE ;
+load      = 1   ;
+store     = 0   ;
+reset     = 0   ;
+
+// check if it goes into state IDLE again
+//13
+#10;
+display   = LOAD_BYTE_TEST_UNSIGN;
+is_signed = 0   ;
+word_type = BYTE ;
+load      = 1   ;
+store     = 0   ;
+reset     = 0   ;
+
+// check if it goes into state
+//14
+#10;
+display   = LOAD_BYTE_TEST_RESET;
+is_signed = 1   ;
+word_type = BYTE ;
+load      = 1   ;
+store     = 0   ;
+reset     = 1   ;
+
+// check if it goes into state LOAD_BYTE
+//15
+#10;
+display   = LOAD_BYTE_TEST_UNSIGN;
+is_signed = 0   ;
+word_type = BYTE ;
+load      = 1   ;
+store     = 0   ;
+reset     = 0   ;
+
+// check if it goes into state IDLE again
+//16
+#10;
+display   = LOAD_BYTE_TEST_UNSIGN;
+is_signed = 0   ;
+word_type = BYTE ;
+load      = 1   ;
+store     = 0   ;
+reset     = 0   ;
+
+// check if it goes into state LOAD_WORD_A
+//17
+#10;
+display   = LOAD_W_TEST;
+is_signed = 0   ;
+word_type = WORD ;
+load      = 1   ;
+store     = 0   ;
+reset     = 0   ;
+
+// check if it goes into state LOAD_WORD_B
+//18
+#10;
+display   = LOAD_W_TEST;
+is_signed = 0   ;
+word_type = WORD ;
+load      = 1   ;
+store     = 0   ;
+reset     = 0   ;
+
+
+// check if it goes into state LOAD_HW
+//19
+#10;
+display   = LOAD_HW_TEST_UNSIGNED;
+is_signed = 0   ;
+word_type = HW ;
+load      = 1   ;
+store     = 0   ;
+reset     = 0   ;
+
+// check if it goes into state LOAD_HW
+//20
+#10;
+display   = LOAD_HW_TEST_UNSIGNED;
+is_signed = 0   ;
+word_type = HW ;
+load      = 1   ;
+store     = 0   ;
+reset     = 0   ;
+
+// finished with load tests
+// begin store testing
+
+// check if it goes into state STORE_HW
+//0
+#10;
+display   = STORE_HW_TEST;
+is_signed = 0   ;
+word_type = HW ;
+load      = 0   ;
+store     = 1   ;
+reset     = 1   ;
+
+// check if it goes into state
+//1
+#10;
+display   = STORE_HW_TEST;
+is_signed = 0   ;
+word_type = HW ;
+load      = 0   ;
+store     = 1   ;
+reset     = 0   ;
+
+// check if it goes into state
+//2
+#10;
+display   = STORE_HW_TEST;
+is_signed = 0   ;
+word_type = HW ;
+load      = 0   ;
+store     = 1   ;
+reset     = 0   ;
+
+// check if it goes into state
 //3
 #10;
-display   = RESET_AFTER_HW;
+display   = STORE_HW_TEST_RESET;
 is_signed = 0   ;
-word_type = HW  ;
+word_type = HW ;
 load      = 0   ;
-store     = 0   ;
+store     = 1   ;
 reset     = 1   ;
 
 // check if it goes into state
 //4
 #10;
-display   = LOAD_W_TEST;
+display   = STORE_WORD_TEST;
 is_signed = 0   ;
-word_type = WORD  ;
+word_type = WORD ;
 load      = 0   ;
-store     = 0   ;
+store     = 1   ;
 reset     = 0   ;
 
+// check if it goes into state
+//4
+#10;
+display   = STORE_WORD_TEST;
+is_signed = 0   ;
+word_type = WORD ;
+load      = 0   ;
+store     = 1   ;
+reset     = 0   ;
 
+// check if it goes into state
+//5
+#10;
+display   = STORE_WORD_TEST;
+is_signed = 0   ;
+word_type = WORD ;
+load      = 0   ;
+store     = 1   ;
+reset     = 0   ;
 
- #300 $finish;
+// check if it goes into state
+//6
+#10;
+display   = STORE_WORD_TEST_RESET;
+is_signed = 0   ;
+word_type = BYTE ;
+load      = 0   ;
+store     = 1   ;
+reset     = 1   ;
+
+// check if it goes into state
+//7
+#10;
+display   = STORE_BYTE_TEST;
+is_signed = 0   ;
+word_type = BYTE ;
+load      = 0   ;
+store     = 1   ;
+reset     = 0   ;
+
+// check if it goes into state
+//8
+#10;
+display   = STORE_BYTE_TEST;
+is_signed = 0   ;
+word_type = BYTE ;
+load      = 0   ;
+store     = 1   ;
+reset     = 0   ;
+
+// check if it goes into state
+//9
+#10;
+display   = STORE_BYTE_TEST;
+is_signed = 0   ;
+word_type = BYTE ;
+load      = 0   ;
+store     = 1   ;
+reset     = 0   ;
+
+// check if it goes into state
+//10
+#10;
+display   = STORE_BYTE_TEST;
+is_signed = 0   ;
+word_type = BYTE ;
+load      = 0   ;
+store     = 1   ;
+reset     = 1   ;
+
+ //#300;
+ $finish;
 end
 
 

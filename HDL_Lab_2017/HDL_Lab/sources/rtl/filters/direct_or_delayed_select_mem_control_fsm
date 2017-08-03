@@ -1,0 +1,7 @@
+## stores the codes for the direct or delayed select signals
+
+00 DIRECT_TOP16
+01 DIRECT_LOW16
+10 DELAYED_TOP16
+11 DELAYED_LOW16
+xx DC

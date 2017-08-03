@@ -1,0 +1,7 @@
+### filter which shows which bytes are selected for which output
+
+00 TOP_HALFWORD
+01 SIGN_B
+11 SIGN_A
+00 ZEROS
+xx DC

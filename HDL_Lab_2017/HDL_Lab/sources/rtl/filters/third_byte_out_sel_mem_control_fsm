@@ -1,0 +1,6 @@
+### filter for the third byte select signal of the mem control fsm
+
+10 3rd_BYTE_ORIGINAL
+00 3rd_BYTE_SIGN_EXTENDED
+01 3rd_BYTE_ZERO_EXTENDED
+xx DC

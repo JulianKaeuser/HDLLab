@@ -1,0 +1,4 @@
+## whether the old or new byte shall be used
+
+1 NEW(from INPUT)
+0 OLD(from MEM)

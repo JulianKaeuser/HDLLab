@@ -51,7 +51,8 @@ module memory_control_fsm(
   mem_write_enable,
   mem_enable,
   fsm_read_control,
-  fsm_write_control
+  fsm_write_control,
+  busy
   );
 
   input is_signed;
@@ -76,6 +77,8 @@ module memory_control_fsm(
 
   output reg fsm_read_control;
   output reg fsm_write_control;
+
+  output reg busy;
 
 
 
@@ -186,6 +189,7 @@ module memory_control_fsm(
       mem_enable                    =1        ;
       fsm_read_control              =0        ;
       fsm_write_control             =0        ;
+      busy                          =0        ;
     end // endcase idle
 
     // newcase: LOAD HW
@@ -204,6 +208,7 @@ module memory_control_fsm(
       mem_enable                    =1        ;
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
+      busy                          =1        ;
 
     end // endcase LOAD HW
 
@@ -223,6 +228,7 @@ module memory_control_fsm(
       mem_enable                    =1        ;
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
+      busy                          =1        ;
 
     end// endcase LOAD_BYTE
 
@@ -242,6 +248,7 @@ module memory_control_fsm(
       mem_enable                    =1        ;
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
+      busy                          =1        ;
 
     end // endcase LOAD_WORD_A
 
@@ -261,6 +268,7 @@ module memory_control_fsm(
       mem_enable                    =1        ;
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
+      busy                          =1        ;
 
     end // endcase LOAD_WORD_B
 
@@ -280,6 +288,7 @@ module memory_control_fsm(
       mem_enable                    =1        ;
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
+      busy                          =1        ;
 
     end // endcase STORE_HW
 
@@ -299,6 +308,7 @@ module memory_control_fsm(
       mem_enable                    =1        ;
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
+      busy                          =1        ;
 
     end // endcase STORE_WORD_A
 
@@ -318,6 +328,7 @@ module memory_control_fsm(
       mem_enable                    =1        ;
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
+      busy                          =1        ;
 
     end // endcase STORE_WORD_B
 
@@ -337,6 +348,7 @@ module memory_control_fsm(
       mem_enable                    =1        ;
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
+      busy                          =1        ;
 
     end //endcase STORE_BYTE_A
 
@@ -356,6 +368,7 @@ module memory_control_fsm(
       mem_enable                    =1        ;
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
+      busy                          =1        ;
 
     end //endcase STORE_BYTE_B
    endcase//state
