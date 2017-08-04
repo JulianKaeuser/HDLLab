@@ -1,15 +1,15 @@
 # hier eintragen was nicht ins git soll
 *.log
 *.ini
-*/@_opt/*
+#*/@_opt/*
 *dut*
 *.vcd*
-*.mti*
-*.mpf*
-*_vmake*
-*.q
-*.qdb
-*.qtl
-*.qpg
-*.wlf
-*_info
+#*.mti*
+#*.mpf*
+#*_vmake*
+#*.q
+#*.qdb
+#*.qtl
+#*.qpg
+#*.wlf
+#*_info
