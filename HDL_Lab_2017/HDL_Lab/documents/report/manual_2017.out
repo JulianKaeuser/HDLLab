@@ -1,0 +1,12 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Implementation}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Design}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{RTL Verification}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Synthesis}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{GL Verification}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{We can go crazy here!!!!}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Evaluation}{}% 8
+\BOOKMARK [1][-]{appendix.A}{Timing report}{}% 9
+\BOOKMARK [1][-]{appendix.B}{Resource report}{}% 10
+\BOOKMARK [1][-]{appendix.C}{Area report}{}% 11
+\BOOKMARK [1][-]{appendix.D}{Power report}{}% 12
