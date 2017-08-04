@@ -1,15 +1,15 @@
-/home/vhdlp9/ALU_VARIABLE/ALU_VARIABLE.v {1 {vlog -work work -vopt -stats=none /home/vhdlp9/ALU_VARIABLE/ALU_VARIABLE.v
-Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
--- Compiling module ALU_VARIABLE
-
-Top level modules:
-	ALU_VARIABLE
-
-} {} {}} /home/vhdlp9/ALU_VARIABLE/ALU_VARIABLE_tb.v {1 {vlog -work work -vopt -stats=none /home/vhdlp9/ALU_VARIABLE/ALU_VARIABLE_tb.v
+/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/ALU_VARIABLE/ALU_VARIABLE_tb.v {1 {vlog -work work -vopt -stats=none /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/ALU_VARIABLE/ALU_VARIABLE_tb.v
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
 -- Compiling module ALU_VARIABLE_tb
 
 Top level modules:
 	ALU_VARIABLE_tb
+
+} {} {}} /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/ALU_VARIABLE/ALU_VARIABLE.v {1 {vlog -work work -vopt -stats=none /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/ALU_VARIABLE/ALU_VARIABLE.v
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module ALU_VARIABLE
+
+Top level modules:
+	ALU_VARIABLE
 
 } {} {}}

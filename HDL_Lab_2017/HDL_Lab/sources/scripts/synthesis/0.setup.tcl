@@ -5,7 +5,7 @@ set DC_LIB_NAME		"TSMC 40nm LP"
 set search_path			[concat $search_path				\
 								$DC_LIB_DIR					\
 								$SYNOPSYS_HOME/libraries/syn		\
-								../rtl					\                        # Give path of RTL files here
+								/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch				\                        # Give path of RTL files here
 						]
 
 set target_library		[concat $DC_LIB_DIR/tcbn45gsbwp12t_200a/tcbn45gsbwp12ttc_ccs.db]
@@ -23,7 +23,7 @@ set link_library		[concat	*					\
 						]
 					
 						
-set designer "Your Name"
+set designer "The worlds greatest!"
 
 set_host_options -max_cores 16
 

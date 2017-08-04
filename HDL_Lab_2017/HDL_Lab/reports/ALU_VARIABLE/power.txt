@@ -1,0 +1,58 @@
+Loading db file '/cad/synopsys/libs/TSMC_40nm/digital/Front_End/timing_power_noise/CCS/tcbn45gsbwp12t_200a/tcbn45gsbwp12ttc_ccs.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated primary inputs. (PWR-414)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : ALU_VARIABLE
+Version: I-2013.12-SP5-3
+Date   : Fri Aug  4 17:43:00 2017
+****************************************
+
+
+Library(s) Used:
+
+    tcbn45gsbwp12ttc_ccs (File: /cad/synopsys/libs/TSMC_40nm/digital/Front_End/timing_power_noise/CCS/tcbn45gsbwp12t_200a/tcbn45gsbwp12ttc_ccs.db)
+
+
+Operating Conditions: NCCOM   Library: tcbn45gsbwp12ttc_ccs
+Wire Load Model Mode: segmented
+
+Design        Wire Load Model            Library
+------------------------------------------------
+ALU_VARIABLE           ZeroWireload      tcbn45gsbwp12ttc_ccs
+
+
+Global Operating Voltage = 0.9  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+  Cell Internal Power  =   1.1201 mW   (63%)
+  Net Switching Power  = 663.1564 uW   (37%)
+                         ---------
+Total Dynamic Power    =   1.7832 mW  (100%)
+
+Cell Leakage Power     =  76.2726 uW
+
+Information: report_power power group summary does not include estimated clock tree power. (PWR-789)
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register           0.0000            0.0000            0.0000            0.0000  (   0.00%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational      1.1201            0.6632        7.6273e+04            1.8595  ( 100.00%)
+--------------------------------------------------------------------------------------------------
+Total              1.1201 mW         0.6632 mW     7.6273e+04 nW         1.8595 mW
+1
