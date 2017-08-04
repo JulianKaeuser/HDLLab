@@ -1,0 +1,89 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/registerfile
+virdecode
+Z0 V`JN@9S9cnhjKRR_L]QIcM3
+r1
+!s85 0
+31
+!i10b 1
+!s100 SN=onTSH4BAok?_iKd`MY0
+IFZMN6d@Vz]ZKm9?UPTS;F3
+Z1 d/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU
+w1501841227
+8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdec.v
+F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdec.v
+Ff_flageval.v
+L0 6
+Z2 OL;L;10.3d;59
+!s108 1501850463.374150
+!s107 f_flageval.v|irdefines.v|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdec.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdec.v|
+!i113 0
+Z3 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vtestbench
+Z4 !s110 1501850463
+!i10b 1
+!s100 US7aT@A`i?3Pe<kiB3L^E2
+IO]6kii4f429iBSCzfKzb83
+R0
+R1
+w1501772119
+8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench.v
+F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench.v
+L0 2
+R2
+r1
+!s85 0
+31
+!s108 1501850463.408424
+!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench.v|
+!i113 0
+R3
+vtestbench2
+R4
+!i10b 1
+!s100 ?=SHd0:=>U<^096H<?:iT1
+IZ_O76F9PbACSLkQXoUl2e0
+R0
+R1
+w1501773773
+8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench2.v
+F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench2.v
+L0 2
+R2
+r1
+!s85 0
+31
+!s108 1501850463.451732
+!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench2.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench2.v|
+!i113 0
+R3
+vtestbench3
+R0
+r1
+!s85 0
+31
+!i10b 1
+!s100 hdRcbU_gJC:i[hNCkZJD52
+IIE9]c?7mXh876Rmk]8o;d1
+R1
+w1501850454
+8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench3.v
+F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench3.v
+L0 2
+R2
+!s108 1501850463.474849
+!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench3.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench3.v|
+!i113 0
+R3
