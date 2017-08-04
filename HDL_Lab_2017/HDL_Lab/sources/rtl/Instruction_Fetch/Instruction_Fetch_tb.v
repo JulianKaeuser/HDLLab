@@ -18,7 +18,7 @@ module Instruction_Fetch_tb();
 	parameter tClock = 2;
 
 Instruction_Fetch inst_fetch(.clk(clk), .reset(reset), .stall_decoder_in(stall_decoder_in), .stall_memory(stall_memory), .pc_in(pc_in), .instruction_in(instruction_in),
-	.read_enable(read_enable), .pc_en(pc_en), .stall_decoder_out(stall_decoder_out), .address(address), .pc_out(pc_out), .instruction_out(instruction_out), .currentState(currentState), .nextState(nextState));
+	.read_enable(read_enable), .pc_en(pc_en), .stall_decoder_out(stall_decoder_out), .address(address), .pc_out(pc_out), .instruction_out(instruction_out)/*, .currentState(currentState), .nextState(nextState)*/);
 
 	always
 	#tClock clk = !clk;
