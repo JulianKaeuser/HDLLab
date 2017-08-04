@@ -70,8 +70,8 @@ reg [4:0] write1_sel;
 reg [4:0] write2_sel;
 reg write1_en;
 reg write2_en;
-reg write1_in;
-reg write2_in;
+reg [WIDE-1:0] write1_in;
+reg [WIDE-1:0] write2_in;
 reg [WIDE-1:0] immediate1_in;
 reg [WIDE-1:0] immediate2_in;
 reg [WIDE-1:0] next_pc_in;
@@ -300,7 +300,7 @@ initial begin
     next_sp_in      = DC32; // 32 bits
     next_pc_en      = 0; // 1 bit
 
-    // test PC_PASSTHROUGH
+    // test PC_NO_PASS
     // 6
     #2;
     i = i+1;
