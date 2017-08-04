@@ -1,0 +1,8 @@
+/home/vhdlp9/STACK/STACK_tb.v {1 {vlog -work work -vopt -stats=none /home/vhdlp9/STACK/STACK_tb.v
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module STACK_tb
+
+Top level modules:
+	STACK_tb
+
+} {} {}}

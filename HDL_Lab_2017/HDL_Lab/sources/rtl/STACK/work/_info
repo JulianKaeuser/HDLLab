@@ -1,0 +1,61 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/vhdlp9/Instruction_Fetch
+T_opt
+!s110 1501830458
+V[=iPOGeCHZ_XRCo6RRK^>1
+04 8 4 work STACK_tb fast 0
+=1-001e67589ce5-59841d3a-e0326-6527
+o-quiet -auto_acc_if_foreign -work work
+n@_opt
+OL;O;10.3d;59
+R0
+vSTACK
+Z1 !s110 1501842370
+!i10b 1
+!s100 _0UokoT?6LZS1Y_nA:9?I2
+IO^f?V2O1:CmNFij]=;NOW1
+Z2 V`JN@9S9cnhjKRR_L]QIcM3
+Z3 d/home/vhdlp9/STACK
+w1501842368
+8/home/vhdlp9/STACK/STACK.v
+F/home/vhdlp9/STACK/STACK.v
+L0 5
+Z4 OL;L;10.3d;59
+r1
+!s85 0
+31
+!s108 1501842370.418484
+!s107 /home/vhdlp9/STACK/STACK.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/STACK/STACK.v|
+!i113 0
+Z5 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+n@s@t@a@c@k
+vSTACK_tb
+R1
+!i10b 1
+!s100 YdeXW;WUS3m=nNm97JU9I3
+IUf=0d[0Zfkoa<nFlWgTlV3
+R2
+R3
+w1501842184
+8/home/vhdlp9/STACK/STACK_tb.v
+F/home/vhdlp9/STACK/STACK_tb.v
+L0 4
+R4
+r1
+!s85 0
+31
+!s108 1501842370.488696
+!s107 /home/vhdlp9/STACK/STACK_tb.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/STACK/STACK_tb.v|
+!i113 0
+R5
+n@s@t@a@c@k_tb
