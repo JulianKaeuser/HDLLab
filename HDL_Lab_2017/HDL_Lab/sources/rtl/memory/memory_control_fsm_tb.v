@@ -99,7 +99,7 @@ reg [4:0] display;
 
 
 memory_control_fsm dut (
- .is_signed(is_signed),
+ .is_signed_fsm(is_signed),
  .word_type(word_type),
  .load(load),
  .store(store),

@@ -91,11 +91,13 @@ wire old_or_new_byte_remainder;
 wire [1:0] first_two_bytes_out_select;
 wire [1:0] third_byte_out_select;
 
+
 // delay registers
 reg [11:0] delay_addr_for_adder;
 reg [11:0] delay_addr_single;
 reg [31:0] delay_data_in32;
 reg [15:0] delay_first_two_bytes_out;
+reg delayed_is_signed;
 
 // memory connect wires
 wire [11:0] mem_addr_in;
@@ -192,6 +194,11 @@ always @(posedge clk) begin
    delay_addr_single <= address;
 end
 
+// delay signed signal
+always @(posedge clk) begin
+   delayed_is_signed <= is_signed;
+end
+
 // memory instantiation/ connections
 assign to_mem_address = mem_addr_in;
 assign to_mem_data = mem_data_in;
@@ -203,7 +210,7 @@ assign mem_data_out = from_mem_data;
 // state machine for control
 
 memory_control_fsm fsm (
-  .is_signed(is_signed),
+  .is_signed(delayed_is_signed),
   .word_type(word_type),
   .load(load),
   .store(store),

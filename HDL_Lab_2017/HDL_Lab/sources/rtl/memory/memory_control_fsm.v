@@ -33,7 +33,7 @@
 
 
 module memory_control_fsm(
-  is_signed,
+  is_signed_fsm,
   word_type,
   load,
   store,
@@ -55,7 +55,7 @@ module memory_control_fsm(
   busy
   );
 
-  input is_signed;
+  input is_signed_fsm;
   input [1:0] word_type;
   input load;
   input store;
@@ -200,7 +200,7 @@ module memory_control_fsm(
       old_or_new_byte_remainder     =`DC                 ;
       modified_or_original_address  =`DC                 ; // 1= original, 0 = modified
       added_or_delayed_address      =`DC                 ; // 1 = added, 0 = delayed
-      first_two_bytes_out_select    =is_signed ? `SIGN_B : `ZEROS;    // 2 signals
+      first_two_bytes_out_select    =is_signed_fsm ? `SIGN_B : `ZEROS;    // 2 signals
       third_byte_out_select         =`THIRD_BYTE_ORIGINAL ; // 2 signals
 
       mem_read_enable               =1        ;
@@ -220,8 +220,8 @@ module memory_control_fsm(
       old_or_new_byte_remainder     =`DC                 ;
       modified_or_original_address  =`DC                 ; // 1= original, 0 = modified
       added_or_delayed_address      =`DC                 ; // 1 = added, 0 = delayed
-      first_two_bytes_out_select    =is_signed ? `SIGN_A : `ZEROS;    // 2 signals
-      third_byte_out_select         =is_signed ? `THIRD_BYTE_SIGN_EXTENDED : `THIRD_BYTE_ZERO_EXTENDED; // 2 signals
+      first_two_bytes_out_select    =is_signed_fsm ? `SIGN_A : `ZEROS;    // 2 signals
+      third_byte_out_select         =is_signed_fsm ? `THIRD_BYTE_SIGN_EXTENDED : `THIRD_BYTE_ZERO_EXTENDED; // 2 signals
 
       mem_read_enable               =1        ;
       mem_write_enable              =0        ;
