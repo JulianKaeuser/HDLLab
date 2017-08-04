@@ -88,7 +88,7 @@ output reg [WIDE-1:0] regC_out;
 output reg [WIDE-1:0] regD_out;
 output [WIDE-1:0] pc_out;
 output [3:0]      cpsr_out;
-output reg [WIDE-1:0] sp_out;
+output [WIDE-1:0] sp_out;
 
 
 
@@ -236,6 +236,8 @@ assign pc_out = pc;
 
 //cpsr_out assignment
 assign cpsr_out = cpsr;
+
+assign sp_out = sp;
 
 // all registers are assigned a value in every clock cycle; if not selected from write port, it is the old one
 

@@ -531,6 +531,7 @@ initial begin
     next_pc_en      = DC; // 1 bit
 
 
+    #2;
    $finish;
 end
 endmodule
