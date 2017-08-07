@@ -1,0 +1,661 @@
+(DELAYFILE
+(SDFVERSION "OVI 2.1")
+(DESIGN "Instruction_Fetch")
+(DATE "Mon Aug  7 15:08:39 2017")
+(VENDOR "tcbn45gsbwp12ttc_ccs")
+(PROGRAM "Synopsys Design Compiler cmos")
+(VERSION "I-2013.12-SP5-3")
+(DIVIDER /)
+(VOLTAGE 0.90:0.90:0.90)
+(PROCESS "NCCOM")
+(TEMPERATURE 25.00:25.00:25.00)
+(TIMESCALE 1ns)
+(CELL
+  (CELLTYPE "Instruction_Fetch")
+  (INSTANCE)
+  (DELAY
+    (ABSOLUTE
+    (INTERCONNECT reset I_9/A (0.000:0.000:0.000))
+    (INTERCONNECT stall_decoder_in C380/A (0.000:0.000:0.000))
+    (INTERCONNECT I_8/Z C380/B (0.000:0.000:0.000))
+    (INTERCONNECT stall_memory I_8/A (0.000:0.000:0.000))
+    (INTERCONNECT C377/Z I_7/A (0.000:0.000:0.000))
+    (INTERCONNECT stall_decoder_in C377/A (0.000:0.000:0.000))
+    (INTERCONNECT stall_memory C377/B (0.000:0.000:0.000))
+    (INTERCONNECT stall_memory C369/A (0.000:0.000:0.000))
+    (INTERCONNECT stall_decoder_in C369/B (0.000:0.000:0.000))
+    (INTERCONNECT C11/Z I_6/A (0.000:0.000:0.000))
+    (INTERCONNECT C8/Z I_5/A (0.000:0.000:0.000))
+    (INTERCONNECT currentState_reg_0_/Q I_4/A (0.000:0.000:0.000))
+    (INTERCONNECT currentState_reg_1_/Q I_3/A (0.000:0.000:0.000))
+    (INTERCONNECT C282/Z B_6/A (0.000:0.000:0.000))
+    (INTERCONNECT C279/Z B_5/A (0.000:0.000:0.000))
+    (INTERCONNECT C215/Z B_4/A (0.000:0.000:0.000))
+    (INTERCONNECT C13/Z B_3/A (0.000:0.000:0.000))
+    (INTERCONNECT C6/Z B_2/A (0.000:0.000:0.000))
+    (INTERCONNECT I_0/Z B_1/A (0.000:0.000:0.000))
+    (INTERCONNECT stall_memory B_0/A (0.000:0.000:0.000))
+    (INTERCONNECT C369/Z I_2/A (0.000:0.000:0.000))
+    (INTERCONNECT I_5/Z C282/A (0.000:0.000:0.000))
+    (INTERCONNECT I_6/Z C282/B (0.000:0.000:0.000))
+    (INTERCONNECT C6/Z C279/A (0.000:0.000:0.000))
+    (INTERCONNECT I_6/Z C279/B (0.000:0.000:0.000))
+    (INTERCONNECT C13/Z C279/C (0.000:0.000:0.000))
+    (INTERCONNECT I_5/Z C215/A (0.000:0.000:0.000))
+    (INTERCONNECT I_6/Z C215/B (0.000:0.000:0.000))
+    (INTERCONNECT C13/Z C215/C (0.000:0.000:0.000))
+    (INTERCONNECT stall_memory C213/A (0.000:0.000:0.000))
+    (INTERCONNECT I_7/Z C213/B (0.000:0.000:0.000))
+    (INTERCONNECT stall_memory C211/A (0.000:0.000:0.000))
+    (INTERCONNECT C380/Z C211/B (0.000:0.000:0.000))
+    (INTERCONNECT stall_decoder_in I_1/A (0.000:0.000:0.000))
+    (INTERCONNECT stall_memory I_0/A (0.000:0.000:0.000))
+    (INTERCONNECT reset currentState_reg_0_/clear (0.000:0.000:0.000))
+    (INTERCONNECT C351/Z_0 currentState_reg_0_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk currentState_reg_0_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT reset currentState_reg_1_/clear (0.000:0.000:0.000))
+    (INTERCONNECT C351/Z_1 currentState_reg_1_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk currentState_reg_1_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_0 instruction_out_reg_0_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_0_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_0 instruction_out_reg_0_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_0_/enable (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_1 instruction_out_reg_1_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_1_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_1 instruction_out_reg_1_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_1_/enable (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_2 instruction_out_reg_2_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_2_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_2 instruction_out_reg_2_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_2_/enable (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_3 instruction_out_reg_3_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_3_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_3 instruction_out_reg_3_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_3_/enable (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_4 instruction_out_reg_4_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_4_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_4 instruction_out_reg_4_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_4_/enable (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_5 instruction_out_reg_5_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_5_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_5 instruction_out_reg_5_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_5_/enable (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_6 instruction_out_reg_6_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_6_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_6 instruction_out_reg_6_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_6_/enable (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_7 instruction_out_reg_7_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_7_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_7 instruction_out_reg_7_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_7_/enable (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_8 instruction_out_reg_8_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_8_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_8 instruction_out_reg_8_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_8_/enable (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_9 instruction_out_reg_9_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_9_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_9 instruction_out_reg_9_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_9_/enable (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_10 instruction_out_reg_10_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_10_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_10 instruction_out_reg_10_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_10_/enable (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_11 instruction_out_reg_11_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_11_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_11 instruction_out_reg_11_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_11_/enable (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_12 instruction_out_reg_12_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_12_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_12 instruction_out_reg_12_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_12_/enable (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_13 instruction_out_reg_13_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_13_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_13 instruction_out_reg_13_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_13_/enable (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_14 instruction_out_reg_14_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_14_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_14 instruction_out_reg_14_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_14_/enable (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_15 instruction_out_reg_15_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk instruction_out_reg_15_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT C356/Z_15 instruction_out_reg_15_/data_in (0.000:0.000:0.000))
+    (INTERCONNECT reset instruction_out_reg_15_/enable (0.000:0.000:0.000))
+    (INTERCONNECT currentState_reg_1_/Q C13/A (0.000:0.000:0.000))
+    (INTERCONNECT currentState_reg_0_/Q C13/B (0.000:0.000:0.000))
+    (INTERCONNECT I_3/Z C11/A (0.000:0.000:0.000))
+    (INTERCONNECT currentState_reg_0_/Q C11/B (0.000:0.000:0.000))
+    (INTERCONNECT currentState_reg_1_/Q C8/A (0.000:0.000:0.000))
+    (INTERCONNECT I_4/Z C8/B (0.000:0.000:0.000))
+    (INTERCONNECT I_3/Z C6/A (0.000:0.000:0.000))
+    (INTERCONNECT I_4/Z C6/B (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_9)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_AND2")
+  (INSTANCE C380)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_8)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_7)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C377)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C369)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_6)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_5)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_4)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_3)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_6)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_5)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_4)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_3)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_2)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_0)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_2)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C282)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR3")
+  (INSTANCE C279)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    (IOPATH C Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR3")
+  (INSTANCE C215)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    (IOPATH C Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C213)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C211)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_0)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE currentState_reg_0_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE currentState_reg_1_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_0_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_1_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_2_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_3_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_4_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_5_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_6_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_7_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_8_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_9_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_10_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_11_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_12_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_13_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_14_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE instruction_out_reg_15_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_AND2")
+  (INSTANCE C13)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C11)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C8)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_AND2")
+  (INSTANCE C6)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+)

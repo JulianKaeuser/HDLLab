@@ -1,0 +1,14 @@
+ 
+****************************************
+Report : resources
+Design : Instruction_Fetch
+Version: I-2013.12-SP5-3
+Date   : Mon Aug  7 15:08:39 2017
+****************************************
+
+
+Resource sharing reports are created during the compile command,
+so the design must be compiled before resource sharing can be reported.
+
+No implementations to report
+1
