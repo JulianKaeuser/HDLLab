@@ -144,7 +144,7 @@ assign mem_addr_in = modified_or_original_address ? address : modified_address;
 assign direct_data_in16 = (direct_or_delayed_din[0]) ? data_in[15:0] : data_in[31:16];
 assign delayed_data_in16 = (direct_or_delayed_din[0]) ? delay_data_in32[15:0] : delay_data_in32[31:16];
 
-assign data_bus_to_mem = direct_or_delayed_din[1] ?  direct_data_in16 : delayed_data_in16;
+assign data_bus_to_mem = direct_or_delayed_din[1] ?  delayed_data_in16 : direct_data_in16;
 assign mem_data_in[7:0] = data_bus_to_mem[7:0];
 assign mem_data_in[15:8] = old_or_new_byte_remainder ? data_bus_to_mem[15:8] : mem_data_out[15:8];
 
