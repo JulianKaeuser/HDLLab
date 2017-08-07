@@ -78,7 +78,7 @@ input [WIDE-1:0] immediate2_in;
 input [WIDE-1:0] next_pc_in;
 input [3:0] next_cpsr_in;
 input [WIDE-1:0] next_sp_in;
-input [WIDE-1:0] next_pc_en;
+input next_pc_en;
 input clk;
 
 
@@ -155,7 +155,7 @@ always @(*) begin
        PC   : regA_out = pc;
        TMP1 : regA_out = tmp1;
        IMM  : regA_out = immediate1_in; // reg A can only pass immediate1 in
-      //default : regA_out = BITWIDTH'b0;
+    default : regA_out = {WIDE{1'b0}};
     endcase
 end
 
@@ -180,6 +180,7 @@ always @(*) begin
       PC   : regB_out = pc;
       TMP1 : regB_out = tmp1;
       IMM  : regB_out = immediate2_in; // regB can only pass immediate 2 in
+   default : regB_out = {WIDE{1'b0}};
     endcase
 end
 
@@ -202,6 +203,7 @@ always @(*) begin
       SP   : regC_out = sp;
       LR   : regC_out = lr;
       PC   : regC_out = pc;
+   default : regC_out = {WIDE{1'b0}};
       //TMP1 :
       //IMM  :
    endcase
@@ -226,6 +228,7 @@ always @(*) begin
       SP   : regD_out = sp;
       LR   : regD_out = lr;
       PC   : regD_out = pc;
+   default : regD_out = {WIDE{1'b0}};
       //TMP1 :
       //IMM  :
    endcase
@@ -318,7 +321,7 @@ always @(*) begin
     else if (write2_sel==R7 && write2_en)
         r7in = write2_in;
     else
-        r7in= r4;
+        r7in= r7;
 end
 
 // r8

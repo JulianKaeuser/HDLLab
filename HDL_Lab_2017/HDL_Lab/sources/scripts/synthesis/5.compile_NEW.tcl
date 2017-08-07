@@ -7,7 +7,7 @@ compile_ultra
 change_names -rules verilog -hierarchy
 
 # create design folder
-sh mkdir ${PROJECT_PATH}/designs
+file mkdir ${PROJECT_PATH}/designs
 
 # writse mapped .ddc file:
 write -hierarchy -format ddc -output ${PROJECT_PATH}/designs/${TOP_LEVEL_MODULE}.ddc

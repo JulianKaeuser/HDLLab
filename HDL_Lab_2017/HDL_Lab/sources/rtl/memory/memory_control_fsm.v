@@ -117,6 +117,7 @@ module memory_control_fsm(
           `WORD:     nextstate = LOAD_WORD_A;
           `HALFWORD: nextstate = LOAD_HW;
           `BYTE:     nextstate = LOAD_BYTE;
+			default: nextstate = IDLE;
         endcase
        end //if load
        else if(store) begin
@@ -124,6 +125,7 @@ module memory_control_fsm(
            `WORD:      nextstate = STORE_WORD_A;
            `HALFWORD:  nextstate = STORE_HW;
            `BYTE:      nextstate = STORE_BYTE_A;
+			default: nextstate = IDLE;
          endcase
        end //else if store
        else begin
@@ -166,6 +168,10 @@ module memory_control_fsm(
      STORE_BYTE_B: begin
         nextstate = IDLE;
      end //case store_byte b
+
+	default: begin
+		nextstate = IDLE;
+	end
 
    endcase // state
   end
@@ -371,6 +377,24 @@ module memory_control_fsm(
       busy                          =1        ;
 
     end //endcase STORE_BYTE_B
+
+	default: begin
+	  output_valid                  =1'bx                ;
+      direct_or_delayed_din         =2'bx          		 ;
+      write_ready                   =1'bx                ;
+      old_or_new_byte_remainder     =1'bx                ;
+      modified_or_original_address  =1'bx                ;
+      added_or_delayed_address      =1'bx                ;
+      first_two_bytes_out_select    =2'bx          		 ;
+      third_byte_out_select         =2'bx       	     ;
+
+      mem_read_enable               =1'bx        ;
+      mem_write_enable              =1'bx        ;
+      mem_enable                    =1'bx        ;
+      fsm_read_control              =1'bx        ;
+      fsm_write_control             =1'bx        ;
+      busy                          =1'bx        ;
+	end
    endcase//state
   end
 
