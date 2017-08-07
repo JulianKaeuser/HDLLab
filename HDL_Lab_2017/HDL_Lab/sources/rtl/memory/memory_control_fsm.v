@@ -7,7 +7,7 @@
 `define BYTE 2'b00
 
 // codes for first_two_bytes_out_select
-`define TOP_HALFWORD 2'b00
+`define TOP_HALFWORD 2'b10
 `define SIGN_B 2'b01
 `define SIGN_A 2'b11
 `define ZEROS 2'b00

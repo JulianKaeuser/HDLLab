@@ -14,7 +14,7 @@
 `define SIGN_BIT_HW 15 // the bit of a halfword which is the sign in K2 complement
 
 // codes for multiplexor which assigns sign extensions
-`define TOP_HALFWORD 2'b00
+`define TOP_HALFWORD 2'b10
 `define SIGN_B 2'b01
 `define SIGN_A 2'b11
 `define ZEROS 2'b00
