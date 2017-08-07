@@ -1,181 +1,147 @@
 
 module Instruction_Fetch ( clk, reset, stall_decoder_in, stall_memory, pc_in, 
-        instruction_in, read_enable, pc_en, stall_decoder_out, address, pc_out, 
-        instruction_out );
+        instruction_in, read_enable, pc_en, address, pc_out, instruction_out
+ );
   input [31:0] pc_in;
   input [15:0] instruction_in;
   output [11:0] address;
   output [31:0] pc_out;
   output [15:0] instruction_out;
   input clk, reset, stall_decoder_in, stall_memory;
-  output read_enable, pc_en, stall_decoder_out;
-  wire   currentState_0_, nextState_0_, n8, n10, n11, n12, n13, n14, n15, n16,
-         n17, n18, n19, n20, n21, n22, n23, n24, n25, n26, n27, n28, n29, n30,
-         n31, n32, n33, n34, n35, n36, n37, n38, n39, n40, n41, n42, n43, n44,
-         n45, n46, n47, n48, n49, n50, n51, n52, n53, n54, n55, n56, n69, n70,
-         n71;
+  output read_enable, pc_en;
+  wire   N0, N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12, N13, N14, N15,
+         N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27, N28, N29,
+         N30, N31, N32, N33, N34, N35, N36, N37, N38, N39, N40, N41, N42, N43,
+         N44, N45, N46, N47, N48, N49, N50, N51, N52, N53, N54, N55, N56, N57,
+         N58, N59, N60, N61, N62, N63, N64, N65, N66, N67, N68, N69, N70, N71,
+         N72, N73, N74, N75, N76;
+  wire   [1:0] currentState;
+  wire   [1:0] nextState;
+  wire   [15:0] instruction;
 
-  DFQD1BWP12T instruction_out_reg_15_ ( .D(instruction_in[15]), .CP(clk), .Q(
-        instruction_out[15]) );
-  DFQD1BWP12T instruction_out_reg_14_ ( .D(instruction_in[14]), .CP(clk), .Q(
-        instruction_out[14]) );
-  DFQD1BWP12T instruction_out_reg_13_ ( .D(instruction_in[13]), .CP(clk), .Q(
-        instruction_out[13]) );
-  DFQD1BWP12T instruction_out_reg_12_ ( .D(instruction_in[12]), .CP(clk), .Q(
-        instruction_out[12]) );
-  DFQD1BWP12T instruction_out_reg_11_ ( .D(instruction_in[11]), .CP(clk), .Q(
-        instruction_out[11]) );
-  DFQD1BWP12T instruction_out_reg_10_ ( .D(instruction_in[10]), .CP(clk), .Q(
-        instruction_out[10]) );
-  DFQD1BWP12T instruction_out_reg_9_ ( .D(instruction_in[9]), .CP(clk), .Q(
-        instruction_out[9]) );
-  DFQD1BWP12T instruction_out_reg_8_ ( .D(instruction_in[8]), .CP(clk), .Q(
-        instruction_out[8]) );
-  DFQD1BWP12T instruction_out_reg_7_ ( .D(instruction_in[7]), .CP(clk), .Q(
-        instruction_out[7]) );
-  DFQD1BWP12T instruction_out_reg_6_ ( .D(instruction_in[6]), .CP(clk), .Q(
-        instruction_out[6]) );
-  DFQD1BWP12T instruction_out_reg_5_ ( .D(instruction_in[5]), .CP(clk), .Q(
-        instruction_out[5]) );
-  DFQD1BWP12T instruction_out_reg_4_ ( .D(instruction_in[4]), .CP(clk), .Q(
-        instruction_out[4]) );
-  DFQD1BWP12T instruction_out_reg_3_ ( .D(instruction_in[3]), .CP(clk), .Q(
-        instruction_out[3]) );
-  DFQD1BWP12T instruction_out_reg_2_ ( .D(instruction_in[2]), .CP(clk), .Q(
-        instruction_out[2]) );
-  DFQD1BWP12T instruction_out_reg_1_ ( .D(instruction_in[1]), .CP(clk), .Q(
-        instruction_out[1]) );
-  DFQD1BWP12T instruction_out_reg_0_ ( .D(instruction_in[0]), .CP(clk), .Q(
-        instruction_out[0]) );
-  DFCNQD1BWP12T currentState_reg_0_ ( .D(nextState_0_), .CP(clk), .CDN(n8), 
-        .Q(currentState_0_) );
-  EDFCNXD1BWP12T currentState_reg_1_ ( .D(n69), .E(n71), .CP(clk), .CDN(n8), 
-        .Q(stall_decoder_out), .QN(n70) );
-  ND2D1BWP12T U49 ( .A1(n70), .A2(n56), .ZN(n54) );
-  INVD1BWP12T U50 ( .I(n54), .ZN(n55) );
-  INVD1BWP12T U51 ( .I(currentState_0_), .ZN(n56) );
-  NR2D1BWP12T U52 ( .A1(stall_memory), .A2(n56), .ZN(n71) );
-  NR2D1BWP12T U53 ( .A1(stall_decoder_out), .A2(stall_decoder_in), .ZN(n69) );
-  INVD1BWP12T U54 ( .I(reset), .ZN(n8) );
-  AOI22D0BWP12T U55 ( .A1(n54), .A2(stall_memory), .B1(n8), .B2(n55), .ZN(n10)
-         );
-  OAI21D0BWP12T U56 ( .A1(n56), .A2(n69), .B(n10), .ZN(nextState_0_) );
-  ND2D1BWP12T U57 ( .A1(pc_in[2]), .A2(pc_in[3]), .ZN(n51) );
-  INVD1BWP12T U58 ( .I(pc_in[4]), .ZN(n48) );
-  NR2D1BWP12T U59 ( .A1(n51), .A2(n48), .ZN(n53) );
-  ND2D1BWP12T U60 ( .A1(n53), .A2(pc_in[5]), .ZN(n52) );
-  INVD1BWP12T U61 ( .I(pc_in[6]), .ZN(n50) );
-  NR2D1BWP12T U62 ( .A1(n52), .A2(n50), .ZN(n49) );
-  ND2D1BWP12T U63 ( .A1(n49), .A2(pc_in[7]), .ZN(n47) );
-  INVD1BWP12T U64 ( .I(pc_in[8]), .ZN(n46) );
-  NR2D1BWP12T U65 ( .A1(n47), .A2(n46), .ZN(n45) );
-  ND2D1BWP12T U66 ( .A1(n45), .A2(pc_in[9]), .ZN(n44) );
-  INVD1BWP12T U67 ( .I(pc_in[10]), .ZN(n43) );
-  NR2D1BWP12T U68 ( .A1(n44), .A2(n43), .ZN(n42) );
-  ND2D1BWP12T U69 ( .A1(n42), .A2(pc_in[11]), .ZN(n41) );
-  INVD1BWP12T U70 ( .I(pc_in[12]), .ZN(n40) );
-  NR2D1BWP12T U71 ( .A1(n41), .A2(n40), .ZN(n39) );
-  ND2D1BWP12T U72 ( .A1(n39), .A2(pc_in[13]), .ZN(n38) );
-  INVD1BWP12T U73 ( .I(pc_in[14]), .ZN(n37) );
-  NR2D1BWP12T U74 ( .A1(n38), .A2(n37), .ZN(n36) );
-  ND2D1BWP12T U75 ( .A1(n36), .A2(pc_in[15]), .ZN(n35) );
-  INVD1BWP12T U76 ( .I(pc_in[16]), .ZN(n34) );
-  NR2D1BWP12T U77 ( .A1(n35), .A2(n34), .ZN(n33) );
-  ND2D1BWP12T U78 ( .A1(n33), .A2(pc_in[17]), .ZN(n32) );
-  INVD1BWP12T U79 ( .I(pc_in[18]), .ZN(n31) );
-  NR2D1BWP12T U80 ( .A1(n32), .A2(n31), .ZN(n30) );
-  ND2D1BWP12T U81 ( .A1(n30), .A2(pc_in[19]), .ZN(n29) );
-  INVD1BWP12T U82 ( .I(pc_in[20]), .ZN(n28) );
-  NR2D1BWP12T U83 ( .A1(n29), .A2(n28), .ZN(n27) );
-  ND2D1BWP12T U84 ( .A1(n27), .A2(pc_in[21]), .ZN(n26) );
-  INVD1BWP12T U85 ( .I(pc_in[22]), .ZN(n25) );
-  NR2D1BWP12T U86 ( .A1(n26), .A2(n25), .ZN(n24) );
-  ND2D1BWP12T U87 ( .A1(n24), .A2(pc_in[23]), .ZN(n23) );
-  INVD1BWP12T U88 ( .I(pc_in[24]), .ZN(n22) );
-  NR2D1BWP12T U89 ( .A1(n23), .A2(n22), .ZN(n21) );
-  ND2D1BWP12T U90 ( .A1(n21), .A2(pc_in[25]), .ZN(n20) );
-  INVD1BWP12T U91 ( .I(pc_in[26]), .ZN(n19) );
-  NR2D1BWP12T U92 ( .A1(n20), .A2(n19), .ZN(n18) );
-  ND2D1BWP12T U93 ( .A1(n18), .A2(pc_in[27]), .ZN(n17) );
-  INVD1BWP12T U94 ( .I(pc_in[28]), .ZN(n16) );
-  NR2D1BWP12T U95 ( .A1(n17), .A2(n16), .ZN(n15) );
-  ND2D1BWP12T U96 ( .A1(n15), .A2(pc_in[29]), .ZN(n14) );
-  INVD1BWP12T U97 ( .I(pc_in[30]), .ZN(n13) );
-  NR2D1BWP12T U98 ( .A1(n14), .A2(n13), .ZN(n12) );
-  NR2D1BWP12T U99 ( .A1(pc_in[31]), .A2(n12), .ZN(n11) );
-  AOI211D0BWP12T U100 ( .A1(pc_in[31]), .A2(n12), .B(n55), .C(n11), .ZN(
-        pc_out[31]) );
-  AOI211D0BWP12T U101 ( .A1(n14), .A2(n13), .B(n55), .C(n12), .ZN(pc_out[30])
-         );
-  OA211D0BWP12T U102 ( .A1(n15), .A2(pc_in[29]), .B(n54), .C(n14), .Z(
-        pc_out[29]) );
-  AOI211D0BWP12T U103 ( .A1(n17), .A2(n16), .B(n55), .C(n15), .ZN(pc_out[28])
-         );
-  OA211D0BWP12T U104 ( .A1(n18), .A2(pc_in[27]), .B(n54), .C(n17), .Z(
-        pc_out[27]) );
-  AOI211D0BWP12T U105 ( .A1(n20), .A2(n19), .B(n55), .C(n18), .ZN(pc_out[26])
-         );
-  OA211D0BWP12T U106 ( .A1(n21), .A2(pc_in[25]), .B(n54), .C(n20), .Z(
-        pc_out[25]) );
-  AOI211D0BWP12T U107 ( .A1(n23), .A2(n22), .B(n55), .C(n21), .ZN(pc_out[24])
-         );
-  OA211D0BWP12T U108 ( .A1(n24), .A2(pc_in[23]), .B(n54), .C(n23), .Z(
-        pc_out[23]) );
-  AOI211D0BWP12T U109 ( .A1(n26), .A2(n25), .B(n55), .C(n24), .ZN(pc_out[22])
-         );
-  OA211D0BWP12T U110 ( .A1(n27), .A2(pc_in[21]), .B(n54), .C(n26), .Z(
-        pc_out[21]) );
-  AOI211D0BWP12T U111 ( .A1(n29), .A2(n28), .B(n55), .C(n27), .ZN(pc_out[20])
-         );
-  OA211D0BWP12T U112 ( .A1(n30), .A2(pc_in[19]), .B(n54), .C(n29), .Z(
-        pc_out[19]) );
-  AOI211D0BWP12T U113 ( .A1(n32), .A2(n31), .B(n55), .C(n30), .ZN(pc_out[18])
-         );
-  OA211D0BWP12T U114 ( .A1(n33), .A2(pc_in[17]), .B(n54), .C(n32), .Z(
-        pc_out[17]) );
-  AOI211D0BWP12T U115 ( .A1(n35), .A2(n34), .B(n55), .C(n33), .ZN(pc_out[16])
-         );
-  OA211D0BWP12T U116 ( .A1(n36), .A2(pc_in[15]), .B(n54), .C(n35), .Z(
-        pc_out[15]) );
-  AOI211D0BWP12T U117 ( .A1(n38), .A2(n37), .B(n55), .C(n36), .ZN(pc_out[14])
-         );
-  OA211D0BWP12T U118 ( .A1(n39), .A2(pc_in[13]), .B(n54), .C(n38), .Z(
-        pc_out[13]) );
-  AOI211D0BWP12T U119 ( .A1(n41), .A2(n40), .B(n55), .C(n39), .ZN(pc_out[12])
-         );
-  OA211D0BWP12T U120 ( .A1(n42), .A2(pc_in[11]), .B(n54), .C(n41), .Z(
-        pc_out[11]) );
-  AOI211D0BWP12T U121 ( .A1(n44), .A2(n43), .B(n55), .C(n42), .ZN(pc_out[10])
-         );
-  OA211D0BWP12T U122 ( .A1(n45), .A2(pc_in[9]), .B(n54), .C(n44), .Z(pc_out[9]) );
-  AOI211D0BWP12T U123 ( .A1(n47), .A2(n46), .B(n55), .C(n45), .ZN(pc_out[8])
-         );
-  OA211D0BWP12T U124 ( .A1(n49), .A2(pc_in[7]), .B(n54), .C(n47), .Z(pc_out[7]) );
-  AOI211D0BWP12T U125 ( .A1(n51), .A2(n48), .B(n55), .C(n53), .ZN(pc_out[4])
-         );
-  NR2D0BWP12T U126 ( .A1(n55), .A2(pc_in[2]), .ZN(pc_out[2]) );
-  AOI211D0BWP12T U127 ( .A1(n52), .A2(n50), .B(n55), .C(n49), .ZN(pc_out[6])
-         );
-  OA211D0BWP12T U128 ( .A1(pc_in[2]), .A2(pc_in[3]), .B(n54), .C(n51), .Z(
-        pc_out[3]) );
-  AN2XD0BWP12T U129 ( .A1(pc_in[1]), .A2(n54), .Z(pc_out[1]) );
-  AN2XD0BWP12T U130 ( .A1(pc_in[0]), .A2(n54), .Z(pc_out[0]) );
-  OA211D0BWP12T U131 ( .A1(n53), .A2(pc_in[5]), .B(n54), .C(n52), .Z(pc_out[5]) );
-  ND3D0BWP12T U132 ( .A1(currentState_0_), .A2(stall_decoder_in), .A3(n70), 
-        .ZN(pc_en) );
-  AOI221D0BWP12T U133 ( .A1(currentState_0_), .A2(stall_decoder_out), .B1(n56), 
-        .B2(n70), .C(stall_memory), .ZN(read_enable) );
-  CKBD1BWP12T U134 ( .I(pc_in[11]), .Z(address[11]) );
-  CKBD1BWP12T U135 ( .I(pc_in[10]), .Z(address[10]) );
-  CKBD1BWP12T U136 ( .I(pc_in[9]), .Z(address[9]) );
-  CKBD1BWP12T U137 ( .I(pc_in[8]), .Z(address[8]) );
-  CKBD1BWP12T U138 ( .I(pc_in[7]), .Z(address[7]) );
-  CKBD1BWP12T U139 ( .I(pc_in[6]), .Z(address[6]) );
-  CKBD1BWP12T U140 ( .I(pc_in[5]), .Z(address[5]) );
-  CKBD1BWP12T U141 ( .I(pc_in[4]), .Z(address[4]) );
-  CKBD1BWP12T U142 ( .I(pc_in[3]), .Z(address[3]) );
-  CKBD1BWP12T U143 ( .I(pc_in[2]), .Z(address[2]) );
-  CKBD1BWP12T U144 ( .I(pc_in[1]), .Z(address[1]) );
-  CKBD1BWP12T U145 ( .I(pc_in[0]), .Z(address[0]) );
+  GTECH_AND2 C6 ( .A(N39), .B(N40), .Z(N41) );
+  GTECH_OR2 C8 ( .A(currentState[1]), .B(N40), .Z(N42) );
+  GTECH_OR2 C11 ( .A(N39), .B(currentState[0]), .Z(N44) );
+  GTECH_AND2 C13 ( .A(currentState[1]), .B(currentState[0]), .Z(N46) );
+  \**SEQGEN**  instruction_out_reg_15_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[15]), .clocked_on(clk), .data_in(
+        instruction[15]), .enable(reset), .Q(instruction_out[15]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  instruction_out_reg_14_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[14]), .clocked_on(clk), .data_in(
+        instruction[14]), .enable(reset), .Q(instruction_out[14]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  instruction_out_reg_13_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[13]), .clocked_on(clk), .data_in(
+        instruction[13]), .enable(reset), .Q(instruction_out[13]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  instruction_out_reg_12_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[12]), .clocked_on(clk), .data_in(
+        instruction[12]), .enable(reset), .Q(instruction_out[12]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  instruction_out_reg_11_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[11]), .clocked_on(clk), .data_in(
+        instruction[11]), .enable(reset), .Q(instruction_out[11]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  instruction_out_reg_10_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[10]), .clocked_on(clk), .data_in(
+        instruction[10]), .enable(reset), .Q(instruction_out[10]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  instruction_out_reg_9_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[9]), .clocked_on(clk), .data_in(instruction[9]), .enable(reset), .Q(instruction_out[9]), .synch_clear(1'b0), .synch_preset(
+        1'b0), .synch_toggle(1'b0), .synch_enable(1'b1) );
+  \**SEQGEN**  instruction_out_reg_8_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[8]), .clocked_on(clk), .data_in(instruction[8]), .enable(reset), .Q(instruction_out[8]), .synch_clear(1'b0), .synch_preset(
+        1'b0), .synch_toggle(1'b0), .synch_enable(1'b1) );
+  \**SEQGEN**  instruction_out_reg_7_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[7]), .clocked_on(clk), .data_in(instruction[7]), .enable(reset), .Q(instruction_out[7]), .synch_clear(1'b0), .synch_preset(
+        1'b0), .synch_toggle(1'b0), .synch_enable(1'b1) );
+  \**SEQGEN**  instruction_out_reg_6_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[6]), .clocked_on(clk), .data_in(instruction[6]), .enable(reset), .Q(instruction_out[6]), .synch_clear(1'b0), .synch_preset(
+        1'b0), .synch_toggle(1'b0), .synch_enable(1'b1) );
+  \**SEQGEN**  instruction_out_reg_5_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[5]), .clocked_on(clk), .data_in(instruction[5]), .enable(reset), .Q(instruction_out[5]), .synch_clear(1'b0), .synch_preset(
+        1'b0), .synch_toggle(1'b0), .synch_enable(1'b1) );
+  \**SEQGEN**  instruction_out_reg_4_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[4]), .clocked_on(clk), .data_in(instruction[4]), .enable(reset), .Q(instruction_out[4]), .synch_clear(1'b0), .synch_preset(
+        1'b0), .synch_toggle(1'b0), .synch_enable(1'b1) );
+  \**SEQGEN**  instruction_out_reg_3_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[3]), .clocked_on(clk), .data_in(instruction[3]), .enable(reset), .Q(instruction_out[3]), .synch_clear(1'b0), .synch_preset(
+        1'b0), .synch_toggle(1'b0), .synch_enable(1'b1) );
+  \**SEQGEN**  instruction_out_reg_2_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[2]), .clocked_on(clk), .data_in(instruction[2]), .enable(reset), .Q(instruction_out[2]), .synch_clear(1'b0), .synch_preset(
+        1'b0), .synch_toggle(1'b0), .synch_enable(1'b1) );
+  \**SEQGEN**  instruction_out_reg_1_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[1]), .clocked_on(clk), .data_in(instruction[1]), .enable(reset), .Q(instruction_out[1]), .synch_clear(1'b0), .synch_preset(
+        1'b0), .synch_toggle(1'b0), .synch_enable(1'b1) );
+  \**SEQGEN**  instruction_out_reg_0_ ( .clear(1'b0), .preset(1'b0), 
+        .next_state(instruction[0]), .clocked_on(clk), .data_in(instruction[0]), .enable(reset), .Q(instruction_out[0]), .synch_clear(1'b0), .synch_preset(
+        1'b0), .synch_toggle(1'b0), .synch_enable(1'b1) );
+  \**SEQGEN**  currentState_reg_1_ ( .clear(reset), .preset(1'b0), 
+        .next_state(nextState[1]), .clocked_on(clk), .data_in(1'b0), .enable(
+        1'b0), .Q(currentState[1]), .synch_clear(1'b0), .synch_preset(1'b0), 
+        .synch_toggle(1'b0), .synch_enable(1'b1) );
+  \**SEQGEN**  currentState_reg_0_ ( .clear(reset), .preset(1'b0), 
+        .next_state(nextState[0]), .clocked_on(clk), .data_in(1'b0), .enable(
+        1'b0), .Q(currentState[0]), .synch_clear(1'b0), .synch_preset(1'b0), 
+        .synch_toggle(1'b0), .synch_enable(1'b1) );
+  GTECH_NOT I_0 ( .A(stall_memory), .Z(N72) );
+  GTECH_NOT I_1 ( .A(stall_decoder_in), .Z(N73) );
+  ADD_UNS_OP add_14 ( .A(pc_in), .B({1'b1, 1'b0, 1'b0}), .Z({N38, N37, N36, 
+        N35, N34, N33, N32, N31, N30, N29, N28, N27, N26, N25, N24, N23, N22, 
+        N21, N20, N19, N18, N17, N16, N15, N14, N13, N12, N11, N10, N9, N8, N7}) );
+  GTECH_OR2 C211 ( .A(stall_memory), .B(N70), .Z(N51) );
+  GTECH_OR2 C213 ( .A(stall_memory), .B(N50), .Z(N52) );
+  GTECH_OR3 C215 ( .A(N43), .B(N45), .C(N46), .Z(N74) );
+  GTECH_OR3 C279 ( .A(N41), .B(N45), .C(N46), .Z(N75) );
+  GTECH_OR2 C282 ( .A(N43), .B(N45), .Z(N76) );
+  GTECH_NOT I_2 ( .A(N47), .Z(N48) );
+  SELECT_OP C350 ( .DATA1(instruction_out), .DATA2(instruction_in), .CONTROL1(
+        N0), .CONTROL2(N1), .Z({N68, N67, N66, N65, N64, N63, N62, N61, N60, 
+        N59, N58, N57, N56, N55, N54, N53}) );
+  GTECH_BUF B_0 ( .A(stall_memory), .Z(N0) );
+  GTECH_BUF B_1 ( .A(N72), .Z(N1) );
+  SELECT_OP C351 ( .DATA1({N71, 1'b0}), .DATA2({N48, N47}), .DATA3({1'b1, 
+        stall_memory}), .DATA4({N52, N51}), .CONTROL1(N2), .CONTROL2(N43), 
+        .CONTROL3(N45), .CONTROL4(N3), .Z(nextState) );
+  GTECH_BUF B_2 ( .A(N41), .Z(N2) );
+  GTECH_BUF B_3 ( .A(N46), .Z(N3) );
+  SELECT_OP C352 ( .DATA1({1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 
+        1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 
+        1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0}), .DATA2({N38, N37, N36, N35, N34, N33, N32, N31, N30, N29, N28, N27, N26, 
+        N25, N24, N23, N22, N21, N20, N19, N18, N17, N16, N15, N14, N13, N12, 
+        N11, N10, N9, N8, N7}), .CONTROL1(N2), .CONTROL2(N4), .Z(pc_out) );
+  GTECH_BUF B_4 ( .A(N74), .Z(N4) );
+  SELECT_OP C353 ( .DATA1(1'b1), .DATA2(N72), .DATA3(N72), .DATA4(1'b0), 
+        .CONTROL1(N2), .CONTROL2(N43), .CONTROL3(N45), .CONTROL4(N3), .Z(
+        read_enable) );
+  SELECT_OP C354 ( .DATA1(1'b1), .DATA2(N73), .CONTROL1(N5), .CONTROL2(N43), 
+        .Z(pc_en) );
+  GTECH_BUF B_5 ( .A(N75), .Z(N5) );
+  SELECT_OP C355 ( .DATA1({1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 
+        1'b0, 1'b0, 1'b0, 1'b0}), .DATA2(pc_in[11:0]), .CONTROL1(N2), 
+        .CONTROL2(N6), .Z(address) );
+  GTECH_BUF B_6 ( .A(N76), .Z(N6) );
+  SELECT_OP C356 ( .DATA1({1'b0, 1'b0, 1'b0, 1'b1, 1'b1, 1'b1, 1'b0, 1'b0, 
+        1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0}), .DATA2(
+        instruction_out), .DATA3({N68, N67, N66, N65, N64, N63, N62, N61, N60, 
+        N59, N58, N57, N56, N55, N54, N53}), .CONTROL1(N2), .CONTROL2(N6), 
+        .CONTROL3(N3), .Z(instruction) );
+  GTECH_NOT I_3 ( .A(currentState[1]), .Z(N39) );
+  GTECH_NOT I_4 ( .A(currentState[0]), .Z(N40) );
+  GTECH_NOT I_5 ( .A(N42), .Z(N43) );
+  GTECH_NOT I_6 ( .A(N44), .Z(N45) );
+  GTECH_OR2 C369 ( .A(stall_memory), .B(stall_decoder_in), .Z(N47) );
+  GTECH_OR2 C377 ( .A(stall_decoder_in), .B(stall_memory), .Z(N49) );
+  GTECH_NOT I_7 ( .A(N49), .Z(N50) );
+  GTECH_NOT I_8 ( .A(stall_memory), .Z(N69) );
+  GTECH_AND2 C380 ( .A(stall_decoder_in), .B(N69), .Z(N70) );
+  GTECH_NOT I_9 ( .A(reset), .Z(N71) );
 endmodule
 

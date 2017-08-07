@@ -1,0 +1,53 @@
+Information: Changed wire load model for 'DW01_add_width32' from '(none)' to 'ZeroWireload'. (OPT-170)
+Information: Changed wire load model for '*ADD_UNS_OP_32_3_32' from '(none)' to 'ZeroWireload'. (OPT-170)
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : Instruction_Fetch
+Version: I-2013.12-SP5-3
+Date   : Mon Aug  7 15:08:39 2017
+****************************************
+
+Operating Conditions: NCCOM   Library: tcbn45gsbwp12ttc_ccs
+Wire Load Model Mode: segmented
+
+  Startpoint: currentState_reg_1_
+              (rising edge-triggered flip-flop clocked by CLOCK)
+  Endpoint: currentState_reg_0_
+            (rising edge-triggered flip-flop clocked by CLOCK)
+  Path Group: CLOCK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Instruction_Fetch  ZeroWireload          tcbn45gsbwp12ttc_ccs
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLOCK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  currentState_reg_1_/clocked_on (**SEQGEN**)             0.00       0.00 r
+  currentState_reg_1_/Q (**SEQGEN**)                      0.00       0.00 r
+  C13/Z (GTECH_AND2)                                      0.00       0.00 r
+  B_3/Z (GTECH_BUF)                                       0.00       0.00 r
+  C351/Z_0 (*SELECT_OP_4.2_4.1_2)                         0.00       0.00 r
+  currentState_reg_0_/next_state (**SEQGEN**)             0.00       0.00 r
+  data arrival time                                                  0.00
+
+  clock CLOCK (rise edge)                                 1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  currentState_reg_0_/clocked_on (**SEQGEN**)             0.00       1.00 r
+  library setup time                                      0.00       1.00
+  data required time                                                 1.00
+  --------------------------------------------------------------------------
+  data required time                                                 1.00
+  data arrival time                                                  0.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                        1.00
+
+
+1
