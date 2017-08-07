@@ -157,7 +157,7 @@ wire data_top_out [15:0];
 wire data_low_out [15:0];
 assign data_top_out[7:0] = mem_data_out[7:0]; // fourth_byte_out
 assign data_top_out[15:8] = third_byte_out;
-assign data_low_out = mem_data_out[15:0];
+assign data_low_out = first_two_bytes_out;
 
 assign data_out[31:16] = output_shuffle ? data_top_out : data_low_out;
 assign data_out[15:0]  = output_shuffle ? data_low_out : data_top_out;
