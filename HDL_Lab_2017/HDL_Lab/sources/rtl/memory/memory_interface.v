@@ -148,12 +148,19 @@ assign data_bus_to_mem = direct_or_delayed_din[1] ?  direct_data_in16 : delayed_
 assign mem_data_in[7:0] = data_bus_to_mem[7:0];
 assign mem_data_in[15:8] = old_or_new_byte_remainder ? data_bus_to_mem[15:8] : mem_data_out[15:8];
 
+
+
 // data_out path
 // general
-assign data_out[7:0] = mem_data_out[7:0]; // fourth_byte_out
-assign data_out[15:8] = third_byte_out;
-assign data_out[31:16] = first_two_bytes_out;
+wire output_shuffle;
+wire data_top_out [15:0];
+wire data_low_out [15:0];
+assign data_top_out[7:0] = mem_data_out[7:0]; // fourth_byte_out
+assign data_top_out[15:8] = third_byte_out;
+assign data_low_out = mem_data_out[15:0];
 
+assign data_out[31:16] = output_shuffle ? data_top_out : data_low_out;
+assign data_out[15:0]  = output_shuffle ? data_low_out : data_top_out;
 // third byte of the outoput
 assign third_byte_out = third_byte_out_select[1] ? mem_data_out[15:8] : sign_extended_third_byte;
 assign sign_extended_third_byte = third_byte_out_select[0] ? 8'b0 : sign_extension_byte;
@@ -224,6 +231,7 @@ memory_control_fsm fsm (
   .added_or_delayed_address(added_or_delayed_address),
   .first_two_bytes_out_select(first_two_bytes_out_select),
   .third_byte_out_select(third_byte_out_select),
+  .output_shuffle(output_shuffle),
   .mem_read_enable(fsm_read_out),
   .mem_write_enable(fsm_write_out),
   .mem_enable(mem_enable),

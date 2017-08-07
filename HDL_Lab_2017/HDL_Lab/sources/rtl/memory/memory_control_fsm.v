@@ -47,6 +47,7 @@ module memory_control_fsm(
   added_or_delayed_address,
   first_two_bytes_out_select,
   third_byte_out_select,
+  output_shuffle
   mem_read_enable,
   mem_write_enable,
   mem_enable,
@@ -70,7 +71,7 @@ module memory_control_fsm(
   output reg added_or_delayed_address;
   output reg [1:0] first_two_bytes_out_select;
   output reg [1:0] third_byte_out_select;
-
+  output reg output_shuffle;
   output reg mem_read_enable;
   output reg mem_write_enable;
   output reg mem_enable;
@@ -189,6 +190,7 @@ module memory_control_fsm(
       added_or_delayed_address      =`DC                 ; // 1 = added, 0 = delayed
       first_two_bytes_out_select    ={`DC,`DC}           ; // 2 signals
       third_byte_out_select         ={`DC,`DC}           ; // 2 signals
+      output_shuffle                =0                   ;
 
       mem_read_enable               =`DC      ;
       mem_write_enable              =`DC      ;
@@ -208,6 +210,7 @@ module memory_control_fsm(
       added_or_delayed_address      =`DC                 ; // 1 = added, 0 = delayed
       first_two_bytes_out_select    =is_signed_fsm ? `SIGN_B : `ZEROS;    // 2 signals
       third_byte_out_select         =`THIRD_BYTE_ORIGINAL ; // 2 signals
+      output_shuffle                =0                   ;
 
       mem_read_enable               =1        ;
       mem_write_enable              =0        ;
@@ -228,6 +231,7 @@ module memory_control_fsm(
       added_or_delayed_address      =`DC                 ; // 1 = added, 0 = delayed
       first_two_bytes_out_select    =is_signed_fsm ? `SIGN_A : `ZEROS;    // 2 signals
       third_byte_out_select         =is_signed_fsm ? `THIRD_BYTE_SIGN_EXTENDED : `THIRD_BYTE_ZERO_EXTENDED; // 2 signals
+      output_shuffle                =0                   ;
 
       mem_read_enable               =1        ;
       mem_write_enable              =0        ;
@@ -248,6 +252,7 @@ module memory_control_fsm(
       added_or_delayed_address      =1                   ;   // 1 = added, 0 = delayed
       first_two_bytes_out_select    ={`DC,`DC}           ; // 2 signals
       third_byte_out_select         ={`DC,`DC}           ; // 2 signals
+      output_shuffle                =0                   ;
 
       mem_read_enable               =1        ;
       mem_write_enable              =0        ;
@@ -268,6 +273,7 @@ module memory_control_fsm(
       added_or_delayed_address      =`DC                 ; // 1 = added, 0 = delayed
       first_two_bytes_out_select    =`TOP_HALFWORD       ; // 2 signals
       third_byte_out_select         =`THIRD_BYTE_ORIGINAL; // 2 signals
+      output_shuffle                =1                   ;
 
       mem_read_enable               =1        ;
       mem_write_enable              =0        ;
@@ -295,6 +301,7 @@ module memory_control_fsm(
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
       busy                          =1        ;
+      output_shuffle                =0                   ;
 
     end // endcase STORE_HW
 
@@ -315,6 +322,7 @@ module memory_control_fsm(
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
       busy                          =1        ;
+      output_shuffle                =0                   ;
 
     end // endcase STORE_WORD_A
 
@@ -335,6 +343,7 @@ module memory_control_fsm(
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
       busy                          =1        ;
+      output_shuffle                =0                   ;
 
     end // endcase STORE_WORD_B
 
@@ -355,6 +364,7 @@ module memory_control_fsm(
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
       busy                          =1        ;
+      output_shuffle                =0                   ;
 
     end //endcase STORE_BYTE_A
 
@@ -375,6 +385,7 @@ module memory_control_fsm(
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
       busy                          =1        ;
+      output_shuffle                =0                   ;
 
     end //endcase STORE_BYTE_B
 
@@ -394,6 +405,7 @@ module memory_control_fsm(
       fsm_read_control              =1'bx        ;
       fsm_write_control             =1'bx        ;
       busy                          =1'bx        ;
+      output_shuffle                =0                   ;
 	end
    endcase//state
   end
