@@ -78,7 +78,7 @@ input [WIDE-1:0] immediate2_in;
 input [WIDE-1:0] next_pc_in;
 input [3:0] next_cpsr_in;
 input [WIDE-1:0] next_sp_in;
-input [WIDE-1:0] next_pc_en;
+input next_pc_en;
 input clk;
 
 
@@ -318,7 +318,7 @@ always @(*) begin
     else if (write2_sel==R7 && write2_en)
         r7in = write2_in;
     else
-        r7in= r4;
+        r7in= r7;
 end
 
 // r8

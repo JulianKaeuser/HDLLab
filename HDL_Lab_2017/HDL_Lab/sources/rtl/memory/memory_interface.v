@@ -71,7 +71,7 @@ input [1:0] word_type;
 input [WIDE-1:0] from_mem_data;
 
 // outputs going to the memory
-output  to_mem_read_enable;
+output to_mem_read_enable;
 output to_mem_write_enable;
 output to_mem_mem_enable;
 output [ADDR_WIDTH-1:0] to_mem_address;
@@ -210,7 +210,7 @@ assign mem_data_out = from_mem_data;
 // state machine for control
 
 memory_control_fsm fsm (
-  .is_signed(delayed_is_signed),
+  .is_signed_fsm(delayed_is_signed),
   .word_type(word_type),
   .load(load),
   .store(store),

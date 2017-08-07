@@ -1,4 +1,4 @@
-`define BIT_SIZE 16
+`define BIT_SIZE 32
 
 module ALU_VARIABLE (input signed [`BIT_SIZE-1:0] a, b, input[3:0] op, input c_in, output reg [`BIT_SIZE-1:0] result, output reg c_out, z, n, v);
 
@@ -37,7 +37,7 @@ module ALU_VARIABLE (input signed [`BIT_SIZE-1:0] a, b, input[3:0] op, input c_i
 				v = ((a[`BIT_SIZE-1] == b[`BIT_SIZE-1]) && (c_out != a[`BIT_SIZE-1])) ? 1'b1 : 1'b0;
 				end
 			4'b0110: begin // SBC
-				{c_out, result} = a - b - ~c_in;
+				{c_out, result} = a - b - (c_in ?  0 : 1);
 				z = (result == {`BIT_SIZE{1'b0}}) ? 1'b1 : 1'b0;
 				n = (result[`BIT_SIZE-1] == 1'b1) ? 1'b1 : 1'b0;
 				v = (a[`BIT_SIZE-1]!=b[`BIT_SIZE-1] && c_out == a[`BIT_SIZE-1]) ? 1'b1 : 1'b0;
