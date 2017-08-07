@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : ALU_VARIABLE
+Version: I-2013.12-SP5-3
+Date   : Fri Aug  4 17:43:00 2017
+****************************************
+
+Library(s) Used:
+
+    tcbn45gsbwp12ttc_ccs (File: /cad/synopsys/libs/TSMC_40nm/digital/Front_End/timing_power_noise/CCS/tcbn45gsbwp12t_200a/tcbn45gsbwp12ttc_ccs.db)
+
+Number of ports:                          105
+Number of nets:                          3461
+Number of cells:                         3296
+Number of combinational cells:           3296
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                        402
+Number of references:                      83
+
+Combinational area:               5037.984018
+Buf/Inv area:                      283.886409
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                  5037.984018
+Total area:                 undefined
+1

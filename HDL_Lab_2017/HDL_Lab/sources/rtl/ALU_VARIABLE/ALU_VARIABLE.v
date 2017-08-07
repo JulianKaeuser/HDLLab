@@ -1,6 +1,6 @@
-`define BIT_SIZE 16
+`define BIT_SIZE 32
 
-module ALU_VARIABLE (input signed [`BIT_SIZE-1:0] a, b, input[3:0] op, input c_in, output reg [`BIT_SIZE-1:0] result, output reg c_out, z, n, v);
+module ALU_VARIABLE (input signed [`BIT_SIZE-1:0] a, b, input[3:0] op, input c_in, output reg signed [`BIT_SIZE-1:0] result, output reg c_out, z, n, v);
 
 
 	always @(a, b, c_in, op) begin
@@ -9,26 +9,31 @@ module ALU_VARIABLE (input signed [`BIT_SIZE-1:0] a, b, input[3:0] op, input c_i
 				{c_out, result} = {1'b0,  a & b};
 				z = (result == {`BIT_SIZE{1'b0}}) ? 1'b1 : 1'b0;
 				n = (result[`BIT_SIZE-1] == 1'b1) ? 1'b1 : 1'b0;
+				v = 1'b0;
 				end
 			4'b0001: begin // EOR
 				{c_out, result} = {1'b0,  a ^ b};
 				z = (result == {`BIT_SIZE{1'b0}}) ? 1'b1 : 1'b0;
-				n = (result[`BIT_SIZE-1] == 1'b1) ? 1'b1 : 1'b0; 
+				n = (result[`BIT_SIZE-1] == 1'b1) ? 1'b1 : 1'b0;
+				v = 1'b0;
 				end
 			4'b0010: begin // LSL
 				{c_out, result} = {1'b0,  a << b};
 				z = (result == {`BIT_SIZE{1'b0}}) ? 1'b1 : 1'b0;
-				n = (result[`BIT_SIZE-1] == 1'b1) ? 1'b1 : 1'b0; 
+				n = (result[`BIT_SIZE-1] == 1'b1) ? 1'b1 : 1'b0;
+				v = 1'b0;
 				end
 			4'b0011: begin // LSR
 				{c_out, result} = {1'b0,  a >> b};
 				z = (result == {`BIT_SIZE{1'b0}}) ? 1'b1 : 1'b0;
-				n = (result[`BIT_SIZE-1] == 1'b1) ? 1'b1 : 1'b0; 
+				n = (result[`BIT_SIZE-1] == 1'b1) ? 1'b1 : 1'b0;
+				v = 1'b0; 
 				end
 			4'b0100: begin // ASR
 				{c_out, result} = {1'b0,  a >>> b};
 				z = (result == {`BIT_SIZE{1'b0}}) ? 1'b1 : 1'b0;
-				n = (result[`BIT_SIZE-1] == 1'b1) ? 1'b1 : 1'b0; 
+				n = (result[`BIT_SIZE-1] == 1'b1) ? 1'b1 : 1'b0;
+				v = 1'b0;
 				end
 			4'b0101: begin// ADC
 				{c_out, result} = a + b + c_in;
@@ -46,11 +51,13 @@ module ALU_VARIABLE (input signed [`BIT_SIZE-1:0] a, b, input[3:0] op, input c_i
 				{c_out, result} = {1'b0, (a >> (b[`BIT_SIZE-2:0]%`BIT_SIZE))|(a << (`BIT_SIZE-b[`BIT_SIZE-2:0]%`BIT_SIZE))};
 				z = (result == {`BIT_SIZE{1'b0}}) ? 1'b1 : 1'b0;
 				n = (result[`BIT_SIZE-1] == 1'b1) ? 1'b1 : 1'b0;
+				v = 1'b0;
 				end 
 			4'b1000: begin // TST
 				{c_out, result} = {1'b0, a & b};
 				z = (result == {`BIT_SIZE{1'b0}}) ? 1'b1 : 1'b0;
 				n = (result[`BIT_SIZE-1] == 1'b1) ? 1'b1 : 1'b0;
+				v = 1'b0;
 				end
 			4'b1001: begin // NEG
 				{c_out, result} = 0 - a;
@@ -74,6 +81,7 @@ module ALU_VARIABLE (input signed [`BIT_SIZE-1:0] a, b, input[3:0] op, input c_i
 				{c_out, result} = {1'b0,  a | b};
 				z = (result == {`BIT_SIZE{1'b0}}) ? 1'b1 : 1'b0; 
 				n = (result[`BIT_SIZE-1] == 1'b1) ? 1'b1 : 1'b0;
+				v = 1'b0;
 				end
 			4'b1101: begin // MUL
 				{c_out, result} =  a * b;
@@ -85,11 +93,13 @@ module ALU_VARIABLE (input signed [`BIT_SIZE-1:0] a, b, input[3:0] op, input c_i
 				{c_out, result} = {1'b0,  a & (~b)};
 				z = (result == {`BIT_SIZE{1'b0}}) ? 1'b1 : 1'b0;
 				n = (result[`BIT_SIZE-1] == 1'b1) ? 1'b1 : 1'b0;
+				v = 1'b0;
 				end
 			4'b1111: begin // MVN
 				{c_out, result} = {1'b0, ~a};
 				z = (result == {`BIT_SIZE{1'b0}}) ? 1'b1 : 1'b0;
 				n = (result[`BIT_SIZE-1] == 1'b1) ? 1'b1 : 1'b0;
+				v = 1'b0;
 				end
 			default: {c_out, result, z, n, v} = {1'bx, {`BIT_SIZE{1'bx}}, 1'bx, 1'bx, 1'bx}; // default: undefined result
 		endcase

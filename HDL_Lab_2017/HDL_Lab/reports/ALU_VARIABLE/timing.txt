@@ -1,0 +1,103 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : ALU_VARIABLE
+Version: I-2013.12-SP5-3
+Date   : Fri Aug  4 17:42:47 2017
+****************************************
+
+Operating Conditions: NCCOM   Library: tcbn45gsbwp12ttc_ccs
+Wire Load Model Mode: segmented
+
+  Startpoint: b[1] (input port)
+  Endpoint: v (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  ALU_VARIABLE       ZeroWireload          tcbn45gsbwp12ttc_ccs
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  b[1] (in)                                0.00       0.00 f
+  U11751/ZN (INVD1BWP12T)                  0.09       0.09 r
+  U11648/ZN (NR2D1BWP12T)                  0.04       0.14 f
+  U11745/ZN (NR2D1BWP12T)                  0.10       0.23 r
+  U11746/ZN (INVD1BWP12T)                  0.09       0.32 f
+  U12527/ZN (OAI22D1BWP12T)                0.04       0.36 r
+  U12528/ZN (AOI211D1BWP12T)               0.02       0.38 f
+  U12529/ZN (NR2D1BWP12T)                  0.03       0.41 r
+  U12533/ZN (NR2D1BWP12T)                  0.01       0.42 f
+  U12534/ZN (NR2D1BWP12T)                  0.02       0.44 r
+  U12538/ZN (MAOI22D0BWP12T)               0.02       0.46 f
+  U10792/ZN (NR2D0BWP12T)                  0.02       0.48 r
+  U10793/ZN (AOI31D0BWP12T)                0.02       0.51 f
+  U10795/ZN (MAOI222D0BWP12T)              0.04       0.55 r
+  U13737/CO (FA1D0BWP12T)                  0.05       0.60 r
+  U13710/CO (FA1D0BWP12T)                  0.06       0.65 r
+  U13691/CO (FA1D0BWP12T)                  0.04       0.69 r
+  U11157/ZN (CKND0BWP12T)                  0.01       0.70 f
+  U11158/ZN (MAOI222D0BWP12T)              0.03       0.73 r
+  U13643/CO (FA1D0BWP12T)                  0.05       0.78 r
+  U10828/ZN (CKND0BWP12T)                  0.01       0.79 f
+  U10829/ZN (MAOI222D0BWP12T)              0.03       0.83 r
+  U13598/CO (FA1D0BWP12T)                  0.05       0.87 r
+  U10873/ZN (CKND0BWP12T)                  0.01       0.89 f
+  U10874/ZN (MAOI222D0BWP12T)              0.03       0.92 r
+  U13565/CO (FA1D0BWP12T)                  0.05       0.97 r
+  U11230/ZN (CKND0BWP12T)                  0.01       0.98 f
+  U11231/ZN (MAOI222D0BWP12T)              0.04       1.02 r
+  U10923/ZN (CKND0BWP12T)                  0.02       1.03 f
+  U10924/ZN (MAOI222D0BWP12T)              0.04       1.07 r
+  U13471/CO (FA1D0BWP12T)                  0.05       1.12 r
+  U10973/ZN (CKND0BWP12T)                  0.01       1.13 f
+  U10974/ZN (MAOI222D0BWP12T)              0.04       1.17 r
+  U13429/CO (FA1D0BWP12T)                  0.07       1.24 r
+  U13399/CO (FA1D0BWP12T)                  0.06       1.30 r
+  U11029/ZN (CKND0BWP12T)                  0.01       1.31 f
+  U11030/ZN (MAOI222D0BWP12T)              0.04       1.35 r
+  U13363/CO (FA1D0BWP12T)                  0.07       1.42 r
+  U11090/ZN (CKND0BWP12T)                  0.01       1.44 f
+  U11091/ZN (MAOI222D0BWP12T)              0.04       1.48 r
+  U13290/CO (FA1D0BWP12T)                  0.07       1.55 r
+  U11168/ZN (CKND0BWP12T)                  0.01       1.56 f
+  U11169/ZN (MAOI222D0BWP12T)              0.03       1.59 r
+  U13214/CO (FA1D0BWP12T)                  0.05       1.64 r
+  U11242/ZN (CKND0BWP12T)                  0.01       1.65 f
+  U11243/ZN (MAOI222D0BWP12T)              0.03       1.68 r
+  U13127/CO (FA1D0BWP12T)                  0.05       1.73 r
+  U11328/ZN (CKND0BWP12T)                  0.01       1.74 f
+  U11329/ZN (MAOI222D0BWP12T)              0.03       1.78 r
+  U12961/CO (FA1D0BWP12T)                  0.04       1.82 r
+  U12802/CO (FA1D0BWP12T)                  0.03       1.85 r
+  U12612/CO (FA1D0BWP12T)                  0.04       1.89 r
+  U12613/ZN (MOAI22D0BWP12T)               0.03       1.92 r
+  U12614/ZN (MAOI22D0BWP12T)               0.04       1.96 r
+  U12625/ZN (MAOI22D0BWP12T)               0.04       2.00 r
+  U12626/ZN (MAOI22D0BWP12T)               0.04       2.04 r
+  U12627/ZN (MAOI22D0BWP12T)               0.04       2.09 r
+  U12628/ZN (MAOI22D0BWP12T)               0.04       2.13 r
+  U12629/ZN (MAOI22D0BWP12T)               0.04       2.17 r
+  U12630/ZN (MAOI22D0BWP12T)               0.04       2.21 r
+  U12631/ZN (MAOI22D0BWP12T)               0.04       2.26 r
+  U12632/ZN (MAOI22D0BWP12T)               0.04       2.30 r
+  U12633/ZN (MAOI22D0BWP12T)               0.04       2.34 r
+  U12634/ZN (MAOI22D0BWP12T)               0.04       2.38 r
+  U12635/ZN (MAOI22D0BWP12T)               0.04       2.43 r
+  U12636/ZN (MAOI22D0BWP12T)               0.05       2.47 r
+  U12638/ZN (NR2D1BWP12T)                  0.01       2.49 f
+  U12640/ZN (AOI32D1BWP12T)                0.03       2.52 r
+  U12667/ZN (OAI211D1BWP12T)               0.03       2.54 f
+  U12668/Z (AO21D1BWP12T)                  0.03       2.57 f
+  v (out)                                  0.00       2.57 f
+  data arrival time                                   2.57
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

@@ -1,7 +1,7 @@
-set PROJECT_PATH	"../HDL_Lab"                     #Give project path here
-set REP_PATH		"/HDL_Lab/reports"
-set TOP_LEVEL_MODULE	"top"
+set PROJECT_PATH	"/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/ALU_VARIABLE"                     #Give project path here
+set REP_PATH		"/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/reports"
+set TOP_LEVEL_MODULE	"ALU_VARIABLE"
 
-set FILE_LIST	{alu.v decode.v execute.v fetch.v top.v regfile.v writeback.v }  # Include all RTL files here needed for synthesis. Dont include testbenches
+set FILE_LIST	{ALU_VARIABLE.v} # Include all RTL files here needed for synthesis. Dont include testbenches
 
 
