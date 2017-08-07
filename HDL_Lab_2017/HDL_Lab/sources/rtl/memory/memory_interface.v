@@ -153,8 +153,8 @@ assign mem_data_in[15:8] = old_or_new_byte_remainder ? data_bus_to_mem[15:8] : m
 // data_out path
 // general
 wire output_shuffle;
-wire data_top_out [15:0];
-wire data_low_out [15:0];
+wire [15:0] data_top_out;
+wire [15:0] data_low_out;
 assign data_top_out[7:0] = mem_data_out[7:0]; // fourth_byte_out
 assign data_top_out[15:8] = third_byte_out;
 assign data_low_out = mem_data_out[15:0];

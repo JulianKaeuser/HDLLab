@@ -47,7 +47,7 @@ module memory_control_fsm(
   added_or_delayed_address,
   first_two_bytes_out_select,
   third_byte_out_select,
-  output_shuffle
+  output_shuffle,
   mem_read_enable,
   mem_write_enable,
   mem_enable,
