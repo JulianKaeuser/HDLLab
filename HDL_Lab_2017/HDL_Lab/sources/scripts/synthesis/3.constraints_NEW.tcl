@@ -1,1 +1,1 @@
-create_clock -name "clk" -period 1  { 1ns }
+create_clock -name clk -period 1  { clk }
