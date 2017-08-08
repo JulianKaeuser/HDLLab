@@ -1,0 +1,3 @@
+arm-suse-linux-gnueabi-as -EL -mthumb count32.s
+
+arm-suse-linux-gnueabi-objdump -dsSxz --prefix-addresses --show-raw-insn a.out > aout.dasm 

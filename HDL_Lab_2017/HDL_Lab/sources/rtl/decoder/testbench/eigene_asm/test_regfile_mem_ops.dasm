@@ -1,0 +1,62 @@
+
+a.out:     file format elf32-littlearm
+a.out
+architecture: armv4t, flags 0x00000010:
+HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000034  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000068  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000068  2**0
+                  ALLOC
+  3 .ARM.attributes 00000014  00000000  00000000  00000068  2**0
+                  CONTENTS, READONLY
+SYMBOL TABLE:
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 g       .text	00000000 _start
+
+
+Contents of section .text:
+ 0000 05200a21 0f221423 19241e25 23262827  . .!.".#.$.%#&('
+ 0010 4018121b 78439b08 01360060 41608260  @...xC...6.`A`.`
+ 0020 c3600461 45618661 c761bf19 361ac769  .`.aEa.a.a..6..i
+ 0030 8669c046                             .i.F            
+Contents of section .ARM.attributes:
+ 0000 41130000 00616561 62690001 09000000  A....aeabi......
+ 0010 06020901                             ....            
+
+Disassembly of section .text:
+00000000 <_start> 2005      	movs	r0, #5
+00000002 <_start+0x2> 210a      	movs	r1, #10
+00000004 <_start+0x4> 220f      	movs	r2, #15
+00000006 <_start+0x6> 2314      	movs	r3, #20
+00000008 <_start+0x8> 2419      	movs	r4, #25
+0000000a <_start+0xa> 251e      	movs	r5, #30
+0000000c <_start+0xc> 2623      	movs	r6, #35	; 0x23
+0000000e <_start+0xe> 2728      	movs	r7, #40	; 0x28
+00000010 <_start+0x10> 1840      	adds	r0, r0, r1
+00000012 <_start+0x12> 1b12      	subs	r2, r2, r4
+00000014 <_start+0x14> 4378      	muls	r0, r7
+00000016 <_start+0x16> 089b      	lsrs	r3, r3, #2
+00000018 <_start+0x18> 3601      	adds	r6, #1
+0000001a <_start+0x1a> 6000      	str	r0, [r0, #0]
+0000001c <_start+0x1c> 6041      	str	r1, [r0, #4]
+0000001e <_start+0x1e> 6082      	str	r2, [r0, #8]
+00000020 <_start+0x20> 60c3      	str	r3, [r0, #12]
+00000022 <_start+0x22> 6104      	str	r4, [r0, #16]
+00000024 <_start+0x24> 6145      	str	r5, [r0, #20]
+00000026 <_start+0x26> 6186      	str	r6, [r0, #24]
+00000028 <_start+0x28> 61c7      	str	r7, [r0, #28]
+0000002a <_start+0x2a> 19bf      	adds	r7, r7, r6
+0000002c <_start+0x2c> 1a36      	subs	r6, r6, r0
+0000002e <_start+0x2e> 69c7      	ldr	r7, [r0, #28]
+00000030 <_start+0x30> 6986      	ldr	r6, [r0, #24]
+00000032 <_start+0x32> 46c0      	nop			; (mov r8, r8)
