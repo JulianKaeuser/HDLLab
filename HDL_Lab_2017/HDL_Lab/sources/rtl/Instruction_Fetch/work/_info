@@ -11,49 +11,60 @@ Z0 d/home/vhdlp9
 T_opt
 !s110 1501761454
 Vc7M1S=`XP^YzOeeIK8haB3
-04 20 4 work Instruction_Fetch_tb fast 0
+Z1 04 20 4 work Instruction_Fetch_tb fast 0
 =1-001e67589ce5-59830fae-d4eac-1fcfd
-o-quiet -auto_acc_if_foreign -work work
+Z2 o-quiet -auto_acc_if_foreign -work work
 n@_opt
-OL;O;10.3d;59
+Z3 OL;O;10.3d;59
+R0
+T_opt1
+!s110 1502204365
+Vk[:Mc;EdPdf[ij;<J`f?^0
+R1
+=1-001e67589ce5-5989d1cd-ba76a-2348d
+R2
+n@_opt1
+R3
 R0
 vInstruction_Fetch
-Z1 V`JN@9S9cnhjKRR_L]QIcM3
-r1
-!s85 0
-31
+Z4 !s110 1502207160
 !i10b 1
-!s100 >n`;CIL826G1;0bJR8[XT2
-IR3:?7:B;Ijn=Ho32c5gI@2
-Z2 d/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch
-w1502185564
+!s100 7ihlKWdzDzV^UXhPa7@UY3
+ITZkCCiEK1_kQ93=zDDKGW1
+Z5 V`JN@9S9cnhjKRR_L]QIcM3
+Z6 d/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch
+w1502207158
 8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v
 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v
 L0 1
-Z3 OL;L;10.3d;59
-!s108 1502185681.490626
-!s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v|
-!i113 0
-Z4 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-n@instruction_@fetch
-vInstruction_Fetch_tb
-R1
+Z7 OL;L;10.3d;59
 r1
 !s85 0
 31
+!s108 1502207160.536263
+!s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v|
+!i113 0
+Z8 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+n@instruction_@fetch
+vInstruction_Fetch_tb
+R4
 !i10b 1
-!s100 mChQIK06O:6DoP_H0CcA?2
-I1<l1;]fH3DX3S4;;e0h?[0
-R2
-w1502185667
+!s100 =FV]Sa>g@9>_zz2fF@kHW0
+I;mfmgB87[mGQ0QBJk8;?k1
+R5
+R6
+w1502204347
 8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_tb.v
 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_tb.v
 L0 2
-R3
-!s108 1502185681.565651
+R7
+r1
+!s85 0
+31
+!s108 1502207160.617271
 !s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_tb.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_tb.v|
 !i113 0
-R4
+R8
 n@instruction_@fetch_tb
