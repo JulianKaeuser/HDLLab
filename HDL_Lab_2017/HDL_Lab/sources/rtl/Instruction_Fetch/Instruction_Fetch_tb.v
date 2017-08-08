@@ -29,41 +29,46 @@ Instruction_Fetch inst_fetch(.clk(clk), .reset(reset), .stall_decoder_in(stall_d
 	$monitor("%g\t reset: %b stall_decoder_in: %b stall_memory: %b pc_in: %b instruction_in: %b | read_enable: %b pc_en: /%b stall_decoder_out: %b address: %b pc_out: %b instruction_out: %b currentState: %b nextState: %b",
 	$time, reset, stall_decoder_in, stall_memory, pc_in, instruction_in, read_enable, pc_en, /*stall_decoder_out, address, pc_out, instruction_out, currentState, nextState);
 	*/
-	reset = 0;
+	#2;
+	/*reset = 0;
 	stall_decoder_in = 0;
 	stall_memory = 1;
-	pc_in = 32'b0;
+	pc_in = 32'b00000000000000000000000000000100;
 	instruction_in = 16'bx;
 	#20;
 	stall_memory = 0;
-	#20;
-	stall_memory = 1;
-	stall_decoder_in = 1;
-	#20;
-	stall_memory = 0;
-	stall_decoder_in = 0;
+	#4;
 	instruction_in = 16'b1010101010101010;
-	#20;
-
-	//stall_memory = 1;
-	pc_in = 32'b00000000000000000000000000000100;
-	#20;
-	stall_decoder_in = 0;
-	#20;
-	stall_memory = 0;
-	#2;
-	stall_memory = 1;
-	#20
-	reset = 1;
-	#20;
-	stall_memory = 0;
-	instruction_in = 16'b1010101010101010;
-	#20;
-	stall_memory = 1;
 	pc_in = 32'b00000000000000000000000000001000;
-	#20;
+	#4;
+	instruction_in = 16'b1100100001111001;
+	pc_in = 32'b00000000000000000000000000001100;
+	#4;
+	#12;
+	stall_decoder_in = 1;
+	#8;
+	stall_decoder_in = 0;
+	#4;
+	instruction_in = 16'b0001110000111100;
+	pc_in = 32'b00000000000000000000000000010000;
+	#4;
+	instruction_in = 16'b1110000100101010;
+	pc_in = 32'b00000000000000000000000000010100;	
+	#4;
+	reset = 1;
+	#8;
 	reset = 0;
-	
+	#4;
+	instruction_in = 16'b1110011000101010;
+	pc_in = 32'b00000000000000000000000000001000;*/
+
+	reset = 0;
+	stall_memory = 0;
+	stall_decoder_in = 1;	
+	pc_in = 32'b00000000000000000000000000000100;
+	instruction_in = 16'bx;
+	#4;
+	stall_decoder_in = 0;	
 	
 	
 

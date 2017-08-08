@@ -3,12 +3,48 @@
 Report : resources
 Design : Instruction_Fetch
 Version: I-2013.12-SP5-3
-Date   : Mon Aug  7 15:08:39 2017
+Date   : Tue Aug  8 09:08:17 2017
 ****************************************
 
 
-Resource sharing reports are created during the compile command,
-so the design must be compiled before resource sharing can be reported.
+Resource Report for this hierarchy in file
+        /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=12   | sub_33 (Instruction_Fetch.v:33) |
+            |                |            | sub_40 (Instruction_Fetch.v:40) |
+| DP_OP_20J1_122_5772             |            |                            |
+|                | DP_OP_20J1_122_5772 |       |                            |
+=============================================================================
 
-No implementations to report
+Datapath Report for DP_OP_20J1_122_5772
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_20J1_122_5772  | mult_add_14_aco (Instruction_Fetch.v:14)            |
+|                      | add_14_aco (Instruction_Fetch.v:14)                 |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Unsigned | 32    |                                          |
+| I2    | PI   | Unsigned | 1     |                                          |
+| T4    | IFO  | Unsigned | 32    | I1 * I2 (Instruction_Fetch.v:14)         |
+| O1    | PO   | Unsigned | 32    | T4 + $unsigned(3'b100) (Instruction_Fetch.v:14) |
+==============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_1            | DW01_sub         | apparch (area)     |                |
+| DP_OP_20J1_122_5772                   |                    |                |
+|                    | DP_OP_20J1_122_5772 | str (area)      |                |
+===============================================================================
+
 1

@@ -1,6 +1,3 @@
-Information: Changed wire load model for 'DW01_add_width32' from '(none)' to 'ZeroWireload'. (OPT-170)
-Information: Changed wire load model for '*ADD_UNS_OP_32_3_32' from '(none)' to 'ZeroWireload'. (OPT-170)
-Information: Updating design information... (UID-85)
  
 ****************************************
 Report : timing
@@ -9,7 +6,7 @@ Report : timing
         -max_paths 1
 Design : Instruction_Fetch
 Version: I-2013.12-SP5-3
-Date   : Mon Aug  7 15:08:39 2017
+Date   : Tue Aug  8 09:08:03 2017
 ****************************************
 
 Operating Conditions: NCCOM   Library: tcbn45gsbwp12ttc_ccs
@@ -17,7 +14,7 @@ Wire Load Model Mode: segmented
 
   Startpoint: currentState_reg_1_
               (rising edge-triggered flip-flop clocked by CLOCK)
-  Endpoint: currentState_reg_0_
+  Endpoint: instruction_out_reg_10_
             (rising edge-triggered flip-flop clocked by CLOCK)
   Path Group: CLOCK
   Path Type: max
@@ -30,24 +27,26 @@ Wire Load Model Mode: segmented
   --------------------------------------------------------------------------
   clock CLOCK (rise edge)                                 0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  currentState_reg_1_/clocked_on (**SEQGEN**)             0.00       0.00 r
-  currentState_reg_1_/Q (**SEQGEN**)                      0.00       0.00 r
-  C13/Z (GTECH_AND2)                                      0.00       0.00 r
-  B_3/Z (GTECH_BUF)                                       0.00       0.00 r
-  C351/Z_0 (*SELECT_OP_4.2_4.1_2)                         0.00       0.00 r
-  currentState_reg_0_/next_state (**SEQGEN**)             0.00       0.00 r
-  data arrival time                                                  0.00
+  currentState_reg_1_/CP (DFCNQD1BWP12T)                  0.00       0.00 r
+  currentState_reg_1_/Q (DFCNQD1BWP12T)                   0.05       0.05 f
+  U118/ZN (IND2D0BWP12T)                                  0.12       0.18 f
+  U114/ZN (ND2D1BWP12T)                                   0.08       0.26 r
+  U116/ZN (IOA21D1BWP12T)                                 0.05       0.31 f
+  U53/ZN (AOI22D0BWP12T)                                  0.05       0.35 r
+  U165/ZN (CKND2D1BWP12T)                                 0.02       0.37 f
+  instruction_out_reg_10_/D (DFCSNQD1BWP12T)              0.00       0.37 f
+  data arrival time                                                  0.37
 
   clock CLOCK (rise edge)                                 1.00       1.00
   clock network delay (ideal)                             0.00       1.00
-  currentState_reg_0_/clocked_on (**SEQGEN**)             0.00       1.00 r
-  library setup time                                      0.00       1.00
-  data required time                                                 1.00
+  instruction_out_reg_10_/CP (DFCSNQD1BWP12T)             0.00       1.00 r
+  library setup time                                     -0.01       0.99
+  data required time                                                 0.99
   --------------------------------------------------------------------------
-  data required time                                                 1.00
-  data arrival time                                                  0.00
+  data required time                                                 0.99
+  data arrival time                                                 -0.37
   --------------------------------------------------------------------------
-  slack (MET)                                                        1.00
+  slack (MET)                                                        0.62
 
 
 1
