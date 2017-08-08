@@ -1,0 +1,28 @@
+ 
+****************************************
+Report : reference
+Design : Flag_Updater
+Version: I-2013.12-SP5-3
+Date   : Tue Aug  8 13:17:32 2017
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+CKBD1BWP12T        tcbn45gsbwp12ttc_ccs
+                                  0.940800      28     26.342400  
+MUX2D1BWP12T       tcbn45gsbwp12ttc_ccs
+                                  2.352000       4      9.408000  
+-----------------------------------------------------------------------------
+Total 2 references                                     35.750400
+1

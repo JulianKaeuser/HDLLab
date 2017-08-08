@@ -15,8 +15,7 @@ stall_mem2fetch_out,
 addr_select_out,
 read_en_sel_out,
 word_select_out,
-stall_any2decoder_out,
-state
+stall_any2decoder_out
   );
 
 input clk;
@@ -37,7 +36,6 @@ output reg [1:0] addr_select_out;
 output reg read_en_sel_out;
 output reg word_select_out;
 output reg stall_any2decoder_out;
-output reg[1:0] state;
 
 wire requests;
 wire id_request;
@@ -66,7 +64,7 @@ localparam DECODER_WORD = 1'b0;
 
 localparam STATE_BITS = 2;
 // state flipflops
-//reg [STATE_BITS-1:0] state;
+reg [STATE_BITS-1:0] state;
 reg [STATE_BITS-1:0] nextstate;
 reg turn;
 reg nextturn;

@@ -6,7 +6,7 @@ Report : timing
         -max_paths 1
 Design : controller
 Version: I-2013.12-SP5-3
-Date   : Tue Aug  8 12:37:55 2017
+Date   : Tue Aug  8 14:01:13 2017
 ****************************************
 
 Operating Conditions: NCCOM   Library: tcbn45gsbwp12ttc_ccs

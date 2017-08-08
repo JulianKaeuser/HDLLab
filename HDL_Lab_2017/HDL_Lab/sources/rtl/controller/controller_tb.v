@@ -16,7 +16,7 @@ wire[1:0] addr_select_out;
 wire read_en_sel_out;
 wire word_select_out;
 wire stall_any2decoder_out;
-wire[1:0] state;
+//wire[1:0] state;
 
 parameter tClock = 2;
 
@@ -34,15 +34,15 @@ controller inst_controller(
 .addr_select_out(addr_select_out),
 .read_en_sel_out(read_en_sel_out),
 .word_select_out(word_select_out),
-.stall_any2decoder_out(stall_any2decoder_out),
-.state(state)
+.stall_any2decoder_out(stall_any2decoder_out)
+//.state(state)
 );
 
 always
 	#tClock clk = !clk;
 
 initial begin
-	$monitor("state: %b addr_sel_out: %b read_en_select_out: %b word_select_out: %b stall_any2decoder_out: %b", state, addr_select_out, read_en_sel_out, word_select_out, stall_any2decoder_out);
+	//$monitor("state: %b addr_sel_out: %b read_en_select_out: %b word_select_out: %b stall_any2decoder_out: %b", state, addr_select_out, read_en_sel_out, word_select_out, stall_any2decoder_out);
 	clk = 0;
 
 	reset = 0;

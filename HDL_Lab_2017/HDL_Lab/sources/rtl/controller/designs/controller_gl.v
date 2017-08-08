@@ -2,15 +2,15 @@
 module controller ( clk, reset, decoder_load_in, decoder_store_in, 
         fetch_load_in, decoder_src_mem_addr_in, mem_output_valid_in, 
         mem_write_ready_in, stall_mem2fetch_out, addr_select_out, 
-        read_en_sel_out, word_select_out, stall_any2decoder_out, state );
+        read_en_sel_out, word_select_out, stall_any2decoder_out );
   output [1:0] addr_select_out;
-  output [1:0] state;
   input clk, reset, decoder_load_in, decoder_store_in, fetch_load_in,
          decoder_src_mem_addr_in, mem_output_valid_in, mem_write_ready_in;
   output stall_mem2fetch_out, read_en_sel_out, word_select_out,
          stall_any2decoder_out;
   wire   turn, n15, n18, n19, n20, n21, n22, n23, n24, n25, n26, n27, n28, n29,
          n32, n33, n34;
+  wire   [1:0] state;
   wire   [1:0] nextstate;
 
   DFSNXD1BWP12T state_reg_1_ ( .D(nextstate[1]), .CP(clk), .SDN(n15), .Q(

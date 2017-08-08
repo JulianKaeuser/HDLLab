@@ -3,7 +3,7 @@
 Report : design
 Design : controller
 Version: I-2013.12-SP5-3
-Date   : Tue Aug  8 12:37:55 2017
+Date   : Tue Aug  8 14:01:13 2017
 ****************************************
 
 Design allows ideal nets on clock nets.
