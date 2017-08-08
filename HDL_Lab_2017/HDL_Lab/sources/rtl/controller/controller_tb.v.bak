@@ -47,20 +47,77 @@ initial begin
 
 	reset = 0;
 	
-	#1;
+	#2; //Fetch cycle
 	decoder_load_in = 0;
 	decoder_store_in = 0;
 	fetch_load_in = 1;
-	//fetch_stall2decoder_in = 0;
 	decoder_src_mem_addr_in = 0;
 	mem_output_valid_in = 0;
 	mem_write_ready_in = 0;
-	#5;
+	#4;
 	mem_output_valid_in = 1;
 	#4;
 	mem_output_valid_in = 0;
 	fetch_load_in = 0;
+	#4; // end fetch cycle
+
+	#4; // load decoder cycle
+	decoder_load_in = 1;
+	decoder_store_in = 0;
+	fetch_load_in = 0;
+	decoder_src_mem_addr_in = 0;
+	mem_output_valid_in = 0;
+	mem_write_ready_in = 0;
 	#4;
+	mem_output_valid_in = 1;
+	#4;
+	mem_output_valid_in = 0;
+	decoder_load_in = 0;
+	#4; //end load decoder cycle
+
+	#4; // store decoder cycle
+	decoder_load_in = 0;
+	decoder_store_in = 1;
+	fetch_load_in = 0;
+	decoder_src_mem_addr_in = 1;
+	mem_output_valid_in = 0;
+	mem_write_ready_in = 0;
+	#4;
+	mem_write_ready_in = 1;
+	#4;
+	mem_write_ready_in = 0;
+	decoder_store_in = 0;
+	#4; //store load decoder cycle
+
+	#4; // store decoder cycle + reset
+	decoder_load_in = 0;
+	decoder_store_in = 1;
+	fetch_load_in = 0;
+	decoder_src_mem_addr_in = 0;
+	mem_output_valid_in = 0;
+	mem_write_ready_in = 0;
+	#4;
+	mem_write_ready_in = 1;
+	reset = 1;
+	decoder_store_in = 0;
+	mem_write_ready_in = 0;
+	#8;
+	reset = 0;
+	#4; //store load decoder cycle + reset
+
+	#4; // store decoder cycle + (fetch cycle)
+	decoder_load_in = 0;
+	decoder_store_in = 1;
+	fetch_load_in = 1;
+	decoder_src_mem_addr_in = 1;
+	mem_output_valid_in = 0;
+	mem_write_ready_in = 0;
+	#4;
+	mem_write_ready_in = 1;
+	#4;
+	mem_write_ready_in = 0;
+	decoder_store_in = 0;
+	#4; //store load decoder cycle + (fetch cycle)
 	
 
 end

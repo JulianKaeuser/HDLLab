@@ -168,7 +168,7 @@ always @(*) begin
      STORE_ACCESS: begin
        stall_mem2fetch_out    = 1;
        addr_select_out        = decoder_src_mem_addr_in ? REGFILE_D_ADDR : ALU_RESULT_ADDR;
-       read_en_sel_out        = 1;
+       read_en_sel_out        = ID_READ;
        word_select_out        = DECODER_WORD;
        stall_any2decoder_out  = !mem_write_ready_in;
      end // end STORE_ACCESS
