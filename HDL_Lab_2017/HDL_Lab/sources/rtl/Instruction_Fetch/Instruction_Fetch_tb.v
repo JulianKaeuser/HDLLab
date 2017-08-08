@@ -30,7 +30,7 @@ Instruction_Fetch inst_fetch(.clk(clk), .reset(reset), .stall_decoder_in(stall_d
 	$time, reset, stall_decoder_in, stall_memory, pc_in, instruction_in, read_enable, pc_en, /*stall_decoder_out, address, pc_out, instruction_out, currentState, nextState);
 	*/
 	#2;
-	reset = 0;
+	/*reset = 0;
 	stall_decoder_in = 0;
 	stall_memory = 1;
 	pc_in = 32'b00000000000000000000000000000100;
@@ -60,8 +60,15 @@ Instruction_Fetch inst_fetch(.clk(clk), .reset(reset), .stall_decoder_in(stall_d
 	reset = 0;
 	#4;
 	instruction_in = 16'b1110011000101010;
-	pc_in = 32'b00000000000000000000000000001000;	
-	
+	pc_in = 32'b00000000000000000000000000001000;*/
+
+	reset = 0;
+	stall_memory = 0;
+	stall_decoder_in = 1;	
+	pc_in = 32'b00000000000000000000000000000100;
+	instruction_in = 16'bx;
+	#4;
+	stall_decoder_in = 0;	
 	
 	
 

@@ -38,7 +38,7 @@ case(currentState)
 	end
 	B: begin
 		nextState = (stall_memory == 1 || stall_decoder_in == 1) ? B:C;
-		read_enable = 1'b1;
+		read_enable = (stall_decoder_in == 0) ? 1'b1: 1'b0;
 		pc_en = 1'b0;
 		//stall_decoder_out = 1'b0;
 		address = pc_in - 4;

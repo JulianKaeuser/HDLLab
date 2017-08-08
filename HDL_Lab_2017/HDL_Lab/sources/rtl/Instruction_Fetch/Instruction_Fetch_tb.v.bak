@@ -31,12 +31,12 @@ Instruction_Fetch inst_fetch(.clk(clk), .reset(reset), .stall_decoder_in(stall_d
 	*/
 	#2;
 	reset = 0;
-	stall_decoder_in = 1;
-	stall_memory = 0;
+	stall_decoder_in = 0;
+	stall_memory = 1;
 	pc_in = 32'b00000000000000000000000000000100;
 	instruction_in = 16'bx;
 	#20;
-	stall_decoder = 0;
+	stall_memory = 0;
 	#4;
 	instruction_in = 16'b1010101010101010;
 	pc_in = 32'b00000000000000000000000000001000;
@@ -44,11 +44,9 @@ Instruction_Fetch inst_fetch(.clk(clk), .reset(reset), .stall_decoder_in(stall_d
 	instruction_in = 16'b1100100001111001;
 	pc_in = 32'b00000000000000000000000000001100;
 	#4;
-	stall_memory = 1;
 	#12;
 	stall_decoder_in = 1;
 	#8;
-	stall_memory = 0;
 	stall_decoder_in = 0;
 	#4;
 	instruction_in = 16'b0001110000111100;

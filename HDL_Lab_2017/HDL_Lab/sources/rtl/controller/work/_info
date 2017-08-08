@@ -22,7 +22,7 @@ w1502183377
 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller.v
 L0 1
 Z2 OL;L;10.3d;59
-!s108 1502184006.023568
+!s108 1502186109.606731
 !s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller.v|
 !i113 0
@@ -41,7 +41,7 @@ w1502183991
 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller_tb.v
 L0 3
 R2
-!s108 1502184006.101678
+!s108 1502186109.667880
 !s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller_tb.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller_tb.v|
 !i113 0
