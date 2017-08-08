@@ -4,14 +4,15 @@ set DC_LIB_NAME		"TSMC 40nm LP"
 
 #**************************************#
 set PATH "/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab"
-set PROJECT_NAME "Instruction_Fetch"
-set FILE_NAME "Instruction_Fetch"
-set FILE_LIST {Instruction_Fetch.v}
+set PROJECT_NAME "controller"
+set FILE_NAME "controller"
+set FILE_LIST {controller.v}
 # set your own values here
 #**************************************#
 
 set PROJECT_PATH "${PATH}/sources/rtl/${PROJECT_NAME}"
 set REP_PATH "${PATH}/reports/${PROJECT_NAME}"
+file mkdir ${REP_PATH}
 # set TOP_LEVEL_MODULE "${PROJECT_NAME}"
 set TOP_LEVEL_MODULE "${FILE_NAME}"
 

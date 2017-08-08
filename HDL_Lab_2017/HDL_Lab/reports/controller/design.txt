@@ -1,9 +1,9 @@
  
 ****************************************
 Report : design
-Design : Instruction_Fetch
+Design : controller
 Version: I-2013.12-SP5-3
-Date   : Tue Aug  8 12:09:57 2017
+Date   : Tue Aug  8 12:37:55 2017
 ****************************************
 
 Design allows ideal nets on clock nets.
@@ -89,7 +89,7 @@ Disabled Timing Arcs:
 
 Required Licenses:
 
-    DesignWare
+    None Required
 
 Design Parameters:
 

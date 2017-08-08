@@ -6,9 +6,9 @@ Warning: Design has unannotated sequential cell outputs. (PWR-415)
 ****************************************
 Report : power
         -analysis_effort low
-Design : Instruction_Fetch
+Design : controller
 Version: I-2013.12-SP5-3
-Date   : Tue Aug  8 12:10:10 2017
+Date   : Tue Aug  8 12:38:09 2017
 ****************************************
 
 
@@ -22,7 +22,7 @@ Wire Load Model Mode: segmented
 
 Design        Wire Load Model            Library
 ------------------------------------------------
-Instruction_Fetch      ZeroWireload      tcbn45gsbwp12ttc_ccs
+controller             ZeroWireload      tcbn45gsbwp12ttc_ccs
 
 
 Global Operating Voltage = 0.9  
@@ -34,12 +34,12 @@ Power-specific unit information :
     Leakage Power Units = 1nW
 
 
-  Cell Internal Power  = 102.3892 uW   (91%)
-  Net Switching Power  =   9.6159 uW    (9%)
+  Cell Internal Power  =  13.1732 uW   (85%)
+  Net Switching Power  =   2.2511 uW   (15%)
                          ---------
-Total Dynamic Power    = 112.0051 uW  (100%)
+Total Dynamic Power    =  15.4244 uW  (100%)
 
-Cell Leakage Power     =   3.8010 uW
+Cell Leakage Power     = 548.0340 nW
 
 
                  Internal         Switching           Leakage            Total
@@ -49,9 +49,9 @@ io_pad             0.0000            0.0000            0.0000            0.0000 
 memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
 black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
 clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
-register       9.2599e-02        1.3849e-03        1.7319e+03        9.5716e-02  (  82.65%)
+register       1.1059e-02        7.0757e-04          241.0601        1.2007e-02  (  75.17%)
 sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
-combinational  9.7897e-03        8.2310e-03        2.0691e+03        2.0090e-02  (  17.35%)
+combinational  2.1146e-03        1.5436e-03          306.9739        3.9652e-03  (  24.83%)
 --------------------------------------------------------------------------------------------------
-Total              0.1024 mW     9.6159e-03 mW     3.8010e+03 nW         0.1158 mW
+Total          1.3173e-02 mW     2.2511e-03 mW       548.0340 nW     1.5972e-02 mW
 1
