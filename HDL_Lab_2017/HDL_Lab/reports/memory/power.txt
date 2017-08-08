@@ -1,0 +1,57 @@
+Loading db file '/cad/synopsys/libs/TSMC_40nm/digital/Front_End/timing_power_noise/CCS/tcbn45gsbwp12t_200a/tcbn45gsbwp12ttc_ccs.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : controller
+Version: I-2013.12-SP5-3
+Date   : Tue Aug  8 14:22:40 2017
+****************************************
+
+
+Library(s) Used:
+
+    tcbn45gsbwp12ttc_ccs (File: /cad/synopsys/libs/TSMC_40nm/digital/Front_End/timing_power_noise/CCS/tcbn45gsbwp12t_200a/tcbn45gsbwp12ttc_ccs.db)
+
+
+Operating Conditions: NCCOM   Library: tcbn45gsbwp12ttc_ccs
+Wire Load Model Mode: segmented
+
+Design        Wire Load Model            Library
+------------------------------------------------
+controller             ZeroWireload      tcbn45gsbwp12ttc_ccs
+
+
+Global Operating Voltage = 0.9  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+  Cell Internal Power  =  16.2997 uW   (87%)
+  Net Switching Power  =   2.4794 uW   (13%)
+                         ---------
+Total Dynamic Power    =  18.7791 uW  (100%)
+
+Cell Leakage Power     = 568.7750 nW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register       1.3535e-02        1.1923e-03          235.6985        1.4963e-02  (  77.34%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational  2.7643e-03        1.2871e-03          333.0764        4.3844e-03  (  22.66%)
+--------------------------------------------------------------------------------------------------
+Total          1.6300e-02 mW     2.4794e-03 mW       568.7749 nW     1.9348e-02 mW
+1

@@ -4,9 +4,9 @@ set DC_LIB_NAME		"TSMC 40nm LP"
 
 #**************************************#
 set PATH "/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab"
-set PROJECT_NAME "controller"
-set FILE_NAME "controller"
-set FILE_LIST {controller.v}
+set PROJECT_NAME "memory"
+set FILE_NAME "memory_interface"
+set FILE_LIST {memory_interface.v}
 # set your own values here
 #**************************************#
 
