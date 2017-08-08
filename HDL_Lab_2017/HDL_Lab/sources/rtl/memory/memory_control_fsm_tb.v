@@ -58,6 +58,7 @@ wire write_ready;
 wire old_or_new_byte_remainder;
 wire modified_or_original_address;
 wire added_or_delayed_address;
+wire output_shuffle;
 
 wire mem_read_enable;
 wire mem_write_enable;
@@ -113,6 +114,7 @@ memory_control_fsm dut (
  .added_or_delayed_address(added_or_delayed_address),
  .first_two_bytes_out_select(first_two_bytes_out_select),
  .third_byte_out_select(third_byte_out_select),
+ .output_shuffle(output_shuffle),
  .mem_read_enable(fsm_read_out),
  .mem_write_enable(fsm_write_out),
  .mem_enable(mem_enable),
@@ -126,13 +128,14 @@ $dumpfile(output_file);
 $dumpvars;
 
 //$display("\t\ttime,\tclk");
-$monitor("%d, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b",
+$monitor("%d, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b",
 $time,
  output_valid,
  write_ready,
  old_or_new_byte_remainder,
  modified_or_original_address,
  added_or_delayed_address,
+ output_shuffle,
  mem_read_enable,
  mem_write_enable,
  mem_enable,
@@ -157,6 +160,7 @@ end
 
 initial begin
 clk = 1;
+
 
 // initial values
 display   = INIT;

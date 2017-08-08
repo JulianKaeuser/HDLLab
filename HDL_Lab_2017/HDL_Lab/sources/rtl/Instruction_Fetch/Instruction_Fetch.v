@@ -1,4 +1,15 @@
-module Instruction_Fetch(input clk, reset, stall_decoder_in, stall_memory, input[31:0] pc_in, input[15:0] instruction_in, output reg read_enable, pc_en, /*stall_decoder_out,*/  output reg[11:0] address, output reg [31:0] pc_out, output reg[15:0] instruction_out);
+module Instruction_Fetch(
+
+input clk, reset, stall_decoder_in, stall_memory, 
+input[31:0] pc_in, 
+input[15:0] instruction_in, 
+
+output reg read_enable, pc_en, /*stall_decoder_out,*/  
+output reg[11:0] address, 
+output reg [31:0] pc_out, 
+output reg[15:0] instruction_out
+
+);
 
 
 localparam[1:0]
@@ -68,11 +79,13 @@ case(currentState)
 	end
 endcase
 end
+
 always@(posedge clk or posedge reset) begin
 	if(reset) begin
 	currentState <= A;
 	instruction_out <= instruction;
 	end
+	
 	else begin
 	currentState <= nextState;
 	instruction_out <= instruction;
