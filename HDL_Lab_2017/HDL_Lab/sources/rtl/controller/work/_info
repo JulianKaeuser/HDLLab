@@ -9,40 +9,42 @@ z2
 cModel Technology
 d/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch
 vcontroller
-Z0 V`JN@9S9cnhjKRR_L]QIcM3
-r1
-!s85 0
-31
+Z0 !s110 1502193620
 !i10b 1
-!s100 h9j<APfFh2<K]fF>UBB;H0
-IVP_THWNfSFP<MQi_:B8jG3
-Z1 d/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller
-w1502183377
+!s100 XOG8ZWj]nJLdzKjk`XF871
+ICQ9G<1B9SM^CP=1aKJU_O1
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+Z2 d/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller
+w1502193565
 8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller.v
 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller.v
 L0 1
-Z2 OL;L;10.3d;59
-!s108 1502186109.606731
-!s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller.v|
-!i113 0
-Z3 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-vcontroller_tb
-R0
+Z3 OL;L;10.3d;59
 r1
 !s85 0
 31
+!s108 1502193620.777424
+!s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller.v|
+!i113 0
+Z4 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vcontroller_tb
+R0
 !i10b 1
-!s100 D=iC@VNM7Gnh1S6?B]c^B1
-IjSm4MiClNaXV<hNh5AGN53
+!s100 j1A4jQ^bd<OQKo>Whb>D_1
+I]W3Il;@hh@BgeeEEhAICH0
 R1
-w1502183991
+R2
+w1502193618
 8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller_tb.v
 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller_tb.v
 L0 3
-R2
-!s108 1502186109.667880
+R3
+r1
+!s85 0
+31
+!s108 1502193620.900087
 !s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller_tb.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller_tb.v|
 !i113 0
-R3
+R4

@@ -3,7 +3,7 @@
 Report : resources
 Design : Instruction_Fetch
 Version: I-2013.12-SP5-3
-Date   : Tue Aug  8 09:08:17 2017
+Date   : Tue Aug  8 12:10:10 2017
 ****************************************
 
 
@@ -12,29 +12,9 @@ Resource Report for this hierarchy in file
 =============================================================================
 | Cell           | Module         | Parameters | Contained Operations       |
 =============================================================================
-| sub_x_1        | DW01_sub       | width=12   | sub_33 (Instruction_Fetch.v:33) |
-            |                |            | sub_40 (Instruction_Fetch.v:40) |
-| DP_OP_20J1_122_5772             |            |                            |
-|                | DP_OP_20J1_122_5772 |       |                            |
+| add_x_1        | DW01_add       | width=32   | add_25 (Instruction_Fetch.v:25) |
+| sub_x_2        | DW01_sub       | width=12   | sub_44 (Instruction_Fetch.v:44) |
 =============================================================================
-
-Datapath Report for DP_OP_20J1_122_5772
-==============================================================================
-| Cell                 | Contained Operations                                |
-==============================================================================
-| DP_OP_20J1_122_5772  | mult_add_14_aco (Instruction_Fetch.v:14)            |
-|                      | add_14_aco (Instruction_Fetch.v:14)                 |
-==============================================================================
-
-==============================================================================
-|       |      | Data     |       |                                          |
-| Var   | Type | Class    | Width | Expression                               |
-==============================================================================
-| I1    | PI   | Unsigned | 32    |                                          |
-| I2    | PI   | Unsigned | 1     |                                          |
-| T4    | IFO  | Unsigned | 32    | I1 * I2 (Instruction_Fetch.v:14)         |
-| O1    | PO   | Unsigned | 32    | T4 + $unsigned(3'b100) (Instruction_Fetch.v:14) |
-==============================================================================
 
 
 Implementation Report
@@ -42,9 +22,8 @@ Implementation Report
 |                    |                  | Current            | Set            |
 | Cell               | Module           | Implementation     | Implementation |
 ===============================================================================
-| sub_x_1            | DW01_sub         | apparch (area)     |                |
-| DP_OP_20J1_122_5772                   |                    |                |
-|                    | DP_OP_20J1_122_5772 | str (area)      |                |
+| add_x_1            | DW01_add         | apparch (area)     |                |
+| sub_x_2            | DW01_sub         | apparch (area)     |                |
 ===============================================================================
 
 1

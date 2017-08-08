@@ -3,7 +3,7 @@
 Report : area
 Design : Instruction_Fetch
 Version: I-2013.12-SP5-3
-Date   : Tue Aug  8 09:08:17 2017
+Date   : Tue Aug  8 12:10:10 2017
 ****************************************
 
 Library(s) Used:
@@ -11,20 +11,20 @@ Library(s) Used:
     tcbn45gsbwp12ttc_ccs (File: /cad/synopsys/libs/TSMC_40nm/digital/Front_End/timing_power_noise/CCS/tcbn45gsbwp12t_200a/tcbn45gsbwp12ttc_ccs.db)
 
 Number of ports:                          114
-Number of nets:                           271
-Number of cells:                          219
-Number of combinational cells:            201
+Number of nets:                           251
+Number of cells:                          198
+Number of combinational cells:            180
 Number of sequential cells:                18
 Number of macros/black boxes:               0
-Number of buf/inv:                         24
-Number of references:                      26
+Number of buf/inv:                         35
+Number of references:                      19
 
-Combinational area:                239.198403
-Buf/Inv area:                       16.934401
-Noncombinational area:             119.951997
+Combinational area:                204.859202
+Buf/Inv area:                       24.696001
+Noncombinational area:             120.892797
 Macro/Black Box area:                0.000000
 Net Interconnect area:      undefined  (Wire load has zero net area)
 
-Total cell area:                   359.150400
+Total cell area:                   325.751999
 Total area:                 undefined
 1

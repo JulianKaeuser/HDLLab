@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : controller
+Version: I-2013.12-SP5-3
+Date   : Tue Aug  8 14:01:14 2017
+****************************************
+
+Library(s) Used:
+
+    tcbn45gsbwp12ttc_ccs (File: /cad/synopsys/libs/TSMC_40nm/digital/Front_End/timing_power_noise/CCS/tcbn45gsbwp12t_200a/tcbn45gsbwp12ttc_ccs.db)
+
+Number of ports:                           14
+Number of nets:                            35
+Number of cells:                           24
+Number of combinational cells:             21
+Number of sequential cells:                 3
+Number of macros/black boxes:               0
+Number of buf/inv:                          4
+Number of references:                      16
+
+Combinational area:                 25.872000
+Buf/Inv area:                        3.292800
+Noncombinational area:              18.816000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                    44.688000
+Total area:                 undefined
+1
