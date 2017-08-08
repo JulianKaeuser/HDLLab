@@ -1,9 +1,9 @@
  
 ****************************************
 Report : design
-Design : controller
+Design : memory_control_fsm
 Version: I-2013.12-SP5-3
-Date   : Tue Aug  8 14:22:27 2017
+Date   : Tue Aug  8 14:51:56 2017
 ****************************************
 
 Design allows ideal nets on clock nets.

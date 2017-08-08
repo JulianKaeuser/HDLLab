@@ -3,18 +3,14 @@
 Report : design
 Design : controller
 Version: I-2013.12-SP5-3
-Date   : Tue Aug  8 14:01:13 2017
+Date   : Tue Aug  8 15:29:29 2017
 ****************************************
 
 Design allows ideal nets on clock nets.
 
 Library(s) Used:
 
-    tcbn45gsbwp12ttc_ccs (File: /cad/synopsys/libs/TSMC_40nm/digital/Front_End/timing_power_noise/CCS/tcbn45gsbwp12t_200a/tcbn45gsbwp12ttc_ccs.db)
-
-Local Link Library:
-
-    {/cad/synopsys/libs/TSMC_40nm/digital/Front_End/timing_power_noise/CCS/tcbn45gsbwp12t_200a/tcbn45gsbwp12ttc_ccs.db}
+    gtech (File: /cad/synopsys/tools/syn_vI-2013.12-SP5-3/libraries/syn/gtech.db)
 
 Flip-Flop Types:
 
@@ -36,7 +32,7 @@ Operating Conditions:
 
 Wire Loading Model:
 
-    Selected automatically from the total cell area.
+    Selected from the default (area not fully known).
 
 Name           :   ZeroWireload
 Location       :   tcbn45gsbwp12ttc_ccs
@@ -94,4 +90,6 @@ Required Licenses:
 Design Parameters:
 
     None specified.
+
+Information: This design contains unmapped logic. (RPT-7)
 1

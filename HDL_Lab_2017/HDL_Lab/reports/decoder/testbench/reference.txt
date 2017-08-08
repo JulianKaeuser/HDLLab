@@ -1,0 +1,80 @@
+ 
+****************************************
+Report : reference
+Design : memory_control_fsm
+Version: I-2013.12-SP5-3
+Date   : Tue Aug  8 14:58:46 2017
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+AO21D1BWP12T       tcbn45gsbwp12ttc_ccs
+                                  1.646400       1      1.646400  
+AOI21D1BWP12T      tcbn45gsbwp12ttc_ccs
+                                  1.411200       3      4.233600  
+AOI22D0BWP12T      tcbn45gsbwp12ttc_ccs
+                                  1.646400       1      1.646400  
+CKBD1BWP12T        tcbn45gsbwp12ttc_ccs
+                                  0.940800       1      0.940800  
+CKND0BWP12T        tcbn45gsbwp12ttc_ccs
+                                  0.705600       1      0.705600  
+CKND2D0BWP12T      tcbn45gsbwp12ttc_ccs
+                                  0.940800       4      3.763200  
+CKND2D1BWP12T      tcbn45gsbwp12ttc_ccs
+                                  0.940800       3      2.822400  
+DFQD1BWP12T        tcbn45gsbwp12ttc_ccs
+                                  4.939200       1      4.939200  n
+DFXD1BWP12T        tcbn45gsbwp12ttc_ccs
+                                  5.409600       3     16.228799  n
+IND2D1BWP12T       tcbn45gsbwp12ttc_ccs
+                                  1.411200       2      2.822400  
+IND3D0BWP12T       tcbn45gsbwp12ttc_ccs
+                                  1.646400       2      3.292800  
+INR3D0BWP12T       tcbn45gsbwp12ttc_ccs
+                                  1.646400       1      1.646400  
+INVD1BWP12T        tcbn45gsbwp12ttc_ccs
+                                  0.705600      10      7.056000  
+IOA21D0BWP12T      tcbn45gsbwp12ttc_ccs
+                                  1.646400       1      1.646400  
+IOA21D1BWP12T      tcbn45gsbwp12ttc_ccs
+                                  1.646400       1      1.646400  
+MOAI22D0BWP12T     tcbn45gsbwp12ttc_ccs
+                                  1.881600       1      1.881600  
+ND2D1BWP12T        tcbn45gsbwp12ttc_ccs
+                                  0.940800       2      1.881600  
+NR2D0BWP12T        tcbn45gsbwp12ttc_ccs
+                                  0.940800       3      2.822400  
+NR2D1BWP12T        tcbn45gsbwp12ttc_ccs
+                                  0.940800       3      2.822400  
+NR3D0BWP12T        tcbn45gsbwp12ttc_ccs
+                                  1.411200       2      2.822400  
+NR3D1BWP12T        tcbn45gsbwp12ttc_ccs
+                                  1.411200       1      1.411200  
+OAI21D0BWP12T      tcbn45gsbwp12ttc_ccs
+                                  1.411200       1      1.411200  
+OAI32D0BWP12T      tcbn45gsbwp12ttc_ccs
+                                  1.881600       1      1.881600  
+OAI32D1BWP12T      tcbn45gsbwp12ttc_ccs
+                                  1.881600       2      3.763200  
+OR3XD0BWP12T       tcbn45gsbwp12ttc_ccs
+                                  1.646400       1      1.646400  
+OR3XD1BWP12T       tcbn45gsbwp12ttc_ccs
+                                  1.646400       2      3.292800  
+TIELBWP12T         tcbn45gsbwp12ttc_ccs
+                                  0.705600       1      0.705600  
+TPAOI21D0BWP12T    tcbn45gsbwp12ttc_ccs
+                                  1.411200       1      1.411200  
+-----------------------------------------------------------------------------
+Total 28 references                                    82.790400
+1
