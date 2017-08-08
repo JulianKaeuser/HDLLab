@@ -2,10 +2,10 @@ module Instruction_Fetch(input clk, reset, stall_decoder_in, stall_memory, input
 
 
 localparam[1:0]
-A = 2'b00,
-B = 2'b01,
-C = 2'b10,
-D = 2'b11;
+A = 2'b01,
+B = 2'b00,
+C = 2'b10;
+//D = 2'b11;
 
 reg[1:0] currentState, nextState;
 reg [15:0] instruction;
@@ -17,8 +17,8 @@ pc_out = pc_in + 4;
 case(currentState)
 		
 	A: begin
-		nextState = (reset == 1) ? A:C;
-		pc_out = 32'b0;
+		nextState = (reset == 1) ? A:B;
+		pc_out = 32'b00000000000000000000000000000100;
 		read_enable = 1'b1;
 		pc_en = 1'b1;
 		address = 12'b0;
@@ -27,17 +27,17 @@ case(currentState)
 	end
 	B: begin
 		nextState = (stall_memory == 1 || stall_decoder_in == 1) ? B:C;
-		read_enable = (stall_memory == 0) ? 1'b1 : 1'b0;
-		pc_en = (stall_decoder_in == 0) ? 1'b1: 1'b0;
+		read_enable = 1'b1;
+		pc_en = 1'b0;
 		//stall_decoder_out = 1'b0;
-		address = pc_in;
+		address = pc_in - 4;
 		instruction = instruction_out;
 	end
-	C: begin
+	/*C: begin
 		nextState = (stall_memory == 0) ? C:D;
 		read_enable = (stall_memory == 1) ? 1'b0:1'b1;
 		pc_en = 1'b1;
-		address = pc_in;
+		address = pc_in - 4;
 		//stall_decoder_out = 1'b1;
 		instruction = instruction_out;
 	end
@@ -46,6 +46,14 @@ case(currentState)
 		read_enable = 1'b0;
 		//stall_decoder_out = 1'b1;
 		instruction= (stall_memory == 1) ? instruction_out: instruction_in ;
+		pc_en = 1'b1;
+		address = 12'bx;
+	end*/
+	C: begin
+		nextState = B;
+		read_enable = 1'b0;
+		//stall_decoder_out = 1'b1;
+		instruction=  instruction_in ;
 		pc_en = 1'b1;
 		address = 12'bx;
 	end

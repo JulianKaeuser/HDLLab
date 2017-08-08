@@ -1,0 +1,48 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch
+vcontroller
+Z0 V`JN@9S9cnhjKRR_L]QIcM3
+r1
+!s85 0
+31
+!i10b 1
+!s100 GRbZ`l1@i>bES4[nklm9R3
+IYAJQ][RQN]C5YZCEJ<niE3
+Z1 d/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller
+w1502177911
+8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller.v
+F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller.v
+L0 1
+Z2 OL;L;10.3d;59
+!s108 1502181676.828491
+!s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller.v|
+!i113 0
+Z3 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vcontroller_tb
+R0
+r1
+!s85 0
+31
+!i10b 1
+!s100 C^XfN[@nk?=6Vf5NeZ23H2
+I`?C@k;4Vgn1bc5aJal8Le3
+R1
+w1502181672
+8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller_tb.v
+F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller_tb.v
+L0 3
+R2
+!s108 1502181676.890949
+!s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller_tb.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller_tb.v|
+!i113 0
+R3

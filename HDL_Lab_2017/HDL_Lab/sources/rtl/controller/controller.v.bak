@@ -4,7 +4,7 @@ reset,
 decoder_load_in,
 decoder_store_in,
 fetch_load_in,
-//fetch_stall2decoder_in,
+fetch_stall2decoder_in,
 //decoder_stall2fetch_in,
 decoder_src_mem_addr_in,
 //mem_busy_in,
@@ -24,7 +24,7 @@ input reset;
 input decoder_store_in;
 input decoder_load_in;
 input fetch_load_in;
-//input fetch_stall2decoder_in;
+input fetch_stall2decoder_in;
 //input decoder_stall2fetch_in;
 input decoder_src_mem_addr_in;
 //input mem_busy_in;

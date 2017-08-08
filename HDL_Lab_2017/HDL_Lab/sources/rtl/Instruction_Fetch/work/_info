@@ -18,42 +18,44 @@ n@_opt
 OL;O;10.3d;59
 R0
 vInstruction_Fetch
-Z1 V`JN@9S9cnhjKRR_L]QIcM3
-r1
-!s85 0
-31
+Z1 !s110 1502181243
 !i10b 1
-!s100 glLd`Mb[APJ`mC1S`@k[82
-ImmX?00a<5QD=JA`bN37G43
-Z2 d/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch
-w1502109000
+!s100 CiHP=dFjcMm=M[L?^z4;e3
+IJJzbiIcbjJR48T`_d2dF>1
+Z2 V`JN@9S9cnhjKRR_L]QIcM3
+Z3 d/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch
+w1502179628
 8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v
 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v
 L0 1
-Z3 OL;L;10.3d;59
-!s108 1502109035.795806
-!s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v|
-!i113 0
-Z4 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-n@instruction_@fetch
-vInstruction_Fetch_tb
-R1
+Z4 OL;L;10.3d;59
 r1
 !s85 0
 31
+!s108 1502181243.834066
+!s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v|
+!i113 0
+Z5 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+n@instruction_@fetch
+vInstruction_Fetch_tb
+R1
 !i10b 1
-!s100 Y75XzH<Rz3JzLIIJWS<Bf0
-I4h?0h9bak@7oDkBPJ@`8S1
+!s100 MSk_V72MWNb0jV=UWgT@D0
+Ii<@[d<2`Y[FG:Y4S^YL=:0
 R2
-w1502108496
+R3
+w1502180817
 8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_tb.v
 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_tb.v
 L0 2
-R3
-!s108 1502109035.850566
+R4
+r1
+!s85 0
+31
+!s108 1502181243.887058
 !s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_tb.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_tb.v|
 !i113 0
-R4
+R5
 n@instruction_@fetch_tb
