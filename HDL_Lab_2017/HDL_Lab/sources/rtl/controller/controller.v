@@ -78,13 +78,13 @@ localparam LOAD_ACCESS = 2'b10;
 localparam STORE_ACCESS = 2'b01;
 // filflops
 always @(posedge clk or posedge reset) begin
- if (!reset) begin
-     state <= nextstate;
-     turn <= nextturn;
+ if (reset) begin
+	state <= RESET_STATE;
+	turn <= 0;
 end
  else begin
-     state <= RESET_STATE;
-     turn <= 0;
+     state <= nextstate;
+     turn <= nextturn;
 end
 end
 
@@ -92,6 +92,8 @@ end
 always @(*) begin
   case (state)
     RESET_STATE: begin
+	nextstate = IDLE;
+	nextturn = IF_TURN;
     end // end RESET_STATE
 
     IDLE: begin
@@ -114,21 +116,29 @@ always @(*) begin
     end // end IDLE
 
     LOAD_ACCESS: begin
-		if(!mem_output_valid_in)
+		if(!mem_output_valid_in) begin
 			nextstate = LOAD_ACCESS;
-		else
+			nextturn = turn;
+		end
+		else begin
 			nextstate = IDLE;
+			nextturn = turn;
+		end
 	
     end //end LOAD_ACCESS
 
-	STORE_ACCESS: begin
-		if(!mem_write_ready_in)
+    STORE_ACCESS: begin
+		if(!mem_write_ready_in) begin
 			nextstate = STORE_ACCESS;
-		else
+			nextturn = turn;
+		end
+		else begin
 			nextstate = IDLE;
+			nextturn = turn;
+		end
 	end //end STORE_ACCESS
 
-	default: begin
+     default: begin
 		nextstate = IDLE;
 		nextturn = IF_TURN;
 	end
@@ -149,16 +159,16 @@ always @(*) begin
 
      IDLE: begin
        //stall_decoder2fetch_out=  id_request ? 1 : 0;
-       stall_mem2fetch_out    =  id_request ? 1 : 0;
+       stall_mem2fetch_out    =  id_request ? 1'b1 : 1'b0;
        addr_select_out        =  id_request ? (decoder_src_mem_addr_in ? REGFILE_D_ADDR : ALU_RESULT_ADDR):(IF_ADDR);
        read_en_sel_out        =  id_request ? ID_READ : IF_READ;
        word_select_out        =  id_request ? DECODER_WORD : HALFWORD;
-       stall_any2decoder_out  =  id_request ? 0 : (fetch_load_in ? 1 : 0);
+       stall_any2decoder_out  =  id_request ? 1'b0 : (fetch_load_in ? 1'b1 : 1'b0);
      end // end idle state
 
      LOAD_ACCESS: begin
        //stall_decoder2fetch_out=  ;
-       stall_mem2fetch_out    =  (turn == ID_TURN) ? 1 : 0 /*!mem_output_valid_in*/;
+       stall_mem2fetch_out    =  (turn == ID_TURN) ? 1'b1 : 1'b0 /*!mem_output_valid_in*/;
        addr_select_out        =  (turn == ID_TURN) ? (decoder_src_mem_addr_in ? REGFILE_D_ADDR : ALU_RESULT_ADDR) : (IF_ADDR);
        read_en_sel_out        =  (turn == ID_TURN) ? ID_READ : IF_READ;
        word_select_out        =  (turn == ID_TURN) ? DECODER_WORD : HALFWORD;
@@ -175,11 +185,11 @@ always @(*) begin
 	
 	default: begin
 	   //stall_decoder2fetch_out=  id_request ? 1 : 0;
-       stall_mem2fetch_out    =  id_request ? 1 : 0;
+       stall_mem2fetch_out    =  id_request ? 1'b1 : 1'b0;
        addr_select_out        =  id_request ? (decoder_src_mem_addr_in ? REGFILE_D_ADDR : ALU_RESULT_ADDR):(IF_ADDR);
        read_en_sel_out        =  id_request ? ID_READ : IF_READ;
        word_select_out        =  id_request ? DECODER_WORD : HALFWORD;
-       stall_any2decoder_out  =  id_request ? 0 : (fetch_load_in ? 1 : 0);
+       stall_any2decoder_out  =  id_request ? 1'b0 : (fetch_load_in ? 1'b1 : 1'b0);
 	end
    endcase
 end

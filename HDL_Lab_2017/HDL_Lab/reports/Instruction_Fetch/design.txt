@@ -3,7 +3,7 @@
 Report : design
 Design : Instruction_Fetch
 Version: I-2013.12-SP5-3
-Date   : Tue Aug  8 09:08:03 2017
+Date   : Tue Aug  8 12:09:57 2017
 ****************************************
 
 Design allows ideal nets on clock nets.

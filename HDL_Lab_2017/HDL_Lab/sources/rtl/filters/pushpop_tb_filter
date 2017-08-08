@@ -1,0 +1,20 @@
+## filter for the testbench on push/pop operations
+
+ b580 PUSH_R7_LR
+ af02 ADD_R7_SP_8
+ 4a08 LDR_R2_PC_32
+ 2300 MOVS_R3_0
+ 6013 STR_R3_R2_0
+ e7fe BN_0
+ 4b06 LDR_R3_PC_24
+ 681b LDR_R3_R3_0
+ 1c5a ADDS_R2_R3_1
+ 4b05 LDR_R3_PC_20
+ 601a STR_R2_R3_0
+ 4b04 LDR_R3_PC_16
+ 2b1f CMP_R3_31
+ ddfe BLE_N_0
+ 1c18 ADDS_R0_R3_0
+ 46bd MOV_SP_R7
+ b082 SUB_SP_8
+ bd80 POP_R7_PC     

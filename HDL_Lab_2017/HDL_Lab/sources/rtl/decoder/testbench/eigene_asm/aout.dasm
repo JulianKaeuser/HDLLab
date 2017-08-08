@@ -1,0 +1,61 @@
+
+a.out:     file format elf32-littlearm
+a.out
+architecture: armv4t, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000028  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  0000005c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  0000005c  2**0
+                  ALLOC
+  3 .ARM.attributes 00000014  00000000  00000000  0000005c  2**0
+                  CONTENTS, READONLY
+SYMBOL TABLE:
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+0000000c l       .text	00000000 _loopstart
+00000016 l       .text	00000000 _loopcheck
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 g       .text	00000000 _start
+00000000         *UND*	00000000 loopcheck
+00000000         *UND*	00000000 loopstart
+
+
+Contents of section .text:
+ 0000 80b502af 084a0023 1360fee7 064b1b68  .....J.#.`...K.h
+ 0010 5a1c054b 1a60044b 1b681f2b fedd0023  Z..K.`.K.h.+...#
+ 0020 181cbd46 82b080bd                    ...F....        
+Contents of section .ARM.attributes:
+ 0000 41130000 00616561 62690001 09000000  A....aeabi......
+ 0010 06020901                             ....            
+
+Disassembly of section .text:
+00000000 <_start> b580      	push	{r7, lr}
+00000002 <_start+0x2> af02      	add	r7, sp, #8
+00000004 <_start+0x4> 4a08      	ldr	r2, [pc, #32]	; (00000028 <_loopcheck+0x12>)
+00000006 <_start+0x6> 2300      	movs	r3, #0
+00000008 <_start+0x8> 6013      	str	r3, [r2, #0]
+0000000a <_start+0xa> e7fe      	b.n	00000000 <loopcheck>
+			a: R_ARM_THM_JUMP11	loopcheck
+0000000c <_loopstart> 4b06      	ldr	r3, [pc, #24]	; (00000028 <_loopcheck+0x12>)
+0000000e <_loopstart+0x2> 681b      	ldr	r3, [r3, #0]
+00000010 <_loopstart+0x4> 1c5a      	adds	r2, r3, #1
+00000012 <_loopstart+0x6> 4b05      	ldr	r3, [pc, #20]	; (00000028 <_loopcheck+0x12>)
+00000014 <_loopstart+0x8> 601a      	str	r2, [r3, #0]
+00000016 <_loopcheck> 4b04      	ldr	r3, [pc, #16]	; (00000028 <_loopcheck+0x12>)
+00000018 <_loopcheck+0x2> 681b      	ldr	r3, [r3, #0]
+0000001a <_loopcheck+0x4> 2b1f      	cmp	r3, #31
+0000001c <_loopcheck+0x6> ddfe      	ble.n	00000000 <loopstart>
+			1c: R_ARM_THM_JUMP8	loopstart
+0000001e <_loopcheck+0x8> 2300      	movs	r3, #0
+00000020 <_loopcheck+0xa> 1c18      	adds	r0, r3, #0
+00000022 <_loopcheck+0xc> 46bd      	mov	sp, r7
+00000024 <_loopcheck+0xe> b082      	sub	sp, #8
+00000026 <_loopcheck+0x10> bd80      	pop	{r7, pc}
