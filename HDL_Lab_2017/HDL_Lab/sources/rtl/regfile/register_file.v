@@ -287,7 +287,7 @@ always @(*) begin
         r3in= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
     else if (write1_sel==R3 && write1_en)
         r3in = write1_in;
-    else if (write2_sel==R2 && write2_en)
+    else if (write2_sel==R3 && write2_en)
         r3in = write2_in;
     else
         r3in= r3;
@@ -404,7 +404,7 @@ end
 // r13 = sp
 always @(*) begin
     if(reset)
-        spin= 32'b0000_0000_0000_0000_0000_1111_1111_1110;
+        spin= 32'b0000_0000_0000_0000_0001_1111_1111_1110;
     else if (write1_sel==SP && write1_en)
         spin = write1_in;
     else if (write2_sel==SP && write2_en)

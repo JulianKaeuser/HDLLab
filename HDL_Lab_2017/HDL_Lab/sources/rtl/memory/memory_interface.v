@@ -59,7 +59,7 @@ localparam ADDR_WIDTH = 12;
 
 
 input [ADDR_WIDTH-1:0] address;
-input [LARGE-1:0] data_in;
+input [LARGE-1:0] data_in;76543210
 input load;
 input store;
 input clk;

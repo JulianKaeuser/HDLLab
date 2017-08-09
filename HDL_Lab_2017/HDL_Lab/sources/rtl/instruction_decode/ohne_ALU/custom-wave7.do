@@ -162,7 +162,7 @@ add wave -noupdate -expand -group Registers -radix decimal /testbench7/UUT/regis
 add wave -noupdate -expand -group Registers -radix decimal /testbench7/UUT/register_file_inst1/pc
 add wave -noupdate -expand -group Registers -radix decimal /testbench7/UUT/register_file_inst1/cpsr
 add wave -noupdate -expand -group Registers -radix decimal /testbench7/UUT/register_file_inst1/tmp1
-add wave -noupdate -expand -group Memory_Controller -radix decimal /testbench7/UUT/memory_interface_inst1/address
+add wave -noupdate -expand -group Memory_Controller -radix unsigned /testbench7/UUT/memory_interface_inst1/address
 add wave -noupdate -expand -group Memory_Controller -radix decimal /testbench7/UUT/memory_interface_inst1/data_in
 add wave -noupdate -expand -group Memory_Controller /testbench7/UUT/memory_interface_inst1/load
 add wave -noupdate -expand -group Memory_Controller /testbench7/UUT/memory_interface_inst1/store
@@ -196,4 +196,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {277322 ps} {301194 ps}
+WaveRestoreZoom {4619 ps} {28491 ps}

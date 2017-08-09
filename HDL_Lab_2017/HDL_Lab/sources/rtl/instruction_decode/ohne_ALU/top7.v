@@ -335,10 +335,10 @@ ALU_VARIABLE  # (
 
     wire [11:0] MEMCTRL_IN_address;
     wire [11:0] IF_instruction_memory_address;
-    wire [11:0] DEC_memory_address;
+    wire [31:0] DEC_memory_address;
     
-    assign MEMCTRL_IN_address = IF_memory_load_req ? IF_instruction_memory_address : DEC_memory_address;
-    assign DEC_memory_address = DEC_MISC_OUT_memory_address_source_is_reg ? RF_MEMCTRL_address_reg[11:0] : ALU_MISC_OUT_result[11:0];
+    assign MEMCTRL_IN_address = IF_memory_load_req ? IF_instruction_memory_address : {DEC_memory_address[12:2], 1'b0};
+    assign DEC_memory_address = DEC_MISC_OUT_memory_address_source_is_reg ? RF_MEMCTRL_address_reg[31:0] : ALU_MISC_OUT_result[31:0];
     
     
     wire MEMCTRL_load_in;
