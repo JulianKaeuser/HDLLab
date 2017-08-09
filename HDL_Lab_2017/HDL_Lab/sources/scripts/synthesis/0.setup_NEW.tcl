@@ -4,11 +4,11 @@ set DC_LIB_NAME		"TSMC 40nm LP"
 
 #**************************************#
 set PATH "/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab"
-set PROJECT_NAME "decoder"
+set PROJECT_NAME "instruction_decode"
 set FILE_NAME "irdec"
 set MODULE_NAME "irdecode"
-set FILE_LIST {irdec.v irdefines.v f_flageval.v}
-set PROJECT_PATH "${PATH}/sources/rtl/${PROJECT_NAME}/testbench"
+set PROJECT_PATH "${PATH}/sources/rtl/${PROJECT_NAME}/ohne_ALU"
+set FILE_LIST {irdec.v f_flageval.v irdefines.v}
 # set your own values here
 #**************************************#
 

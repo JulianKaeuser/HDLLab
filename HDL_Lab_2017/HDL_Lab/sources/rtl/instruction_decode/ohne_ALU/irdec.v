@@ -295,11 +295,13 @@ if (  (next_stall_to_instructionfetch | instruction_valid) &
 	            next_operand_a = {2'b00, instruction[5:3]};
 	            
 	            next_offset_a = `IMM_ZERO;
+		    next_offset_b = 32'b0; // added for: no latch
 	            
 	            next_pc_mask_bit = 1'b0;
 	                      
 	            next_alu_stack_write_to_reg = {2'b00, instruction[2:0]};
 	            next_alu_stack_write_to_reg_enable = 1'b1;
+		    next_alu_opcode = `ORR; // added for: no latch
 	            next_memory_write_to_reg = `RF_NONE;
 	            next_memory_write_to_reg_enable = 1'b0;
 	            
@@ -378,13 +380,17 @@ if (  (next_stall_to_instructionfetch | instruction_valid) &
 	        end
 	        
 	        `FORMAT_3  : begin
+	            next_operand_a = Â`RF_NONE; // added for: no latch
 	            next_operand_b = `RF_IMM;
 	            
 	            next_offset_a = `IMM_ZERO;
 	            next_offset_b = {24'b0000_0000_0000_0000_0000_0000, instruction[7:0]};
+
+		    next_alu_opcode = `ORR; // added for: no latch
 	            
 	            next_pc_mask_bit = 1'b0;
 	            
+	            next_alu_stack_write_to_reg = 5'b0; // added for: no latch
 	            next_memory_write_to_reg = `RF_NONE;
 	            next_memory_write_to_reg_enable = 1'b0;
 	            
@@ -455,12 +461,15 @@ if (  (next_stall_to_instructionfetch | instruction_valid) &
 	        `FORMAT_4  : begin
 	            next_operand_a = {2'b00, instruction[2:0]};
 	            next_operand_b = {2'b00, instruction[5:3]};
+
+		    next_alu_opcode = `ORR; // added for: no latch
 	            
 	            next_offset_a = `IMM_ZERO;
 	            next_offset_b = `IMM_ZERO;
 	            
 	            next_pc_mask_bit = 1'b0;
 	            
+	            next_alu_stack_write_to_reg = 5'b0; // added for: no latch
 	            next_memory_write_to_reg = `RF_NONE;
 	            next_memory_write_to_reg_enable = 1'b0;
 	            
@@ -644,13 +653,17 @@ if (  (next_stall_to_instructionfetch | instruction_valid) &
 	            endcase
 	        end
 	        
-	        `FORMAT_5  : begin                               
+	        `FORMAT_5  : begin   
+	            next_operand_a = Â`RF_NONE; // added for: no latch                            
 	            
 	            next_offset_a = `IMM_ZERO;
 	            next_offset_b = `IMM_ZERO;
+
+		    next_alu_opcode = `ORR; // added for: no latch
 	            
 	            next_pc_mask_bit = 1'b0;
 	            
+	            next_alu_stack_write_to_reg = 5'b0; // added for: no latch
 	            next_memory_write_to_reg = `RF_NONE;
 	            next_memory_write_to_reg_enable = 1'b0;
 	            
@@ -1067,6 +1080,7 @@ if (  (next_stall_to_instructionfetch | instruction_valid) &
 	        end
 	        
 	        `FORMAT_12  : begin
+	            next_operand_a = Â`RF_NONE; // added for: no latch
 	            next_operand_b = `RF_IMM;
 	
 	            next_offset_a = `IMM_ZERO;
@@ -1115,6 +1129,8 @@ if (  (next_stall_to_instructionfetch | instruction_valid) &
 	            
 	            next_offset_a = `IMM_ZERO;
 	            next_offset_b = {23'b0000_0000_0000_0000_0000_000, instruction[6:0], 2'b00};
+
+		    next_alu_opcode = `ORR; // added for: no latch
 	            
 	            next_pc_mask_bit = 1'b0;
 	            
@@ -1586,6 +1602,8 @@ if (  (next_stall_to_instructionfetch | instruction_valid) &
 	            
 	            next_offset_a = `IMM_ZERO;
 	            next_offset_b = 32'b0000_0000_0000_0000_0000_0000_0000_0010;
+
+		    next_alu_opcode = `ORR; // added for: no latch
 	            
 	            next_pc_mask_bit = 1'b0;
 	            
@@ -1604,6 +1622,9 @@ if (  (next_stall_to_instructionfetch | instruction_valid) &
 	            
 	            next_stack_push_request = 1'b0;
 	            next_stack_pop_request = 1'b0;
+
+	            next_stall_to_instructionfetch       = 0; // added for: no latch
+	            next_step                            = 9'b1_1111_1111; // added for: no latch
 	                        
 	            // Instruktionssplit
 	            
@@ -2169,6 +2190,9 @@ if (  (next_stall_to_instructionfetch | instruction_valid) &
 	            
 	            next_stack_push_request = 1'b0;
 	            next_stack_pop_request = 1'b0;
+
+	            next_stall_to_instructionfetch       = 0; // added for: no latch
+	            next_step                            = 9'b1_1111_1111; // added for: no latch
 	                        
 	            // Instruktionssplit
 	            
@@ -2658,10 +2682,14 @@ if (  (next_stall_to_instructionfetch | instruction_valid) &
 	        
 	        end
 	        
-	        `FORMAT_19  : begin                         
+	        `FORMAT_19  : begin   
+	            next_operand_a = Â`RF_NONE; // added for: no latch                      
 	            next_operand_b = `RF_IMM;
 	            
 	            next_offset_a = `IMM_ZERO;
+		    next_offset_b = 32'b0; // added for: no latch
+
+		    next_alu_opcode = `ORR; // added for: no latch
 	            
 	            next_pc_mask_bit = 1'b0;
 	            
@@ -2670,6 +2698,7 @@ if (  (next_stall_to_instructionfetch | instruction_valid) &
 	            next_update_flag_c = 1'b0;
 	            next_update_flag_v = 1'b0;
 	            
+	            next_alu_stack_write_to_reg = 5'b0; // added for: no latch
 	            next_alu_stack_write_to_reg_enable = 1'b1;
 	            next_memory_write_to_reg = `RF_NONE;
 	            next_memory_write_to_reg_enable = 1'b0;
@@ -2685,6 +2714,9 @@ if (  (next_stall_to_instructionfetch | instruction_valid) &
 	            
 	            next_stack_push_request = 1'b0;
 	            next_stack_pop_request = 1'b0;
+
+	            next_stall_to_instructionfetch       = 0; // added for: no latch
+	            next_step                            = 9'b1_1111_1111; // added for: no latch
 	            
 	            casez (instruction[11])
 	                `F19_HIGH : begin

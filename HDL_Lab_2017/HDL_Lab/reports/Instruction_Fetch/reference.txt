@@ -3,7 +3,7 @@
 Report : reference
 Design : Instruction_Fetch
 Version: I-2013.12-SP5-3
-Date   : Tue Aug  8 12:10:10 2017
+Date   : Wed Aug  9 11:40:19 2017
 ****************************************
 
 Attributes:
@@ -19,44 +19,48 @@ Attributes:
 
 Reference          Library       Unit Area   Count    Total Area   Attributes
 -----------------------------------------------------------------------------
+AN2D1BWP12T        tcbn45gsbwp12ttc_ccs
+                                  1.411200       1      1.411200  
+AN2XD0BWP12T       tcbn45gsbwp12ttc_ccs
+                                  1.411200       9     12.700800  
+AO21D0BWP12T       tcbn45gsbwp12ttc_ccs
+                                  1.646400       7     11.524800  
 AOI21D0BWP12T      tcbn45gsbwp12ttc_ccs
                                   1.411200       2      2.822400  
 AOI21D1BWP12T      tcbn45gsbwp12ttc_ccs
-                                  1.411200       4      5.644800  
-AOI22D0BWP12T      tcbn45gsbwp12ttc_ccs
-                                  1.646400      16     26.342400  
+                                  1.411200       5      7.056000  
 AOI211D0BWP12T     tcbn45gsbwp12ttc_ccs
                                   1.646400      16     26.342400  
+AOI211D1BWP12T     tcbn45gsbwp12ttc_ccs
+                                  1.646400       1      1.646400  
 CKND2D0BWP12T      tcbn45gsbwp12ttc_ccs
-                                  0.940800      30     28.224000  
+                                  0.940800       2      1.881600  
 DFCNQD1BWP12T      tcbn45gsbwp12ttc_ccs
                                   5.409600       1      5.409600  n
-DFCSNQD1BWP12T     tcbn45gsbwp12ttc_ccs
-                                  6.820800      16    109.132797  n
-DFSNXD1BWP12T      tcbn45gsbwp12ttc_ccs
-                                  6.350400       1      6.350400  n
+DFCNXD1BWP12T      tcbn45gsbwp12ttc_ccs
+                                  6.115200       1      6.115200  n
 IND2XD1BWP12T      tcbn45gsbwp12ttc_ccs
                                   1.411200       1      1.411200  
 INVD1BWP12T        tcbn45gsbwp12ttc_ccs
-                                  0.705600      35     24.696001  
+                                  0.705600      19     13.406400  
 ND2D1BWP12T        tcbn45gsbwp12ttc_ccs
-                                  0.940800      22     20.697600  
+                                  0.940800      19     17.875200  
 NR2D0BWP12T        tcbn45gsbwp12ttc_ccs
-                                  0.940800      10      9.408000  
+                                  0.940800       1      0.940800  
 NR2D1BWP12T        tcbn45gsbwp12ttc_ccs
-                                  0.940800      22     20.697600  
-NR3D1BWP12T        tcbn45gsbwp12ttc_ccs
-                                  1.411200       1      1.411200  
+                                  0.940800      28     26.342400  
+OA22D1BWP12T       tcbn45gsbwp12ttc_ccs
+                                  2.116800       1      2.116800  
 OA211D0BWP12T      tcbn45gsbwp12ttc_ccs
-                                  1.881600      13     24.460800  
-OAI21D0BWP12T      tcbn45gsbwp12ttc_ccs
-                                  1.411200       1      1.411200  
-OAI32D0BWP12T      tcbn45gsbwp12ttc_ccs
-                                  1.881600       3      5.644800  
-OR2XD0BWP12T       tcbn45gsbwp12ttc_ccs
-                                  1.411200       3      4.233600  
+                                  1.881600      14     26.342400  
+OAI32D1BWP12T      tcbn45gsbwp12ttc_ccs
+                                  1.881600       4      7.526400  
+OAI222D0BWP12T     tcbn45gsbwp12ttc_ccs
+                                  2.587200       1      2.587200  
 OR2XD1BWP12T       tcbn45gsbwp12ttc_ccs
                                   1.411200       1      1.411200  
+TPOAI21D0BWP12T    tcbn45gsbwp12ttc_ccs
+                                  1.411200       1      1.411200  
 -----------------------------------------------------------------------------
-Total 19 references                                   325.751999
+Total 21 references                                   178.281602
 1

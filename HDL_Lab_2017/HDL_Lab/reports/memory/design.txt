@@ -1,9 +1,9 @@
  
 ****************************************
 Report : design
-Design : memory_control_fsm
+Design : memory_interface
 Version: I-2013.12-SP5-3
-Date   : Tue Aug  8 14:51:56 2017
+Date   : Wed Aug  9 11:44:15 2017
 ****************************************
 
 Design allows ideal nets on clock nets.
@@ -89,7 +89,7 @@ Disabled Timing Arcs:
 
 Required Licenses:
 
-    None Required
+    DesignWare
 
 Design Parameters:
 

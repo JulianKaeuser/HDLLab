@@ -8,7 +8,7 @@ Report : power
         -analysis_effort low
 Design : irdecode
 Version: I-2013.12-SP5-3
-Date   : Wed Aug  9 09:06:04 2017
+Date   : Wed Aug  9 13:58:36 2017
 ****************************************
 
 
@@ -34,12 +34,12 @@ Power-specific unit information :
     Leakage Power Units = 1nW
 
 
-  Cell Internal Power  = 493.4420 uW   (94%)
-  Net Switching Power  =  32.8397 uW    (6%)
+  Cell Internal Power  = 486.6095 uW   (94%)
+  Net Switching Power  =  32.8856 uW    (6%)
                          ---------
-Total Dynamic Power    = 526.2817 uW  (100%)
+Total Dynamic Power    = 519.4951 uW  (100%)
 
-Cell Leakage Power     =  14.0154 uW
+Cell Leakage Power     =  13.3670 uW
 
 
                  Internal         Switching           Leakage            Total
@@ -49,9 +49,9 @@ io_pad             0.0000            0.0000            0.0000            0.0000 
 memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
 black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
 clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
-register           0.4575        6.3341e-04        5.4062e+03            0.4635  (  85.79%)
+register           0.4528        8.9566e-04        5.2906e+03            0.4589  (  86.13%)
 sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
-combinational  3.5969e-02        3.2206e-02        8.6062e+03        7.6781e-02  (  14.21%)
+combinational  3.3853e-02        3.1990e-02        8.0733e+03        7.3916e-02  (  13.87%)
 --------------------------------------------------------------------------------------------------
-Total              0.4934 mW     3.2840e-02 mW     1.4012e+04 nW         0.5403 mW
+Total              0.4866 mW     3.2886e-02 mW     1.3364e+04 nW         0.5329 mW
 1

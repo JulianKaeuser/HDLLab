@@ -3,7 +3,7 @@
 Report : design
 Design : irdecode
 Version: I-2013.12-SP5-3
-Date   : Wed Aug  9 09:05:50 2017
+Date   : Wed Aug  9 13:58:23 2017
 ****************************************
 
 Design allows ideal nets on clock nets.
