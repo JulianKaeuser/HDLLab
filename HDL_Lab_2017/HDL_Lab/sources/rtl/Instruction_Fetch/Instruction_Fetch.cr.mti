@@ -5,4 +5,11 @@ Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
 Top level modules:
 	Instruction_Fetch_tb
 
+} {} {}} /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v {1 {vlog -work work -vopt -stats=none /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module Instruction_Fetch
+
+Top level modules:
+	Instruction_Fetch
+
 } {} {}}

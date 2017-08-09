@@ -16,7 +16,7 @@
 `define       COND_AL              4'b1110
 `define       COND_UNDEFINED       4'b1111
 
-function f_flageval;
+function automatic f_flageval;
 
 input [3:0] condition;
 input flag_z;

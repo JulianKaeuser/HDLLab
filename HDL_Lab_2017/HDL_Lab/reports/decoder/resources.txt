@@ -1,2 +1,11 @@
-Error: Current design is not defined. (UID-4)
-0
+ 
+****************************************
+Report : resources
+Design : irdecode
+Version: I-2013.12-SP5-3
+Date   : Wed Aug  9 09:06:04 2017
+****************************************
+
+
+No implementations to report
+1
