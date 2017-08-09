@@ -1,0 +1,11 @@
+ 
+****************************************
+Report : resources
+Design : Flag_Updater
+Version: I-2013.12-SP5-3
+Date   : Tue Aug  8 13:17:32 2017
+****************************************
+
+
+No implementations to report
+1

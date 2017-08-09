@@ -116,22 +116,26 @@ always @(*) begin
     end // end IDLE
 
     LOAD_ACCESS: begin
-		if(!mem_output_valid_in)
+		if(!mem_output_valid_in) begin
 			nextstate = LOAD_ACCESS;
 			nextturn = turn;
-		else
+		end
+		else begin
 			nextstate = IDLE;
 			nextturn = turn;
+		end
 	
     end //end LOAD_ACCESS
 
     STORE_ACCESS: begin
-		if(!mem_write_ready_in)
+		if(!mem_write_ready_in) begin
 			nextstate = STORE_ACCESS;
 			nextturn = turn;
-		else
+		end
+		else begin
 			nextstate = IDLE;
 			nextturn = turn;
+		end
 	end //end STORE_ACCESS
 
      default: begin

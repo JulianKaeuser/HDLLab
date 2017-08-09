@@ -2,7 +2,27 @@
 `define DEPTH 64
 
 
-module STACK(input clk, reset, push_enable, pop_enable, input[`BIT_SIZE-1:0] data_in, sp_in, output reg[`BIT_SIZE-1:0] data_out, sp_out);
+module STACK(
+	clk,
+	reset,
+	push_enable,
+	pop_enable,
+	read_enable,
+	data_in, sp_in,
+	data_out,
+	sp_out
+	);
+
+	input clk;
+	input reset;
+	input push_enable;
+	input pop_enable;
+	input read_enable;
+	input [`BIT_SIZE-1:0] data_in;
+	input [`BIT_SIZE-1:0] sp_in;
+
+	output reg[`BIT_SIZE-1:0] data_out;
+	output reg[`BIT_SIZE-1:0] sp_out;
 
 reg[`BIT_SIZE-1:0] stack[0:`DEPTH-1];
 
