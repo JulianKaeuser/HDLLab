@@ -7,3 +7,5 @@
 10 WORD
 01 HW
 00 BYTE
+11 DC
+xx DC
