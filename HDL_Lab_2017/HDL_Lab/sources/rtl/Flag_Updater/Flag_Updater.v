@@ -1,6 +1,6 @@
 `define BIT_SIZE 32
 
-module Flag_Updater (input z, n, v, c, update_z, update_n, update_v, update_c, input [`BIT_SIZE-1:0] flags_old, output reg [`BIT_SIZE-1:0] flags) ;
+module Flag_Updater (input wire  z, n, v, c, update_z, update_n, update_v, update_c, input wire [`BIT_SIZE-1:0] flags_old, output reg [`BIT_SIZE-1:0] flags) ;
 
 	always @(*) begin
 		flags[`BIT_SIZE-5:0] = flags_old[`BIT_SIZE-5:0];

@@ -1,0 +1,77 @@
+Warning: timing loops detected. (TIM-209)
+    #              loop breakpoint
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+C4528/CONTROL1_0         -> C4528/Z_0                *SELECT_OP_4.1_4.1_1     
+C4568/A                  -> C4568/Z                  gtech/GTECH_OR2         #
+C4567/A                  -> C4567/Z                  gtech/GTECH_AND2         
+C4566/A                  -> C4566/Z                  gtech/GTECH_AND2         
+B_163/A                  -> B_163/Z                  gtech/GTECH_BUF          
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+C4527/CONTROL1_0         -> C4527/Z_0                *SELECT_OP_4.1_4.1_1     
+C4578/A                  -> C4578/Z                  gtech/GTECH_AND2        #
+C4577/A                  -> C4577/Z                  gtech/GTECH_OR2          
+C4576/A                  -> C4576/Z                  gtech/GTECH_AND2         
+B_164/A                  -> B_164/Z                  gtech/GTECH_BUF          
+C4528/CONTROL2_0         -> C4528/Z_0                *SELECT_OP_4.1_4.1_1     
+C4568/A                  -> C4568/Z                  gtech/GTECH_OR2         #
+C4567/A                  -> C4567/Z                  gtech/GTECH_AND2         
+C4566/A                  -> C4566/Z                  gtech/GTECH_AND2         
+B_163/A                  -> B_163/Z                  gtech/GTECH_BUF          
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+C4527/CONTROL2_0         -> C4527/Z_0                *SELECT_OP_4.1_4.1_1     
+C4578/A                  -> C4578/Z                  gtech/GTECH_AND2        #
+C4577/A                  -> C4577/Z                  gtech/GTECH_OR2          
+C4576/A                  -> C4576/Z                  gtech/GTECH_AND2         
+B_164/A                  -> B_164/Z                  gtech/GTECH_BUF          
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+C4585/A                  -> C4585/Z                  gtech/GTECH_OR2          
+C4586/B                  -> C4586/Z                  gtech/GTECH_OR2          
+I_86/A                   -> I_86/Z                   gtech/GTECH_NOT          
+C4527/CONTROL4_0         -> C4527/Z_0                *SELECT_OP_4.1_4.1_1     
+C4578/A                  -> C4578/Z                  gtech/GTECH_AND2        #
+C4577/A                  -> C4577/Z                  gtech/GTECH_OR2          
+C4576/A                  -> C4576/Z                  gtech/GTECH_AND2         
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+C4585/B                  -> C4585/Z                  gtech/GTECH_OR2          
+C4586/B                  -> C4586/Z                  gtech/GTECH_OR2          
+I_86/A                   -> I_86/Z                   gtech/GTECH_NOT          
+C4527/CONTROL4_0         -> C4527/Z_0                *SELECT_OP_4.1_4.1_1     
+C4578/A                  -> C4578/Z                  gtech/GTECH_AND2        #
+C4577/A                  -> C4577/Z                  gtech/GTECH_OR2          
+C4576/A                  -> C4576/Z                  gtech/GTECH_AND2         
+B_164/A                  -> B_164/Z                  gtech/GTECH_BUF          
+C4528/CONTROL2_0         -> C4528/Z_0                *SELECT_OP_4.1_4.1_1     
+C4568/A                  -> C4568/Z                  gtech/GTECH_OR2         #
+C4567/A                  -> C4567/Z                  gtech/GTECH_AND2         
+C4566/A                  -> C4566/Z                  gtech/GTECH_AND2         
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+C4526/CONTROL1_0         -> C4526/Z_0                *SELECT_OP_4.1_4.1_1     
+C4580/A                  -> C4580/Z                  gtech/GTECH_AND2        #
+C4577/B                  -> C4577/Z                  gtech/GTECH_OR2          
+C4576/A                  -> C4576/Z                  gtech/GTECH_AND2         
+B_164/A                  -> B_164/Z                  gtech/GTECH_BUF          
+C4528/CONTROL2_0         -> C4528/Z_0                *SELECT_OP_4.1_4.1_1     
+C4568/A                  -> C4568/Z                  gtech/GTECH_OR2         #
+C4567/A                  -> C4567/Z                  gtech/GTECH_AND2         
+C4566/A                  -> C4566/Z                  gtech/GTECH_AND2         
+B_163/A                  -> B_163/Z                  gtech/GTECH_BUF          
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+C4526/CONTROL2_0         -> C4526/Z_0                *SELECT_OP_4.1_4.1_1     
+C4580/A                  -> C4580/Z                  gtech/GTECH_AND2        #
+C4577/B                  -> C4577/Z                  gtech/GTECH_OR2          
+C4576/A                  -> C4576/Z                  gtech/GTECH_AND2         
+B_164/A                  -> B_164/Z                  gtech/GTECH_BUF  

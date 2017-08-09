@@ -291,7 +291,7 @@ if (  (next_stall_to_instructionfetch | instruction_valid) &
 	
 	casez (instruction)
 	
-	        `1_2  : begin                                            
+	        `FORMAT_1_2  : begin                                            
 	            next_operand_a = {2'b00, instruction[5:3]};
 	            
 	            next_offset_a = `IMM_ZERO;

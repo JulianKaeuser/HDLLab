@@ -56,12 +56,12 @@ module memory_control_fsm(
   busy
   );
 
-  input is_signed_fsm;
-  input [1:0] word_type;
-  input load;
-  input store;
-  input clk;
-  input reset;
+  input wire is_signed_fsm;
+  input wire [1:0] word_type;
+  input wire load;
+  input wire store;
+  input wire clk;
+  input wire reset;
 
   output reg output_valid;
   output reg [1:0] direct_or_delayed_din;

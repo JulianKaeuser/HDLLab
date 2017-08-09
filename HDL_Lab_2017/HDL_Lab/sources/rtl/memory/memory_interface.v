@@ -58,29 +58,29 @@ localparam LARGE = 32;
 localparam ADDR_WIDTH = 12;
 
 
-input [ADDR_WIDTH-1:0] address;
-input [LARGE-1:0] data_in;76543210
-input load;
-input store;
-input clk;
-input reset;
-input is_signed;
-input [1:0] word_type;
+input wire [ADDR_WIDTH-1:0] address;
+input wire [LARGE-1:0] data_in;
+input wire load;
+input wire store;
+input wire clk;
+input wire reset;
+input wire is_signed;
+input wire [1:0] word_type;
 
 // inputs from memory
-input [WIDE-1:0] from_mem_data;
+input wire [WIDE-1:0] from_mem_data;
 
 // outputs going to the memory
-output to_mem_read_enable;
-output to_mem_write_enable;
-output to_mem_mem_enable;
-output [ADDR_WIDTH-1:0] to_mem_address;
-output [WIDE-1:0] to_mem_data;
+output wire to_mem_read_enable;
+output wire to_mem_write_enable;
+output wire to_mem_mem_enable;
+output wire [ADDR_WIDTH-1:0] to_mem_address;
+output wire [WIDE-1:0] to_mem_data;
 
-output [LARGE-1:0] data_out;
-output write_ready;
-output output_valid;
-output busy;
+output wire [LARGE-1:0] data_out;
+output wire write_ready;
+output wire output_valid;
+output wire busy;
 //output reg addr_overflow;
 
 // mux control wires
