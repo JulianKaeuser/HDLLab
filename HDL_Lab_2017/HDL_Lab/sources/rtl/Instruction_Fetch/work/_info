@@ -27,7 +27,7 @@ n@_opt1
 R3
 R0
 vInstruction_Fetch
-Z4 !s110 1502207160
+Z4 !s110 1502270329
 !i10b 1
 !s100 7ihlKWdzDzV^UXhPa7@UY3
 ITZkCCiEK1_kQ93=zDDKGW1
@@ -41,7 +41,7 @@ Z7 OL;L;10.3d;59
 r1
 !s85 0
 31
-!s108 1502207160.536263
+!s108 1502270329.676404
 !s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v|
 !i113 0
@@ -62,7 +62,7 @@ R7
 r1
 !s85 0
 31
-!s108 1502207160.617271
+!s108 1502270329.737561
 !s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_tb.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_tb.v|
 !i113 0
