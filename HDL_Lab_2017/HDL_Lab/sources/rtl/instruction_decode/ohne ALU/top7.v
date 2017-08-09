@@ -99,6 +99,7 @@ wire        DEC_IF_stall_to_instructionfetch;
 // DECODER --> MISC_OUT
 
 wire        DEC_MISC_OUT_memory_address_source_is_reg;
+wire        DEC_MISC_OUT_pc_mask_bit;
 
 
 // ***************************************************************
@@ -231,6 +232,7 @@ irdecode  #(
 	.offset_b                                (  DEC_RF_offset_b                              ),
                                                                                              
 	.alu_opcode                              (  DEC_ALU_alu_opcode                           ),
+	.pc_mask_bit                             (  DEC_MISC_OUT_pc_mask_bit                     ),
                                                                                             
 	.update_flag_n                           (  DEC_CPSR_update_flag_n                       ),
     .update_flag_z                           (  DEC_CPSR_update_flag_z                       ),
@@ -280,12 +282,12 @@ register_file # (
     .write2_in                               (  MEMCTRL_RF_IF_data_in                           ),
     .immediate1_in                           (  DEC_RF_offset_a                                 ),
     .immediate2_in                           (  DEC_RF_offset_b                                 ),
-    .next_pc_in                              (  IF_RF_incremented_pc_out                                   ),
+    .next_pc_in                              (  IF_RF_incremented_pc_out                        ),
     .next_cpsr_in                            (  {new_n, new_c, new_z, new_v}                    ),
     .next_sp_in                              (  STACK_RF_next_sp                                ),
-    .next_pc_en                              (  IF_RF_incremented_pc_write_enable                                     ),
+    .next_pc_en                              (  IF_RF_incremented_pc_write_enable               ),
     .clk                                     (  clock                                           ),
-                                                                                                
+    .reset                                   (  reset                                           ),                                                                                            
     .regA_out                                (  RF_ALU_STACK_operand_a                          ),
     .regB_out                                (  RF_ALU_operand_b                                ),
     .regC_out                                (  RF_MEMCTRL_data_reg                             ),
@@ -301,6 +303,11 @@ register_file # (
     
     assign ALU_IN_c =  DEC_ALU_alu_opcode[4] ? carry_none : RF_OUT_c;
     assign carry_none = (DEC_ALU_alu_opcode[3:0] == 4'b0110)? 1'b1 : 1'b0;
+    
+    // set lowest 2 bits to zero if PC 
+    
+    wire RF_ALU_operand_a_pc_modified;
+    assign RF_ALU_operand_a_pc_modified = (DEC_MISC_OUT_pc_mask_bit) ? {RF_ALU_STACK_operand_a[31:2], 1'b0, RF_ALU_STACK_operand_a[0]} : RF_ALU_STACK_operand_a;
 
 
 ALU_VARIABLE  # (
@@ -331,7 +338,7 @@ ALU_VARIABLE  # (
     wire [11:0] DEC_memory_address;
     
     assign MEMCTRL_IN_address = IF_memory_load_req ? IF_instruction_memory_address : DEC_memory_address;
-    assign DEC_memory_address = DEC_MISC_OUT_memory_address_source_is_reg ? DEC_RF_memory_store_address_reg : ALU_MISC_OUT_result;
+    assign DEC_memory_address = DEC_MISC_OUT_memory_address_source_is_reg ? RF_MEMCTRL_address_reg[11:0] : ALU_MISC_OUT_result[11:0];
     
     
     wire MEMCTRL_load_in;

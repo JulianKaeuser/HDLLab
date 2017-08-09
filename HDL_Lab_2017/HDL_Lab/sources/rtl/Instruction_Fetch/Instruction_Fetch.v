@@ -22,13 +22,13 @@ output reg [15:0] instruction_out
 localparam[1:0]
 RESET = 2'b00,
 WAIT_FOR_DEC = 2'b01,
-FETCH = 2'b10;
-// PASS_INSTR = 2'b11;
+FETCH = 2'b10,
+FIRSTFETCH = 2'b11;
 
 reg[1:0] currentState, nextState;
 
 wire [32:0] current_pc_modified;
-assign current_pc_modified = current_pc_in - 4;
+assign current_pc_modified = current_pc_in - 2;
 
 
 always@(*) begin
@@ -39,8 +39,8 @@ case(currentState)
 		
 	RESET: begin
 		nextState = (reset == 1) ? RESET : FETCH;
-		incremented_pc_out = 32'b0000_0000_0000_0000_0000_0000_0000_0010;
-		incremented_pc_write_enable = 1'b1;
+		incremented_pc_out = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+		incremented_pc_write_enable = 1'b0;
         memory_address = 12'b0000_0000_0000;
 		memory_load_request = 1'b0;
 		instruction_out = 16'b1011_1111_0000_0000;
@@ -64,13 +64,15 @@ case(currentState)
 		memory_address = {1'b0, current_pc_modified[31:1]};
 		instruction_valid = (memory_output_valid == 1) ? 1'b1 : 1'b0;
 	end
-//     PASS_INSTR: begin
-// 		nextState = (memory_output_valid == 1)? D: (stall_decoder_in == 1)? B: C;
-// 		memory_load_request = 1'b0;
-// 		instruction= (memory_output_valid == 1) ? instruction_out: instruction_in ;
-// 		incremented_pc_write_enable = 1'b1;
-// 		memory_address = 12'bx;
-// 	end
+    FIRSTFETCH: begin
+		nextState = (memory_output_valid == 1) ? WAIT_FOR_DEC : FIRSTFETCH;
+		incremented_pc_out = current_pc_in;
+        incremented_pc_write_enable = 1'b0;
+		memory_load_request = 1'b1;
+		instruction_out =  (memory_output_valid == 1) ? instruction_in : 16'b1011_1111_0000_0000;
+		memory_address = 12'b0000_0000_0000;
+		instruction_valid = (memory_output_valid == 1) ? 1'b1 : 1'b0;
+	end
 	default: begin
 		memory_load_request = 1'bx;
 		instruction_out = 16'bx;

@@ -29,6 +29,7 @@ next_cpsr_in,
 next_sp_in,
 next_pc_en,
 clk,
+reset,
 regA_out,
 regB_out,
 regC_out,
@@ -80,7 +81,7 @@ input [3:0] next_cpsr_in;
 input [WIDE-1:0] next_sp_in;
 input next_pc_en;
 input clk;
-
+input reset;
 
 output reg [WIDE-1:0] regA_out;
 output reg [WIDE-1:0] regB_out;
@@ -132,7 +133,7 @@ reg [WIDE-1:0] r12in;
 reg [WIDE-1:0] lrin;
 reg [WIDE-1:0] spin;
 reg [WIDE-1:0] pcin;
-wire [3:0]      cpsrin;
+reg [3:0]      cpsrin;
 reg [WIDE-1:0] tmp1in;
 //regA out assignment with multiplexor
 always @(*) begin
@@ -246,7 +247,9 @@ assign sp_out = sp;
 
 // r0
 always @(*) begin
-    if (write1_sel==R0 && write1_en)
+    if(reset)
+        r0in= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    else if (write1_sel==R0 && write1_en)
         r0in = write1_in;
     else if (write2_sel==R0 && write2_en)
         r0in = write2_in;
@@ -256,7 +259,9 @@ end
 
 // r1
 always @(*) begin
-    if (write1_sel==R1 && write1_en)
+    if(reset)
+        r1in= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    else if (write1_sel==R1 && write1_en)
         r1in = write1_in;
     else if (write2_sel==R1 && write2_en)
         r1in = write2_in;
@@ -266,7 +271,9 @@ end
 
 // r2
 always @(*) begin
-    if (write1_sel==R2 && write1_en)
+    if(reset)
+        r2in= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    else if (write1_sel==R2 && write1_en)
         r2in = write1_in;
     else if (write2_sel==R2 && write2_en)
         r2in = write2_in;
@@ -276,7 +283,9 @@ end
 
 // r3
 always @(*) begin
-    if (write1_sel==R3 && write1_en)
+    if(reset)
+        r3in= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    else if (write1_sel==R3 && write1_en)
         r3in = write1_in;
     else if (write2_sel==R2 && write2_en)
         r3in = write2_in;
@@ -286,7 +295,9 @@ end
 
 // r4
 always @(*) begin
-    if (write1_sel==R4 && write1_en)
+    if(reset)
+        r4in= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    else if (write1_sel==R4 && write1_en)
         r4in = write1_in;
     else if (write2_sel==R4 && write2_en)
         r4in = write2_in;
@@ -296,7 +307,9 @@ end
 
 // r5
 always @(*) begin
-    if (write1_sel==R5 && write1_en)
+    if(reset)
+        r5in= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    else if (write1_sel==R5 && write1_en)
         r5in = write1_in;
     else if (write2_sel==R5 && write2_en)
         r5in = write2_in;
@@ -306,7 +319,9 @@ end
 
 // r6
 always @(*) begin
-    if (write1_sel==R6 && write1_en)
+    if(reset)
+        r6in= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    else if (write1_sel==R6 && write1_en)
         r6in = write1_in;
     else if (write2_sel==R6 && write2_en)
         r6in = write2_in;
@@ -316,7 +331,9 @@ end
 
 // r7
 always @(*) begin
-    if (write1_sel==R7 && write1_en)
+    if(reset)
+        r7in= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    else if (write1_sel==R7 && write1_en)
         r7in = write1_in;
     else if (write2_sel==R7 && write2_en)
         r7in = write2_in;
@@ -326,7 +343,9 @@ end
 
 // r8
 always @(*) begin
-    if (write1_sel==R8 && write1_en)
+    if(reset)
+        r8in= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    else if (write1_sel==R8 && write1_en)
         r8in = write1_in;
     else if (write2_sel==R8 && write2_en)
         r8in = write2_in;
@@ -336,7 +355,9 @@ end
 
 // r9
 always @(*) begin
-    if (write1_sel==R9 && write1_en)
+    if(reset)
+        r9in= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    else if (write1_sel==R9 && write1_en)
         r9in = write1_in;
     else if (write2_sel==R9 && write2_en)
         r9in = write2_in;
@@ -346,7 +367,9 @@ end
 
 // r10
 always @(*) begin
-    if (write1_sel==R10 && write1_en)
+    if(reset)
+        r10in= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    else if (write1_sel==R10 && write1_en)
         r10in = write1_in;
     else if (write2_sel==R10 && write2_en)
         r10in = write2_in;
@@ -356,7 +379,9 @@ end
 
 // r11
 always @(*) begin
-    if (write1_sel==R11 && write1_en)
+    if(reset)
+        r11in= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    else if (write1_sel==R11 && write1_en)
         r11in = write1_in;
     else if (write2_sel==R11 && write2_en)
         r11in = write2_in;
@@ -366,7 +391,9 @@ end
 
 // r12
 always @(*) begin
-    if (write1_sel==R12 && write1_en)
+    if(reset)
+        r12in= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    else if (write1_sel==R12 && write1_en)
         r12in = write1_in;
     else if (write2_sel==R12 && write2_en)
         r12in = write2_in;
@@ -376,7 +403,9 @@ end
 // special registers
 // r13 = sp
 always @(*) begin
-    if (write1_sel==SP && write1_en)
+    if(reset)
+        spin= 32'b0000_0000_0000_0000_0000_1111_1111_1110;
+    else if (write1_sel==SP && write1_en)
         spin = write1_in;
     else if (write2_sel==SP && write2_en)
         spin = write2_in;
@@ -386,7 +415,9 @@ end
 
 // r14 = LR
 always @(*) begin
-    if (write1_sel==LR && write1_en)
+    if(reset)
+        lrin = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    else if(write1_sel==LR && write1_en)
         lrin = write1_in;
     else if (write2_sel==LR && write2_en)
         lrin = write2_in;
@@ -404,13 +435,21 @@ assign pc_write_select = (write1_en && write1_sel==PC) | (write2_en && write2_se
 assign pc_pc_in        = next_pc_en ? next_pc_in : pc;
 assign pc_write_in     = (write1_en && write1_sel==PC) ? write1_in : write2_in;
 
+wire [WIDE-1:0] pc_write_in_plus_two;
+assign pc_write_in_plus_two = pc_write_in + 2;
+
 always @(*) begin
-  pcin = pc_write_select ? pc_write_in : pc_pc_in;
+  if(reset)
+    pcin = 32'b0000_0000_0000_0000_0000_0000_0000_0010;
+  else
+    pcin = pc_write_select ? pc_write_in_plus_two : pc_pc_in;
 end
 
 // r17 = tmp;
 always @(*) begin
-    if (write1_sel==TMP1 && write1_en)
+    if(reset)
+        tmp1in = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+    else if (write1_sel==TMP1 && write1_en)
         tmp1in = write1_in;
     else if (write2_sel==TMP1 && write2_en)
         tmp1in = write2_in;
@@ -419,7 +458,12 @@ always @(*) begin
 end
 
 // cpsr
-assign cpsrin = next_cpsr_in;
+always @(*) begin
+    if(reset)
+        cpsrin = 4'b0000;
+    else
+        cpsrin = next_cpsr_in;
+end
 
 
 // make all registers flipflops:
