@@ -153,8 +153,10 @@ assign mem_data_in[15:8] = old_or_new_byte_remainder ? data_bus_to_mem[15:8] : m
 // data_out path
 // general
 wire output_shuffle;
-wire [15:0] data_top_out ;
-wire [15:0] data_low_out ;
+
+wire [15:0] data_top_out;
+wire [15:0] data_low_out;
+
 assign data_top_out[7:0] = mem_data_out[7:0]; // fourth_byte_out
 assign data_top_out[15:8] = third_byte_out;
 assign data_low_out = first_two_bytes_out;
@@ -208,11 +210,13 @@ end
 
 // memory instantiation/ connections
 assign to_mem_address = mem_addr_in;
-assign to_mem_data = mem_data_in;
+//assign to_mem_data = mem_data_in;
+assign to_mem_data = {mem_data_in[7:0], mem_data_in[15:8]}; // values are stored in little endian order in the memory
 assign to_mem_mem_enable = mem_enable;
 assign to_mem_read_enable = mem_read_enable;
 assign to_mem_write_enable = mem_write_enable;
-assign mem_data_out = from_mem_data;
+//assign mem_data_out = from_mem_data;
+assign mem_data_out = {from_mem_data[7:0], from_mem_data[15:8]}; // values are stored in little endian order in the memory
 
 // state machine for control
 

@@ -20,8 +20,8 @@
 `define        BIC        5'b01110  // rd = rd AND NOT rs
 `define        MVN        5'b01111  // rd = NOT rs
 
-`define        ADD        5'b10000  // rd = rd + rs
-`define        SUB        5'b10001  // rd = rd - rs
+`define        ADD        5'b10101  // rd = rd + rs
+`define        SUB        5'b10110  // rd = rd - rs
 
 // Datenbreiten
 `define        BYTE       2'b00  
