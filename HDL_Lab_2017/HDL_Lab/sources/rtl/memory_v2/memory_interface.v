@@ -55,6 +55,10 @@ output busy;
 localparam BUFFER = 1'b1;    // for all buffer select signals
 localparam UPDATE = 1'b0;    // for all buffer select signals
 
+localparam WORD =  2'b10;
+localparam HALFWORD =  2'b01;
+localparam BYTE =  2'b00;
+
 
 // ############################ address path: #########################################
 // ####################################################################################
@@ -84,9 +88,6 @@ always @(posedge clk) begin    // make buffers flipflops
     added_address_buffer_reg <= added_address_buffer_sel ? added_address_buffer_reg : address[12:1];
 end
 
-  // create multiplexors
-
-
 wire [11:0] modified_address;
 assign to_mem_address = direct_or_modified_address_sel ? address[12:1] : modified_address;
 
@@ -97,6 +98,7 @@ wire [11:0] summand;
 assign summand = adder_summand_sel ? 12'h001 : 12'h002;
 
 assign added_address = summand + added_address_buffer_reg;
+
 
 
 // ########################## output path #######################################################################
@@ -230,6 +232,8 @@ assign data_out[15:0]  = output_shuffle_sel ? data_out_pre[31:16] : data_out_pre
 
 
 // 2nd stage: select between feedback and input
+localparam FEEDBACK_LOW8 = 1'b1;
+localparam FEEDBACK_TOP8 = 1'b0;
 wire from_mem_feedback_sel;
 wire [7:0] from_mem_feedback;
 assign from_mem_feedback = from_mem_feedback_sel ? from_mem_data_low8 : from_mem_data_top8;
@@ -239,6 +243,8 @@ wire [7:0] 2mem_data_in_low8;
 
 wire 2mem_data_in_top8_feedback_sel;
 wire 2mem_data_in_low8_feedback_sel;
+localparam FEEDBACK_TO_MEM = 1'b1;
+localparam INPUT_TO_MEM    = 1'b0;
 
 reg [7:0] from_cpu_low8_input;
 reg [7:0] from_cpu_top8_input;
@@ -330,8 +336,50 @@ end
 // and some related stuff
 
 memory_control_fsm fsm (
-  
+  .clk(clk),
+  .reset(reset),
+  .load(load),
+  .store(store),
+  .word_type(word_type),
+  .word_type_buffered(word_type_buffer),
+  .is_signed(is_signed),
+  .is_signed_buffered(is_signed_buffer),
+  .bit0(address[0]);
+  .busy(busy),
+  .output_valid(output_valid),
+  .write_ready(write_ready),
+  .fsm_rd(fsm_rd),
+  .fsm_wr(fsm_wr),
+  .fsm_wr_en(fsm_wr_en),
+  .fsm_rd_en(fsm_rd_en),
+  .fsm_mem_en(fsm_mem_en),
+  .is_signed_buffer_sel(is_signed_buffer_sel),
+  .word_type_buffer_sel(word_type_buffer_sel),
+  .from_mem_feedback_sel(from_mem_feedback_sel),
+  .2mem_data_in_top8_feedback_sel(2mem_data_in_top8_feedback_sel),
+  .2mem_data_in_low8_feedback_sel(2mem_data_in_low8_feedback_sel),
+  .from_cpu_low8_input_sel(from_cpu_low8_input_sel),
+  .from_cpu_top8_input_sel(from_cpu_top8_input_sel),
+  .l8_t8_buffer_sel(l8_t8_buffer_sel),
+  .l8_mt8_buffer_sel(l8_mt8_buffer_sel),
+  .l8_ml8_buffer_sel(l8_ml8_buffer_sel),
+  .l8_l8_buffer_sel(l8_l8_buffer_sel),
+  .t8_t8_buffer_sel(t8_t8_buffer_sel),
+  .t8_mt8_buffer_sel(t8_mt8_buffer_sel),
+  .t8_ml8_buffer_sel(t8_ml8_buffer_sel),
+  .t8_l8_buffer_sel(t8_l8_buffer_sel),
+  .data_out_pre_L8_sel(data_out_pre_L8_sel),
+  .data_out_pre_ML8_sel(data_out_pre_ML8_sel),
+  .data_out_pre_MT8_sel(data_out_pre_MT8_sel),
+  .data_out_pre_T8_sel(data_out_pre_T8_sel),
+  .output_shuffle_sel(output_shuffle_sel),
+  .adder_summand_sel(adder_summand_sel),
+  .added_address_buffer_sel(added_address_buffer_sel),
+  .delayed_address_buffer_sel(delayed_address_buffer_sel),
+  .delayed_or_added_address_sel(delayed_or_added_address_sel),
+  .direct_or_modified_address_sel(direct_or_modified_address_sel)
   );
+
 
 wire fsm_rd_en;
 wire fsm_rd;
@@ -340,14 +388,28 @@ wire fsm_wr;
 wire fsm_mem_en;
 
 // dependency of load/store/read/write
-wire w;
-wire r;
+reg w;
+reg r;
 wire word_dep;
 
-assign word_dep = word_type[0] | word_type[1];
+always @(*) begin
+  case (word_type)
+    BYTE: begin
+      r = 1'b1;
+      w = 1'b0;
+    end // endcase byte
 
-assign r = word_dep ? load : 1'b1;
-assign w = word_dep ? store: 1'b0;
+    HALFWORD: begin
+      r =  load || address[0];
+      w = !(load || address[0]);
+    end // end case HALFWORD
+
+    WORD: begin
+      r =  load || address[0];
+      w = !(load || address[0]);
+    end // end case WORD
+  endcase
+end
 
 assign to_mem_read_enable  = fsm_rd_en ? fsm_rd : r;
 assign to_mem_write_enable = fsm_wr_en ? fsm_wr : w;

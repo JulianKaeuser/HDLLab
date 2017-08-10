@@ -1,3 +1,4 @@
+Loading db file '/cad/synopsys/libs/TSMC_40nm/digital/Front_End/timing_power_noise/CCS/tcbn45gsbwp12t_200a/tcbn45gsbwp12ttc_ccs.db'
 Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
 Warning: Design has unannotated primary inputs. (PWR-414)
 Warning: Design has unannotated sequential cell outputs. (PWR-415)
@@ -7,13 +8,13 @@ Report : power
         -analysis_effort low
 Design : top7
 Version: I-2013.12-SP5-3
-Date   : Wed Aug  9 17:58:40 2017
+Date   : Thu Aug 10 11:08:14 2017
 ****************************************
 
 
 Library(s) Used:
 
-    gtech (File: /cad/synopsys/tools/syn_vI-2013.12-SP5-3/libraries/syn/gtech.db)
+    tcbn45gsbwp12ttc_ccs (File: /cad/synopsys/libs/TSMC_40nm/digital/Front_End/timing_power_noise/CCS/tcbn45gsbwp12t_200a/tcbn45gsbwp12ttc_ccs.db)
 
 
 Operating Conditions: NCCOM   Library: tcbn45gsbwp12ttc_ccs
@@ -22,59 +23,8 @@ Wire Load Model Mode: segmented
 Design        Wire Load Model            Library
 ------------------------------------------------
 top7                   ZeroWireload      tcbn45gsbwp12ttc_ccs
-irdecode               ZeroWireload      tcbn45gsbwp12ttc_ccs
 register_file          ZeroWireload      tcbn45gsbwp12ttc_ccs
 ALU_VARIABLE           ZeroWireload      tcbn45gsbwp12ttc_ccs
-memory_interface       ZeroWireload      tcbn45gsbwp12ttc_ccs
-Instruction_Fetch      ZeroWireload      tcbn45gsbwp12ttc_ccs
-memory_control_fsm     ZeroWireload      tcbn45gsbwp12ttc_ccs
-*ADD_UNS_OP_32_2_32    ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_add_width32       ZeroWireload      tcbn45gsbwp12ttc_ccs
-*ASH_UNS_UNS_OP_32_32_32
-                       ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW_leftsh              ZeroWireload      tcbn45gsbwp12ttc_ccs
-*EQ_UNS_OP_32_1_1      ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_cmp6_width32      ZeroWireload      tcbn45gsbwp12ttc_ccs
-*ASHR_UNS_UNS_OP_32_32_32
-                       ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW_rightsh             ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_cmp6_width32      ZeroWireload      tcbn45gsbwp12ttc_ccs
-*ASHR_TC_UNS_OP_32_32_32
-                       ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW_rightsh             ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_cmp6_width32      ZeroWireload      tcbn45gsbwp12ttc_ccs
-*ADD_UNS_OP_32_32_33   ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_add_width33       ZeroWireload      tcbn45gsbwp12ttc_ccs
-*ADD_UNS_OP_33_1_33    ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_add_width33       ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_cmp6_width32      ZeroWireload      tcbn45gsbwp12ttc_ccs
-*SUB_TC_OP_32_32_33    ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_sub_width33       ZeroWireload      tcbn45gsbwp12ttc_ccs
-*SUB_TC_OP_33_2_33     ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_sub_width33       ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_cmp6_width32      ZeroWireload      tcbn45gsbwp12ttc_ccs
-*ASHR_UNS_UNS_OP_32_5_32
-                       ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW_rightsh             ZeroWireload      tcbn45gsbwp12ttc_ccs
-*SUB_UNS_OP_6_5_7      ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_sub_width7        ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW_leftsh              ZeroWireload      tcbn45gsbwp12ttc_ccs
-*SUB_TC_OP_1_32_33     ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_sub_width33       ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_cmp6_width32      ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_sub_width33       ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_cmp6_width32      ZeroWireload      tcbn45gsbwp12ttc_ccs
-*ADD_TC_OP_32_32_33    ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_add_width33       ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_cmp6_width32      ZeroWireload      tcbn45gsbwp12ttc_ccs
-*MULT_TC_OP_32_32_33   ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW02_mult              ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_cmp6_width32      ZeroWireload      tcbn45gsbwp12ttc_ccs
-*ADD_UNS_OP_12_1_12    ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_inc_width12       ZeroWireload      tcbn45gsbwp12ttc_ccs
-*SUB_UNS_OP_13_2_13    ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_sub_width13       ZeroWireload      tcbn45gsbwp12ttc_ccs
-DW01_add_width32       ZeroWireload      tcbn45gsbwp12ttc_ccs
 
 
 Global Operating Voltage = 0.9  
@@ -86,24 +36,24 @@ Power-specific unit information :
     Leakage Power Units = 1nW
 
 
-  Cell Internal Power  =   0.0000 mW        
-  Net Switching Power  =   0.0000 mW        
+  Cell Internal Power  =   3.9411 mW   (94%)
+  Net Switching Power  = 265.3752 uW    (6%)
                          ---------
-Total Dynamic Power    =   0.0000 mW        
+Total Dynamic Power    =   4.2064 mW  (100%)
 
-Cell Leakage Power     =   0.0000 nW
+Cell Leakage Power     = 246.0344 uW
 
 
                  Internal         Switching           Leakage            Total
 Power Group      Power            Power               Power              Power   (   %    )  Attrs
 --------------------------------------------------------------------------------------------------
-io_pad             0.0000            0.0000            0.0000            0.0000  (     N/A)
-memory             0.0000            0.0000            0.0000            0.0000  (     N/A)
-black_box          0.0000            0.0000            0.0000            0.0000  (     N/A)
-clock_network      0.0000            0.0000            0.0000            0.0000  (     N/A)
-register           0.0000            0.0000            0.0000            0.0000  (     N/A)
-sequential         0.0000            0.0000            0.0000            0.0000  (     N/A)
-combinational      0.0000            0.0000            0.0000            0.0000  (     N/A)
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register           3.6580        1.1111e-02        4.3580e+04            3.7127  (  83.39%)
+sequential     5.2147e-03        1.0142e-03        1.9984e+03        8.2273e-03  (   0.18%)
+combinational      0.2778            0.2533        2.0045e+05            0.7315  (  16.43%)
 --------------------------------------------------------------------------------------------------
-Total              0.0000 mW         0.0000 mW         0.0000 nW         0.0000 mW
+Total              3.9411 mW         0.2654 mW     2.4603e+05 nW         4.4525 mW
 1
