@@ -275,7 +275,7 @@ always @(*) begin
      end
    end // end case LOAD HW A
 
-   LOAD_HW_B: begin   
+   LOAD_HW_B: begin
       nextstate = IDLE;
    end // end case load HW B
 
@@ -427,8 +427,8 @@ always @(*) begin
          // fsm control
          fsm_rd                         = 0;
          fsm_wr                         = 0;
-         fsm_wr_en                      = 0;
-         fsm_rd_en                      = 0;
+         fsm_wr_en                      = 1;
+         fsm_rd_en                      = 1;
          fsm_mem_en                     = 1;
 
          // status in buffering
@@ -481,8 +481,8 @@ always @(*) begin
          // fsm control
          fsm_rd                         = bit0_delayed1;
          fsm_wr                         = 0;
-         fsm_wr_en                      = 0;
-         fsm_rd_en                      = bit0_delayed1;
+         fsm_wr_en                      = 1;
+         fsm_rd_en                      = 1;
          fsm_mem_en                     = 1;
 
          // status in buffering
@@ -535,8 +535,8 @@ always @(*) begin
          // fsm control
          fsm_rd                         = 0;
          fsm_wr                         = 0;
-         fsm_wr_en                      = 0;
-         fsm_rd_en                      = 0;
+         fsm_wr_en                      = 1;
+         fsm_rd_en                      = 1;
          fsm_mem_en                     = 1;
 
          // status in buffering
@@ -640,10 +640,10 @@ always @(*) begin
          write_ready                    = !bit0_delayed2;
 
          // fsm control
-         fsm_rd                         = 1;
+         fsm_rd                         = bit0_delayed2;
          fsm_wr                         = 0;
-         fsm_wr_en                      = 0;
-         fsm_rd_en                      = bit0_delayed2;
+         fsm_wr_en                      = 1;
+         fsm_rd_en                      = 1;
          fsm_mem_en                     = 1;
 
          // status in buffering
@@ -696,8 +696,8 @@ always @(*) begin
          // fsm control
          fsm_rd                         = 0;
          fsm_wr                         = 0;
-         fsm_wr_en                      = 0;
-         fsm_rd_en                      = 0;
+         fsm_wr_en                      = 1;
+         fsm_rd_en                      = 1;
          fsm_mem_en                     = 1;
 
          // status in buffering
@@ -749,9 +749,9 @@ always @(*) begin
 
          // fsm control
          fsm_rd                         = 0;
-         fsm_wr                         = 0;
-         fsm_wr_en                      = 0;
-         fsm_rd_en                      = 0;
+         fsm_wr                         = 1;
+         fsm_wr_en                      = 1;
+         fsm_rd_en                      = 1;
          fsm_mem_en                     = 1;
 
          // status in buffering
@@ -805,8 +805,8 @@ always @(*) begin
          // fsm control
          fsm_rd                         = 0;
          fsm_wr                         = 0;
-         fsm_wr_en                      = 0;
-         fsm_rd_en                      = 0;
+         fsm_wr_en                      = 1;
+         fsm_rd_en                      = 1;
          fsm_mem_en                     = 1;
 
          // status in buffering
@@ -1014,10 +1014,10 @@ always @(*) begin
          write_ready                    = 1;
 
          // fsm control
-         fsm_rd                         = DC;
-         fsm_wr                         = DC;
-         fsm_wr_en                      = 0 ;
-         fsm_rd_en                      = 0 ;
+         fsm_rd                         = 0;
+         fsm_wr                         = 0;
+         fsm_wr_en                      = 1 ;
+         fsm_rd_en                      = 1 ;
          fsm_mem_en                     = 1 ;
 
          // status in buffering
@@ -1123,9 +1123,9 @@ always @(*) begin
 
          // fsm control
          fsm_rd                         = 0;
-         fsm_wr                         = 1;
-         fsm_wr_en                      = bit0_delayed2 ;
-         fsm_rd_en                      = bit0_delayed2 ;
+         fsm_wr                         = bit0_delayed2;
+         fsm_wr_en                      = 1; //bit0_delayed2 ;
+         fsm_rd_en                      = 1; //bit0_delayed2 ;
          fsm_mem_en                     = 1;
 
          // status in buffering
@@ -1177,7 +1177,7 @@ always @(*) begin
          // fsm control
          fsm_rd                         = 1;
          fsm_wr                         = 0;
-         fsm_wr_en                      = 0 ;
+         fsm_wr_en                      = 1 ;
          fsm_rd_en                      = 1 ;
          fsm_mem_en                     = 1;
 
@@ -1283,8 +1283,8 @@ always @(*) begin
          // fsm control
          fsm_rd                         = 0;
          fsm_wr                         = 0;
-         fsm_wr_en                      = 0 ;
-         fsm_rd_en                      = 0 ;
+         fsm_wr_en                      = 1 ;
+         fsm_rd_en                      = 1 ;
          fsm_mem_en                     = 1;
 
          // status in buffering
