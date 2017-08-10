@@ -1289,7 +1289,7 @@ always @(*) begin
 
          // status in buffering
          is_signed_buffer_sel           = UPDATE;
-         word_type_buffer_sel           = UPDATE;
+         word_type_buffer_sel           = UPDATE;  
 
          // input selection feedback
          from_mem_feedback_sel          = FEEDBACK_TOP8;

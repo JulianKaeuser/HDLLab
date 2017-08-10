@@ -1,6 +1,6 @@
 // AUTHORS: Group 06 / Julian Käuser
 // Wed 08/09/2017
-module memory_interface_v3(
+module memory_interface_v3  (
   address,
   data_in,
   load,
