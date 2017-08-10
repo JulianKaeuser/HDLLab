@@ -148,6 +148,14 @@ reg [7:0] next_itstate;
 
 reg next_split_instruction;
 
+// experimental 1
+
+// reg [31:0] counter;
+// reg [31:0] new_counter
+
+// end experimental 1
+
+
 // synthesis translate off
 reg exec_cond_true;
 reg next_exec_cond_true;
@@ -159,7 +167,28 @@ wire instruction_format;
 assign instruction_format = instruction;
 
 // synthesis translate on
-                             
+
+
+// experimental 1
+
+// save one clock cycle by deasserting stall_to_instructionfetch one clock cycle before 
+// the last memory access ends
+
+// always @(posedge clock) begin 
+//     if(reset) begin
+//         counter <= `IMM_ZERO;
+//     end
+//     else if(load_counter) begin
+//         counter <= new_counter;
+//     end
+//     else begin
+//         counter <= (counter >> 1);
+//     end
+// end
+
+// experimental 1 end
+
+                         
 
 always @(posedge clock) begin 
 
@@ -278,7 +307,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_memory_load_request = 1'b0;
 	            next_memory_store_request = 1'b0;
 	            
-	            next_stall_to_instructionfetch       = 1'b1;
+	            next_stall_to_instructionfetch       = 1'b0;
 	                                
 	            next_step                            = 9'b1_1111_1111;
 	            
@@ -362,7 +391,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_memory_load_request = 1'b0;
 	            next_memory_store_request = 1'b0;
 	            
-	            next_stall_to_instructionfetch       = 1'b1;
+	            next_stall_to_instructionfetch       = 1'b0;
 	                                
 	            next_step                            = 9'b1_1111_1111;
 	            
@@ -437,7 +466,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_memory_load_request = 1'b0;
 	            next_memory_store_request = 1'b0;
 	            
-	            next_stall_to_instructionfetch       = 1'b1;
+	            next_stall_to_instructionfetch       = 1'b0;
 	                                
 	            next_step                            = 9'b1_1111_1111;
 	            
@@ -627,7 +656,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_memory_store_request = 1'b0;
 	            
 	            
-	            next_stall_to_instructionfetch       = 1'b1;
+	            next_stall_to_instructionfetch       = 1'b1; // kann man ändern, so dass nur bei PC-Benutzung und Branch gestallt wird	            
 	                                
 	            next_step                            = 9'b1_1111_1111;
 	            
@@ -1093,7 +1122,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_memory_load_request = 1'b0;                                       
 	            next_memory_store_request = 1'b0;
 	            
-	            next_stall_to_instructionfetch       = 1'b1;
+	            next_stall_to_instructionfetch       = 1'b0;
 	                                
 	            next_step                            = 9'b1_1111_1111;
 	            
@@ -2474,7 +2503,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 				next_memory_load_request             = 1'b0;
 				next_memory_store_request            = 1'b0;
 				                                
-				next_stall_to_instructionfetch       = 1'b1;
+				next_stall_to_instructionfetch       = 1'b0;
 	
 				next_step                            = 9'b1_1111_1111;
 				
@@ -2533,6 +2562,20 @@ else if ( // else-if-block memstall
 	
 	next_split_instruction               = split_instruction;
 	
+	// experimental 1
+	
+// 	case(counter)
+// 	    `IMM_ZERO : begin
+// 	        next_stall_to_instructionfetch       = 1'b0;
+// 	    end
+// 	    default : begin
+// 	        next_stall_to_instructionfetch       = stall_to_instructionfetch;
+//         end
+//     endcase
+    
+    // end experimental 1
+    
+    
 
 end // else-if-block memstall
 

@@ -128,15 +128,9 @@ end
 always@(posedge clk) begin
 	if(reset) begin
         currentState <= RESET;
-        // synthesis translate off
-        finish_out <= 1'b0;
-        // synthesis translate on
 	end
 	else begin
         currentState <= nextState; 
-        // synthesis translate off
-        finish_out <= next_finish_out;
-        // synthesis translate on
 	end 
 end
 
@@ -165,17 +159,6 @@ always@(posedge clk) begin
         first_instruction_fetched <= first_instruction_fetched;
 	end
 end
-/*
-always@(posedge clk) begin
-	if(reset) begin
-        finish_out <= 1'b0;
-	end
-	else begin
-        finish_out <= next_finish_out;
-	end 
-end
-//synthesis translate on
-*/
 
 
 endmodule
