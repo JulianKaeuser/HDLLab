@@ -31,28 +31,34 @@ module memory_interface ( address, data_in, load, store, clk, reset, is_signed,
   wire   [31:0] delay_data_in32;
   wire   [15:0] delay_first_two_bytes_out;
 
-  DFQD1BWP12T delay_first_two_bytes_out_reg_15_ ( .D(from_mem_data[15]), .CP(
+  DFQD1BWP12T delay_first_two_bytes_out_reg_15_ ( .D(from_mem_data[7]), .CP(
         clk), .Q(delay_first_two_bytes_out[15]) );
-  DFQD1BWP12T delay_first_two_bytes_out_reg_14_ ( .D(from_mem_data[14]), .CP(
+  DFQD1BWP12T delay_first_two_bytes_out_reg_14_ ( .D(from_mem_data[6]), .CP(
         clk), .Q(delay_first_two_bytes_out[14]) );
-  DFQD1BWP12T delay_first_two_bytes_out_reg_13_ ( .D(from_mem_data[13]), .CP(
+  DFQD1BWP12T delay_first_two_bytes_out_reg_13_ ( .D(from_mem_data[5]), .CP(
         clk), .Q(delay_first_two_bytes_out[13]) );
-  DFQD1BWP12T delay_first_two_bytes_out_reg_12_ ( .D(from_mem_data[12]), .CP(
+  DFQD1BWP12T delay_first_two_bytes_out_reg_12_ ( .D(from_mem_data[4]), .CP(
         clk), .Q(delay_first_two_bytes_out[12]) );
-  DFQD1BWP12T delay_first_two_bytes_out_reg_11_ ( .D(from_mem_data[11]), .CP(
+  DFQD1BWP12T delay_first_two_bytes_out_reg_11_ ( .D(from_mem_data[3]), .CP(
         clk), .Q(delay_first_two_bytes_out[11]) );
-  DFQD1BWP12T delay_first_two_bytes_out_reg_10_ ( .D(from_mem_data[10]), .CP(
+  DFQD1BWP12T delay_first_two_bytes_out_reg_10_ ( .D(from_mem_data[2]), .CP(
         clk), .Q(delay_first_two_bytes_out[10]) );
-  DFQD1BWP12T delay_first_two_bytes_out_reg_9_ ( .D(from_mem_data[9]), .CP(clk), .Q(delay_first_two_bytes_out[9]) );
-  DFQD1BWP12T delay_first_two_bytes_out_reg_8_ ( .D(from_mem_data[8]), .CP(clk), .Q(delay_first_two_bytes_out[8]) );
-  DFQD1BWP12T delay_first_two_bytes_out_reg_7_ ( .D(from_mem_data[7]), .CP(clk), .Q(delay_first_two_bytes_out[7]) );
-  DFQD1BWP12T delay_first_two_bytes_out_reg_6_ ( .D(from_mem_data[6]), .CP(clk), .Q(delay_first_two_bytes_out[6]) );
-  DFQD1BWP12T delay_first_two_bytes_out_reg_5_ ( .D(from_mem_data[5]), .CP(clk), .Q(delay_first_two_bytes_out[5]) );
-  DFQD1BWP12T delay_first_two_bytes_out_reg_4_ ( .D(from_mem_data[4]), .CP(clk), .Q(delay_first_two_bytes_out[4]) );
-  DFQD1BWP12T delay_first_two_bytes_out_reg_3_ ( .D(from_mem_data[3]), .CP(clk), .Q(delay_first_two_bytes_out[3]) );
-  DFQD1BWP12T delay_first_two_bytes_out_reg_2_ ( .D(from_mem_data[2]), .CP(clk), .Q(delay_first_two_bytes_out[2]) );
-  DFQD1BWP12T delay_first_two_bytes_out_reg_1_ ( .D(from_mem_data[1]), .CP(clk), .Q(delay_first_two_bytes_out[1]) );
-  DFQD1BWP12T delay_first_two_bytes_out_reg_0_ ( .D(from_mem_data[0]), .CP(clk), .Q(delay_first_two_bytes_out[0]) );
+  DFQD1BWP12T delay_first_two_bytes_out_reg_9_ ( .D(from_mem_data[1]), .CP(clk), .Q(delay_first_two_bytes_out[9]) );
+  DFQD1BWP12T delay_first_two_bytes_out_reg_8_ ( .D(from_mem_data[0]), .CP(clk), .Q(delay_first_two_bytes_out[8]) );
+  DFQD1BWP12T delay_first_two_bytes_out_reg_7_ ( .D(from_mem_data[15]), .CP(
+        clk), .Q(delay_first_two_bytes_out[7]) );
+  DFQD1BWP12T delay_first_two_bytes_out_reg_6_ ( .D(from_mem_data[14]), .CP(
+        clk), .Q(delay_first_two_bytes_out[6]) );
+  DFQD1BWP12T delay_first_two_bytes_out_reg_5_ ( .D(from_mem_data[13]), .CP(
+        clk), .Q(delay_first_two_bytes_out[5]) );
+  DFQD1BWP12T delay_first_two_bytes_out_reg_4_ ( .D(from_mem_data[12]), .CP(
+        clk), .Q(delay_first_two_bytes_out[4]) );
+  DFQD1BWP12T delay_first_two_bytes_out_reg_3_ ( .D(from_mem_data[11]), .CP(
+        clk), .Q(delay_first_two_bytes_out[3]) );
+  DFQD1BWP12T delay_first_two_bytes_out_reg_2_ ( .D(from_mem_data[10]), .CP(
+        clk), .Q(delay_first_two_bytes_out[2]) );
+  DFQD1BWP12T delay_first_two_bytes_out_reg_1_ ( .D(from_mem_data[9]), .CP(clk), .Q(delay_first_two_bytes_out[1]) );
+  DFQD1BWP12T delay_first_two_bytes_out_reg_0_ ( .D(from_mem_data[8]), .CP(clk), .Q(delay_first_two_bytes_out[0]) );
   DFQD1BWP12T delay_data_in32_reg_31_ ( .D(data_in[31]), .CP(clk), .Q(
         delay_data_in32[31]) );
   DFQD1BWP12T delay_data_in32_reg_30_ ( .D(data_in[30]), .CP(clk), .Q(
@@ -156,21 +162,20 @@ module memory_interface ( address, data_in, load, store, clk, reset, is_signed,
   NR3D1BWP12T U193 ( .A1(fsm_state_1_), .A2(fsm_state_2_), .A3(fsm_state_3_), 
         .ZN(n134) );
   INVD1BWP12T U194 ( .I(n134), .ZN(n216) );
-  INVD1BWP12T U195 ( .I(n206), .ZN(n215) );
-  NR2D1BWP12T U196 ( .A1(fsm_state_0_), .A2(n216), .ZN(n206) );
-  INVD1BWP12T U197 ( .I(store), .ZN(n132) );
-  NR2D1BWP12T U198 ( .A1(fsm_state_2_), .A2(n252), .ZN(n131) );
+  INVD1BWP12T U195 ( .I(n207), .ZN(n215) );
+  NR2D1BWP12T U196 ( .A1(fsm_state_0_), .A2(n216), .ZN(n207) );
+  INVD1BWP12T U197 ( .I(store), .ZN(n131) );
+  NR2D1BWP12T U198 ( .A1(fsm_state_2_), .A2(n252), .ZN(n132) );
   MAOI22D0BWP12T U199 ( .A1(word_type[0]), .A2(n133), .B1(word_type[0]), .B2(
         n133), .ZN(n234) );
-  NR3D1BWP12T U200 ( .A1(load), .A2(n132), .A3(n215), .ZN(n230) );
+  NR3D1BWP12T U200 ( .A1(load), .A2(n131), .A3(n215), .ZN(n230) );
   INVD1BWP12T U201 ( .I(word_type[1]), .ZN(n133) );
   OA211D0BWP12T U202 ( .A1(n219), .A2(delayed_is_signed), .B(n249), .C(n218), 
         .Z(n121) );
   CKND2D0BWP12T U203 ( .A1(n217), .A2(n121), .ZN(n228) );
   CKND0BWP12T U204 ( .I(delayed_is_signed), .ZN(n122) );
   OAI211D0BWP12T U205 ( .A1(n219), .A2(n122), .B(n217), .C(n215), .ZN(n123) );
-  CKND2D0BWP12T U206 ( .A1(from_mem_data[15]), .A2(delayed_is_signed), .ZN(
-        n124) );
+  CKND2D0BWP12T U206 ( .A1(from_mem_data[7]), .A2(delayed_is_signed), .ZN(n124) );
   NR2D0BWP12T U207 ( .A1(n214), .A2(n124), .ZN(n125) );
   MOAI22D0BWP12T U208 ( .A1(n123), .A2(n125), .B1(n123), .B2(n249), .ZN(n240)
          );
@@ -178,7 +183,7 @@ module memory_interface ( address, data_in, load, store, clk, reset, is_signed,
   IOA21D0BWP12T U210 ( .A1(word_type[1]), .A2(word_type[0]), .B(n230), .ZN(
         n233) );
   INR2D0BWP12T U211 ( .A1(n230), .B1(n234), .ZN(n126) );
-  AOI31D0BWP12T U212 ( .A1(fsm_state_0_), .A2(n253), .A3(n131), .B(n126), .ZN(
+  AOI31D0BWP12T U212 ( .A1(fsm_state_0_), .A2(n253), .A3(n132), .B(n126), .ZN(
         n127) );
   AOI21D0BWP12T U213 ( .A1(n127), .A2(n232), .B(reset), .ZN(fsm_N34) );
   AO222D0BWP12T U214 ( .A1(delay_addr_single[9]), .A2(n239), .B1(n236), .B2(
@@ -186,7 +191,7 @@ module memory_interface ( address, data_in, load, store, clk, reset, is_signed,
   MAOI22D0BWP12T U215 ( .A1(n230), .A2(n133), .B1(word_type[0]), .B2(n235), 
         .ZN(n128) );
   AOI21D0BWP12T U216 ( .A1(n231), .A2(n128), .B(reset), .ZN(fsm_N33) );
-  CKND2D0BWP12T U217 ( .A1(n131), .A2(n251), .ZN(n129) );
+  CKND2D0BWP12T U217 ( .A1(n132), .A2(n251), .ZN(n129) );
   OR2XD0BWP12T U218 ( .A1(n129), .A2(fsm_state_3_), .Z(n219) );
   NR4D0BWP12T U219 ( .A1(fsm_state_1_), .A2(fsm_state_0_), .A3(fsm_state_3_), 
         .A4(n254), .ZN(n241) );
@@ -199,16 +204,16 @@ module memory_interface ( address, data_in, load, store, clk, reset, is_signed,
   OAI221D0BWP12T U225 ( .A1(fsm_state_1_), .A2(n251), .B1(n252), .B2(
         fsm_state_0_), .C(fsm_state_2_), .ZN(n130) );
   AOI21D0BWP12T U226 ( .A1(n130), .A2(n129), .B(n253), .ZN(write_ready) );
-  RCAOI211D0BWP12T U227 ( .A1(fsm_state_0_), .A2(n131), .B(n208), .C(
+  RCAOI211D0BWP12T U227 ( .A1(fsm_state_0_), .A2(n132), .B(n208), .C(
         write_ready), .ZN(n217) );
   IND2D1BWP12T U228 ( .A1(output_valid), .B1(n217), .ZN(busy) );
   INVD1BWP12T U229 ( .I(busy), .ZN(n213) );
   OAI21D1BWP12T U230 ( .A1(word_type[0]), .A2(word_type[1]), .B(n213), .ZN(
         n211) );
-  ND3D1BWP12T U231 ( .A1(fsm_state_0_), .A2(fsm_state_3_), .A3(n131), .ZN(n231) );
-  OAI211D0BWP12T U232 ( .A1(n211), .A2(n132), .B(n232), .C(n231), .ZN(
+  ND3D1BWP12T U231 ( .A1(fsm_state_0_), .A2(fsm_state_3_), .A3(n132), .ZN(n231) );
+  OAI211D0BWP12T U232 ( .A1(n211), .A2(n131), .B(n232), .C(n231), .ZN(
         to_mem_write_enable) );
-  CKND2D1BWP12T U233 ( .A1(n206), .A2(load), .ZN(n235) );
+  CKND2D1BWP12T U233 ( .A1(n207), .A2(load), .ZN(n235) );
   INVD1BWP12T U234 ( .I(delay_addr_single[10]), .ZN(n141) );
   ND3D1BWP12T U235 ( .A1(delay_addr_single[0]), .A2(delay_addr_single[1]), 
         .A3(delay_addr_single[2]), .ZN(n163) );
@@ -224,10 +229,10 @@ module memory_interface ( address, data_in, load, store, clk, reset, is_signed,
   NR2D0BWP12T U245 ( .A1(n134), .A2(n241), .ZN(n218) );
   OAI32D0BWP12T U246 ( .A1(fsm_state_3_), .A2(fsm_state_1_), .A3(fsm_state_0_), 
         .B1(fsm_state_2_), .B2(fsm_state_3_), .ZN(n212) );
-  NR2D1BWP12T U247 ( .A1(write_ready), .A2(n212), .ZN(n190) );
-  CKND2D1BWP12T U248 ( .A1(n190), .A2(n232), .ZN(n167) );
-  INVD1BWP12T U249 ( .I(n167), .ZN(n187) );
-  NR2D1BWP12T U250 ( .A1(n236), .A2(n187), .ZN(n136) );
+  NR2D1BWP12T U247 ( .A1(write_ready), .A2(n212), .ZN(n172) );
+  CKND2D1BWP12T U248 ( .A1(n172), .A2(n232), .ZN(n167) );
+  INVD1BWP12T U249 ( .I(n167), .ZN(n206) );
+  NR2D1BWP12T U250 ( .A1(n236), .A2(n206), .ZN(n136) );
   INVD1BWP12T U251 ( .I(n136), .ZN(n171) );
   INR2D1BWP12T U252 ( .A1(n135), .B1(n171), .ZN(n238) );
   ND2D1BWP12T U253 ( .A1(delay_addr_single[9]), .A2(n238), .ZN(n142) );
@@ -290,154 +295,154 @@ module memory_interface ( address, data_in, load, store, clk, reset, is_signed,
   AO222D1BWP12T U286 ( .A1(n169), .A2(delay_addr_single[1]), .B1(n236), .B2(
         address[1]), .C1(delay_addr_single[0]), .C2(n168), .Z(
         to_mem_address[1]) );
-  AOI22D1BWP12T U287 ( .A1(n187), .A2(delay_addr_single[0]), .B1(address[0]), 
+  AOI22D1BWP12T U287 ( .A1(n206), .A2(delay_addr_single[0]), .B1(address[0]), 
         .B2(n236), .ZN(n170) );
   OAI21D1BWP12T U288 ( .A1(delay_addr_single[0]), .A2(n171), .B(n170), .ZN(
         to_mem_address[0]) );
-  RCAOI21D0BWP12T U289 ( .A1(n190), .A2(n231), .B(n213), .ZN(n205) );
-  INR2D1BWP12T U290 ( .A1(n205), .B1(n187), .ZN(n186) );
-  AOI22D1BWP12T U291 ( .A1(n187), .A2(from_mem_data[15]), .B1(n186), .B2(
-        delay_data_in32[15]), .ZN(n173) );
-  AOI22D0BWP12T U292 ( .A1(n208), .A2(delay_data_in32[31]), .B1(n206), .B2(
-        data_in[15]), .ZN(n172) );
-  ND2D1BWP12T U293 ( .A1(n173), .A2(n172), .ZN(to_mem_data[15]) );
-  AOI22D1BWP12T U294 ( .A1(n187), .A2(from_mem_data[14]), .B1(n186), .B2(
-        delay_data_in32[14]), .ZN(n175) );
-  AOI22D0BWP12T U295 ( .A1(n208), .A2(delay_data_in32[30]), .B1(n206), .B2(
-        data_in[14]), .ZN(n174) );
-  ND2D1BWP12T U296 ( .A1(n175), .A2(n174), .ZN(to_mem_data[14]) );
-  AOI22D1BWP12T U297 ( .A1(n187), .A2(from_mem_data[13]), .B1(n186), .B2(
-        delay_data_in32[13]), .ZN(n177) );
-  AOI22D0BWP12T U298 ( .A1(n208), .A2(delay_data_in32[29]), .B1(n206), .B2(
-        data_in[13]), .ZN(n176) );
-  ND2D1BWP12T U299 ( .A1(n177), .A2(n176), .ZN(to_mem_data[13]) );
-  AOI22D1BWP12T U300 ( .A1(n187), .A2(from_mem_data[12]), .B1(n186), .B2(
-        delay_data_in32[12]), .ZN(n179) );
-  AOI22D0BWP12T U301 ( .A1(n208), .A2(delay_data_in32[28]), .B1(n206), .B2(
-        data_in[12]), .ZN(n178) );
-  ND2D1BWP12T U302 ( .A1(n179), .A2(n178), .ZN(to_mem_data[12]) );
-  AOI22D1BWP12T U303 ( .A1(n187), .A2(from_mem_data[11]), .B1(n186), .B2(
-        delay_data_in32[11]), .ZN(n181) );
-  AOI22D0BWP12T U304 ( .A1(n208), .A2(delay_data_in32[27]), .B1(n206), .B2(
-        data_in[11]), .ZN(n180) );
-  ND2D1BWP12T U305 ( .A1(n181), .A2(n180), .ZN(to_mem_data[11]) );
-  AOI22D1BWP12T U306 ( .A1(n187), .A2(from_mem_data[10]), .B1(n186), .B2(
-        delay_data_in32[10]), .ZN(n183) );
-  AOI22D0BWP12T U307 ( .A1(n208), .A2(delay_data_in32[26]), .B1(n206), .B2(
-        data_in[10]), .ZN(n182) );
-  ND2D1BWP12T U308 ( .A1(n183), .A2(n182), .ZN(to_mem_data[10]) );
-  AOI22D1BWP12T U309 ( .A1(n187), .A2(from_mem_data[9]), .B1(n186), .B2(
-        delay_data_in32[9]), .ZN(n185) );
-  AOI22D0BWP12T U310 ( .A1(n208), .A2(delay_data_in32[25]), .B1(n206), .B2(
-        data_in[9]), .ZN(n184) );
-  ND2D1BWP12T U311 ( .A1(n185), .A2(n184), .ZN(to_mem_data[9]) );
-  AOI22D1BWP12T U312 ( .A1(n187), .A2(from_mem_data[8]), .B1(n186), .B2(
-        delay_data_in32[8]), .ZN(n189) );
-  AOI22D0BWP12T U313 ( .A1(n208), .A2(delay_data_in32[24]), .B1(n206), .B2(
-        data_in[8]), .ZN(n188) );
+  RCAOI21D0BWP12T U289 ( .A1(n172), .A2(n231), .B(n213), .ZN(n190) );
+  AOI22D0BWP12T U290 ( .A1(n207), .A2(data_in[7]), .B1(n190), .B2(
+        delay_data_in32[7]), .ZN(n174) );
+  AN2D1BWP12T U291 ( .A1(n172), .A2(n213), .Z(n187) );
+  AOI22D1BWP12T U292 ( .A1(n208), .A2(delay_data_in32[23]), .B1(n187), .B2(
+        data_in[23]), .ZN(n173) );
+  ND2D1BWP12T U293 ( .A1(n174), .A2(n173), .ZN(to_mem_data[15]) );
+  AOI22D0BWP12T U294 ( .A1(n207), .A2(data_in[6]), .B1(n190), .B2(
+        delay_data_in32[6]), .ZN(n176) );
+  AOI22D1BWP12T U295 ( .A1(n208), .A2(delay_data_in32[22]), .B1(n187), .B2(
+        data_in[22]), .ZN(n175) );
+  ND2D1BWP12T U296 ( .A1(n176), .A2(n175), .ZN(to_mem_data[14]) );
+  AOI22D0BWP12T U297 ( .A1(n207), .A2(data_in[5]), .B1(n190), .B2(
+        delay_data_in32[5]), .ZN(n178) );
+  AOI22D1BWP12T U298 ( .A1(n208), .A2(delay_data_in32[21]), .B1(n187), .B2(
+        data_in[21]), .ZN(n177) );
+  ND2D1BWP12T U299 ( .A1(n178), .A2(n177), .ZN(to_mem_data[13]) );
+  AOI22D0BWP12T U300 ( .A1(n207), .A2(data_in[4]), .B1(n190), .B2(
+        delay_data_in32[4]), .ZN(n180) );
+  AOI22D1BWP12T U301 ( .A1(n208), .A2(delay_data_in32[20]), .B1(n187), .B2(
+        data_in[20]), .ZN(n179) );
+  ND2D1BWP12T U302 ( .A1(n180), .A2(n179), .ZN(to_mem_data[12]) );
+  AOI22D0BWP12T U303 ( .A1(n207), .A2(data_in[3]), .B1(n190), .B2(
+        delay_data_in32[3]), .ZN(n182) );
+  AOI22D1BWP12T U304 ( .A1(n208), .A2(delay_data_in32[19]), .B1(n187), .B2(
+        data_in[19]), .ZN(n181) );
+  ND2D1BWP12T U305 ( .A1(n182), .A2(n181), .ZN(to_mem_data[11]) );
+  AOI22D0BWP12T U306 ( .A1(n207), .A2(data_in[2]), .B1(n190), .B2(
+        delay_data_in32[2]), .ZN(n184) );
+  AOI22D1BWP12T U307 ( .A1(n208), .A2(delay_data_in32[18]), .B1(n187), .B2(
+        data_in[18]), .ZN(n183) );
+  ND2D1BWP12T U308 ( .A1(n184), .A2(n183), .ZN(to_mem_data[10]) );
+  AOI22D0BWP12T U309 ( .A1(n207), .A2(data_in[1]), .B1(n190), .B2(
+        delay_data_in32[1]), .ZN(n186) );
+  AOI22D1BWP12T U310 ( .A1(n208), .A2(delay_data_in32[17]), .B1(n187), .B2(
+        data_in[17]), .ZN(n185) );
+  ND2D1BWP12T U311 ( .A1(n186), .A2(n185), .ZN(to_mem_data[9]) );
+  AOI22D0BWP12T U312 ( .A1(n207), .A2(data_in[0]), .B1(n190), .B2(
+        delay_data_in32[0]), .ZN(n189) );
+  AOI22D1BWP12T U313 ( .A1(n208), .A2(delay_data_in32[16]), .B1(n187), .B2(
+        data_in[16]), .ZN(n188) );
   ND2D1BWP12T U314 ( .A1(n189), .A2(n188), .ZN(to_mem_data[8]) );
-  AOI22D0BWP12T U315 ( .A1(n206), .A2(data_in[7]), .B1(n205), .B2(
-        delay_data_in32[7]), .ZN(n192) );
-  AN2D1BWP12T U316 ( .A1(n190), .A2(n213), .Z(n207) );
-  AOI22D1BWP12T U317 ( .A1(n208), .A2(delay_data_in32[23]), .B1(n207), .B2(
-        data_in[23]), .ZN(n191) );
+  INR2D1BWP12T U315 ( .A1(n190), .B1(n206), .ZN(n205) );
+  AOI22D1BWP12T U316 ( .A1(n206), .A2(from_mem_data[7]), .B1(n205), .B2(
+        delay_data_in32[15]), .ZN(n192) );
+  AOI22D0BWP12T U317 ( .A1(n208), .A2(delay_data_in32[31]), .B1(n207), .B2(
+        data_in[15]), .ZN(n191) );
   ND2D1BWP12T U318 ( .A1(n192), .A2(n191), .ZN(to_mem_data[7]) );
-  AOI22D0BWP12T U319 ( .A1(n206), .A2(data_in[6]), .B1(n205), .B2(
-        delay_data_in32[6]), .ZN(n194) );
-  AOI22D1BWP12T U320 ( .A1(n208), .A2(delay_data_in32[22]), .B1(n207), .B2(
-        data_in[22]), .ZN(n193) );
+  AOI22D1BWP12T U319 ( .A1(n206), .A2(from_mem_data[6]), .B1(n205), .B2(
+        delay_data_in32[14]), .ZN(n194) );
+  AOI22D0BWP12T U320 ( .A1(n208), .A2(delay_data_in32[30]), .B1(n207), .B2(
+        data_in[14]), .ZN(n193) );
   ND2D1BWP12T U321 ( .A1(n194), .A2(n193), .ZN(to_mem_data[6]) );
-  AOI22D0BWP12T U322 ( .A1(n206), .A2(data_in[5]), .B1(n205), .B2(
-        delay_data_in32[5]), .ZN(n196) );
-  AOI22D1BWP12T U323 ( .A1(n208), .A2(delay_data_in32[21]), .B1(n207), .B2(
-        data_in[21]), .ZN(n195) );
+  AOI22D1BWP12T U322 ( .A1(n206), .A2(from_mem_data[5]), .B1(n205), .B2(
+        delay_data_in32[13]), .ZN(n196) );
+  AOI22D0BWP12T U323 ( .A1(n208), .A2(delay_data_in32[29]), .B1(n207), .B2(
+        data_in[13]), .ZN(n195) );
   ND2D1BWP12T U324 ( .A1(n196), .A2(n195), .ZN(to_mem_data[5]) );
-  AOI22D0BWP12T U325 ( .A1(n206), .A2(data_in[4]), .B1(n205), .B2(
-        delay_data_in32[4]), .ZN(n198) );
-  AOI22D1BWP12T U326 ( .A1(n208), .A2(delay_data_in32[20]), .B1(n207), .B2(
-        data_in[20]), .ZN(n197) );
+  AOI22D1BWP12T U325 ( .A1(n206), .A2(from_mem_data[4]), .B1(n205), .B2(
+        delay_data_in32[12]), .ZN(n198) );
+  AOI22D0BWP12T U326 ( .A1(n208), .A2(delay_data_in32[28]), .B1(n207), .B2(
+        data_in[12]), .ZN(n197) );
   ND2D1BWP12T U327 ( .A1(n198), .A2(n197), .ZN(to_mem_data[4]) );
-  AOI22D0BWP12T U328 ( .A1(n206), .A2(data_in[3]), .B1(n205), .B2(
-        delay_data_in32[3]), .ZN(n200) );
-  AOI22D1BWP12T U329 ( .A1(n208), .A2(delay_data_in32[19]), .B1(n207), .B2(
-        data_in[19]), .ZN(n199) );
+  AOI22D1BWP12T U328 ( .A1(n206), .A2(from_mem_data[3]), .B1(n205), .B2(
+        delay_data_in32[11]), .ZN(n200) );
+  AOI22D0BWP12T U329 ( .A1(n208), .A2(delay_data_in32[27]), .B1(n207), .B2(
+        data_in[11]), .ZN(n199) );
   ND2D1BWP12T U330 ( .A1(n200), .A2(n199), .ZN(to_mem_data[3]) );
-  AOI22D0BWP12T U331 ( .A1(n206), .A2(data_in[2]), .B1(n205), .B2(
-        delay_data_in32[2]), .ZN(n202) );
-  AOI22D1BWP12T U332 ( .A1(n208), .A2(delay_data_in32[18]), .B1(n207), .B2(
-        data_in[18]), .ZN(n201) );
+  AOI22D1BWP12T U331 ( .A1(n206), .A2(from_mem_data[2]), .B1(n205), .B2(
+        delay_data_in32[10]), .ZN(n202) );
+  AOI22D0BWP12T U332 ( .A1(n208), .A2(delay_data_in32[26]), .B1(n207), .B2(
+        data_in[10]), .ZN(n201) );
   ND2D1BWP12T U333 ( .A1(n202), .A2(n201), .ZN(to_mem_data[2]) );
-  AOI22D0BWP12T U334 ( .A1(n206), .A2(data_in[1]), .B1(n205), .B2(
-        delay_data_in32[1]), .ZN(n204) );
-  AOI22D1BWP12T U335 ( .A1(n208), .A2(delay_data_in32[17]), .B1(n207), .B2(
-        data_in[17]), .ZN(n203) );
+  AOI22D1BWP12T U334 ( .A1(n206), .A2(from_mem_data[1]), .B1(n205), .B2(
+        delay_data_in32[9]), .ZN(n204) );
+  AOI22D0BWP12T U335 ( .A1(n208), .A2(delay_data_in32[25]), .B1(n207), .B2(
+        data_in[9]), .ZN(n203) );
   ND2D1BWP12T U336 ( .A1(n204), .A2(n203), .ZN(to_mem_data[1]) );
-  AOI22D0BWP12T U337 ( .A1(n206), .A2(data_in[0]), .B1(n205), .B2(
-        delay_data_in32[0]), .ZN(n210) );
-  AOI22D1BWP12T U338 ( .A1(n208), .A2(delay_data_in32[16]), .B1(n207), .B2(
-        data_in[16]), .ZN(n209) );
+  AOI22D1BWP12T U337 ( .A1(n206), .A2(from_mem_data[0]), .B1(n205), .B2(
+        delay_data_in32[8]), .ZN(n210) );
+  AOI22D0BWP12T U338 ( .A1(n208), .A2(delay_data_in32[24]), .B1(n207), .B2(
+        data_in[8]), .ZN(n209) );
   ND2D1BWP12T U339 ( .A1(n210), .A2(n209), .ZN(to_mem_data[0]) );
   OA22D1BWP12T U340 ( .A1(n213), .A2(n212), .B1(load), .B2(n211), .Z(
         to_mem_read_enable) );
-  INVD1BWP12T U341 ( .I(from_mem_data[7]), .ZN(n249) );
+  INVD1BWP12T U341 ( .I(from_mem_data[15]), .ZN(n249) );
   OAI21D1BWP12T U342 ( .A1(n249), .A2(n250), .B(n240), .ZN(data_out[23]) );
-  INVD1BWP12T U343 ( .I(from_mem_data[6]), .ZN(n248) );
+  INVD1BWP12T U343 ( .I(from_mem_data[14]), .ZN(n248) );
   OAI21D1BWP12T U344 ( .A1(n250), .A2(n248), .B(n240), .ZN(data_out[22]) );
-  INVD1BWP12T U345 ( .I(from_mem_data[5]), .ZN(n247) );
+  INVD1BWP12T U345 ( .I(from_mem_data[13]), .ZN(n247) );
   OAI21D1BWP12T U346 ( .A1(n250), .A2(n247), .B(n240), .ZN(data_out[21]) );
-  INVD1BWP12T U347 ( .I(from_mem_data[4]), .ZN(n246) );
+  INVD1BWP12T U347 ( .I(from_mem_data[12]), .ZN(n246) );
   OAI21D1BWP12T U348 ( .A1(n250), .A2(n246), .B(n240), .ZN(data_out[20]) );
-  INVD1BWP12T U349 ( .I(from_mem_data[3]), .ZN(n245) );
+  INVD1BWP12T U349 ( .I(from_mem_data[11]), .ZN(n245) );
   OAI21D1BWP12T U350 ( .A1(n250), .A2(n245), .B(n240), .ZN(data_out[19]) );
-  INVD1BWP12T U351 ( .I(from_mem_data[2]), .ZN(n244) );
+  INVD1BWP12T U351 ( .I(from_mem_data[10]), .ZN(n244) );
   OAI21D1BWP12T U352 ( .A1(n250), .A2(n244), .B(n240), .ZN(data_out[18]) );
-  INVD1BWP12T U353 ( .I(from_mem_data[1]), .ZN(n243) );
+  INVD1BWP12T U353 ( .I(from_mem_data[9]), .ZN(n243) );
   OAI21D1BWP12T U354 ( .A1(n250), .A2(n243), .B(n240), .ZN(data_out[17]) );
-  INVD1BWP12T U355 ( .I(from_mem_data[0]), .ZN(n242) );
+  INVD1BWP12T U355 ( .I(from_mem_data[8]), .ZN(n242) );
   OAI21D1BWP12T U356 ( .A1(n250), .A2(n242), .B(n240), .ZN(data_out[16]) );
   CKND2D1BWP12T U357 ( .A1(n216), .A2(n217), .ZN(n227) );
   AOI22D1BWP12T U358 ( .A1(n241), .A2(delay_first_two_bytes_out[15]), .B1(
-        from_mem_data[15]), .B2(n227), .ZN(n220) );
+        from_mem_data[7]), .B2(n227), .ZN(n220) );
   ND2D1BWP12T U359 ( .A1(n220), .A2(n228), .ZN(data_out[15]) );
   AOI22D1BWP12T U360 ( .A1(n241), .A2(delay_first_two_bytes_out[14]), .B1(
-        from_mem_data[14]), .B2(n227), .ZN(n221) );
+        from_mem_data[6]), .B2(n227), .ZN(n221) );
   ND2D1BWP12T U361 ( .A1(n221), .A2(n228), .ZN(data_out[14]) );
   AOI22D1BWP12T U362 ( .A1(n241), .A2(delay_first_two_bytes_out[13]), .B1(
-        from_mem_data[13]), .B2(n227), .ZN(n222) );
+        from_mem_data[5]), .B2(n227), .ZN(n222) );
   ND2D1BWP12T U363 ( .A1(n222), .A2(n228), .ZN(data_out[13]) );
   AOI22D1BWP12T U364 ( .A1(n241), .A2(delay_first_two_bytes_out[12]), .B1(
-        from_mem_data[12]), .B2(n227), .ZN(n223) );
+        from_mem_data[4]), .B2(n227), .ZN(n223) );
   ND2D1BWP12T U365 ( .A1(n223), .A2(n228), .ZN(data_out[12]) );
   AOI22D1BWP12T U366 ( .A1(n241), .A2(delay_first_two_bytes_out[11]), .B1(
-        from_mem_data[11]), .B2(n227), .ZN(n224) );
+        from_mem_data[3]), .B2(n227), .ZN(n224) );
   ND2D1BWP12T U367 ( .A1(n224), .A2(n228), .ZN(data_out[11]) );
   AOI22D1BWP12T U368 ( .A1(n241), .A2(delay_first_two_bytes_out[10]), .B1(
-        from_mem_data[10]), .B2(n227), .ZN(n225) );
+        from_mem_data[2]), .B2(n227), .ZN(n225) );
   ND2D1BWP12T U369 ( .A1(n225), .A2(n228), .ZN(data_out[10]) );
   AOI22D1BWP12T U370 ( .A1(n241), .A2(delay_first_two_bytes_out[9]), .B1(
-        from_mem_data[9]), .B2(n227), .ZN(n226) );
+        from_mem_data[1]), .B2(n227), .ZN(n226) );
   ND2D1BWP12T U371 ( .A1(n226), .A2(n228), .ZN(data_out[9]) );
   AOI22D1BWP12T U372 ( .A1(n241), .A2(delay_first_two_bytes_out[8]), .B1(
-        from_mem_data[8]), .B2(n227), .ZN(n229) );
+        from_mem_data[0]), .B2(n227), .ZN(n229) );
   ND2D1BWP12T U373 ( .A1(n229), .A2(n228), .ZN(data_out[8]) );
   AOI31D1BWP12T U374 ( .A1(n232), .A2(n231), .A3(n233), .B(reset), .ZN(fsm_N35) );
   OAI32D1BWP12T U375 ( .A1(reset), .A2(n235), .A3(n234), .B1(n233), .B2(reset), 
         .ZN(fsm_N32) );
-  IOA21D1BWP12T U376 ( .A1(from_mem_data[15]), .A2(n241), .B(n240), .ZN(
+  IOA21D1BWP12T U376 ( .A1(from_mem_data[7]), .A2(n241), .B(n240), .ZN(
         data_out[31]) );
-  IOA21D1BWP12T U377 ( .A1(from_mem_data[14]), .A2(n241), .B(n240), .ZN(
+  IOA21D1BWP12T U377 ( .A1(from_mem_data[6]), .A2(n241), .B(n240), .ZN(
         data_out[30]) );
-  IOA21D1BWP12T U378 ( .A1(from_mem_data[13]), .A2(n241), .B(n240), .ZN(
+  IOA21D1BWP12T U378 ( .A1(from_mem_data[5]), .A2(n241), .B(n240), .ZN(
         data_out[29]) );
-  IOA21D1BWP12T U379 ( .A1(from_mem_data[12]), .A2(n241), .B(n240), .ZN(
+  IOA21D1BWP12T U379 ( .A1(from_mem_data[4]), .A2(n241), .B(n240), .ZN(
         data_out[28]) );
-  IOA21D1BWP12T U380 ( .A1(from_mem_data[11]), .A2(n241), .B(n240), .ZN(
+  IOA21D1BWP12T U380 ( .A1(from_mem_data[3]), .A2(n241), .B(n240), .ZN(
         data_out[27]) );
-  IOA21D1BWP12T U381 ( .A1(from_mem_data[10]), .A2(n241), .B(n240), .ZN(
+  IOA21D1BWP12T U381 ( .A1(from_mem_data[2]), .A2(n241), .B(n240), .ZN(
         data_out[26]) );
-  IOA21D1BWP12T U382 ( .A1(from_mem_data[9]), .A2(n241), .B(n240), .ZN(
+  IOA21D1BWP12T U382 ( .A1(from_mem_data[1]), .A2(n241), .B(n240), .ZN(
         data_out[25]) );
-  IOA21D1BWP12T U383 ( .A1(from_mem_data[8]), .A2(n241), .B(n240), .ZN(
+  IOA21D1BWP12T U383 ( .A1(from_mem_data[0]), .A2(n241), .B(n240), .ZN(
         data_out[24]) );
   MAOI22D0BWP12T U384 ( .A1(n250), .A2(n242), .B1(n250), .B2(
         delay_first_two_bytes_out[0]), .ZN(data_out[0]) );
