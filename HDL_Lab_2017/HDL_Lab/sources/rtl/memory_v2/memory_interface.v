@@ -230,6 +230,8 @@ assign data_out[15:0]  = output_shuffle_sel ? data_out_pre[31:16] : data_out_pre
 
 
 // 2nd stage: select between feedback and input
+localparam FEEDBACK_LOW8 = 1'b1;
+localparam FEEDBACK_TOP8 = 1'b0;
 wire from_mem_feedback_sel;
 wire [7:0] from_mem_feedback;
 assign from_mem_feedback = from_mem_feedback_sel ? from_mem_data_low8 : from_mem_data_top8;
@@ -239,6 +241,8 @@ wire [7:0] 2mem_data_in_low8;
 
 wire 2mem_data_in_top8_feedback_sel;
 wire 2mem_data_in_low8_feedback_sel;
+localparam FEEDBACK_TO_MEM = 1'b1;
+localparam INPUT_TO_MEM    = 1'b0;
 
 reg [7:0] from_cpu_low8_input;
 reg [7:0] from_cpu_top8_input;
@@ -330,7 +334,7 @@ end
 // and some related stuff
 
 memory_control_fsm fsm (
-  
+
   );
 
 wire fsm_rd_en;
