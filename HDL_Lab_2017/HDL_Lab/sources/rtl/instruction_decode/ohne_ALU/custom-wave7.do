@@ -106,6 +106,7 @@ add wave -noupdate -expand -group Instruction_Fetch /testbench7/UUT/Instruction_
 add wave -noupdate -expand -group Instruction_Fetch /testbench7/UUT/Instruction_Fetch_inst1/instruction_out
 add wave -noupdate -expand -group Instruction_Fetch -radix IF_STATE /testbench7/UUT/Instruction_Fetch_inst1/currentState
 add wave -noupdate -expand -group Instruction_Fetch -radix IF_STATE /testbench7/UUT/Instruction_Fetch_inst1/nextState
+add wave -noupdate -expand -group Instruction_Fetch /testbench7/UUT/Instruction_Fetch_inst1/finish_out
 add wave -noupdate /testbench7/clock
 add wave -noupdate -expand -group Instruction_Decoder -radix binary /testbench7/UUT/irdecode_inst1/state
 add wave -noupdate -expand -group Instruction_Decoder -radix binary /testbench7/UUT/irdecode_inst1/next_state
@@ -195,4 +196,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {44642 ps} {68514 ps}
+WaveRestoreZoom {3977322 ps} {4001194 ps}
