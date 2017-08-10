@@ -1144,7 +1144,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_operand_b = `RF_IMM;
 	            
 	            next_offset_a = `IMM_ZERO;
-	            next_offset_b = 32'b0000_0000_0000_0000_0000_0000_0000_0010;  // möglicherweise anpassen
+	            next_offset_b = 32'b0000_0000_0000_0000_0000_0000_0000_0100;  // möglicherweise anpassen
 	            
 	            next_pc_mask_bit = 1'b0;
 	            

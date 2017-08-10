@@ -4,7 +4,7 @@
 `include "irdefines.v"
 
 module irdecode	(
-clk,
+clock,
 reset,
 instruction,
 
@@ -54,7 +54,7 @@ stall_to_instructionfetch
 
 `include "f_flageval.v"
 
-input wire clk;
+input wire clock;
 input wire reset;
 input wire [15:0] instruction;
 
@@ -190,7 +190,7 @@ assign instruction_format = instruction;
 
                          
 
-always @(posedge clk) begin 
+always @(posedge clock) begin 
 
 operand_a                           <=       next_operand_a;           
 operand_b                           <=       next_operand_b;
@@ -1144,7 +1144,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_operand_b = `RF_IMM;
 	            
 	            next_offset_a = `IMM_ZERO;
-	            next_offset_b = 32'b0000_0000_0000_0000_0000_0000_0000_0010;  // möglicherweise anpassen
+	            next_offset_b = 32'b0000_0000_0000_0000_0000_0000_0000_0100;  // möglicherweise anpassen
 	            
 	            next_pc_mask_bit = 1'b0;
 	            
