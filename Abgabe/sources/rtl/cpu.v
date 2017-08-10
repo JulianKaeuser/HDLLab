@@ -1,4 +1,4 @@
-module top7 (
+module cpu (
 clock,
 reset,
 

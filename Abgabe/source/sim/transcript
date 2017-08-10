@@ -1,0 +1,36 @@
+# //  ModelSim SE-64 10.3d Oct  6 2014 Linux 4.12.4-1.g2a27bf2-default
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading project cpu_test
+vsim -novopt work.testbench_count32
+# vsim 
+# Start time: 22:11:01 on Aug 09,2017
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading sv_std.std
+# Loading work.testbench_count32
+# Loading work.cpu
+# Loading work.irdecode
+# Loading work.register_file
+# Loading work.ALU_VARIABLE
+# Loading work.memory_interface
+# Loading work.memory_control_fsm
+# Loading work.Instruction_Fetch
+# Loading work.memory
+# ** Warning: (vsim-3015) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/cpu.v(178): [PCDPC] - Port size (16) does not match connection size (32) for port 'instruction'. The port definition is at: /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/instructiondec/irdec.v(9).
+#         Region: /testbench_count32/UUT/irdecode_inst1
+# ** Warning: (vsim-3017) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/cpu.v(335): [TFMPC] - Too few port connections. Expected 13, found 12.
+#         Region: /testbench_count32/UUT/Instruction_Fetch_inst1
+# ** Warning: (vsim-3015) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/cpu.v(335): [PCDPC] - Port size (16) does not match connection size (32) for port 'instruction_out'. The port definition is at: /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/instructionfetch/Instruction_Fetch.v(18).
+#         Region: /testbench_count32/UUT/Instruction_Fetch_inst1
+# ** Warning: (vsim-3722) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/cpu.v(335): [TFMPC] - Missing connection for port 'finish_out'.
+do wave_count32.do
+run 4us
+# Causality operation skipped due to absence of debug database file
+# End time: 22:28:31 on Aug 09,2017, Elapsed time: 0:17:30
+# Errors: 0, Warnings: 6

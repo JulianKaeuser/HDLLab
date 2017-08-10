@@ -80,7 +80,7 @@ radix define IF_STATE {
     "2'b00" "RESET       " -color "blue",
     "2'b01" "WAIT_FOR_DEC" -color "orange",
     "2'b10" "FETCH       " -color "orange",
-    "2'b11" "ILLEGAL     " -color "red",
+    "2'b11" "FINISHED    " -color "red",
     -default default
 }
 quietly WaveActivateNextPane {} 0
@@ -107,9 +107,12 @@ add wave -noupdate -expand -group Instruction_Fetch /testbench7/UUT/Instruction_
 add wave -noupdate -expand -group Instruction_Fetch -radix IF_STATE /testbench7/UUT/Instruction_Fetch_inst1/currentState
 add wave -noupdate -expand -group Instruction_Fetch -radix IF_STATE /testbench7/UUT/Instruction_Fetch_inst1/nextState
 add wave -noupdate /testbench7/clock
+add wave -noupdate -expand -group Instruction_Decoder -radix binary /testbench7/UUT/irdecode_inst1/state
+add wave -noupdate -expand -group Instruction_Decoder -radix binary /testbench7/UUT/irdecode_inst1/next_state
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/instruction
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/instruction_valid
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/stall_to_instructionfetch
+add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/split_instruction
 add wave -noupdate -expand -group Instruction_Decoder -radix binary /testbench7/UUT/irdecode_inst1/itstate
 add wave -noupdate -expand -group Instruction_Decoder -radix binary /testbench7/UUT/irdecode_inst1/step
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/exec_cond_true
@@ -117,7 +120,6 @@ add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_i
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/flag_z
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/flag_c
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/flag_v
-add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/stall_from_instructionfetch
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/memory_write_finished
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/memory_read_finished
 add wave -noupdate -expand -group Instruction_Decoder -radix REG_SELECTION /testbench7/UUT/irdecode_inst1/operand_a
@@ -129,8 +131,8 @@ add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_i
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/update_flag_z
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/update_flag_c
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/update_flag_v
-add wave -noupdate -expand -group Instruction_Decoder -radix REG_SELECTION /testbench7/UUT/irdecode_inst1/alu_stack_write_to_reg
-add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/alu_stack_write_to_reg_enable
+add wave -noupdate -expand -group Instruction_Decoder -radix REG_SELECTION /testbench7/UUT/irdecode_inst1/alu_write_to_reg
+add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/alu_write_to_reg_enable
 add wave -noupdate -expand -group Instruction_Decoder -radix REG_SELECTION /testbench7/UUT/irdecode_inst1/memory_write_to_reg
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/memory_write_to_reg_enable
 add wave -noupdate -expand -group Instruction_Decoder -radix REG_SELECTION /testbench7/UUT/irdecode_inst1/memory_store_data_reg
@@ -140,9 +142,6 @@ add wave -noupdate -expand -group Instruction_Decoder -radix WIDTH /testbench7/U
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/memorycontroller_sign_extend
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/memory_load_request
 add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/memory_store_request
-add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/stack_push_request
-add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/stack_pop_request
-add wave -noupdate -expand -group Instruction_Decoder /testbench7/UUT/irdecode_inst1/decoder_pc_update
 add wave -noupdate /testbench7/clock
 add wave -noupdate -expand -group Registers -radix decimal /testbench7/UUT/register_file_inst1/r0
 add wave -noupdate -expand -group Registers -radix decimal /testbench7/UUT/register_file_inst1/r1
@@ -180,7 +179,7 @@ add wave -noupdate -expand -group Memory_Controller /testbench7/UUT/memory_inter
 add wave -noupdate -expand -group Memory_Controller /testbench7/UUT/memory_interface_inst1/busy
 add wave -noupdate /testbench7/memory_i/ram
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {97742 ps} 0}
+WaveRestoreCursors {{Cursor 1} {55895 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 448
 configure wave -valuecolwidth 100
@@ -196,4 +195,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {4619 ps} {28491 ps}
+WaveRestoreZoom {44642 ps} {68514 ps}
