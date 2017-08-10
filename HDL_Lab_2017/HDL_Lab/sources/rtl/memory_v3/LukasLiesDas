@@ -1,0 +1,12 @@
+Hi!
+Also in memory_control_fsm_v3 und memory_interface_v3 sind jetzt die änderungen an den states eingefügt, sodass es
+wie vorher funktioniert, ergo:
+
+T0: adresse + read/write request anfragen
+Tn: output valid geht hoch oder write ready geht hoch -> write ist durchgeführt, oder ausgang hält das zuletzt angefragte data_out_pre_ML8_sel
+Tn+1: neue anfrage kann gestellt werden.
+
+in allen takten außer T0 und tn+1 aus diesem beispiel ist der controller nicht mehr empfindlich auf read/write request. die adresse buffere ich innendrin.
+
+Bezüglich compilierung: da wir das, was wir an deinem rechner debugged hatten, nicht gepusht hatten, musste ich jetzt auf den alten versionen arbeiten. ich gucke nochmal drüber und versuche
+zumindest semantische Fehler rauszuholen.
