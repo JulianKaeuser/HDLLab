@@ -17,10 +17,10 @@ output reg [11:0] memory_address,
 output reg [31:0] incremented_pc_out, 
 output reg [15:0] instruction_out
 
-// synthesis translate off
+//  *disabled*// synthesis translate_off
 ,
 output reg        finish_out
-// synthesis translate on
+//  *disabled*// synthesis translate_on
 );
 
 
@@ -39,10 +39,10 @@ wire [32:0] current_pc_modified;
 assign current_pc_modified = current_pc_in - 2;
 
 
-// synthesis translate off
+//  *disabled*// synthesis translate_off
 reg        next_finish_out;
 reg        first_instruction_fetched;
-// synthesis translate on
+//  *disabled*// synthesis translate_on
 
 
 always@(*) begin
@@ -59,9 +59,9 @@ case(currentState)
 		instruction_out = 16'b1011_1111_0000_0000;
 		update_instruction_reg = 1'b0;
 		instruction_valid = 1'b0;
-		// synthesis translate off
+		//  *disabled*// synthesis translate_off
 		next_finish_out = 1'b0;
-		// synthesis translate on
+		//  *disabled*// synthesis translate_on
 	end
 	WAIT_FOR_DEC: begin
 		nextState = (stall_decoder_in == 1) ? WAIT_FOR_DEC : FETCH;
@@ -72,19 +72,19 @@ case(currentState)
 		instruction_out = fetched_instruction_reg;
 		update_instruction_reg = 1'b0;
 		instruction_valid = 1'b0;
-        // synthesis translate off
+        //  *disabled*// synthesis translate_off
 		next_finish_out = 1'b0;
-		// synthesis translate on
+		//  *disabled*// synthesis translate_on
 	end
 	FETCH: begin
 		nextState = 
-                      // synthesis translate off
+                      //  *disabled*// synthesis translate_off
 		              ( (({1'b0, current_pc_modified[31:1]} == 32'b0000_0000_0000_0000_0000_0000_0000_0000) & first_instruction_fetched)  ?   FINISHED  :  
-		              // synthesis translate on
+		              //  *disabled*// synthesis translate_on
 		              ((memory_output_valid == 1) ? WAIT_FOR_DEC : FETCH)
-		              // synthesis translate off
+		              //  *disabled*// synthesis translate_off
 		              )
-		              // synthesis translate on
+		              //  *disabled*// synthesis translate_on
 		              ;
 		incremented_pc_out = current_pc_in + 2;
         incremented_pc_write_enable = (memory_output_valid == 1) ? 1'b1 : 1'b0;
@@ -93,9 +93,9 @@ case(currentState)
 		update_instruction_reg = (memory_output_valid == 1) ? 1'b1 : 1'b0;
 		memory_address = {1'b0, current_pc_modified[31:1]};
 		instruction_valid = (memory_output_valid == 1) ? 1'b1 : 1'b0;
-        // synthesis translate off
+        //  *disabled*// synthesis translate_off
 		next_finish_out = 1'b0;
-		// synthesis translate on
+		//  *disabled*// synthesis translate_on
 	end
     FINISHED: begin
 		nextState = FINISHED;
@@ -106,9 +106,9 @@ case(currentState)
 		update_instruction_reg = 1'b0;
 		memory_address = 12'b0000_0000_0000;
 		instruction_valid = 1'b0;
-        // synthesis translate off
+        //  *disabled*// synthesis translate_off
 		next_finish_out = 1'b1;
-		// synthesis translate on
+		//  *disabled*// synthesis translate_on
 	end
 	default: begin
 		memory_load_request = 1'bx;
@@ -118,9 +118,9 @@ case(currentState)
 		nextState = WAIT_FOR_DEC;
 		incremented_pc_out = 32'bx;
 		instruction_valid = 0;
-        // synthesis translate off
+        //  *disabled*// synthesis translate_off
 		next_finish_out = 1'b0;
-		// synthesis translate on
+		//  *disabled*// synthesis translate_on
 	end
 endcase
 end
@@ -147,7 +147,7 @@ always@(posedge clk) begin
 	
 end
 
-//synthesis translate off
+//  *disabled*// synthesis translate_off
 always@(posedge clk) begin
 	if(reset) begin
         first_instruction_fetched <= 1'b0;
@@ -168,7 +168,7 @@ always@(posedge clk) begin
         finish_out <= next_finish_out;
 	end 
 end
-//synthesis translate on
+//  *disabled*// synthesis translate_on
 
 
 

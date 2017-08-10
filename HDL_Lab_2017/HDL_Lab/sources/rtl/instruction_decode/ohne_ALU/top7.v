@@ -1,5 +1,5 @@
 module top7 (
-clock,
+clk,
 reset,
 
 
@@ -18,7 +18,7 @@ MEMCTRL_MEM_to_mem_data
 );
 
 
-input wire clock;
+input wire clk;
 input wire reset;
 
 
@@ -135,7 +135,7 @@ wire        IF_RF_incremented_pc_write_enable;
 
 // INSTRUCTIONFETCH --> DECODER
 
-wire [31:0] IF_DEC_instruction;
+wire [15:0] IF_DEC_instruction;
 wire        IF_DEC_instruction_valid;
 
 // **************************************************************
@@ -177,7 +177,7 @@ wire        CTRL_DEC_stall_from_ctrl;
 irdecode  #(	
 ) irdecode_inst1 (
 
-	.clock                                   (  clock                                        ),
+	.clk                                   (  clk                                        ),
 	.reset                                   (  reset                                        ),
 	.instruction                             (  IF_DEC_instruction                           ),
                                                                                              
@@ -243,7 +243,7 @@ register_file # (
     .next_cpsr_in                            (  {new_n, new_c, new_z, new_v}                    ),
     .next_sp_in                              (  RF_next_sp                                      ),
     .next_pc_en                              (  IF_RF_incremented_pc_write_enable               ),
-    .clk                                     (  clock                                           ),
+    .clk                                     (  clk                                           ),
     .reset                                   (  reset                                           ),                                                                                            
     .regA_out                                (  RF_ALU_operand_a                                ),
     .regB_out                                (  RF_ALU_operand_b                                ),
@@ -311,7 +311,7 @@ memory_interface # (
   .data_in                   ( RF_MEMCTRL_data_reg                              ),
   .load                      ( MEMCTRL_load_in                                  ),
   .store                     ( DEC_MEMCTRL_memory_store_request                 ),
-  .clk                       ( clock                                            ),
+  .clk                       ( clk                                            ),
   .reset                     ( reset                                            ),
   .is_signed                 ( DEC_MEMCTRL_memorycontroller_sign_extend         ),
   .word_type                 ( DEC_MEMCTRL_load_store_width                     ),
@@ -334,7 +334,7 @@ memory_interface # (
 Instruction_Fetch # (
 ) Instruction_Fetch_inst1 ( 
                                                                                
-    .clk                              ( clock                                          ),
+    .clk                              ( clk                                          ),
     .reset                            ( reset                                          ),
     .stall_decoder_in                 ( DEC_IF_stall_to_instructionfetch               ),
     .memory_output_valid              ( MEMCTRL_read_finished                          ),
