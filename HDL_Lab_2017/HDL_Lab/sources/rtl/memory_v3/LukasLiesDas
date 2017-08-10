@@ -10,3 +10,8 @@ in allen takten außer T0 und tn+1 aus diesem beispiel ist der controller nicht 
 
 Bezüglich compilierung: da wir das, was wir an deinem rechner debugged hatten, nicht gepusht hatten, musste ich jetzt auf den alten versionen arbeiten (glaube ich jedenfalls). ich gucke nochmal drüber und versuche
 zumindest semantische Fehler rauszuholen.
+
+Wenn du was debuggen musst, kann ich dir als anhaltspunkt mitgeben: alle zustände, in denen output ready oder valid gesetzt ist, sind zuweisungen auf alles außer rd_en und wr_en (zusammen mit) egal
+
+
+wenn du noch fragen hast: so bis spätestens 12 könnte ich noch wach sein. wenn du mir ne mail an jkaeus@googlemail.com schreibst in dem  zeitraum kann ich noch antworten.
