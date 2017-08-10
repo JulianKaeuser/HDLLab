@@ -8,5 +8,5 @@ Tn+1: neue anfrage kann gestellt werden.
 
 in allen takten außer T0 und tn+1 aus diesem beispiel ist der controller nicht mehr empfindlich auf read/write request. die adresse buffere ich innendrin.
 
-Bezüglich compilierung: da wir das, was wir an deinem rechner debugged hatten, nicht gepusht hatten, musste ich jetzt auf den alten versionen arbeiten. ich gucke nochmal drüber und versuche
+Bezüglich compilierung: da wir das, was wir an deinem rechner debugged hatten, nicht gepusht hatten, musste ich jetzt auf den alten versionen arbeiten (glaube ich jedenfalls). ich gucke nochmal drüber und versuche
 zumindest semantische Fehler rauszuholen.
