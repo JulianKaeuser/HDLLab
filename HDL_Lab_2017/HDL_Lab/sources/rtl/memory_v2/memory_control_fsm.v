@@ -10,10 +10,9 @@ module memory_control_fsm (
   word_type_buffered,
   is_signed,
   is_signed_buffered,
-  bit0;
+  bit0,
   bit0_delayed1,
   bit0_delayed2,
-  //bit0_delayed3,
   busy,
   output_valid,
   write_ready,

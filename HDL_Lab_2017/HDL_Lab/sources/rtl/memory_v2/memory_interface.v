@@ -208,7 +208,7 @@ wire [7:0] sign_byte_t8_extension;
 assign sign_byte_t8_extension = data_out_pre[7] ? 8'hff : 8'h00;
 
 wire [7:0] sign_hw_t8_extension;
-sign_hw_t8_extension = data_out_pre[15] ? 8'hff : 8'h00;
+assign sign_hw_t8_extension = data_out_pre[15] ? 8'hff : 8'h00;
 
 always @(*) begin
     case (data_out_pre_T8_sel)
@@ -238,8 +238,8 @@ wire from_mem_feedback_sel;
 wire [7:0] from_mem_feedback;
 assign from_mem_feedback = from_mem_feedback_sel ? from_mem_data_low8 : from_mem_data_top8;
 
-wire [7:0] 2mem_data_in_top8;
-wire [7:0] 2mem_data_in_low8;
+wire [7:0] tomem_data_in_top8;
+wire [7:0] tomem_data_in_low8;
 
 wire 2mem_data_in_top8_feedback_sel;
 wire 2mem_data_in_low8_feedback_sel;
@@ -249,8 +249,8 @@ localparam INPUT_TO_MEM    = 1'b0;
 reg [7:0] from_cpu_low8_input;
 reg [7:0] from_cpu_top8_input;
 
-assign 2mem_data_in_low8 = 2mem_data_in_low8_feedback_sel ? from_mem_feedback : from_cpu_low8_input;
-assign 2mem_data_in_top8 = 2mem_data_in_top8_feedback_sel ? from_mem_feedback : from_cpu_top8_input;
+assign tomem_data_in_low8 = 2mem_data_in_low8_feedback_sel ? from_mem_feedback : from_cpu_low8_input;
+assign tomem_data_in_top8 = 2mem_data_in_top8_feedback_sel ? from_mem_feedback : from_cpu_top8_input;
 
 // 1st stage: select inputs
 
@@ -265,7 +265,7 @@ localparam DELAYED_ML8 = 3'b111;
 localparam DELAYED_L8  = 3'b100;
 
 // #### lower 8 bits select
-wire [2:0] from_cpu_low8_input_sel;
+
 
 reg [7:0] l8_t8_buffer;
 reg [7:0] l8_mt8_buffer;
@@ -319,7 +319,7 @@ always @ (posedge clk) begin
 end
 
 always @(*) begin
-    case (from_cpu_low8_input_sel)
+    case (from_cpu_top8_input_sel)
       DIRECT_T8:   from_cpu_top8_input = data_in[31:24];
       DIRECT_MT8:  from_cpu_top8_input = data_in[23:16];
       DIRECT_ML8:  from_cpu_top8_input = data_in[15:8];
@@ -344,10 +344,9 @@ memory_control_fsm fsm (
   .word_type_buffered(word_type_buffer),
   .is_signed(is_signed),
   .is_signed_buffered(is_signed_buffer),
-  .bit0(address[0]);
-  .bit0_delayed1(bit0_delayed1);
-  .bit0_delayed2(bit0_delayed2);
-//  .bit0_delayed3(bit0_delayed3);
+  .bit0(address[0]),
+  .bit0_delayed1(bit0_delayed1),
+  .bit0_delayed2(bit0_delayed2),
   .busy(busy),
   .output_valid(output_valid),
   .write_ready(write_ready),
