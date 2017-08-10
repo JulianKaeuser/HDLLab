@@ -2323,7 +2323,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	                
 	                    casez (next_step)
 	                    
-	                        9'b?_????_???1 : begin
+	                        9'b1_1111_1111 : begin
 	                            next_operand_a = `RF_R15_PC;
 	                            
 	                            next_offset_b = {32'b0000_0000_0000_0000_0000_0000_0000_0010};
@@ -2339,7 +2339,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	                            next_split_instruction = 1'b1;
 	                        end
 	                        
-	                        9'b?_????_??10 : begin
+	                        9'b1_1111_1110 : begin
 	                            next_operand_a = `RF_R14_LR;
 	                            
 	                            next_offset_b = {20'b0000_0000_0000_0000_0000, instruction[10:0], 1'b0};
@@ -2355,7 +2355,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	                            next_split_instruction = 1'b1;
 	                        end
 	                        
-	                        9'b?_????_?100 : begin
+	                        9'b1_1111_1100 : begin
 	                            next_operand_a = `RF_TMP1;
 	                            
 	                            next_offset_b = {32'b0000_0000_0000_0000_0000_0000_0000_0001};
@@ -2370,6 +2370,23 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	                            
 	                            next_split_instruction = 1'b0;
 	                        end
+	                        
+	                        default : begin  // sollte nie passieren
+	                            next_operand_a = `RF_R15_PC;
+	                            
+	                            next_offset_b = {32'b0000_0000_0000_0000_0000_0000_0000_0010};
+	                            
+	                            next_alu_opcode = `SUB;
+	                            
+	                            next_alu_write_to_reg = `RF_TMP1;
+	                            
+	                            next_stall_to_instructionfetch = 1'b1;
+	                            
+	                            next_step = 9'b1_1111_1110;
+	                            
+	                            next_split_instruction = 1'b1;
+	                        
+	                        end
 	                    endcase
 	                    
 	                end
@@ -2383,6 +2400,120 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
                 // Wertübernahme in Extrablock, also nichts machen
                 //
                 //
+	            next_operand_a                       = `RF_NONE;
+	            next_operand_b                       = `RF_NONE;
+	            
+	            next_offset_a                        = `IMM_ZERO;
+	            next_offset_b                        = `IMM_ZERO;
+	            
+	            next_alu_opcode                      = `ORR;
+	            
+	            next_pc_mask_bit                     = 1'b0;
+	            
+	            next_update_flag_n                   = 1'b0;
+	            next_update_flag_z                   = 1'b0;
+	            next_update_flag_c                   = 1'b0;
+	            next_update_flag_v                   = 1'b0;
+	            
+	            next_alu_write_to_reg                = `RF_NONE;
+	            next_alu_write_to_reg_enable         = 1'b0;
+	            
+	            next_memory_write_to_reg             = `RF_NONE;
+	            next_memory_write_to_reg_enable      = 1'b0;
+	
+	            next_memory_store_data_reg           = `RF_NONE;
+	            next_memory_store_address_reg        = `RF_NONE;
+	            next_memory_address_source_is_reg    = 1'b0;
+	            next_load_store_width                = `WORD;
+	            next_memorycontroller_sign_extend    = 1'b0;
+	            
+	            next_memory_load_request             = 1'b0;                                       
+	            next_memory_store_request            = 1'b0;
+	            
+	            next_stall_to_instructionfetch       = 1'b0;
+	
+	            next_step                            = 9'b1_1111_1111;	  
+	            
+	            next_split_instruction               = 1'b0;
+	        end
+	        
+            `FORMAT_21  : begin                               
+	            next_operand_a                       = `RF_NONE;
+	            next_operand_b                       = `RF_NONE;
+	            
+	            next_offset_a                        = `IMM_ZERO;
+	            next_offset_b                        = `IMM_ZERO;
+	            
+	            next_alu_opcode                      = `ORR;
+	            
+	            next_pc_mask_bit                     = 1'b0;
+	            
+	            next_update_flag_n                   = 1'b0;
+	            next_update_flag_z                   = 1'b0;
+	            next_update_flag_c                   = 1'b0;
+	            next_update_flag_v                   = 1'b0;
+	            
+	            next_alu_write_to_reg                = `RF_NONE;
+	            next_alu_write_to_reg_enable         = 1'b0;
+	            
+	            next_memory_write_to_reg             = `RF_NONE;
+	            next_memory_write_to_reg_enable      = 1'b0;
+	
+	            next_memory_store_data_reg           = `RF_NONE;
+	            next_memory_store_address_reg        = `RF_NONE;
+	            next_memory_address_source_is_reg    = 1'b0;
+	            next_load_store_width                = `WORD;
+	            next_memorycontroller_sign_extend    = 1'b0;
+	            
+	            next_memory_load_request             = 1'b0;                                       
+	            next_memory_store_request            = 1'b0;
+	            
+	            next_stall_to_instructionfetch       = 1'b0;
+	
+	            next_step                            = 9'b1_1111_1111;	  
+	            
+	            next_split_instruction               = 1'b0;
+	        end
+	        
+            `FORMAT_22  : begin                               
+	            next_operand_a                       = `RF_NONE;
+	            next_operand_b                       = `RF_NONE;
+	            
+	            next_offset_a                        = `IMM_ZERO;
+	            next_offset_b                        = `IMM_ZERO;
+	            
+	            next_alu_opcode                      = `ORR;
+	            
+	            next_pc_mask_bit                     = 1'b0;
+	            
+	            next_update_flag_n                   = 1'b0;
+	            next_update_flag_z                   = 1'b0;
+	            next_update_flag_c                   = 1'b0;
+	            next_update_flag_v                   = 1'b0;
+	            
+	            next_alu_write_to_reg                = `RF_NONE;
+	            next_alu_write_to_reg_enable         = 1'b0;
+	            
+	            next_memory_write_to_reg             = `RF_NONE;
+	            next_memory_write_to_reg_enable      = 1'b0;
+	
+	            next_memory_store_data_reg           = `RF_NONE;
+	            next_memory_store_address_reg        = `RF_NONE;
+	            next_memory_address_source_is_reg    = 1'b0;
+	            next_load_store_width                = `WORD;
+	            next_memorycontroller_sign_extend    = 1'b0;
+	            
+	            next_memory_load_request             = 1'b0;                                       
+	            next_memory_store_request            = 1'b0;
+	            
+	            next_stall_to_instructionfetch       = 1'b0;
+	
+	            next_step                            = 9'b1_1111_1111;	  
+	            
+	            next_split_instruction               = 1'b0;
+	        end
+	        
+            `FORMAT_23  : begin                               
 	            next_operand_a                       = `RF_NONE;
 	            next_operand_b                       = `RF_NONE;
 	            

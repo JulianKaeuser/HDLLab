@@ -260,8 +260,19 @@
 `define       F19_HIGH     1'b0
 `define       F19_LOW      1'b1
 
-// Format 20 // IT-Instruction    // Seite 416
+// Format 20 // IT-Instruction Seite 416 und NOP
 `define       FORMAT_20         16'b1011_1111_????_????  
+
+// Format 21
+`define       FORMAT_21         16'b1011_?0?1_????_????
+
+// Format 22
+`define       FORMAT_22         16'b1011_1010_????_????
+
+// Format 23
+`define       FORMAT_23         16'b1011_0010_????_????
+
+
 
 
    
