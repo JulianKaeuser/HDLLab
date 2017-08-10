@@ -156,7 +156,7 @@ reg next_split_instruction;
 // end experimental 1
 
 
-// synthesis translate off
+// synthesis translate_off
 reg exec_cond_true;
 reg next_exec_cond_true;
 
@@ -166,7 +166,7 @@ reg [3:0] next_state;
 wire instruction_format;
 assign instruction_format = instruction;
 
-// synthesis translate on
+// synthesis translate_on
 
 
 // experimental 1
@@ -229,10 +229,10 @@ step                                <=       next_step;
 
 split_instruction                   <=       next_split_instruction;
 
-// synthesis translate off
+// synthesis translate_off
 exec_cond_true                      <=       next_exec_cond_true;
 state                               <=       next_state;
-// synthesis translate on
+// synthesis translate_on
 
 
 end
@@ -279,10 +279,10 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 
 	if ( (itstate == 8'b0000_0000) | f_flageval(itstate[7:4], flag_z, flag_c, flag_n, flag_v)) begin // if-block ITSTATE
 	
-	// synthesis translate off
+	// synthesis translate_off
         next_exec_cond_true = 1'b1;
         next_state = 4'b0000;
-    // synthesis translate on
+    // synthesis translate_on
 	
 	casez (instruction)
 	
@@ -2467,10 +2467,10 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	
 	else begin // else-block ITSTATE (Instruktion nicht ausführen)
 	
-    // synthesis translate off
+    // synthesis translate_off
         next_exec_cond_true = 1'b0;
         next_state = 4'b0001;
-    // synthesis translate on
+    // synthesis translate_on
 	
 	// nichts machen
 	                                
@@ -2519,10 +2519,10 @@ else if ( // else-if-block memstall
          ((memory_store_request & !memory_write_finished)  |  (memory_load_request & !memory_read_finished))  & 
          !reset) begin 
          
-    // synthesis translate off
+    // synthesis translate_off
         next_exec_cond_true = exec_cond_true;
         next_state = 4'b0010;
-    // synthesis translate on
+    // synthesis translate_on
 
     // Memory-Operation aktiv, aber noch nicht abgeschlossen
     // alu_write_enables & stack_requests auf 0 setzen
@@ -2582,10 +2582,10 @@ end // else-if-block memstall
 
 else if (reset) begin  // else if-Block reset
 
-    // synthesis translate off
+    // synthesis translate_off
         next_exec_cond_true = exec_cond_true;
         next_state = 4'b0011;
-    // synthesis translate on
+    // synthesis translate_on
 
 			next_operand_a                       = `RF_NONE;
 			next_operand_b                       = `RF_NONE;
@@ -2627,10 +2627,10 @@ end // else if-Block reset
 
 else begin // else-block auf neue Instruktion warten
 
-    // synthesis translate off
+    // synthesis translate_off
         next_exec_cond_true = exec_cond_true;
         next_state = 4'b1111;
-    // synthesis translate on
+    // synthesis translate_on
          
          // nichts tun
 
