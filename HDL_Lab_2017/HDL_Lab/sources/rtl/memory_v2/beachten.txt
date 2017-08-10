@@ -1,0 +1,1 @@
+für zugriff daqrf load/store nur im ersten takt hoch gehenund muss dann wieder fallen 
