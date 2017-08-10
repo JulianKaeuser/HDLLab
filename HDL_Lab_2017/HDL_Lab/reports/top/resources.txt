@@ -1,0 +1,14 @@
+ 
+****************************************
+Report : resources
+Design : top7
+Version: I-2013.12-SP5-3
+Date   : Wed Aug  9 17:58:40 2017
+****************************************
+
+
+Resource sharing reports are created during the compile command,
+so the design must be compiled before resource sharing can be reported.
+
+No implementations to report
+1

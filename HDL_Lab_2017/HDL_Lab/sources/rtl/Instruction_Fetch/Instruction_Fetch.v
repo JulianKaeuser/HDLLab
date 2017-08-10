@@ -1,13 +1,13 @@
 module Instruction_Fetch(
 
-input clk, 
-input reset, 
+input wire clk, 
+input wire reset, 
 
-input stall_decoder_in, 
-input memory_output_valid, 
+input wire stall_decoder_in, 
+input wire memory_output_valid, 
 
-input[31:0] current_pc_in, 
-input[15:0] instruction_in, 
+input wire [31:0] current_pc_in, 
+input wire [15:0] instruction_in, 
 
 output reg memory_load_request, 
 output reg incremented_pc_write_enable, 
