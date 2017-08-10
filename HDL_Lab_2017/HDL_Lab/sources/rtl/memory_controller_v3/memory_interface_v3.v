@@ -1,8 +1,6 @@
 // AUTHORS: Group 06 / Julian Käuser
 // Wed 08/09/2017
-
-
-module memory_interface (
+module memory_interface_v3(
   address,
   data_in,
   load,
@@ -36,7 +34,7 @@ input is_signed;
 input [1:0] word_type;
 
 // inputs from memory
-input [WIDE-1:0] from_mem_data;
+input [16-1:0] from_mem_data;
 
 // outputs going to the memory
 output to_mem_read_enable;
@@ -215,7 +213,7 @@ always @(*) begin
       T8_ZERO:        data_out_pre[23:16] = 8'h00;
       T8_SIGN_HW:     data_out_pre[23:16] = sign_hw_t8_extension;
       T8_DELAYED1_T8: data_out_pre[23:16] = top8_buffer1cycle;
-      T8_DELAYED1_L8: data_out_pre[23:16] = low8_buffer1cycle;
+      T8_DIRECT_L8: data_out_pre[23:16] = low8_buffer1cycle;
       T8_SIGN_BYTE:   data_out_pre[23:16] = sign_byte_t8_extension;
     endcase
 end
@@ -420,7 +418,7 @@ assign to_mem_write_enable = fsm_wr_en ? fsm_wr : w;
 reg is_signed_buffer;
 wire is_signed_buffer_sel;
 
-reg word_type_buffer;
+reg [1:0] word_type_buffer;
 wire word_type_buffer_sel;
 
 always @ (posedge clk) begin
@@ -438,8 +436,6 @@ always @ (posedge clk) begin
   bit0_delayed2 <= bit0_delayed1;
   bit0_delayed3 <= bit0_delayed2;
 end
-
-
 
 
 endmodule
