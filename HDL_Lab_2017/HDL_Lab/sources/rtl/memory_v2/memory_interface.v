@@ -345,6 +345,9 @@ memory_control_fsm fsm (
   .is_signed(is_signed),
   .is_signed_buffered(is_signed_buffer),
   .bit0(address[0]);
+  .bit0_delayed1(bit0_delayed1);
+  .bit0_delayed2(bit0_delayed2);
+  .bit0_delayed3(bit0_delayed3);
   .busy(busy),
   .output_valid(output_valid),
   .write_ready(write_ready),
@@ -426,6 +429,16 @@ always @ (posedge clk) begin
   word_type_buffer <= word_type_buffer_sel ? word_type_buffer : word_type;
 end
 
+
+reg bit0_delayed1;
+reg bit0_delayed2;
+reg bit0_delayed3;
+// delay bit0 signal
+always @ (posedge clk) begin
+  bit0_delayed1 <= bit0;
+  bit0_delayed2 <= bit0_delayed1;
+  bit0_delayed3 <= bit0_delayed2;
+end
 
 
 
