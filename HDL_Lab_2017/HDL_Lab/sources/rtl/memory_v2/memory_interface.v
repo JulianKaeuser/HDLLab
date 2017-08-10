@@ -347,7 +347,7 @@ memory_control_fsm fsm (
   .bit0(address[0]);
   .bit0_delayed1(bit0_delayed1);
   .bit0_delayed2(bit0_delayed2);
-  .bit0_delayed3(bit0_delayed3);
+//  .bit0_delayed3(bit0_delayed3);
   .busy(busy),
   .output_valid(output_valid),
   .write_ready(write_ready),

@@ -13,7 +13,7 @@ module memory_control_fsm (
   bit0;
   bit0_delayed1,
   bit0_delayed2,
-  bit0_delayed3,
+  //bit0_delayed3,
   busy,
   output_valid,
   write_ready,
@@ -64,7 +64,7 @@ module memory_control_fsm (
   input bit0;
   input bit0_delayed1;
   input bit0_delayed2;
-  input bit0_delayed3;
+  //input bit0_delayed3;
 
 // ####################### outputs #######################
 // #######################################################
@@ -198,8 +198,8 @@ localparam INPUT_TO_MEM    = 1'b0;
   // ##################### internal signals #########
   // ################################################
 
-reg [5:0] state;
-reg [5:0] nextstate;
+reg [4:0] state;
+reg [4:0] nextstate;
 
 always @(posedge clk | posedge reset) begin
    if (!reset) begin
@@ -213,23 +213,25 @@ end
 
 // ##################################### state codes: #########################
 // ############################################################################
-localparam IDLE         = 6'b;
-localparam LOAD_BYTE    = 6'b;
-localparam LOAD_HW_A    = 6'b;
-localparam LOAD_HW_B    = 6'b;
-localparam LOAD_WORD_A  = 6'b;
-localparam LOAD_WORD_B  = 6'b;
-localparam LOAD_WORD_C  = 6'b;
+localparam IDLE         = 5'b00001;
+localparam LOAD_BYTE    = 5'b00010;
+localparam LOAD_HW_A    = 5'b00011;
+localparam LOAD_HW_B    = 5'b00100;
+localparam LOAD_WORD_A  = 5'b00101;
+localparam LOAD_WORD_B  = 5'b00110;
+localparam LOAD_WORD_C  = 5'b00111;
 
-localparam STORE_HW_A   = 6'b;
-localparam STORE_HW_B   = 6'b;
-localparam STORE_HW_C   = 6'b;
-localparam STORE_WORD_A = 6'b;
-localparam STORE_WORD_B = 6'b;
-localparam STORE_WORD_C = 6'b;
-localparam STORE_WORD_D = 6'b;
-localparam STORE_BYTE_A = 6'b;
-localparam STORE_BYTE_B = 6'b;
+localparam STORE_HW_A   = 5'b10001;
+localparam STORE_HW_B   = 5'b10010;
+localparam STORE_HW_C   = 5'b10011;
+localparam STORE_HW_D   = 5'b10100;
+localparam STORE_WORD_A = 5'b10101;
+localparam STORE_WORD_B = 5'b10110;
+localparam STORE_WORD_C = 5'b10111;
+localparam STORE_WORD_D = 5'b11001;
+localparam STORE_WORD_E = 5'b11010;
+localparam STORE_BYTE_A = 5'b11011;
+localparam STORE_BYTE_B = 5'b11100;
 
 
 
@@ -421,23 +423,7 @@ always @(*) begin
    end // end case STORE_HW_B
 
    STORE_HW_C: begin
-     if (load) begin
-      case (word_type)
-       HALFWORD: nextstate = LOAD_HW_A;
-       WORD:     nextstate = LOAD_WORD_A;
-       BYTE:     nextstate = LOAD_BYTE;
-      endcase
-     end
-     else if (store) begin
-      case (word_type)
-       HALFWORD: nextstate = STORE_HW_A;
-       WORD:     nextstate = STORE_WORD_A;
-       BYTE:     nextstate = STORE_BYTE_A;
-      endcase
-     end
-     else begin
-      nextstate = IDLE;
-     end
+     nextstate = IDLE;
    end // end case STORE_HW_C
 
    STORE_WORD_A: begin
@@ -472,6 +458,10 @@ always @(*) begin
    end // end case STORE_WORD_C
 
    STORE_WORD_D: begin
+     nextstate = STORE_WORD_E;
+   end // end case STORE_WORD_D
+
+   STORE_WORD_E: begin
      if (load) begin
       case (word_type)
        HALFWORD: nextstate = LOAD_HW_A;
@@ -489,7 +479,9 @@ always @(*) begin
      else begin
       nextstate = IDLE;
      end
-   end // end case STORE_WORD_D
+   end // end case STORE_WORD_E
+
+
 
 
 
@@ -533,58 +525,18 @@ always @(*) begin
          2mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
-         if (load) begin
-           from_cpu_low8_input_sel      = DC3;
-           from_cpu_top8_input_sel      = DC3;
-           l8_t8_buffer_sel             = DC;
-           l8_mt8_buffer_sel            = DC;
-           l8_ml8_buffer_sel            = DC;
-           l8_l8_buffer_sel             = DC;
-           t8_t8_buffer_sel             = DC;
-           t8_mt8_buffer_sel            = DC;
-           t8_ml8_buffer_sel            = DC;
-           t8_l8_buffer_sel             = DC;
-         end
-         else begin
-           case (word_type)
-            BYTE: begin
-             from_cpu_low8_input_sel    = DC3;
-             from_cpu_top8_input_sel    = DC3;
-             l8_t8_buffer_sel           = UPDATE;
-             l8_mt8_buffer_sel          = UPDATE;
-             l8_ml8_buffer_sel          = UPDATE;
-             l8_l8_buffer_sel           = UPDATE;
-             t8_t8_buffer_sel           = UPDATE;
-             t8_mt8_buffer_sel          = UPDATE;
-             t8_ml8_buffer_sel          = UPDATE;
-             t8_l8_buffer_sel           = UPDATE;
-            end // end case byte
-            HALFWORD: begin
-             from_cpu_low8_input_sel    = DIRECT_L8;
-             from_cpu_top8_input_sel    = DIRECT_ML8;
-             l8_t8_buffer_sel           = UPDATE;
-             l8_mt8_buffer_sel          = UPDATE;
-             l8_ml8_buffer_sel          = UPDATE;
-             l8_l8_buffer_sel           = UPDATE;
-             t8_t8_buffer_sel           = UPDATE;
-             t8_mt8_buffer_sel          = UPDATE;
-             t8_ml8_buffer_sel          = UPDATE;
-             t8_l8_buffer_sel           = UPDATE;
-            end // end case halfword
-            WORD: begin
-             from_cpu_low8_input_sel    = DIRECT_L8;
-             from_cpu_top8_input_sel    = DIRECT_ML8;
-             l8_t8_buffer_sel           = UPDATE;
-             l8_mt8_buffer_sel          = UPDATE;
-             l8_ml8_buffer_sel          = UPDATE;
-             l8_l8_buffer_sel           = UPDATE;
-             t8_t8_buffer_sel           = UPDATE;
-             t8_mt8_buffer_sel          = UPDATE;
-             t8_ml8_buffer_sel          = UPDATE;
-             t8_l8_buffer_sel           = UPDATE;
-            end // end case word
-           endcase
-         end
+         from_cpu_low8_input_sel    = DIRECT_L8;
+         from_cpu_top8_input_sel    = DIRECT_ML8;
+         l8_t8_buffer_sel           = UPDATE;
+         l8_mt8_buffer_sel          = UPDATE;
+         l8_ml8_buffer_sel          = UPDATE;
+         l8_l8_buffer_sel           = UPDATE;
+         t8_t8_buffer_sel           = UPDATE;
+         t8_mt8_buffer_sel          = UPDATE;
+         t8_ml8_buffer_sel          = UPDATE;
+         t8_l8_buffer_sel           = UPDATE;
+
+
 
          // output assignment
          data_out_pre_L8_sel            = DC2; // 2 bit
@@ -592,7 +544,7 @@ always @(*) begin
          data_out_pre_MT8_sel           = DC3; // 3 bit
          data_out_pre_T8_sel            = DC3; // 3 bit
 
-         output_shuffle_sel             = ;
+         output_shuffle_sel             = 0;
 
          // address assignment
          adder_summand_sel              = SEL_ONE;
@@ -627,58 +579,18 @@ always @(*) begin
          2mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
-         if (load) begin
-           from_cpu_low8_input_sel      = DC3;
-           from_cpu_top8_input_sel      = DC3;
-           l8_t8_buffer_sel             = DC;
-           l8_mt8_buffer_sel            = DC;
-           l8_ml8_buffer_sel            = DC;
-           l8_l8_buffer_sel             = DC;
-           t8_t8_buffer_sel             = DC;
-           t8_mt8_buffer_sel            = DC;
-           t8_ml8_buffer_sel            = DC;
-           t8_l8_buffer_sel             = DC;
-         end
-         else begin
-           case (word_type)
-            BYTE: begin
-             from_cpu_low8_input_sel    = DC3;
-             from_cpu_top8_input_sel    = DC3;
-             l8_t8_buffer_sel           = BUFFER;
-             l8_mt8_buffer_sel          = BUFFER;
-             l8_ml8_buffer_sel          = BUFFER;
-             l8_l8_buffer_sel           = BUFFER;
-             t8_t8_buffer_sel           = BUFFER;
-             t8_mt8_buffer_sel          = BUFFER;
-             t8_ml8_buffer_sel          = BUFFER;
-             t8_l8_buffer_sel           = BUFFER;
-            end // end case byte
-            HALFWORD: begin
-             from_cpu_low8_input_sel    = DIRECT_L8;
-             from_cpu_top8_input_sel    = DIRECT_ML8;
-             l8_t8_buffer_sel           = BUFFER;
-             l8_mt8_buffer_sel          = BUFFER;
-             l8_ml8_buffer_sel          = BUFFER;
-             l8_l8_buffer_sel           = BUFFER;
-             t8_t8_buffer_sel           = BUFFER;
-             t8_mt8_buffer_sel          = BUFFER;
-             t8_ml8_buffer_sel          = BUFFER;
-             t8_l8_buffer_sel           = BUFFER;
-            end // end case halfword
-            WORD: begin
-             from_cpu_low8_input_sel    = DIRECT_L8;
-             from_cpu_top8_input_sel    = DIRECT_ML8;
-             l8_t8_buffer_sel           = BUFFER;
-             l8_mt8_buffer_sel          = BUFFER;
-             l8_ml8_buffer_sel          = BUFFER;
-             l8_l8_buffer_sel           = BUFFER;
-             t8_t8_buffer_sel           = BUFFER;
-             t8_mt8_buffer_sel          = BUFFER;
-             t8_ml8_buffer_sel          = BUFFER;
-             t8_l8_buffer_sel           = BUFFER;
-            end // end case word
-           endcase
-         end
+         from_cpu_low8_input_sel    = DIRECT_L8;
+         from_cpu_top8_input_sel    = DIRECT_ML8;
+         l8_t8_buffer_sel           = UPDATE;
+         l8_mt8_buffer_sel          = UPDATE;
+         l8_ml8_buffer_sel          = UPDATE;
+         l8_l8_buffer_sel           = UPDATE;
+         t8_t8_buffer_sel           = UPDATE;
+         t8_mt8_buffer_sel          = UPDATE;
+         t8_ml8_buffer_sel          = UPDATE;
+         t8_l8_buffer_sel           = UPDATE;
+
+
 
          // output assignment
          data_out_pre_L8_sel            = bit0_delayed1 ? L8_DIRECT_T8 : L8_DIRECT_L8; // 2 bit
@@ -721,58 +633,18 @@ always @(*) begin
          2mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
-         if (load) begin
-              from_cpu_low8_input_sel      = DC3;
-              from_cpu_top8_input_sel      = DC3;
-              l8_t8_buffer_sel             = DC;
-              l8_mt8_buffer_sel            = DC;
-              l8_ml8_buffer_sel            = DC;
-              l8_l8_buffer_sel             = DC;
-              t8_t8_buffer_sel             = DC;
-              t8_mt8_buffer_sel            = DC;
-              t8_ml8_buffer_sel            = DC;
-              t8_l8_buffer_sel             = DC;
-            end
-            else begin
-              case (word_type)
-               BYTE: begin
-                from_cpu_low8_input_sel    = DC3;
-                from_cpu_top8_input_sel    = DC3;
-                l8_t8_buffer_sel           = BUFFER;
-                l8_mt8_buffer_sel          = BUFFER;
-                l8_ml8_buffer_sel          = BUFFER;
-                l8_l8_buffer_sel           = BUFFER;
-                t8_t8_buffer_sel           = BUFFER;
-                t8_mt8_buffer_sel          = BUFFER;
-                t8_ml8_buffer_sel          = BUFFER;
-                t8_l8_buffer_sel           = BUFFER;
-               end // end case byte
-               HALFWORD: begin
-                from_cpu_low8_input_sel    = DIRECT_L8;
-                from_cpu_top8_input_sel    = DIRECT_ML8;
-                l8_t8_buffer_sel           = BUFFER;
-                l8_mt8_buffer_sel          = BUFFER;
-                l8_ml8_buffer_sel          = BUFFER;
-                l8_l8_buffer_sel           = BUFFER;
-                t8_t8_buffer_sel           = BUFFER;
-                t8_mt8_buffer_sel          = BUFFER;
-                t8_ml8_buffer_sel          = BUFFER;
-                t8_l8_buffer_sel           = BUFFER;
-               end // end case halfword
-               WORD: begin
-                from_cpu_low8_input_sel    = DIRECT_L8;
-                from_cpu_top8_input_sel    = DIRECT_ML8;
-                l8_t8_buffer_sel           = BUFFER;
-                l8_mt8_buffer_sel          = BUFFER;
-                l8_ml8_buffer_sel          = BUFFER;
-                l8_l8_buffer_sel           = BUFFER;
-                t8_t8_buffer_sel           = BUFFER;
-                t8_mt8_buffer_sel          = BUFFER;
-                t8_ml8_buffer_sel          = BUFFER;
-                t8_l8_buffer_sel           = BUFFER;
-               end // end case word
-              endcase // endcase word type
-         end
+         from_cpu_low8_input_sel    = DIRECT_L8;
+         from_cpu_top8_input_sel    = DIRECT_ML8;
+         l8_t8_buffer_sel           = UPDATE;
+         l8_mt8_buffer_sel          = UPDATE;
+         l8_ml8_buffer_sel          = UPDATE;
+         l8_l8_buffer_sel           = UPDATE;
+         t8_t8_buffer_sel           = UPDATE;
+         t8_mt8_buffer_sel          = UPDATE;
+         t8_ml8_buffer_sel          = UPDATE;
+         t8_l8_buffer_sel           = UPDATE;
+
+
 
          // output assignment
          data_out_pre_L8_sel            = bit0_delayed1 ? DC2 : L8_DIRECT_L8; // 2 bit
@@ -815,58 +687,18 @@ always @(*) begin
          2mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
-         if (load) begin
-           from_cpu_low8_input_sel      = DC3;
-           from_cpu_top8_input_sel      = DC3;
-           l8_t8_buffer_sel             = DC;
-           l8_mt8_buffer_sel            = DC;
-           l8_ml8_buffer_sel            = DC;
-           l8_l8_buffer_sel             = DC;
-           t8_t8_buffer_sel             = DC;
-           t8_mt8_buffer_sel            = DC;
-           t8_ml8_buffer_sel            = DC;
-           t8_l8_buffer_sel             = DC;
-         end
-         else begin
-           case (word_type)
-            BYTE: begin
-             from_cpu_low8_input_sel    = DC3;
-             from_cpu_top8_input_sel    = DC3;
-             l8_t8_buffer_sel           = BUFFER;
-             l8_mt8_buffer_sel          = BUFFER;
-             l8_ml8_buffer_sel          = BUFFER;
-             l8_l8_buffer_sel           = BUFFER;
-             t8_t8_buffer_sel           = BUFFER;
-             t8_mt8_buffer_sel          = BUFFER;
-             t8_ml8_buffer_sel          = BUFFER;
-             t8_l8_buffer_sel           = BUFFER;
-            end // end case byte
-            HALFWORD: begin
-             from_cpu_low8_input_sel    = DIRECT_L8;
-             from_cpu_top8_input_sel    = DIRECT_ML8;
-             l8_t8_buffer_sel           = BUFFER;
-             l8_mt8_buffer_sel          = BUFFER;
-             l8_ml8_buffer_sel          = BUFFER;
-             l8_l8_buffer_sel           = BUFFER;
-             t8_t8_buffer_sel           = BUFFER;
-             t8_mt8_buffer_sel          = BUFFER;
-             t8_ml8_buffer_sel          = BUFFER;
-             t8_l8_buffer_sel           = BUFFER;
-            end // end case halfword
-            WORD: begin
-             from_cpu_low8_input_sel    = DIRECT_L8;
-             from_cpu_top8_input_sel    = DIRECT_ML8;
-             l8_t8_buffer_sel           = BUFFER;
-             l8_mt8_buffer_sel          = BUFFER;
-             l8_ml8_buffer_sel          = BUFFER;
-             l8_l8_buffer_sel           = BUFFER;
-             t8_t8_buffer_sel           = BUFFER;
-             t8_mt8_buffer_sel          = BUFFER;
-             t8_ml8_buffer_sel          = BUFFER;
-             t8_l8_buffer_sel           = BUFFER;
-            end // end case word
-           endcase
-         end
+         from_cpu_low8_input_sel    = DIRECT_L8;
+         from_cpu_top8_input_sel    = DIRECT_ML8;
+         l8_t8_buffer_sel           = UPDATE;
+         l8_mt8_buffer_sel          = UPDATE;
+         l8_ml8_buffer_sel          = UPDATE;
+         l8_l8_buffer_sel           = UPDATE;
+         t8_t8_buffer_sel           = UPDATE;
+         t8_mt8_buffer_sel          = UPDATE;
+         t8_ml8_buffer_sel          = UPDATE;
+         t8_l8_buffer_sel           = UPDATE;
+
+
 
          // output assignment
          data_out_pre_L8_sel            = L8_DELAYED1_T8; // 2 bit
@@ -909,58 +741,17 @@ always @(*) begin
          2mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
-         if (load) begin
-              from_cpu_low8_input_sel      = DC3;
-              from_cpu_top8_input_sel      = DC3;
-              l8_t8_buffer_sel             = DC;
-              l8_mt8_buffer_sel            = DC;
-              l8_ml8_buffer_sel            = DC;
-              l8_l8_buffer_sel             = DC;
-              t8_t8_buffer_sel             = DC;
-              t8_mt8_buffer_sel            = DC;
-              t8_ml8_buffer_sel            = DC;
-              t8_l8_buffer_sel             = DC;
-            end
-            else begin
-              case (word_type)
-               BYTE: begin
-                from_cpu_low8_input_sel    = DC3;
-                from_cpu_top8_input_sel    = DC3;
-                l8_t8_buffer_sel           = BUFFER;
-                l8_mt8_buffer_sel          = BUFFER;
-                l8_ml8_buffer_sel          = BUFFER;
-                l8_l8_buffer_sel           = BUFFER;
-                t8_t8_buffer_sel           = BUFFER;
-                t8_mt8_buffer_sel          = BUFFER;
-                t8_ml8_buffer_sel          = BUFFER;
-                t8_l8_buffer_sel           = BUFFER;
-               end // end case byte
-               HALFWORD: begin
-                from_cpu_low8_input_sel    = DIRECT_L8;
-                from_cpu_top8_input_sel    = DIRECT_ML8;
-                l8_t8_buffer_sel           = BUFFER;
-                l8_mt8_buffer_sel          = BUFFER;
-                l8_ml8_buffer_sel          = BUFFER;
-                l8_l8_buffer_sel           = BUFFER;
-                t8_t8_buffer_sel           = BUFFER;
-                t8_mt8_buffer_sel          = BUFFER;
-                t8_ml8_buffer_sel          = BUFFER;
-                t8_l8_buffer_sel           = BUFFER;
-               end // end case halfword
-               WORD: begin
-                from_cpu_low8_input_sel    = DIRECT_L8;
-                from_cpu_top8_input_sel    = DIRECT_ML8;
-                l8_t8_buffer_sel           = BUFFER;
-                l8_mt8_buffer_sel          = BUFFER;
-                l8_ml8_buffer_sel          = BUFFER;
-                l8_l8_buffer_sel           = BUFFER;
-                t8_t8_buffer_sel           = BUFFER;
-                t8_mt8_buffer_sel          = BUFFER;
-                t8_ml8_buffer_sel          = BUFFER;
-                t8_l8_buffer_sel           = BUFFER;
-               end // end case word
-              endcase // endcase word type
-         end
+
+         from_cpu_low8_input_sel      = DC3;
+         from_cpu_top8_input_sel      = DC3;
+         l8_t8_buffer_sel             = DC;
+         l8_mt8_buffer_sel            = DC;
+         l8_ml8_buffer_sel            = DC;
+         l8_l8_buffer_sel             = DC;
+         t8_t8_buffer_sel             = DC;
+         t8_mt8_buffer_sel            = DC;
+         t8_ml8_buffer_sel            = DC;
+         t8_l8_buffer_sel             = DC;
 
          // output assignment
          data_out_pre_L8_sel            = DC2; // 2 bit
@@ -994,8 +785,8 @@ always @(*) begin
          fsm_mem_en                     = 1;
 
          // status in buffering
-         is_signed_buffer_sel           = BUFFER;
-         word_type_buffer_sel           = BUFFER;
+         is_signed_buffer_sel           = bit0_delayed2 ? BUFFER : UPDATE;
+         word_type_buffer_sel           = bit0_delayed2 ? BUFFER : UPDATE;
 
          // input selection feedback
          from_mem_feedback_sel          = DC;
@@ -1003,57 +794,286 @@ always @(*) begin
          2mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
-         if (load) begin
-              from_cpu_low8_input_sel      = DC3;
-              from_cpu_top8_input_sel      = DC3;
-              l8_t8_buffer_sel             = DC;
-              l8_mt8_buffer_sel            = DC;
-              l8_ml8_buffer_sel            = DC;
-              l8_l8_buffer_sel             = DC;
-              t8_t8_buffer_sel             = DC;
-              t8_mt8_buffer_sel            = DC;
-              t8_ml8_buffer_sel            = DC;
-              t8_l8_buffer_sel             = DC;
-            end
-            else begin
-              case (word_type)
-               BYTE: begin
-                from_cpu_low8_input_sel    = DC3;
-                from_cpu_top8_input_sel    = DC3;
-                l8_t8_buffer_sel           = BUFFER;
-                l8_mt8_buffer_sel          = BUFFER;
-                l8_ml8_buffer_sel          = BUFFER;
-                l8_l8_buffer_sel           = BUFFER;
-                t8_t8_buffer_sel           = BUFFER;
-                t8_mt8_buffer_sel          = BUFFER;
-                t8_ml8_buffer_sel          = BUFFER;
-                t8_l8_buffer_sel           = BUFFER;
-               end // end case byte
-               HALFWORD: begin
-                from_cpu_low8_input_sel    = DIRECT_L8;
-                from_cpu_top8_input_sel    = DIRECT_ML8;
-                l8_t8_buffer_sel           = BUFFER;
-                l8_mt8_buffer_sel          = BUFFER;
-                l8_ml8_buffer_sel          = BUFFER;
-                l8_l8_buffer_sel           = BUFFER;
-                t8_t8_buffer_sel           = BUFFER;
-                t8_mt8_buffer_sel          = BUFFER;
-                t8_ml8_buffer_sel          = BUFFER;
-                t8_l8_buffer_sel           = BUFFER;
-               end // end case halfword
-               WORD: begin
-                from_cpu_low8_input_sel    = DIRECT_L8;
-                from_cpu_top8_input_sel    = DIRECT_ML8;
-                l8_t8_buffer_sel           = BUFFER;
-                l8_mt8_buffer_sel          = BUFFER;
-                l8_ml8_buffer_sel          = BUFFER;
-                l8_l8_buffer_sel           = BUFFER;
-                t8_t8_buffer_sel           = BUFFER;
-                t8_mt8_buffer_sel          = BUFFER;
-                t8_ml8_buffer_sel          = BUFFER;
-                t8_l8_buffer_sel           = BUFFER;
-               end // end case word
-              endcase // endcase word type
+         from_cpu_low8_input_sel    = DIRECT_L8;
+         from_cpu_top8_input_sel    = DIRECT_ML8;
+         l8_t8_buffer_sel           = UPDATE;
+         l8_mt8_buffer_sel          = UPDATE;
+         l8_ml8_buffer_sel          = UPDATE;
+         l8_l8_buffer_sel           = UPDATE;
+         t8_t8_buffer_sel           = UPDATE;
+         t8_mt8_buffer_sel          = UPDATE;
+         t8_ml8_buffer_sel          = UPDATE;
+         t8_l8_buffer_sel           = UPDATE;
+
+
+
+         // output assignment
+         data_out_pre_L8_sel            = DC2; // 2 bit
+         data_out_pre_ML8_sel           = DC3; // 3 bit
+         data_out_pre_MT8_sel           = DC3; // 3 bit
+         data_out_pre_T8_sel            = DC3; // 3 bit
+
+         output_shuffle_sel             = 1;
+
+         // address assignment
+         adder_summand_sel              = SEL_ONE;
+         added_address_buffer_sel       = BUFFER;
+         delayed_address_buffer_sel     = BUFFER;
+         delayed_or_added_address_sel   = ADDED_ADDRESS;
+         direct_or_modified_address_sel = MODIFIED_ADDRESS;
+      end // end case LOAD_WORD_B
+
+      //################################## LOAD_WORD_C##########################
+      // #######################################################################
+      LOAD_WORD_C: begin
+         // status signals
+         busy                           = 0;
+         output_valid                   = 1;
+         write_ready                    = 0;
+
+         // fsm control
+         fsm_rd                         = 0;
+         fsm_wr                         = 0;
+         fsm_wr_en                      = 0;
+         fsm_rd_en                      = 0;
+         fsm_mem_en                     = 1;
+
+         // status in buffering
+         is_signed_buffer_sel           = UPDATE;
+         word_type_buffer_sel           = UPDATE;
+
+         // input selection feedback
+         from_mem_feedback_sel          = DC;
+         2mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         2mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+
+         // input selection
+         from_cpu_low8_input_sel    = DIRECT_L8;
+         from_cpu_top8_input_sel    = DIRECT_ML8;
+         l8_t8_buffer_sel           = UPDATE;
+         l8_mt8_buffer_sel          = UPDATE;
+         l8_ml8_buffer_sel          = UPDATE;
+         l8_l8_buffer_sel           = UPDATE;
+         t8_t8_buffer_sel           = UPDATE;
+         t8_mt8_buffer_sel          = UPDATE;
+         t8_ml8_buffer_sel          = UPDATE;
+         t8_l8_buffer_sel           = UPDATE;
+
+
+
+         // output assignment
+         data_out_pre_L8_sel            = L8_DELAYED2_T8; // 2 bit
+         data_out_pre_ML8_sel           = ML8_DELAYED1_L8 // 3 bit
+         data_out_pre_MT8_sel           = MT8_DELAYED1_T8; // 3 bit
+         data_out_pre_T8_sel            = T8_DIRECT_L8; // 3 bit
+
+         output_shuffle_sel             = 1;
+
+         // address assignment
+         adder_summand_sel              = SEL_ONE;
+         added_address_buffer_sel       = UPDATE;
+         delayed_address_buffer_sel     = UPDATE;
+         delayed_or_added_address_sel   = DC;
+         direct_or_modified_address_sel = DIRECT_ADDRESS;
+      end // end case LOAD_WORD_C
+
+      // ############################### STORE_BYTE_A #########################
+      // ######################################################################
+      STORE_BYTE_A: begin
+         // status signals
+         busy                           = 1;
+         output_valid                   = 0;
+         write_ready                    = 0;
+
+         // fsm control
+         fsm_rd                         = 0;
+         fsm_wr                         = 0;
+         fsm_wr_en                      = 0;
+         fsm_rd_en                      = 0;
+         fsm_mem_en                     = 1;
+
+         // status in buffering
+         is_signed_buffer_sel           = UPDATE;
+         word_type_buffer_sel           = UPDATE;
+
+         // input selection feedback
+         from_mem_feedback_sel          = bit0_delayed1 ? FEEDBACK_LOW8   : FEEDBACK_TOP8;
+         2mem_data_in_top8_feedback_sel = bit0_delayed1 ? INPUT_TO_MEM    : FEEDBACK_TO_MEM;
+         2mem_data_in_low8_feedback_sel = bit0_delayed1 ? FEEDBACK_TO_MEM : INPUT_TO_MEM;
+
+         // input selection
+        from_cpu_low8_input_sel         = DELAYED_L8;
+        from_cpu_top8_input_sel         = DELAYED_T8;
+        l8_t8_buffer_sel                = BUFFER;
+        l8_mt8_buffer_sel               = BUFFER;
+        l8_ml8_buffer_sel               = BUFFER;
+        l8_l8_buffer_sel                = BUFFER;
+        t8_t8_buffer_sel                = BUFFER;
+        t8_mt8_buffer_sel               = BUFFER;
+        t8_ml8_buffer_sel               = BUFFER;
+        t8_l8_buffer_sel                = BUFFER;
+
+
+
+         // output assignment
+         data_out_pre_L8_sel            = DC2; // 2 bit
+         data_out_pre_ML8_sel           = DC3; // 3 bit
+         data_out_pre_MT8_sel           = DC3; // 3 bit
+         data_out_pre_T8_sel            = DC3; // 3 bit
+
+         output_shuffle_sel             = 0;
+
+         // address assignment
+         adder_summand_sel              = SEL_ONE;
+         added_address_buffer_sel       = UPDATE;
+         delayed_address_buffer_sel     = UPDATE;
+         delayed_or_added_address_sel   = DELAYED_ADDRESS;
+         direct_or_modified_address_sel = MODIFIED_ADDRESS;
+      end // end case STORE_BYTE_A
+
+
+      // ############################### STORE_BYTE_B #########################
+      // ######################################################################
+      STORE_BYTE_B: begin
+         // status signals
+         busy                           = 0;
+         output_valid                   = 0;
+         write_ready                    = 1;
+
+         // fsm control
+         fsm_rd                         = 0;
+         fsm_wr                         = 0;
+         fsm_wr_en                      = 0;
+         fsm_rd_en                      = 0;
+         fsm_mem_en                     = 1;
+
+         // status in buffering
+         is_signed_buffer_sel           = UPDATE;
+         word_type_buffer_sel           = UPDATE;
+
+         // input selection feedback
+         from_mem_feedback_sel          = DC;
+         2mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         2mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+
+         // input selection
+         from_cpu_low8_input_sel    = DIRECT_L8;
+         from_cpu_top8_input_sel    = DIRECT_ML8;
+         l8_t8_buffer_sel           = UPDATE;
+         l8_mt8_buffer_sel          = UPDATE;
+         l8_ml8_buffer_sel          = UPDATE;
+         l8_l8_buffer_sel           = UPDATE;
+         t8_t8_buffer_sel           = UPDATE;
+         t8_mt8_buffer_sel          = UPDATE;
+         t8_ml8_buffer_sel          = UPDATE;
+         t8_l8_buffer_sel           = UPDATE;
+
+
+
+         // output assignment
+         data_out_pre_L8_sel            = DC2; // 2 bit
+         data_out_pre_ML8_sel           = DC3 // 3 bit
+         data_out_pre_MT8_sel           = DC3; // 3 bit
+         data_out_pre_T8_sel            = DC3; // 3 bit
+
+         output_shuffle_sel             = 0;
+
+         // address assignment
+         adder_summand_sel              = SEL_ONE;
+         added_address_buffer_sel       = UPDATE;
+         delayed_address_buffer_sel     = UPDATE;
+         delayed_or_added_address_sel   = DC;
+         direct_or_modified_address_sel = DIRECT_ADDRESS;
+      end // end case STORE_BYTE_B
+
+      // ############################### STORE_HW_A  ##########################
+      // ######################################################################
+      STORE_HW_A: begin
+         // status signals
+         busy                           = bit0_delayed1;
+         output_valid                   = 0;
+         write_ready                    = !bit0_delayed1;
+
+         // fsm control
+         fsm_rd                         = bit0_delayed1;
+         fsm_wr                         = bit0_delayed1;
+         fsm_wr_en                      = 1;
+         fsm_rd_en                      = 1;
+         fsm_mem_en                     = 1;
+
+         // status in buffering
+         is_signed_buffer_sel           = bit0_delayed1 ? BUFFER : UPDATE;
+         word_type_buffer_sel           = bit0_delayed1 ? BUFFER : UPDATE;
+
+         // input selection feedback
+         from_mem_feedback_sel          = FEEDBACK_LOW8;
+         2mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         2mem_data_in_low8_feedback_sel = bit0_delayed1 ? FEEDBACK_TO_MEM : INPUT_TO_MEM;
+
+         // input selection
+         from_cpu_low8_input_sel    = DELAYED_L8;
+         from_cpu_top8_input_sel    = bit0_delayed1 ? DELAYED_ML8 : DELAYED_L8;
+         l8_t8_buffer_sel           = bit0_delayed1 ? BUFFER : UPDATE;
+         l8_mt8_buffer_sel          = bit0_delayed1 ? BUFFER : UPDATE;
+         l8_ml8_buffer_sel          = bit0_delayed1 ? BUFFER : UPDATE;
+         l8_l8_buffer_sel           = bit0_delayed1 ? BUFFER : UPDATE;
+         t8_t8_buffer_sel           = bit0_delayed1 ? BUFFER : UPDATE;
+         t8_mt8_buffer_sel          = bit0_delayed1 ? BUFFER : UPDATE;
+         t8_ml8_buffer_sel          = bit0_delayed1 ? BUFFER : UPDATE;
+         t8_l8_buffer_sel           = bit0_delayed1 ? BUFFER : UPDATE;
+
+
+         // output assignment
+         data_out_pre_L8_sel            = DC2; // 2 bit
+         data_out_pre_ML8_sel           = DC3; // 3 bit
+         data_out_pre_MT8_sel           = DC3; // 3 bit
+         data_out_pre_T8_sel            = DC3; // 3 bit
+
+         output_shuffle_sel             = 0;
+
+         // address assignment
+         adder_summand_sel              = SEL_ONE;
+         added_address_buffer_sel       = bit0_delayed1 ? BUFFER : UPDATE;
+         delayed_address_buffer_sel     = bit0_delayed1 ? BUFFER : UPDATE;
+         delayed_or_added_address_sel   = DELAYED_ADDRESS;
+         direct_or_modified_address_sel = bit0_delayed1 ? MODIFIED_ADDRESS : DIRECT_ADDRESS;
+      end // end case STORE_HW_A
+
+      // ############################### STORE_HW_B ###########################
+      // ######################################################################
+      STORE_HW_B: begin
+         // status signals
+         busy                           = 1;
+         output_valid                   = 0;
+         write_ready                    = 0;
+
+         // fsm control
+         fsm_rd                         = 1;
+         fsm_wr                         = 0;
+         fsm_wr_en                      = 1;
+         fsm_rd_en                      = 1;
+         fsm_mem_en                     = 1;
+
+         // status in buffering
+         is_signed_buffer_sel           = BUFFER;
+         word_type_buffer_sel           = BUFFER;
+
+         // input selection feedback
+         from_mem_feedback_sel          = DC;
+         2mem_data_in_top8_feedback_sel = DC;
+         2mem_data_in_low8_feedback_sel = DC;
+
+         // input selection
+         from_cpu_low8_input_sel    = DC3;
+         from_cpu_top8_input_sel    = DC3;
+         l8_t8_buffer_sel           = BUFFER;
+         l8_mt8_buffer_sel          = BUFFER;
+         l8_ml8_buffer_sel          = BUFFER;
+         l8_l8_buffer_sel           = BUFFER;
+         t8_t8_buffer_sel           = BUFFER;
+         t8_mt8_buffer_sel          = BUFFER;
+         t8_ml8_buffer_sel          = BUFFER;
+         t8_l8_buffer_sel           = BUFFER;
          end
 
          // output assignment
@@ -1070,34 +1090,378 @@ always @(*) begin
          delayed_address_buffer_sel     = BUFFER;
          delayed_or_added_address_sel   = ADDED_ADDRESS;
          direct_or_modified_address_sel = MODIFIED_ADDRESS;
-      end // end case LOAD_WORD_B
-
-      // ############################### STORE_BYTE_A #########################
-      // ######################################################################
-
-      // ############################### STORE_BYTE_B #########################
-      // ######################################################################
-
-      // ############################### STORE_HW_A  ##########################
-      // ######################################################################
-
-      // ############################### STORE_HW_B ###########################
-      // ######################################################################
+      end // end case STORE_HW_B
 
       // ############################### STORE_HW_C  ##########################
       // ######################################################################
+      STORE_HW_C: begin
+         // status signals
+         busy                           = 1;
+         output_valid                   = 0;
+         write_ready                    = 0;
 
-      // ############################### STORE_WORD_A #########################
+         // fsm control
+         fsm_rd                         = 1;
+         fsm_wr                         = 0;
+         fsm_wr_en                      = 1;
+         fsm_rd_en                      = 1;
+         fsm_mem_en                     = 1;
+
+         // status in buffering
+         is_signed_buffer_sel           = BUFFER;
+         word_type_buffer_sel           = BUFFER;
+
+         // input selection feedback
+         from_mem_feedback_sel          = FEEDBACK_TOP8;
+         2mem_data_in_top8_feedback_sel = FEEDBACK_TO_MEM;
+         2mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+
+         // input selection
+         from_cpu_low8_input_sel    = DELAYED_ML8;
+         from_cpu_top8_input_sel    = DC3;
+         l8_t8_buffer_sel           = UPDATE;
+         l8_mt8_buffer_sel          = UPDATE;
+         l8_ml8_buffer_sel          = UPDATE;
+         l8_l8_buffer_sel           = UPDATE;
+         t8_t8_buffer_sel           = UPDATE;
+         t8_mt8_buffer_sel          = UPDATE;
+         t8_ml8_buffer_sel          = UPDATE;
+         t8_l8_buffer_sel           = UPDATE;
+         // output assignment
+         data_out_pre_L8_sel            = DC2; // 2 bit
+         data_out_pre_ML8_sel           = DC3; // 3 bit
+         data_out_pre_MT8_sel           = DC3; // 3 bit
+         data_out_pre_T8_sel            = DC3; // 3 bit
+
+         output_shuffle_sel             = 0;
+
+         // address assignment
+         adder_summand_sel              = SEL_ONE;
+         added_address_buffer_sel       = bit0_delayed1 ? BUFFER : UPDATE;
+         delayed_address_buffer_sel     = bit0_delayed1 ? BUFFER : UPDATE;
+         delayed_or_added_address_sel   = ADDED_ADDRESS;
+         direct_or_modified_address_sel = bit0_delayed1 ? MODIFIED_ADDRESS : DIRECT_ADDRESS;
+      end // end case STORE_HW_C
+
+      // ############################### STORE_HW_D #########################
       // ######################################################################
+      STORE_HW_D: begin
+         // status signals
+         busy                           = 0;
+         output_valid                   = 0;
+         write_ready                    = 1;
+
+         // fsm control
+         fsm_rd                         = DC;
+         fsm_wr                         = DC;
+         fsm_wr_en                      = 0 ;
+         fsm_rd_en                      = 0 ;
+         fsm_mem_en                     = 1 ;
+
+         // status in buffering
+         is_signed_buffer_sel           = UPDATE ;
+         word_type_buffer_sel           = UPDATE ;
+
+         // input selection feedback
+         from_mem_feedback_sel          = DC;
+         2mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         2mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+
+         // input selection
+         from_cpu_low8_input_sel    = DIRECT_L8;
+         from_cpu_top8_input_sel    = DIRECT_ML8;
+         l8_t8_buffer_sel           = UPDATE;
+         l8_mt8_buffer_sel          = UPDATE;
+         l8_ml8_buffer_sel          = UPDATE;
+         l8_l8_buffer_sel           = UPDATE;
+         t8_t8_buffer_sel           = UPDATE;
+         t8_mt8_buffer_sel          = UPDATE;
+         t8_ml8_buffer_sel          = UPDATE;
+         t8_l8_buffer_sel           = UPDATE;
+
+
+
+         // output assignment
+         data_out_pre_L8_sel            = DC2; // 2 bit
+         data_out_pre_ML8_sel           = DC3; // 3 bit
+         data_out_pre_MT8_sel           = DC3; // 3 bit
+         data_out_pre_T8_sel            = DC3; // 3 bit
+
+         output_shuffle_sel             = 0;
+
+         // address assignment
+         adder_summand_sel              = SEL_ONE;
+         added_address_buffer_sel       = UPDATE;
+         delayed_address_buffer_sel     = UPDATE;
+         delayed_or_added_address_sel   = DC;
+         direct_or_modified_address_sel = DIRECT_ADDRESS;
+
+      end // end case STORE_HW_D
+
+         // ############################### STORE_WORD_A  ##########################
+         // ######################################################################
+         STORE_WORD_A: begin
+            // status signals
+            busy                           = 1;
+            output_valid                   = 0;
+            write_ready                    = 0;
+
+            // fsm control
+            fsm_rd                         = 0;
+            fsm_wr                         = 1;
+            fsm_wr_en                      = 1;
+            fsm_rd_en                      = 1;
+            fsm_mem_en                     = 1;
+
+            // status in buffering
+            is_signed_buffer_sel           = BUFFER;
+            word_type_buffer_sel           = BUFFER;
+
+            // input selection feedback
+            from_mem_feedback_sel          = FEEDBACK_LOW8;
+            2mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+            2mem_data_in_low8_feedback_sel = bit0_delayed1 ? FEEDBACK_TO_MEM : INPUT_TO_MEM;
+
+            // input selection
+            from_cpu_low8_input_sel    = DELAYED_L8;
+            from_cpu_top8_input_sel    = bit0_delayed1 ? DELAYED_L8: DELAYED_ML8;
+            l8_t8_buffer_sel           = bit0_delayed1 ? BUFFER : UPDATE;
+            l8_mt8_buffer_sel          = bit0_delayed1 ? BUFFER : UPDATE;
+            l8_ml8_buffer_sel          = bit0_delayed1 ? BUFFER : UPDATE;
+            l8_l8_buffer_sel           = bit0_delayed1 ? BUFFER : UPDATE;
+            t8_t8_buffer_sel           = bit0_delayed1 ? BUFFER : UPDATE;
+            t8_mt8_buffer_sel          = bit0_delayed1 ? BUFFER : UPDATE;
+            t8_ml8_buffer_sel          = bit0_delayed1 ? BUFFER : UPDATE;
+            t8_l8_buffer_sel           = bit0_delayed1 ? BUFFER : UPDATE;
+
+
+            // output assignment
+            data_out_pre_L8_sel            = DC2; // 2 bit
+            data_out_pre_ML8_sel           = DC3; // 3 bit
+            data_out_pre_MT8_sel           = DC3; // 3 bit
+            data_out_pre_T8_sel            = DC3; // 3 bit
+
+            output_shuffle_sel             = 0;
+
+            // address assignment
+            adder_summand_sel              = SEL_ONE;
+            added_address_buffer_sel       = BUFFER ;
+            delayed_address_buffer_sel     = BUFFER;
+            delayed_or_added_address_sel   = DELAYED_ADDRESS;
+            direct_or_modified_address_sel = MODIFIED_ADDRESS;
+         end // end case STORE_WORD_A
 
       // ############################### STORE_WORD_B #########################
       // ######################################################################
+      STORE_WORD_B: begin
+         // status signals
+         busy                           = bit0_delayed2;
+         output_valid                   = 0;
+         write_ready                    = !bit0_delayed2;
+
+         // fsm control
+         fsm_rd                         = 0;
+         fsm_wr                         = 1;
+         fsm_wr_en                      = bit0_delayed2 ;
+         fsm_rd_en                      = bit0_delayed2 ;
+         fsm_mem_en                     = 1;
+
+         // status in buffering
+         is_signed_buffer_sel           = bit0_delayed2 ? BUFFER : UPDATE;
+         word_type_buffer_sel           = bit0_delayed2 ? BUFFER : UPDATE;
+
+         // input selection feedback
+         from_mem_feedback_sel          = FEEDBACK_LOW8;
+         2mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         2mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+
+         // input selection
+         from_cpu_low8_input_sel    = bit0_delayed2 ? DELAYED_ML8: DELAYED_MT8;
+         from_cpu_top8_input_sel    = bit0_delayed2 ? DELAYED_MT8: DELAYED_T8;
+         l8_t8_buffer_sel           = bit0_delayed2 ? BUFFER : UPDATE;
+         l8_mt8_buffer_sel          = bit0_delayed2 ? BUFFER : UPDATE;
+         l8_ml8_buffer_sel          = bit0_delayed2 ? BUFFER : UPDATE;
+         l8_l8_buffer_sel           = bit0_delayed2 ? BUFFER : UPDATE;
+         t8_t8_buffer_sel           = bit0_delayed2 ? BUFFER : UPDATE;
+         t8_mt8_buffer_sel          = bit0_delayed2 ? BUFFER : UPDATE;
+         t8_ml8_buffer_sel          = bit0_delayed2 ? BUFFER : UPDATE;
+         t8_l8_buffer_sel           = bit0_delayed2 ? BUFFER : UPDATE;
+
+
+         // output assignment
+         data_out_pre_L8_sel            = DC2; // 2 bit
+         data_out_pre_ML8_sel           = DC3; // 3 bit
+         data_out_pre_MT8_sel           = DC3; // 3 bit
+         data_out_pre_T8_sel            = DC3; // 3 bit
+
+         output_shuffle_sel             = 0;
+
+         // address assignment
+         adder_summand_sel              = SEL_ONE;
+         added_address_buffer_sel       = bit0_delayed2 ? BUFFER : UPDATE;
+         delayed_address_buffer_sel     = bit0_delayed2 ? BUFFER : UPDATE;
+         delayed_or_added_address_sel   = ADDED_ADDRESS;
+         direct_or_modified_address_sel = bit0_delayed2 ? MODIFIED_ADDRESS : DIRECT_ADDRESS;
+      end // end case STORE_WORD_B
 
       // ############################## STORE_WORD_C ##########################
       // ######################################################################
+      STORE_WORD_C: begin
+         // status signals
+         busy                           = 1;
+         output_valid                   = 0;
+         write_ready                    = 0;
+
+         // fsm control
+         fsm_rd                         = 1;
+         fsm_wr                         = 0;
+         fsm_wr_en                      = 0 ;
+         fsm_rd_en                      = 1 ;
+         fsm_mem_en                     = 1;
+
+         // status in buffering
+         is_signed_buffer_sel           = BUFFER;
+         word_type_buffer_sel           = BUFFER;
+
+         // input selection feedback
+         from_mem_feedback_sel          = FEEDBACK_LOW8;
+         2mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         2mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+
+         // input selection
+         from_cpu_low8_input_sel    =  DELAYED_ML8: DELAYED_MT8;
+         from_cpu_top8_input_sel    =  DELAYED_MT8: DELAYED_T8;
+         l8_t8_buffer_sel           =  BUFFER;
+         l8_mt8_buffer_sel          =  BUFFER;
+         l8_ml8_buffer_sel          =  BUFFER;
+         l8_l8_buffer_sel           =  BUFFER;
+         t8_t8_buffer_sel           =  BUFFER;
+         t8_mt8_buffer_sel          =  BUFFER;
+         t8_ml8_buffer_sel          =  BUFFER;
+         t8_l8_buffer_sel           =  BUFFER;
+
+
+         // output assignment
+         data_out_pre_L8_sel            = DC2; // 2 bit
+         data_out_pre_ML8_sel           = DC3; // 3 bit
+         data_out_pre_MT8_sel           = DC3; // 3 bit
+         data_out_pre_T8_sel            = DC3; // 3 bit
+
+         output_shuffle_sel             = 0;
+
+         // address assignment
+         adder_summand_sel              = SEL_TWO;
+         added_address_buffer_sel       =  BUFFER;
+         delayed_address_buffer_sel     =  BUFFER;
+         delayed_or_added_address_sel   = ADDED_ADDRESS;
+         direct_or_modified_address_sel = MODIFIED_ADDRESS;
+      end // end case STORE_WORD_C
 
       // ############################### STORE_WORD_D #########################
       // ######################################################################
+      STORE_WORD_D: begin
+         // status signals
+         busy                           = 1;
+         output_valid                   = 0;
+         write_ready                    = 0;
+
+         // fsm control
+         fsm_rd                         = 0;
+         fsm_wr                         = 1;
+         fsm_wr_en                      = 1 ;
+         fsm_rd_en                      = 1 ;
+         fsm_mem_en                     = 1;
+
+         // status in buffering
+         is_signed_buffer_sel           = BUFFER;
+         word_type_buffer_sel           = BUFFER;
+
+         // input selection feedback
+         from_mem_feedback_sel          = FEEDBACK_TOP8;
+         2mem_data_in_top8_feedback_sel = FEEDBACK_TOP8;
+         2mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+
+         // input selection
+         from_cpu_low8_input_sel    =  DELAYED_T8;
+         from_cpu_top8_input_sel    =  DC3;
+         l8_t8_buffer_sel           =  BUFFER;
+         l8_mt8_buffer_sel          =  BUFFER;
+         l8_ml8_buffer_sel          =  BUFFER;
+         l8_l8_buffer_sel           =  BUFFER;
+         t8_t8_buffer_sel           =  BUFFER;
+         t8_mt8_buffer_sel          =  BUFFER;
+         t8_ml8_buffer_sel          =  BUFFER;
+         t8_l8_buffer_sel           =  BUFFER;
+
+
+         // output assignment
+         data_out_pre_L8_sel            = DC2; // 2 bit
+         data_out_pre_ML8_sel           = DC3; // 3 bit
+         data_out_pre_MT8_sel           = DC3; // 3 bit
+         data_out_pre_T8_sel            = DC3; // 3 bit
+
+         output_shuffle_sel             = 0;
+
+         // address assignment
+         adder_summand_sel              = SEL_TWO;
+         added_address_buffer_sel       =  BUFFER;
+         delayed_address_buffer_sel     =  BUFFER;
+         delayed_or_added_address_sel   = ADDED_ADDRESS;
+         direct_or_modified_address_sel = MODIFIED_ADDRESS;
+      end // end case STORE_WORD_D
+
+      // ############################### STORE_WORD_E #########################
+      // ######################################################################
+      STORE_WORD_E: begin
+         // status signals
+         busy                           = 0;
+         output_valid                   = 0;
+         write_ready                    = 1;
+
+         // fsm control
+         fsm_rd                         = 0;
+         fsm_wr                         = 0;
+         fsm_wr_en                      = 0 ;
+         fsm_rd_en                      = 0 ;
+         fsm_mem_en                     = 1;
+
+         // status in buffering
+         is_signed_buffer_sel           = UPDATE;
+         word_type_buffer_sel           = UPDATE;
+
+         // input selection feedback
+         from_mem_feedback_sel          = FEEDBACK_TOP8;
+         2mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         2mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+
+         // input selection
+         from_cpu_low8_input_sel    =  DIRECT_L8;
+         from_cpu_top8_input_sel    =  DIRECT_ML8;
+         l8_t8_buffer_sel           =  UPDATE;
+         l8_mt8_buffer_sel          =  UPDATE;
+         l8_ml8_buffer_sel          =  UPDATE;
+         l8_l8_buffer_sel           =  UPDATE;
+         t8_t8_buffer_sel           =  UPDATE;
+         t8_mt8_buffer_sel          =  UPDATE;
+         t8_ml8_buffer_sel          =  UPDATE;
+         t8_l8_buffer_sel           =  UPDATE;
+
+
+         // output assignment
+         data_out_pre_L8_sel            = DC2; // 2 bit
+         data_out_pre_ML8_sel           = DC3; // 3 bit
+         data_out_pre_MT8_sel           = DC3; // 3 bit
+         data_out_pre_T8_sel            = DC3; // 3 bit
+
+         output_shuffle_sel             = 0;
+
+         // address assignment
+         adder_summand_sel              = SEL_ONE;
+         added_address_buffer_sel       =  UPDATE;
+         delayed_address_buffer_sel     =  UPDATE;
+         delayed_or_added_address_sel   = DELAYED_ADDRESS;
+         direct_or_modified_address_sel = DIRECT_ADDRESS;
+      end // end case STORE_WORD_E
 
 
 
