@@ -1,12 +1,6 @@
-module top7 (
+module cpu (
 clock,
 reset,
-
-
-stall_from_instructionfetch, 
-
-
-decoder_pc_update,
 
 
 // ***********************************
@@ -28,17 +22,8 @@ input wire clock;
 input wire reset;
 
 
-input wire stall_from_instructionfetch; 
-
-
-output wire decoder_pc_update;
-
-
-
-
-
-
 // ************************************** interface to memory *********************************************
+
 input wire  [15:0] MEM_MEMCTRL_from_mem_data;
 
 output wire        MEMCTRL_MEM_to_mem_read_enable   ;     
@@ -61,8 +46,8 @@ wire  [4:0] DEC_RF_operand_b;
 wire [31:0] DEC_RF_offset_a;
 wire [31:0] DEC_RF_offset_b;
 
-wire  [4:0] DEC_RF_alu_stack_write_to_reg;
-wire        DEC_RF_alu_stack_write_to_reg_enable; 
+wire  [4:0] DEC_RF_alu_write_to_reg;
+wire        DEC_RF_alu_write_to_reg_enable; 
 wire  [4:0] DEC_RF_memory_write_to_reg;
 wire        DEC_RF_memory_write_to_reg_enable;
 
@@ -82,8 +67,8 @@ wire  [4:0] DEC_ALU_alu_opcode;
 
 // DECODER --> MEMORY_CONTROLLER
 
-wire        DEC_MEMCTRL_CTRL_memory_load_request;
-wire        DEC_MEMCTRL_CTRL_memory_store_request;
+wire        DEC_MEMCTRL_memory_load_request;
+wire        DEC_MEMCTRL_memory_store_request;
 wire  [1:0] DEC_MEMCTRL_load_store_width;
 wire        DEC_MEMCTRL_memorycontroller_sign_extend;
 
@@ -106,7 +91,7 @@ wire        DEC_MISC_OUT_pc_mask_bit;
 
 // REGISTERFILE --> ALU
 
-wire [31:0] RF_ALU_STACK_operand_a;
+wire [31:0] RF_ALU_operand_a;
 wire [31:0] RF_ALU_operand_b;
 
 // REGISTERFILE --> MEMORY_CONTROLLER
@@ -114,9 +99,9 @@ wire [31:0] RF_ALU_operand_b;
 wire [31:0] RF_MEMCTRL_data_reg;
 wire [31:0] RF_MEMCTRL_address_reg;
 
-// REGISTERFILE --> STACK
+// REGISTERFILE --> REGISTERFILE
 
-wire [31:0] RF_STACK_sp_out;
+wire [31:0] RF_next_sp;
 
 // REGISTERFILE --> INSTRUCTIONFETCH
 
@@ -143,17 +128,6 @@ wire        MEMCTRL_read_finished;
 
 // **************************************************************
 
-// STACK --> REGISTERFILE
-
-wire [31:0] STACK_RF_next_sp;
-
-// STACK --> MISC_OUT
-
-wire [31:0] STACK_MISC_OUT_data_out;
-
-
-// **************************************************************
-
 // INSTRUCTIONFETCH --> REGISTERFILE
 
 wire [31:0] IF_RF_incremented_pc_out;
@@ -161,12 +135,8 @@ wire        IF_RF_incremented_pc_write_enable;
 
 // INSTRUCTIONFETCH --> DECODER
 
-wire [15:0] IF_DEC_instruction;
+wire [31:0] IF_DEC_instruction;
 wire        IF_DEC_instruction_valid;
-
-// INSTRUCTIONFETCH --> CONTROLLER
-
-wire [31:0] IF_CTRL_fetch_req;
 
 // **************************************************************
 
@@ -207,23 +177,19 @@ wire        CTRL_DEC_stall_from_ctrl;
 irdecode  #(	
 ) irdecode_inst1 (
 
-	.clock                                   (    clock                                      ),
-	.reset                                   (    reset                                      ),
-	.instruction                             (   IF_DEC_instruction                          ),
-                                                                                          
-    .flag_n                                  (   RF_OUT_n                                    ),
-    .flag_z                                  (   RF_OUT_z                                    ),
-    .flag_c                                  (   RF_OUT_c                                    ),
-    .flag_v                                  (   RF_OUT_v                                    ),
+	.clock                                   (  clock                                        ),
+	.reset                                   (  reset                                        ),
+	.instruction                             (  IF_DEC_instruction                           ),
+                                                                                             
+    .flag_n                                  (  RF_OUT_n                                     ),
+    .flag_z                                  (  RF_OUT_z                                     ),
+    .flag_c                                  (  RF_OUT_c                                     ),
+    .flag_v                                  (  RF_OUT_v                                     ),
                                                                               
-	.stall_from_instructionfetch             (   stall_from_instructionfetch                 ),
-	.instruction_valid                       (   IF_DEC_instruction_valid                    ),
-//	.stall_from_controller                   (   CTRL_DEC_stall_from_ctrl                    ),
+	.instruction_valid                       (  IF_DEC_instruction_valid                     ),
 	
 	.memory_write_finished                   (  MEMCTRL_write_finished                       ),
     .memory_read_finished                    (  MEMCTRL_read_finished                        ),
-	 
-	
                                                                             
 	.operand_a                               (  DEC_RF_operand_a                             ),
 	.operand_b                               (  DEC_RF_operand_b                             ),
@@ -239,8 +205,8 @@ irdecode  #(
     .update_flag_c                           (  DEC_CPSR_update_flag_c                       ),
 	.update_flag_v                           (  DEC_CPSR_update_flag_v                       ),
                                                                                            
-	.alu_stack_write_to_reg                  (  DEC_RF_alu_stack_write_to_reg                ),
-	.alu_stack_write_to_reg_enable           (  DEC_RF_alu_stack_write_to_reg_enable         ),
+	.alu_write_to_reg                        (  DEC_RF_alu_write_to_reg                      ),
+	.alu_write_to_reg_enable                 (  DEC_RF_alu_write_to_reg_enable               ),
 	.memory_write_to_reg                     (  DEC_RF_memory_write_to_reg                   ),
 	.memory_write_to_reg_enable              (  DEC_RF_memory_write_to_reg_enable            ),
                                                                                              
@@ -250,21 +216,12 @@ irdecode  #(
 	.load_store_width                        (  DEC_MEMCTRL_load_store_width                 ),
 	.memorycontroller_sign_extend            (  DEC_MEMCTRL_memorycontroller_sign_extend     ),
                                                                                             
-	.memory_load_request                     (  DEC_MEMCTRL_CTRL_memory_load_request         ),
-	.memory_store_request                    (  DEC_MEMCTRL_CTRL_memory_store_request        ),
+	.memory_load_request                     (  DEC_MEMCTRL_memory_load_request              ),
+	.memory_store_request                    (  DEC_MEMCTRL_memory_store_request             ),
                                                                                              
-	.stack_push_request                      (  DEC_STACK_push_request                       ),
-	.stack_pop_request                       (  DEC_STACK_pop_request                        ),
-                                                                                             
-	.stall_to_instructionfetch               (  DEC_IF_stall_to_instructionfetch             ),
-                                                                                            
-	.decoder_pc_update                       (  decoder_pc_update                            )
+	.stall_to_instructionfetch               (  DEC_IF_stall_to_instructionfetch             )
 
 	);
-	
-	
-// 	wire [31:0] ALU_STACK_RF_data_in;
-// 	assign ALU_STACK_RF_data_in = DEC_STACK_pop_request ? STACK_MISC_OUT_data_out : ALU_MISC_OUT_result;
 	
 	
 register_file # (	
@@ -274,9 +231,9 @@ register_file # (
     .readB_sel                               (  DEC_RF_operand_b                                ),
     .readC_sel                               (  DEC_RF_memory_store_data_reg                    ),
     .readD_sel                               (  DEC_RF_memory_store_address_reg                 ),
-    .write1_sel                              (  DEC_RF_alu_stack_write_to_reg                   ),
+    .write1_sel                              (  DEC_RF_alu_write_to_reg                         ),
     .write2_sel                              (  DEC_RF_memory_write_to_reg                      ),
-    .write1_en                               (  DEC_RF_alu_stack_write_to_reg_enable            ),
+    .write1_en                               (  DEC_RF_alu_write_to_reg_enable                  ),
     .write2_en                               (  DEC_RF_memory_write_to_reg_enable               ),
     .write1_in                               (  ALU_MISC_OUT_result                             ),
     .write2_in                               (  MEMCTRL_RF_IF_data_in                           ),
@@ -284,17 +241,17 @@ register_file # (
     .immediate2_in                           (  DEC_RF_offset_b                                 ),
     .next_pc_in                              (  IF_RF_incremented_pc_out                        ),
     .next_cpsr_in                            (  {new_n, new_c, new_z, new_v}                    ),
-    .next_sp_in                              (  STACK_RF_next_sp                                ),
+    .next_sp_in                              (  RF_next_sp                                      ),
     .next_pc_en                              (  IF_RF_incremented_pc_write_enable               ),
     .clk                                     (  clock                                           ),
     .reset                                   (  reset                                           ),                                                                                            
-    .regA_out                                (  RF_ALU_STACK_operand_a                          ),
+    .regA_out                                (  RF_ALU_operand_a                                ),
     .regB_out                                (  RF_ALU_operand_b                                ),
     .regC_out                                (  RF_MEMCTRL_data_reg                             ),
     .regD_out                                (  RF_MEMCTRL_address_reg                          ),
     .pc_out                                  (  RF_pc_out                                       ),
     .cpsr_out                                (  {RF_OUT_n, RF_OUT_c, RF_OUT_z, RF_OUT_v}        ),
-    .sp_out                                  (  STACK_RF_next_sp                                )
+    .sp_out                                  (  RF_next_sp                                      )
     
     );
     
@@ -307,13 +264,13 @@ register_file # (
     // set lowest 2 bits to zero if PC 
     
     wire RF_ALU_operand_a_pc_modified;
-    assign RF_ALU_operand_a_pc_modified = (DEC_MISC_OUT_pc_mask_bit) ? {RF_ALU_STACK_operand_a[31:2], 1'b0, RF_ALU_STACK_operand_a[0]} : RF_ALU_STACK_operand_a;
+    assign RF_ALU_operand_a_pc_modified = (DEC_MISC_OUT_pc_mask_bit) ? {RF_ALU_operand_a[31:2], 1'b0, RF_ALU_operand_a[0]} : RF_ALU_operand_a;
 
 
 ALU_VARIABLE  # (
 ) ALU_VARIABLE_inst1 (
     
-    .a          ( RF_ALU_STACK_operand_a          ),
+    .a          ( RF_ALU_operand_a                ),
     .b          ( RF_ALU_operand_b                ),
     .op         ( DEC_ALU_alu_opcode[3:0]         ),
     .c_in       ( ALU_IN_c                        ),
@@ -343,7 +300,7 @@ ALU_VARIABLE  # (
     
     wire MEMCTRL_load_in;
 
-    assign MEMCTRL_load_in = IF_memory_load_req ? IF_memory_load_req : DEC_MEMCTRL_CTRL_memory_load_request;
+    assign MEMCTRL_load_in = IF_memory_load_req ? IF_memory_load_req : DEC_MEMCTRL_memory_load_request;
     
     
     
@@ -353,7 +310,7 @@ memory_interface # (
   .address                   ( MEMCTRL_IN_address [11:0]                        ),
   .data_in                   ( RF_MEMCTRL_data_reg                              ),
   .load                      ( MEMCTRL_load_in                                  ),
-  .store                     ( DEC_MEMCTRL_CTRL_memory_store_request            ),
+  .store                     ( DEC_MEMCTRL_memory_store_request                 ),
   .clk                       ( clock                                            ),
   .reset                     ( reset                                            ),
   .is_signed                 ( DEC_MEMCTRL_memorycontroller_sign_extend         ),
@@ -372,25 +329,6 @@ memory_interface # (
   .busy                      ( MEMCTRL_busy                                     )
   
   );
-  
-  
-  
-// STACK # (
-// ) STACK_inst1 (     
-// 
-//     .clk                     ( clock                                            ),
-//     .reset                   ( reset                                            ),
-//     .push_enable             ( DEC_STACK_push_request                           ),
-//     .pop_enable              ( DEC_STACK_pop_request                            ),
-//     .data_in                 ( RF_ALU_STACK_operand_a                           ),
-//     .sp_in                   ( RF_STACK_sp_out                                  ),
-//     
-//     .data_out                ( STACK_MISC_OUT_data_out                          ),
-//     .sp_out                  ( STACK_RF_next_sp                                 )
-// 
-// 
-// );
-
 
 
 Instruction_Fetch # (
@@ -410,37 +348,7 @@ Instruction_Fetch # (
     .instruction_valid                ( IF_DEC_instruction_valid                       )
 
 );
-
-
-
-
-
-
-
-
-// controller # (
-// ) controller_inst1 ( 
-// 
-// 
-//      .clk                      ( clock                                         ),
-//      .reset                    ( reset                                         ),
-//      .decoder_load_in          ( DEC_MEMCTRL_CTRL_memory_load_request          ),
-//      .decoder_store_in         ( DEC_MEMCTRL_CTRL_memory_store_request         ),
-//      .fetch_load_in            ( IF_CTRL_fetch_req                             ),
-//      .decoder_src_mem_addr_in  ( DEC_MISC_OUT_memory_address_source_is_reg     ),
-//      .mem_output_valid_in      ( MEMCTRL_read_finished                         ),
-//      .mem_write_ready_in       ( MEMCTRL_write_finished                        ),
-//      .stall_mem2fetch_out      ( CTRL_IF_stall_from_mem                        ),
-//      .addr_select_out          ( CTRL_mem_addr_select                          ),
-//      .read_en_sel_out          ( CTRL_mem_read_select                          ),
-//      .word_select_out          ( CTRL_word_select                              ),
-//      .stall_any2decoder_out    ( CTRL_DEC_stall_from_ctrl                      ),
-//      .state                    (                                               )
-//      
-// );
-
-
-    
+   
 	
 	
 endmodule

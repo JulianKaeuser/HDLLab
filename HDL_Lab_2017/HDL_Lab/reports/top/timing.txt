@@ -6,15 +6,15 @@ Report : timing
         -max_paths 1
 Design : top7
 Version: I-2013.12-SP5-3
-Date   : Thu Aug 10 09:11:45 2017
+Date   : Thu Aug 10 11:07:59 2017
 ****************************************
 
 Operating Conditions: NCCOM   Library: tcbn45gsbwp12ttc_ccs
 Wire Load Model Mode: segmented
 
-  Startpoint: register_file_inst1_r6_reg_9_
+  Startpoint: irdecode_inst1_operand_a_reg_3_
               (rising edge-triggered flip-flop clocked by CLOCK)
-  Endpoint: register_file_inst1_pc_reg_31_
+  Endpoint: register_file_inst1/pc_reg_28_
             (rising edge-triggered flip-flop clocked by CLOCK)
   Path Group: CLOCK
   Path Type: max
@@ -22,64 +22,67 @@ Wire Load Model Mode: segmented
   Des/Clust/Port     Wire Load Model       Library
   ------------------------------------------------
   top7               ZeroWireload          tcbn45gsbwp12ttc_ccs
+  register_file      ZeroWireload          tcbn45gsbwp12ttc_ccs
   ALU_VARIABLE       ZeroWireload          tcbn45gsbwp12ttc_ccs
 
   Point                                                   Incr       Path
   --------------------------------------------------------------------------
   clock CLOCK (rise edge)                                 0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  register_file_inst1_r6_reg_9_/CP (DFQD1BWP12T)          0.00       0.00 r
-  register_file_inst1_r6_reg_9_/Q (DFQD1BWP12T)           0.05       0.05 f
-  U1079/ZN (INVD1BWP12T)                                  0.01       0.07 r
-  U2403/ZN (OAI22D1BWP12T)                                0.01       0.08 f
-  U2404/ZN (NR4D0BWP12T)                                  0.04       0.12 r
-  U2405/ZN (ND2D1BWP12T)                                  0.02       0.14 f
-  ALU_VARIABLE_inst1/a[9] (ALU_VARIABLE)                  0.00       0.14 f
-  ALU_VARIABLE_inst1/U829/ZN (INVD2BWP12T)                0.02       0.16 r
-  ALU_VARIABLE_inst1/U862/ZN (INVD4BWP12T)                0.02       0.17 f
-  ALU_VARIABLE_inst1/U1333/ZN (INVD8BWP12T)               0.01       0.18 r
-  ALU_VARIABLE_inst1/U1830/ZN (INVD15BWP12T)              0.01       0.20 f
-  ALU_VARIABLE_inst1/U1844/ZN (XNR2XD4BWP12T)             0.04       0.24 r
-  ALU_VARIABLE_inst1/U1845/ZN (TPND2D8BWP12T)             0.02       0.26 f
-  ALU_VARIABLE_inst1/U1851/ZN (OAI22D1BWP12T)             0.02       0.28 r
-  ALU_VARIABLE_inst1/U3203/S (CMPE42D1BWP12T)             0.13       0.41 r
-  ALU_VARIABLE_inst1/mult_x_18_U473/S (CMPE42D1BWP12T)
-                                                          0.07       0.48 f
-  ALU_VARIABLE_inst1/U1165/ZN (NR2D1BWP12T)               0.02       0.50 r
-  ALU_VARIABLE_inst1/U1166/ZN (INVD1BWP12T)               0.01       0.51 f
-  ALU_VARIABLE_inst1/U1181/ZN (TPAOI21D1BWP12T)           0.01       0.52 r
-  ALU_VARIABLE_inst1/U1182/ZN (TPOAI21D1BWP12T)           0.02       0.54 f
-  ALU_VARIABLE_inst1/U1186/ZN (TPAOI21D1BWP12T)           0.02       0.56 r
-  ALU_VARIABLE_inst1/U1192/ZN (TPOAI21D1BWP12T)           0.02       0.57 f
-  ALU_VARIABLE_inst1/U2415/ZN (INVD1P75BWP12T)            0.01       0.59 r
-  ALU_VARIABLE_inst1/U2418/Z (XOR2D1BWP12T)               0.02       0.61 r
-  ALU_VARIABLE_inst1/U2448/ZN (IOA21D2BWP12T)             0.03       0.64 r
-  ALU_VARIABLE_inst1/result[16] (ALU_VARIABLE)            0.00       0.64 r
-  U373/ZN (INVD3BWP12T)                                   0.02       0.65 f
-  U375/ZN (MUX2NXD0BWP12T)                                0.03       0.68 r
-  U381/ZN (TPND2D1BWP12T)                                 0.02       0.70 f
-  U382/ZN (NR2XD1BWP12T)                                  0.02       0.72 r
-  U383/ZN (TPND2D1BWP12T)                                 0.01       0.74 f
-  U1479/ZN (NR2XD1BWP12T)                                 0.02       0.75 r
-  U1480/ZN (TPND2D1BWP12T)                                0.01       0.76 f
-  U1481/ZN (NR2XD1BWP12T)                                 0.02       0.78 r
-  U100/ZN (CKND2D2BWP12T)                                 0.02       0.80 f
-  U1482/ZN (TPNR2D3BWP12T)                                0.02       0.82 r
-  U1483/ZN (TPND2D2BWP12T)                                0.01       0.83 f
-  U1484/ZN (TPNR2D3BWP12T)                                0.02       0.85 r
-  U1485/ZN (TPND2D2BWP12T)                                0.01       0.86 f
-  U1486/ZN (TPNR2D3BWP12T)                                0.02       0.88 r
-  U1487/ZN (TPND2D2BWP12T)                                0.01       0.89 f
-  U1488/ZN (TPNR2D2BWP12T)                                0.02       0.91 r
-  U1489/ZN (ND2D1BWP12T)                                  0.01       0.92 f
-  U1490/Z (XOR2XD1BWP12T)                                 0.04       0.96 r
-  U1491/ZN (IOA21D2BWP12T)                                0.02       0.98 r
-  register_file_inst1_pc_reg_31_/D (DFQD1BWP12T)          0.00       0.98 r
+  irdecode_inst1_operand_a_reg_3_/CP (DFQD4BWP12T)        0.00       0.00 r
+  irdecode_inst1_operand_a_reg_3_/Q (DFQD4BWP12T)         0.05       0.05 f
+  register_file_inst1/readA_sel[3] (register_file)        0.00       0.05 f
+  register_file_inst1/U302/ZN (TPNR2D1BWP12T)             0.02       0.07 r
+  register_file_inst1/U303/ZN (CKND2D2BWP12T)             0.02       0.09 f
+  register_file_inst1/U196/ZN (NR2D3BWP12T)               0.05       0.13 r
+  register_file_inst1/U532/ZN (INVD6BWP12T)               0.02       0.15 f
+  register_file_inst1/U535/ZN (OAI22D1BWP12T)             0.02       0.17 r
+  register_file_inst1/U541/ZN (NR4D0BWP12T)               0.02       0.19 f
+  register_file_inst1/U542/ZN (TPND2D1BWP12T)             0.02       0.21 r
+  register_file_inst1/regA_out[9] (register_file)         0.00       0.21 r
+  ALU_VARIABLE_inst1/a[9] (ALU_VARIABLE)                  0.00       0.21 r
+  ALU_VARIABLE_inst1/U694/ZN (INVD3BWP12T)                0.01       0.22 f
+  ALU_VARIABLE_inst1/U695/ZN (INVD8BWP12T)                0.01       0.23 r
+  ALU_VARIABLE_inst1/U1166/ZN (INVD2BWP12T)               0.01       0.24 f
+  ALU_VARIABLE_inst1/U1167/ZN (INVD6BWP12T)               0.02       0.27 r
+  ALU_VARIABLE_inst1/U1717/ZN (XNR2XD4BWP12T)             0.05       0.31 f
+  ALU_VARIABLE_inst1/U1718/ZN (CKND2D8BWP12T)             0.02       0.33 r
+  ALU_VARIABLE_inst1/U2217/ZN (TPOAI22D1BWP12T)           0.02       0.35 f
+  ALU_VARIABLE_inst1/U86/S (CMPE42D1BWP12T)               0.13       0.48 r
+  ALU_VARIABLE_inst1/U3438/S (CMPE42D1BWP12T)             0.07       0.55 f
+  ALU_VARIABLE_inst1/U589/ZN (ND2D1BWP12T)                0.01       0.56 r
+  ALU_VARIABLE_inst1/U590/ZN (INVD1BWP12T)                0.01       0.57 f
+  ALU_VARIABLE_inst1/U591/ZN (AOI21D1BWP12T)              0.02       0.59 r
+  ALU_VARIABLE_inst1/U592/ZN (OAI21D1BWP12T)              0.02       0.61 f
+  ALU_VARIABLE_inst1/U595/ZN (TPAOI21D1BWP12T)            0.02       0.62 r
+  ALU_VARIABLE_inst1/U15/ZN (INVD1BWP12T)                 0.01       0.64 f
+  ALU_VARIABLE_inst1/U2597/ZN (AOI21D1BWP12T)             0.02       0.65 r
+  ALU_VARIABLE_inst1/U2599/Z (XOR2XD1BWP12T)              0.03       0.68 r
+  ALU_VARIABLE_inst1/U3180/ZN (INVD1BWP12T)               0.01       0.69 f
+  ALU_VARIABLE_inst1/U3193/ZN (OAI211D1BWP12T)            0.02       0.71 r
+  ALU_VARIABLE_inst1/result[15] (ALU_VARIABLE)            0.00       0.71 r
+  register_file_inst1/write1_in[15] (register_file)       0.00       0.71 r
+  register_file_inst1/U30/Z (BUFFD2BWP12T)                0.03       0.73 r
+  register_file_inst1/U2048/ZN (AOI21D1BWP12T)            0.02       0.75 f
+  register_file_inst1/U2067/ZN (TPNR2D1BWP12T)            0.02       0.77 r
+  register_file_inst1/U2101/ZN (TPND2D1BWP12T)            0.01       0.79 f
+  register_file_inst1/U2119/ZN (NR2D2BWP12T)              0.02       0.80 r
+  register_file_inst1/U2140/ZN (CKND2D2BWP12T)            0.01       0.82 f
+  register_file_inst1/U2145/ZN (TPNR2D2BWP12T)            0.01       0.83 r
+  register_file_inst1/U2148/ZN (ND2D3BWP12T)              0.01       0.85 f
+  register_file_inst1/U2149/ZN (TPNR2D3BWP12T)            0.01       0.86 r
+  register_file_inst1/U2152/ZN (ND2XD3BWP12T)             0.01       0.87 f
+  register_file_inst1/U2165/ZN (TPNR2D1BWP12T)            0.02       0.89 r
+  register_file_inst1/U180/ZN (CKND2D2BWP12T)             0.01       0.90 f
+  register_file_inst1/U179/ZN (TPNR2D2BWP12T)             0.01       0.91 r
+  register_file_inst1/U161/ZN (MAOI22D0BWP12T)            0.03       0.94 r
+  register_file_inst1/U162/Z (AO222D0BWP12T)              0.04       0.98 r
+  register_file_inst1/pc_reg_28_/D (DFQD1BWP12T)          0.00       0.98 r
   data arrival time                                                  0.98
 
   clock CLOCK (rise edge)                                 1.00       1.00
   clock network delay (ideal)                             0.00       1.00
-  register_file_inst1_pc_reg_31_/CP (DFQD1BWP12T)         0.00       1.00 r
+  register_file_inst1/pc_reg_28_/CP (DFQD1BWP12T)         0.00       1.00 r
   library setup time                                     -0.02       0.98
   data required time                                                 0.98
   --------------------------------------------------------------------------

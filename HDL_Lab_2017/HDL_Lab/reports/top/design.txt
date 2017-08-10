@@ -3,7 +3,7 @@
 Report : design
 Design : top7
 Version: I-2013.12-SP5-3
-Date   : Thu Aug 10 09:11:45 2017
+Date   : Thu Aug 10 11:07:59 2017
 ****************************************
 
 Design allows ideal nets on clock nets.
@@ -94,6 +94,4 @@ Required Licenses:
 Design Parameters:
 
     None specified.
-
-Information: This design contains black box (unknown) components. (RPT-8)
 1

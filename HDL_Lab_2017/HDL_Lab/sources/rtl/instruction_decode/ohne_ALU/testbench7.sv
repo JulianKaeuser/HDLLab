@@ -19,8 +19,6 @@ parameter string filename	= "mem_count32.bin";
 
 integer file, status; // needed for file-io
 
-logic			clock;
-logic			reset;
 
 // ================
 // Memory Interface
@@ -37,19 +35,13 @@ logic  [15:0] MEMCTRL_MEM_to_mem_data          ;
 // ======
 // Inputs
 // ======
-// logic          clock;
-// logic          reset;
-       
+
+logic			clock;
+logic			reset;
 
 // =======
 // Outputs
 // =======
-      
-logic          stall_from_instructionfetch;
-       
-logic          decoder_pc_update;
-
-
 
 
 
@@ -60,10 +52,6 @@ top7 UUT (
                                                                                             
     /* input */          .clock                              ( clock                               ),
     /* input */          .reset                              ( reset                               ),
-                                                                                                  
-    /* input */          .stall_from_instructionfetch        ( stall_from_instructionfetch         ),
-                                                                                                  
-    /* output */         .decoder_pc_update                  ( decoder_pc_update                   ),
                                                                                                   
     // ***************************************************                                        
                                                                                                   
@@ -114,9 +102,6 @@ end
 // STIMULI
 initial begin
                                                              
-stall_from_instructionfetch     = 1'b0;
-
-
 
 end
 
