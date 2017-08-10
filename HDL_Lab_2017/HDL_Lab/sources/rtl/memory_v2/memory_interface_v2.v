@@ -443,6 +443,4 @@ memory_control_fsm_v2 fsm (
 
 
 
-
-
 endmodule

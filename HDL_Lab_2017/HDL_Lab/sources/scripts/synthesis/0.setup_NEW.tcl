@@ -15,8 +15,8 @@ set FILE_LIST {top7.v
 		f_flageval.v
 		/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/regfile/register_file.v
 		/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v
-		/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_interface.v
-		/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_control_fsm.v
+		/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory_v2/memory_interface_v2.v
+		/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory_v2/memory_control_fsm_v2.v
 		/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Flag_Updater/Flag_Updater.v
 		/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/ALU_VARIABLE/ALU_VARIABLE.v}
 # set your own values here

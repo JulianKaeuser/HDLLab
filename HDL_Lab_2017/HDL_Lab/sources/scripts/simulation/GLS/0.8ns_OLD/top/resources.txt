@@ -1,0 +1,34 @@
+ 
+****************************************
+Report : resources
+Design : top7
+Version: I-2013.12-SP5-3
+Date   : Thu Aug 10 18:07:43 2017
+****************************************
+
+
+Resource Report for this hierarchy in file
+        /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/top7.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| add_x_207      | DW01_inc       | width=12   | memory_interface_inst1/add_140 (memory_interface.v:140) |
+| sub_x_223      | DW01_sub       | width=32   | Instruction_Fetch_inst1/sub_39 (Instruction_Fetch.v:39) |
+| add_x_224      | DW01_add       | width=32   | Instruction_Fetch_inst1/add_89 (Instruction_Fetch.v:89) |
+| eq_x_260       | DW_cmp         | width=31   | Instruction_Fetch_inst1/eq_155 (Instruction_Fetch.v:155) |
+    |            | Instruction_Fetch_inst1/eq_80 (Instruction_Fetch.v:80) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| add_x_207          | DW01_inc         | apparch (area)     |                |
+| sub_x_223          | DW01_sub         | apparch (area)     |                |
+| add_x_224          | DW01_add         | pparch (area,speed)                 |
+| eq_x_260           | DW_cmp           | apparch (area)     |                |
+===============================================================================
+
+1

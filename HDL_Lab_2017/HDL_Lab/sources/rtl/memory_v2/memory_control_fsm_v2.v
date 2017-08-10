@@ -193,9 +193,6 @@ localparam FEEDBACK_TO_MEM = 1'b1;
 localparam INPUT_TO_MEM    = 1'b0;
 
 
-
-
-
 // ##################################### state codes: #########################
 // ############################################################################
 localparam IDLE         = 5'b00001;
@@ -222,6 +219,7 @@ localparam STORE_BYTE_B = 5'b11100;
   // ##################### internal signals #########
   // ################################################
 
+
 reg [4:0] state;
 reg [4:0] nextstate;
 
@@ -234,6 +232,7 @@ always @(posedge clk or posedge reset) begin
    end
 
 end
+
 
 
 // ##################################### transitions ##########################
