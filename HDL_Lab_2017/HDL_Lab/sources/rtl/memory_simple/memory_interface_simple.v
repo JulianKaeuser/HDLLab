@@ -86,52 +86,56 @@ reg        next_to_mem_write_enable       ;
 
   
   
-localparam  IDLE                         =  6'b00_0000; 
-localparam  LOAD_BYTE_ALIGNED_1          =  6'b00_0001; 
-localparam  LOAD_BYTE_ALIGNED_2          =  6'b00_0010; 
-localparam  LOAD_BYTE_ALIGNED_3          =  6'b00_0011;
-localparam  LOAD_BYTE_UNALIGNED_1        =  6'b00_0100;
-localparam  LOAD_BYTE_UNALIGNED_2        =  6'b00_0101; 
-localparam  LOAD_BYTE_UNALIGNED_3        =  6'b00_0110; 
-localparam  STORE_BYTE_ALIGNED_1         =  6'b00_0111;
-localparam  STORE_BYTE_ALIGNED_2         =  6'b00_1000;
-localparam  STORE_BYTE_ALIGNED_3         =  6'b00_1001; 
-localparam  STORE_BYTE_ALIGNED_4         =  6'b00_1010; 
-localparam  STORE_BYTE_UNALIGNED_1       =  6'b00_1011; 
-localparam  STORE_BYTE_UNALIGNED_2       =  6'b00_1100; 
-localparam  STORE_BYTE_UNALIGNED_3       =  6'b00_1101; 
-localparam  STORE_BYTE_UNALIGNED_4       =  6'b00_1110; 
-localparam  LOAD_HALFWORD_ALIGNED_1      =  6'b00_1111;
-localparam  LOAD_HALFWORD_ALIGNED_2      =  6'b01_0000;
-localparam  LOAD_HALFWORD_ALIGNED_3      =  6'b01_0001; 
-localparam  LOAD_HALFWORD_UNALIGNED_1    =  6'b01_0010; 
-localparam  LOAD_HALFWORD_UNALIGNED_2    =  6'b01_0011;
-localparam  LOAD_HALFWORD_UNALIGNED_3    =  6'b01_0100;
-localparam  STORE_HALFWORD_ALIGNED_1     =  6'b01_0101;
-localparam  STORE_HALFWORD_ALIGNED_2     =  6'b01_0110;
-localparam  STORE_HALFWORD_UNALIGNED_1   =  6'b01_0111;
-localparam  STORE_HALFWORD_UNALIGNED_2   =  6'b01_1000;
-localparam  STORE_HALFWORD_UNALIGNED_3   =  6'b01_1001;
-localparam  STORE_HALFWORD_UNALIGNED_4   =  6'b01_1010;
-localparam  STORE_HALFWORD_UNALIGNED_5   =  6'b01_1011;
-localparam  LOAD_WORD_ALIGNED_1          =  6'b01_1100;
-localparam  LOAD_WORD_ALIGNED_2          =  6'b01_1101;
-localparam  LOAD_WORD_ALIGNED_3          =  6'b01_1110;
-localparam  LOAD_WORD_ALIGNED_4          =  6'b01_1111;
-localparam  LOAD_WORD_UNALIGNED_1        =  6'b10_0000;
-localparam  LOAD_WORD_UNALIGNED_2        =  6'b10_0001;
-localparam  LOAD_WORD_UNALIGNED_3        =  6'b10_0010;
-localparam  LOAD_WORD_UNALIGNED_4        =  6'b10_0011;
-localparam  STORE_WORD_ALIGNED_1         =  6'b10_0100;
-localparam  STORE_WORD_ALIGNED_2         =  6'b10_0101;
-localparam  STORE_WORD_ALIGNED_3         =  6'b10_0110;
-localparam  STORE_WORD_UNALIGNED_1       =  6'b10_0111;
-localparam  STORE_WORD_UNALIGNED_2       =  6'b10_1000;
-localparam  STORE_WORD_UNALIGNED_3       =  6'b10_1001;
-localparam  STORE_WORD_UNALIGNED_4       =  6'b10_1010;
-localparam  STORE_WORD_UNALIGNED_5       =  6'b10_1011;
-localparam  STORE_WORD_UNALIGNED_6       =  6'b10_1100;
-localparam  FINISHED                     =  6'b10_1101;
+localparam  IDLE                         =   6'b00_0000;
+localparam  LOAD_BYTE_ALIGNED_1          =   6'b00_0001;
+localparam  LOAD_BYTE_ALIGNED_2          =   6'b00_0010;
+localparam  LOAD_BYTE_ALIGNED_3          =   6'b00_0011;
+localparam  LOAD_BYTE_UNALIGNED_1        =   6'b00_0100;
+localparam  LOAD_BYTE_UNALIGNED_2        =   6'b00_0101;
+localparam  LOAD_BYTE_UNALIGNED_3        =   6'b00_0110;
+localparam  STORE_BYTE_ALIGNED_1         =   6'b00_0111;
+localparam  STORE_BYTE_ALIGNED_2         =   6'b00_1000;
+localparam  STORE_BYTE_ALIGNED_3         =   6'b00_1001;
+localparam  STORE_BYTE_ALIGNED_4         =   6'b00_1010;
+localparam  STORE_BYTE_UNALIGNED_1       =   6'b00_1011;
+localparam  STORE_BYTE_UNALIGNED_2       =   6'b00_1100;
+localparam  STORE_BYTE_UNALIGNED_3       =   6'b00_1101;
+localparam  STORE_BYTE_UNALIGNED_4       =   6'b00_1110;
+localparam  LOAD_HALFWORD_ALIGNED_1      =   6'b00_1111;
+localparam  LOAD_HALFWORD_ALIGNED_2      =   6'b01_0000;
+localparam  LOAD_HALFWORD_ALIGNED_3      =   6'b01_0001;
+localparam  LOAD_HALFWORD_UNALIGNED_1    =   6'b01_0010;
+localparam  LOAD_HALFWORD_UNALIGNED_2    =   6'b01_0011;
+localparam  LOAD_HALFWORD_UNALIGNED_3    =   6'b01_0100;
+localparam  LOAD_HALFWORD_UNALIGNED_4    =   6'b01_0101;
+localparam  STORE_HALFWORD_ALIGNED_1     =   6'b01_0110;
+localparam  STORE_HALFWORD_ALIGNED_2     =   6'b01_0111;
+localparam  STORE_HALFWORD_UNALIGNED_1   =   6'b01_1000;
+localparam  STORE_HALFWORD_UNALIGNED_2   =   6'b01_1001;
+localparam  STORE_HALFWORD_UNALIGNED_3   =   6'b01_1010;
+localparam  STORE_HALFWORD_UNALIGNED_4   =   6'b01_1011;
+localparam  STORE_HALFWORD_UNALIGNED_5   =   6'b01_1100;
+localparam  STORE_HALFWORD_UNALIGNED_6   =   6'b01_1101;
+localparam  LOAD_WORD_ALIGNED_1          =   6'b01_1110;
+localparam  LOAD_WORD_ALIGNED_2          =   6'b01_1111;
+localparam  LOAD_WORD_ALIGNED_3          =   6'b10_0000;
+localparam  LOAD_WORD_ALIGNED_4          =   6'b10_0001;
+localparam  LOAD_WORD_UNALIGNED_1        =   6'b10_0010;
+localparam  LOAD_WORD_UNALIGNED_2        =   6'b10_0011;
+localparam  LOAD_WORD_UNALIGNED_3        =   6'b10_0100;
+localparam  LOAD_WORD_UNALIGNED_4        =   6'b10_0101;
+localparam  LOAD_WORD_UNALIGNED_5        =   6'b10_0110;
+localparam  STORE_WORD_ALIGNED_1         =   6'b10_0111;
+localparam  STORE_WORD_ALIGNED_2         =   6'b10_1000;
+localparam  STORE_WORD_ALIGNED_3         =   6'b10_1001;
+localparam  STORE_WORD_UNALIGNED_1       =   6'b10_1010;
+localparam  STORE_WORD_UNALIGNED_2       =   6'b10_1011;
+localparam  STORE_WORD_UNALIGNED_3       =   6'b10_1100;
+localparam  STORE_WORD_UNALIGNED_4       =   6'b10_1101;
+localparam  STORE_WORD_UNALIGNED_5       =   6'b10_1110;
+localparam  STORE_WORD_UNALIGNED_6       =   6'b10_1111;
+localparam  STORE_WORD_UNALIGNED_7       =   6'b11_0000;
+localparam  FINISHED                     =   6'b11_0001;
                                            
                                            
                                            
@@ -392,6 +396,10 @@ localparam  FINISHED                     =  6'b10_1101;
      end
      
      LOAD_HALFWORD_UNALIGNED_3: begin
+         next_state = LOAD_HALFWORD_UNALIGNED_4;
+     end
+     
+     LOAD_HALFWORD_UNALIGNED_4: begin
          next_state = FINISHED;
      end
      
@@ -422,6 +430,10 @@ localparam  FINISHED                     =  6'b10_1101;
      end
      
      STORE_HALFWORD_UNALIGNED_5: begin
+         next_state = STORE_HALFWORD_UNALIGNED_6;
+     end
+     
+     STORE_HALFWORD_UNALIGNED_6: begin
          next_state = FINISHED;
      end
      
@@ -456,6 +468,10 @@ localparam  FINISHED                     =  6'b10_1101;
      end
      
      LOAD_WORD_UNALIGNED_4: begin
+         next_state = LOAD_WORD_UNALIGNED_5;
+     end
+     
+     LOAD_WORD_UNALIGNED_5: begin
          next_state = FINISHED;
      end
      
@@ -494,6 +510,10 @@ localparam  FINISHED                     =  6'b10_1101;
      end
      
      STORE_WORD_UNALIGNED_6: begin
+         next_state = STORE_WORD_UNALIGNED_7;
+     end
+     
+     STORE_WORD_UNALIGNED_7: begin
          next_state = FINISHED;
      end
 
@@ -885,7 +905,7 @@ localparam  FINISHED                     =  6'b10_1101;
       next_interface_cpu_write_finished           = 0;
       next_interface_cpu_data_out   = 0;
       
-      next_tmp_value_1              = from_mem_data_out;
+      next_tmp_value_1              = 0;
       next_tmp_value_2              = 0;
       next_cpu_data_in              = 0;
       next_cpu_address_in           = cpu_address_in;
@@ -899,6 +919,24 @@ localparam  FINISHED                     =  6'b10_1101;
     end 
     
     LOAD_HALFWORD_UNALIGNED_3: begin
+      next_interface_cpu_read_finished            = 0;
+      next_interface_cpu_write_finished           = 0;
+      next_interface_cpu_data_out   = 0;
+      
+      next_tmp_value_1              = from_mem_data_out;
+      next_tmp_value_2              = 0;
+      next_cpu_data_in              = 0;
+      next_cpu_address_in           = cpu_address_in;
+      next_sign_extend              = sign_extend;
+
+      next_to_mem_address              = 0;
+      next_to_mem_data_in              = 0;
+      next_to_mem_read_enable          = 0;
+      next_to_mem_write_enable         = 0;
+
+    end 
+    
+    LOAD_HALFWORD_UNALIGNED_4: begin
       next_interface_cpu_read_finished            = 1;
       next_interface_cpu_write_finished           = 0;
       next_interface_cpu_data_out   = (sign_extend) ? { {16 {from_mem_data_out[15]}}, from_mem_data_out[15:8], tmp_value_1[7:0]} : { 16'h0000, from_mem_data_out[15:8], tmp_value_1[7:0]}; // little endian im speicher
@@ -977,7 +1015,7 @@ localparam  FINISHED                     =  6'b10_1101;
       next_interface_cpu_write_finished           = 0;
       next_interface_cpu_data_out   = 0;
       
-      next_tmp_value_1              = from_mem_data_out;
+      next_tmp_value_1              = 0;
       next_tmp_value_2              = 0;
       next_cpu_data_in              = cpu_data_in;
       next_cpu_address_in           = cpu_address_in;
@@ -995,6 +1033,24 @@ localparam  FINISHED                     =  6'b10_1101;
       next_interface_cpu_write_finished           = 0;
       next_interface_cpu_data_out   = 0;
       
+      next_tmp_value_1              = from_mem_data_out;
+      next_tmp_value_2              = 0;
+      next_cpu_data_in              = cpu_data_in;
+      next_cpu_address_in           = cpu_address_in;
+      next_sign_extend              = 0;
+
+      next_to_mem_address              = 0;
+      next_to_mem_data_in              = 0;
+      next_to_mem_read_enable          = 0;
+      next_to_mem_write_enable         = 0;
+
+    end 
+    
+    STORE_HALFWORD_UNALIGNED_4: begin
+      next_interface_cpu_read_finished            = 0;
+      next_interface_cpu_write_finished           = 0;
+      next_interface_cpu_data_out   = 0;
+      
       next_tmp_value_1              = tmp_value_1;
       next_tmp_value_2              = from_mem_data_out;
       next_cpu_data_in              = cpu_data_in;
@@ -1008,7 +1064,7 @@ localparam  FINISHED                     =  6'b10_1101;
 
     end 
     
-    STORE_HALFWORD_UNALIGNED_4: begin
+    STORE_HALFWORD_UNALIGNED_5: begin
       next_interface_cpu_read_finished            = 0;
       next_interface_cpu_write_finished           = 0;
       next_interface_cpu_data_out   = 0;
@@ -1026,7 +1082,7 @@ localparam  FINISHED                     =  6'b10_1101;
 
     end 
     
-    STORE_HALFWORD_UNALIGNED_5: begin
+    STORE_HALFWORD_UNALIGNED_6: begin
       next_interface_cpu_read_finished            = 0;
       next_interface_cpu_write_finished           = 1;
       next_interface_cpu_data_out   = 0;
@@ -1143,7 +1199,7 @@ localparam  FINISHED                     =  6'b10_1101;
       next_interface_cpu_write_finished           = 0;
       next_interface_cpu_data_out   = 0;
       
-      next_tmp_value_1              = from_mem_data_out;
+      next_tmp_value_1              = 0;
       next_tmp_value_2              = 0;
       next_cpu_data_in              = 0;
       next_cpu_address_in           = cpu_address_in;
@@ -1161,8 +1217,8 @@ localparam  FINISHED                     =  6'b10_1101;
       next_interface_cpu_write_finished           = 0;
       next_interface_cpu_data_out   = 0;
       
-      next_tmp_value_1              = tmp_value_1;
-      next_tmp_value_2              = from_mem_data_out;
+      next_tmp_value_1              = from_mem_data_out;
+      next_tmp_value_2              = 0;
       next_cpu_data_in              = 0;
       next_cpu_address_in           = cpu_address_in;
       next_sign_extend              = 0;
@@ -1175,6 +1231,24 @@ localparam  FINISHED                     =  6'b10_1101;
     end 
     
     LOAD_WORD_UNALIGNED_4: begin
+      next_interface_cpu_read_finished            = 0;
+      next_interface_cpu_write_finished           = 0;
+      next_interface_cpu_data_out   = 0;
+      
+      next_tmp_value_1              = tmp_value_1;
+      next_tmp_value_2              = from_mem_data_out;
+      next_cpu_data_in              = 0;
+      next_cpu_address_in           = 0;
+      next_sign_extend              = 0;
+
+      next_to_mem_address              = 0;
+      next_to_mem_data_in              = 0;
+      next_to_mem_read_enable          = 0;
+      next_to_mem_write_enable         = 0;
+
+    end 
+    
+    LOAD_WORD_UNALIGNED_5: begin
       next_interface_cpu_read_finished            = 1;
       next_interface_cpu_write_finished           = 0;
       next_interface_cpu_data_out   = {from_mem_data_out[15:8], tmp_value_2[7:0], tmp_value_2[15:8], tmp_value_1[7:0]}; // little endian im speicher
@@ -1271,7 +1345,7 @@ localparam  FINISHED                     =  6'b10_1101;
       next_interface_cpu_write_finished           = 0;
       next_interface_cpu_data_out   = 0;
       
-      next_tmp_value_1              = from_mem_data_out;
+      next_tmp_value_1              = 0;
       next_tmp_value_2              = 0;
       next_cpu_data_in              = cpu_data_in;
       next_cpu_address_in           = cpu_address_in;
@@ -1289,6 +1363,24 @@ localparam  FINISHED                     =  6'b10_1101;
       next_interface_cpu_write_finished           = 0;
       next_interface_cpu_data_out   = 0;
       
+      next_tmp_value_1              = from_mem_data_out;
+      next_tmp_value_2              = 0;
+      next_cpu_data_in              = cpu_data_in;
+      next_cpu_address_in           = cpu_address_in;
+      next_sign_extend              = 0;
+
+      next_to_mem_address              = 0;
+      next_to_mem_data_in              = 0;
+      next_to_mem_read_enable          = 0;
+      next_to_mem_write_enable         = 0;
+
+    end 
+    
+    STORE_WORD_UNALIGNED_4: begin
+      next_interface_cpu_read_finished            = 0;
+      next_interface_cpu_write_finished           = 0;
+      next_interface_cpu_data_out   = 0;
+      
       next_tmp_value_1              = tmp_value_1;
       next_tmp_value_2              = from_mem_data_out;
       next_cpu_data_in              = cpu_data_in;
@@ -1302,7 +1394,7 @@ localparam  FINISHED                     =  6'b10_1101;
 
     end 
     
-    STORE_WORD_UNALIGNED_4: begin
+    STORE_WORD_UNALIGNED_5: begin
       next_interface_cpu_read_finished            = 0;
       next_interface_cpu_write_finished           = 0;
       next_interface_cpu_data_out   = 0;
@@ -1321,7 +1413,7 @@ localparam  FINISHED                     =  6'b10_1101;
     end 
     
         
-    STORE_WORD_UNALIGNED_5: begin
+    STORE_WORD_UNALIGNED_6: begin
       next_interface_cpu_read_finished            = 0;
       next_interface_cpu_write_finished           = 0;
       next_interface_cpu_data_out   = 0;
@@ -1339,7 +1431,7 @@ localparam  FINISHED                     =  6'b10_1101;
 
     end 
     
-    STORE_WORD_UNALIGNED_6: begin
+    STORE_WORD_UNALIGNED_7: begin
       next_interface_cpu_read_finished            = 0;
       next_interface_cpu_write_finished           = 1;
       next_interface_cpu_data_out   = 0;

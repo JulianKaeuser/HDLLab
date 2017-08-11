@@ -1,3 +1,5 @@
+`include "topdefines.v"
+
 module top20 (
 clock,
 reset,
@@ -87,7 +89,7 @@ wire        DEC_MISC_OUT_memory_address_source_is_reg;
 wire        DEC_MISC_OUT_pc_mask_bit;
 
 wire  [2:0] DEC_MISC_OUT_operator_b_modification;
-assign DEC_MISC_OUT_operator_b_modification = 3'b000;
+//assign DEC_MISC_OUT_operator_b_modification = 3'b000;
 
 
 // ***************************************************************
@@ -202,6 +204,7 @@ irdecode  #(
                                                                                              
 	.alu_opcode                              (  DEC_ALU_alu_opcode                           ),
 	.pc_mask_bit                             (  DEC_MISC_OUT_pc_mask_bit                     ),
+	.operator_b_modification                 (  DEC_MISC_OUT_operator_b_modification         ),
                                                                                             
 	.update_flag_n                           (  DEC_CPSR_update_flag_n                       ),
     .update_flag_z                           (  DEC_CPSR_update_flag_z                       ),
@@ -269,26 +272,26 @@ register_file_v2 # (
     assign RF_ALU_operand_a_pc_modified = (DEC_MISC_OUT_pc_mask_bit) ? {RF_ALU_operand_a[31:2], 1'b0, RF_ALU_operand_a[0]} : RF_ALU_operand_a;
     
     // extra hw for operator b modification (extend and revers operations)
-//     reg [31:0] RF_ALU_operand_b_modified;
-//     always @(*) begin
-//         casez (DEC_MISC_OUT_operator_b_modification)
-//             `NORMAL: RF_ALU_operand_b_modified = RF_ALU_operand_b;
-//             `SXTB  : RF_ALU_operand_b_modified = { {24{RF_ALU_operand_b[7]}}, RF_ALU_operand_b[7:0] };
-//             `SXTH  : RF_ALU_operand_b_modified = { {16{RF_ALU_operand_b[15]}}, RF_ALU_operand_b[15:0] };
-//             `REV   : RF_ALU_operand_b_modified = { RF_ALU_operand_b[7:0], RF_ALU_operand_b[15:8], RF_ALU_operand_b[23:16], RF_ALU_operand_b[31:24] };
-//             `REV16 : RF_ALU_operand_b_modified = { RF_ALU_operand_b[23:16], RF_ALU_operand_b[31:24], RF_ALU_operand_b[7:0], RF_ALU_operand_b[15:8] };
-//             `REVSH : RF_ALU_operand_b_modified = { {16{RF_ALU_operand_b[7]}}, RF_ALU_operand_b[7:0], RF_ALU_operand_b[15:0] };
-//             default: RF_ALU_operand_b_modified = RF_ALU_operand_b;
-//         endcase
-//     end
+    reg [31:0] RF_ALU_operand_b_modified;
+    always @(*) begin
+        casez (DEC_MISC_OUT_operator_b_modification)
+            `NORMAL: RF_ALU_operand_b_modified = RF_ALU_operand_b;
+            `SXTB  : RF_ALU_operand_b_modified = { {24{RF_ALU_operand_b[7]}}, RF_ALU_operand_b[7:0] };
+            `SXTH  : RF_ALU_operand_b_modified = { {16{RF_ALU_operand_b[15]}}, RF_ALU_operand_b[15:0] };
+            `REV   : RF_ALU_operand_b_modified = { RF_ALU_operand_b[7:0], RF_ALU_operand_b[15:8], RF_ALU_operand_b[23:16], RF_ALU_operand_b[31:24] };
+            `REV16 : RF_ALU_operand_b_modified = { RF_ALU_operand_b[23:16], RF_ALU_operand_b[31:24], RF_ALU_operand_b[7:0], RF_ALU_operand_b[15:8] };
+            `REVSH : RF_ALU_operand_b_modified = { {16{RF_ALU_operand_b[7]}}, RF_ALU_operand_b[7:0], RF_ALU_operand_b[15:0] };
+            default: RF_ALU_operand_b_modified = RF_ALU_operand_b;
+        endcase
+    end
 
 
 ALU_VARIABLE  # (
 ) ALU_VARIABLE_inst1 (
     
     .a          ( RF_ALU_operand_a_pc_modified    ),
-//    .b          ( RF_ALU_operand_b_modified       ),
-    .b          ( RF_ALU_operand_b                ),
+    .b          ( RF_ALU_operand_b_modified       ),
+//    .b          ( RF_ALU_operand_b                ),
     .op         ( DEC_ALU_alu_opcode[3:0]         ),
     .c_in       ( ALU_IN_c                        ),
     .c_out      ( ALU_OUT_c                       ),

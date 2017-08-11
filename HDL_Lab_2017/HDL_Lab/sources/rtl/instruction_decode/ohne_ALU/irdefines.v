@@ -23,6 +23,15 @@
 `define        ADD        5'b10101  // rd = rd + rs
 `define        SUB        5'b10110  // rd = rd - rs
 
+// operator_b Modifikation
+`define        NORMAL     3'b000
+`define        SXTB       3'b001
+`define        SXTH       3'b010
+`define        REV        3'b011
+`define        REV16      3'b100
+`define        REVSH      3'b101 
+
+
 // Datenbreiten
 `define        BYTE       2'b00  
 `define        HALFWORD   2'b01  
@@ -269,6 +278,10 @@
 // Format 22
 `define       FORMAT_22         16'b1011_1010_????_????
 
+`define       F22_REV     2'b00
+`define       F22_REV16   2'b01
+`define       F22_REVSH   2'b11
+                          
 // Format 23
 `define       FORMAT_23         16'b1011_0010_????_????
 
