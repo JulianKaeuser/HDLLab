@@ -6,12 +6,12 @@
 
 `timescale 1 ns / 1 ps
 
-module testbench7();
+module testbench12();
 
 // PARAMETERS
 parameter MEM_DEPTH   		= 2**12;	//8192 Bytes 4096*2B
 parameter ADDR_WIDTH   		= $clog2(MEM_DEPTH);
-parameter string filename	= "mem_count32.bin";
+parameter string filename	= "mem_memcpy46.bin";
 
 // ================
 // Internal Signals
@@ -48,7 +48,7 @@ logic			reset;
 // =================
 // CPU Instantiation
 // =================
-top7 UUT (
+top11 UUT (
                                                                                             
     /* input */          .clock                              ( clock                               ),
     /* input */          .reset                              ( reset                               ),

@@ -343,6 +343,9 @@ wire fsm_wr_en;
 wire fsm_wr;
 wire fsm_mem_en;
 
+//bugfix
+assign to_mem_mem_enable = fsm_mem_en;
+
 // dependency of load/store/read/write
 reg w;
 reg r;

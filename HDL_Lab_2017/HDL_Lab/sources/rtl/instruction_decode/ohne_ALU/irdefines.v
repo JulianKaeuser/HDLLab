@@ -272,6 +272,12 @@
 // Format 23
 `define       FORMAT_23         16'b1011_0010_????_????
 
+`define       F23_HALFWORD      1'b0 
+`define       F23_BYTE          1'b1
+
+`define       F23_SIGNED        1'b0 
+`define       F23_UNSIGNED      1'b1
+
 
 
 

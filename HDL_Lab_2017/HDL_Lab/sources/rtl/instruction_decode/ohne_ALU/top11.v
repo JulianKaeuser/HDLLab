@@ -1,4 +1,4 @@
-module top7 (
+module top11 (
 clock,
 reset,
 
@@ -86,6 +86,9 @@ wire        DEC_IF_stall_to_instructionfetch;
 wire        DEC_MISC_OUT_memory_address_source_is_reg;
 wire        DEC_MISC_OUT_pc_mask_bit;
 
+wire  [2:0] DEC_MISC_OUT_operator_b_modification;
+assign DEC_MISC_OUT_operator_b_modification = 3'b000;
+
 
 // ***************************************************************
 
@@ -135,7 +138,7 @@ wire        IF_RF_incremented_pc_write_enable;
 
 // INSTRUCTIONFETCH --> DECODER
 
-wire [31:0] IF_DEC_instruction;
+wire [15:0] IF_DEC_instruction;
 wire        IF_DEC_instruction_valid;
 
 // **************************************************************
@@ -224,8 +227,8 @@ irdecode  #(
 	);
 	
 	
-register_file # (	
-) register_file_inst1 (
+register_file_v2 # (	
+) register_file_v2_inst1 (
                                                                                                 
     .readA_sel                               (  DEC_RF_operand_a                                ),
     .readB_sel                               (  DEC_RF_operand_b                                ),
@@ -261,16 +264,30 @@ register_file # (
     assign ALU_IN_c =  DEC_ALU_alu_opcode[4] ? carry_none : RF_OUT_c;
     assign carry_none = (DEC_ALU_alu_opcode[3:0] == 4'b0110)? 1'b1 : 1'b0;
     
-    // set lowest 2 bits to zero if PC 
-    
-    wire RF_ALU_operand_a_pc_modified;
+    // set bit 1 of PC to zero if required
+    wire [31:0] RF_ALU_operand_a_pc_modified;
     assign RF_ALU_operand_a_pc_modified = (DEC_MISC_OUT_pc_mask_bit) ? {RF_ALU_operand_a[31:2], 1'b0, RF_ALU_operand_a[0]} : RF_ALU_operand_a;
+    
+    // extra hw for operator b modification (extend and revers operations)
+//     reg [31:0] RF_ALU_operand_b_modified;
+//     always @(*) begin
+//         casez (DEC_MISC_OUT_operator_b_modification)
+//             `NORMAL: RF_ALU_operand_b_modified = RF_ALU_operand_b;
+//             `SXTB  : RF_ALU_operand_b_modified = { {24{RF_ALU_operand_b[7]}}, RF_ALU_operand_b[7:0] };
+//             `SXTH  : RF_ALU_operand_b_modified = { {16{RF_ALU_operand_b[15]}}, RF_ALU_operand_b[15:0] };
+//             `REV   : RF_ALU_operand_b_modified = { RF_ALU_operand_b[7:0], RF_ALU_operand_b[15:8], RF_ALU_operand_b[23:16], RF_ALU_operand_b[31:24] };
+//             `REV16 : RF_ALU_operand_b_modified = { RF_ALU_operand_b[23:16], RF_ALU_operand_b[31:24], RF_ALU_operand_b[7:0], RF_ALU_operand_b[15:8] };
+//             `REVSH : RF_ALU_operand_b_modified = { {16{RF_ALU_operand_b[7]}}, RF_ALU_operand_b[7:0], RF_ALU_operand_b[15:0] };
+//             default: RF_ALU_operand_b_modified = RF_ALU_operand_b;
+//         endcase
+//     end
 
 
 ALU_VARIABLE  # (
 ) ALU_VARIABLE_inst1 (
     
-    .a          ( RF_ALU_operand_a                ),
+    .a          ( RF_ALU_operand_a_pc_modified    ),
+//    .b          ( RF_ALU_operand_b_modified       ),
     .b          ( RF_ALU_operand_b                ),
     .op         ( DEC_ALU_alu_opcode[3:0]         ),
     .c_in       ( ALU_IN_c                        ),
@@ -290,12 +307,12 @@ ALU_VARIABLE  # (
     
     
 
-    wire [11:0] MEMCTRL_IN_address;
-    wire [11:0] IF_instruction_memory_address;
-    wire [31:0] DEC_memory_address;
+    wire [12:0] MEMCTRL_IN_address;
+    wire [12:0] IF_instruction_memory_address;
+    wire [12:0] DEC_memory_address;
     
-    assign MEMCTRL_IN_address = IF_memory_load_req ? IF_instruction_memory_address : {DEC_memory_address[12:2], 1'b0};
-    assign DEC_memory_address = DEC_MISC_OUT_memory_address_source_is_reg ? RF_MEMCTRL_address_reg[31:0] : ALU_MISC_OUT_result[31:0];
+    assign MEMCTRL_IN_address = IF_memory_load_req ? IF_instruction_memory_address : DEC_memory_address[12:0];
+    assign DEC_memory_address = DEC_MISC_OUT_memory_address_source_is_reg ? RF_MEMCTRL_address_reg[12:0] : ALU_MISC_OUT_result[12:0];
     
     
     wire MEMCTRL_load_in;
@@ -304,17 +321,17 @@ ALU_VARIABLE  # (
     
     
     
-memory_interface # (
-) memory_interface_inst1 (
+memory_interface_v2 # (
+) memory_interface_v2_inst1 (
 
-  .address                   ( MEMCTRL_IN_address [11:0]                        ),
+  .address                   ( MEMCTRL_IN_address                               ), // hier ändern für neues memory_if
   .data_in                   ( RF_MEMCTRL_data_reg                              ),
   .load                      ( MEMCTRL_load_in                                  ),
   .store                     ( DEC_MEMCTRL_memory_store_request                 ),
   .clk                       ( clock                                            ),
   .reset                     ( reset                                            ),
   .is_signed                 ( DEC_MEMCTRL_memorycontroller_sign_extend         ),
-  .word_type                 ( DEC_MEMCTRL_load_store_width                     ),
+  .word_type                 ( MEMCTRL_IN_load_store_width                      ),
 
   .from_mem_data             ( MEM_MEMCTRL_from_mem_data                        ),
   .to_mem_read_enable        ( MEMCTRL_MEM_to_mem_read_enable                   ),
@@ -331,8 +348,8 @@ memory_interface # (
   );
 
 
-Instruction_Fetch # (
-) Instruction_Fetch_inst1 ( 
+Instruction_Fetch_v3 # (
+) Instruction_Fetch_v3_inst1 ( 
                                                                                
     .clk                              ( clock                                          ),
     .reset                            ( reset                                          ),

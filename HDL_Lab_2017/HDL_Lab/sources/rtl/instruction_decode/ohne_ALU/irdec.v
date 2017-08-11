@@ -2437,119 +2437,149 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_split_instruction               = 1'b0;
 	        end
 	        
-            `FORMAT_21  : begin                               
-	            next_operand_a                       = `RF_NONE;
-	            next_operand_b                       = `RF_NONE;
-	            
-	            next_offset_a                        = `IMM_ZERO;
-	            next_offset_b                        = `IMM_ZERO;
-	            
-	            next_alu_opcode                      = `ORR;
-	            
-	            next_pc_mask_bit                     = 1'b0;
-	            
-	            next_update_flag_n                   = 1'b0;
-	            next_update_flag_z                   = 1'b0;
-	            next_update_flag_c                   = 1'b0;
-	            next_update_flag_v                   = 1'b0;
-	            
-	            next_alu_write_to_reg                = `RF_NONE;
-	            next_alu_write_to_reg_enable         = 1'b0;
-	            
-	            next_memory_write_to_reg             = `RF_NONE;
-	            next_memory_write_to_reg_enable      = 1'b0;
-	
-	            next_memory_store_data_reg           = `RF_NONE;
-	            next_memory_store_address_reg        = `RF_NONE;
-	            next_memory_address_source_is_reg    = 1'b0;
-	            next_load_store_width                = `WORD;
-	            next_memorycontroller_sign_extend    = 1'b0;
-	            
-	            next_memory_load_request             = 1'b0;                                       
-	            next_memory_store_request            = 1'b0;
-	            
-	            next_stall_to_instructionfetch       = 1'b0;
-	
-	            next_step                            = 9'b1_1111_1111;	  
-	            
-	            next_split_instruction               = 1'b0;
-	        end
+//             `FORMAT_21  : begin                               
+// 	            next_operand_a                       = `RF_NONE;
+// 	            next_operand_b                       = `RF_NONE;
+// 	            
+// 	            next_offset_a                        = `IMM_ZERO;
+// 	            next_offset_b                        = `IMM_ZERO;
+// 	            
+// 	            next_alu_opcode                      = `ORR;
+// 	            
+// 	            next_pc_mask_bit                     = 1'b0;
+// 	            
+// 	            next_update_flag_n                   = 1'b0;
+// 	            next_update_flag_z                   = 1'b0;
+// 	            next_update_flag_c                   = 1'b0;
+// 	            next_update_flag_v                   = 1'b0;
+// 	            
+// 	            next_alu_write_to_reg                = `RF_NONE;
+// 	            next_alu_write_to_reg_enable         = 1'b0;
+// 	            
+// 	            next_memory_write_to_reg             = `RF_NONE;
+// 	            next_memory_write_to_reg_enable      = 1'b0;
+// 	
+// 	            next_memory_store_data_reg           = `RF_NONE;
+// 	            next_memory_store_address_reg        = `RF_NONE;
+// 	            next_memory_address_source_is_reg    = 1'b0;
+// 	            next_load_store_width                = `WORD;
+// 	            next_memorycontroller_sign_extend    = 1'b0;
+// 	            
+// 	            next_memory_load_request             = 1'b0;                                       
+// 	            next_memory_store_request            = 1'b0;
+// 	            
+// 	            next_stall_to_instructionfetch       = 1'b0;
+// 	
+// 	            next_step                            = 9'b1_1111_1111;	  
+// 	            
+// 	            next_split_instruction               = 1'b0;
+// 	        end
 	        
-            `FORMAT_22  : begin                               
-	            next_operand_a                       = `RF_NONE;
-	            next_operand_b                       = `RF_NONE;
-	            
-	            next_offset_a                        = `IMM_ZERO;
-	            next_offset_b                        = `IMM_ZERO;
-	            
-	            next_alu_opcode                      = `ORR;
-	            
-	            next_pc_mask_bit                     = 1'b0;
-	            
-	            next_update_flag_n                   = 1'b0;
-	            next_update_flag_z                   = 1'b0;
-	            next_update_flag_c                   = 1'b0;
-	            next_update_flag_v                   = 1'b0;
-	            
-	            next_alu_write_to_reg                = `RF_NONE;
-	            next_alu_write_to_reg_enable         = 1'b0;
-	            
-	            next_memory_write_to_reg             = `RF_NONE;
-	            next_memory_write_to_reg_enable      = 1'b0;
-	
-	            next_memory_store_data_reg           = `RF_NONE;
-	            next_memory_store_address_reg        = `RF_NONE;
-	            next_memory_address_source_is_reg    = 1'b0;
-	            next_load_store_width                = `WORD;
-	            next_memorycontroller_sign_extend    = 1'b0;
-	            
-	            next_memory_load_request             = 1'b0;                                       
-	            next_memory_store_request            = 1'b0;
-	            
-	            next_stall_to_instructionfetch       = 1'b0;
-	
-	            next_step                            = 9'b1_1111_1111;	  
-	            
-	            next_split_instruction               = 1'b0;
-	        end
+//             `FORMAT_22  : begin                               
+// 	            next_operand_a                       = `RF_NONE;
+// 	            next_operand_b                       = `RF_NONE;
+// 	            
+// 	            next_offset_a                        = `IMM_ZERO;
+// 	            next_offset_b                        = `IMM_ZERO;
+// 	            
+// 	            next_alu_opcode                      = `ORR;
+// 	            
+// 	            next_pc_mask_bit                     = 1'b0;
+// 	            
+// 	            next_update_flag_n                   = 1'b0;
+// 	            next_update_flag_z                   = 1'b0;
+// 	            next_update_flag_c                   = 1'b0;
+// 	            next_update_flag_v                   = 1'b0;
+// 	            
+// 	            next_alu_write_to_reg                = `RF_NONE;
+// 	            next_alu_write_to_reg_enable         = 1'b0;
+// 	            
+// 	            next_memory_write_to_reg             = `RF_NONE;
+// 	            next_memory_write_to_reg_enable      = 1'b0;
+// 	
+// 	            next_memory_store_data_reg           = `RF_NONE;
+// 	            next_memory_store_address_reg        = `RF_NONE;
+// 	            next_memory_address_source_is_reg    = 1'b0;
+// 	            next_load_store_width                = `WORD;
+// 	            next_memorycontroller_sign_extend    = 1'b0;
+// 	            
+// 	            next_memory_load_request             = 1'b0;                                       
+// 	            next_memory_store_request            = 1'b0;
+// 	            
+// 	            next_stall_to_instructionfetch       = 1'b0;
+// 	
+// 	            next_step                            = 9'b1_1111_1111;	  
+// 	            
+// 	            next_split_instruction               = 1'b0;
+// 	        end
 	        
-            `FORMAT_23  : begin                               
-	            next_operand_a                       = `RF_NONE;
-	            next_operand_b                       = `RF_NONE;
-	            
-	            next_offset_a                        = `IMM_ZERO;
-	            next_offset_b                        = `IMM_ZERO;
-	            
-	            next_alu_opcode                      = `ORR;
-	            
-	            next_pc_mask_bit                     = 1'b0;
-	            
-	            next_update_flag_n                   = 1'b0;
-	            next_update_flag_z                   = 1'b0;
-	            next_update_flag_c                   = 1'b0;
-	            next_update_flag_v                   = 1'b0;
-	            
-	            next_alu_write_to_reg                = `RF_NONE;
-	            next_alu_write_to_reg_enable         = 1'b0;
-	            
-	            next_memory_write_to_reg             = `RF_NONE;
-	            next_memory_write_to_reg_enable      = 1'b0;
-	
-	            next_memory_store_data_reg           = `RF_NONE;
-	            next_memory_store_address_reg        = `RF_NONE;
-	            next_memory_address_source_is_reg    = 1'b0;
-	            next_load_store_width                = `WORD;
-	            next_memorycontroller_sign_extend    = 1'b0;
-	            
-	            next_memory_load_request             = 1'b0;                                       
-	            next_memory_store_request            = 1'b0;
-	            
-	            next_stall_to_instructionfetch       = 1'b0;
-	
-	            next_step                            = 9'b1_1111_1111;	  
-	            
-	            next_split_instruction               = 1'b0;
-	        end
+//             `FORMAT_23  : begin                               
+// 	            next_operand_a                       = {2'b00, instruction[5:3]};
+// 	            next_operand_b                       = `RF_NONE;
+// 	            
+// 	            next_offset_a                        = `IMM_ZERO;
+// 	            
+// 	            
+// 	            
+// 	            next_pc_mask_bit                     = 1'b0;
+// 	            
+// 	            next_update_flag_n                   = 1'b0;
+// 	            next_update_flag_z                   = 1'b0;
+// 	            next_update_flag_c                   = 1'b0;
+// 	            next_update_flag_v                   = 1'b0;
+// 	            
+// 	            next_alu_write_to_reg                = {2'b00, instruction[2:0]};
+// 	            next_alu_write_to_reg_enable         = 1'b1;
+// 	            
+// 	            next_memory_write_to_reg             = `RF_NONE;
+// 	            next_memory_write_to_reg_enable      = 1'b0;
+// 	
+// 	            next_memory_store_data_reg           = `RF_NONE;
+// 	            next_memory_store_address_reg        = `RF_NONE;
+// 	            next_memory_address_source_is_reg    = 1'b0;
+// 	            next_load_store_width                = `WORD;
+// 	            next_memorycontroller_sign_extend    = 1'b0;
+// 	            
+// 	            next_memory_load_request             = 1'b0;                                       
+// 	            next_memory_store_request            = 1'b0;
+// 	            
+// 	            next_stall_to_instructionfetch       = 1'b0;
+// 	
+// 	            next_step                            = 9'b1_1111_1111;	  
+// 	            
+// 	            next_split_instruction               = 1'b0;
+// 	            
+//                 casez (instruction[7])
+// 	                `F23_SIGNED  : begin  // SPEZIALHW nötig
+//                         casez (instruction[6])
+// 	                        `F23_HALFWORD : begin
+//                                 next_alu_opcode = `AND;
+//                                 next_offset_b = {32'b0000_0000_0000_0000_1111_1111_1111_1111};
+// 	                        end
+// 	                        `F23_BYTE     : begin
+//                                 next_alu_opcode = `AND;
+//                                 next_offset_b = {32'b0000_0000_0000_0000_1111_1111_1111_1111};
+//                                 
+// 	                        end
+// 	                    endcase
+// 	                end
+// 	                `F23_UNSIGNED : begin
+//                         casez (instruction[6])
+// 	                        `F23_HALFWORD : begin
+//                                 next_alu_opcode = `ORR;
+//                                 next_offset_b = `IMM_ZERO;
+// 	                        end
+// 	                        `F23_BYTE     : begin
+//                                 next_alu_opcode = `ORR;
+//                                 next_offset_b = `IMM_ZERO;
+//                                 
+// 	                        end
+// 	                    endcase
+// 	                end
+// 	            endcase
+// 	            
+// 
+// 	        end
 	        
 	        
 	     
@@ -2683,9 +2713,13 @@ else if ( // else-if-block memstall
 	next_memory_address_source_is_reg    = memory_address_source_is_reg;
 	next_load_store_width                = load_store_width;
 	next_memorycontroller_sign_extend    = memorycontroller_sign_extend;
-	                                
+                        
+
 	next_memory_load_request             = memory_load_request;
 	next_memory_store_request            = memory_store_request;
+	
+//     next_memory_load_request             = 1'b0;
+// 	next_memory_store_request            = 1'b0;
 	                                
 	next_stall_to_instructionfetch       = stall_to_instructionfetch;
 	

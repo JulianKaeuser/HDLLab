@@ -1,30 +1,75 @@
-{/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/top7.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/top7.v}
-Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
--- Compiling module top7
-
-Top level modules:
-	top7
-
-} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench2.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench2.v}
-Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
--- Compiling module testbench2
-
-Top level modules:
-	testbench2
-
-} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench3.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench3.v}
+{/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench3.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench3.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
 -- Compiling module testbench3
 
 Top level modules:
 	testbench3
 
-} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench4.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench4.v}
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/top9.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/top9.v}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module top9
+
+Top level modules:
+	top9
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench9.sv} {1 {vlog -work work -vopt -sv -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench9.sv}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module testbench9
+
+Top level modules:
+	testbench9
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench4.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench4.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
 -- Compiling module testbench4
 
 Top level modules:
 	testbench4
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/condition_defines.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/condition_defines.v}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory_v2/memory_control_fsm_v2.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory_v2/memory_control_fsm_v2.v}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module memory_control_fsm_v2
+
+Top level modules:
+	memory_control_fsm_v2
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/top11.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/top11.v}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module top11
+
+Top level modules:
+	top11
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench11.sv} {1 {vlog -work work -vopt -sv -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench11.sv}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module testbench11
+
+Top level modules:
+	testbench11
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_v2.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_v2.v}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module Instruction_Fetch_v2
+
+Top level modules:
+	Instruction_Fetch_v2
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench21.sv} {1 {vlog -work work -vopt -sv -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench21.sv}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module testbench21
+
+Top level modules:
+	testbench21
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_v3.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_v3.v}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module Instruction_Fetch_v3
+
+Top level modules:
+	Instruction_Fetch_v3
 
 } {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
@@ -33,36 +78,33 @@ Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
 Top level modules:
 	Instruction_Fetch
 
-} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdec.v} {2 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdec.v}
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory_v2/memory_interface_v2.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory_v2/memory_interface_v2.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
--- Compiling module irdecode
-** Warning: /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdec.v(240): (vlog-2182) 'next_alu_stack_write_to_reg' might be read before written in always_comb or always @* block.
-** Warning: /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdec.v(240): (vlog-2182) 'next_alu_stack_write_to_reg_enable' might be read before written in always_comb or always @* block.
-** Warning: /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdec.v(241): (vlog-2182) 'next_memory_write_to_reg' might be read before written in always_comb or always @* block.
-** Warning: /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdec.v(241): (vlog-2182) 'next_memory_write_to_reg_enable' might be read before written in always_comb or always @* block.
-** Warning: /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdec.v(251): (vlog-2182) 'next_memory_load_request' might be read before written in always_comb or always @* block.
-** Warning: /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdec.v(251): (vlog-2182) 'next_memory_store_request' might be read before written in always_comb or always @* block.
-** Warning: /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdec.v(242): (vlog-2182) 'next_stack_pop_request' might be read before written in always_comb or always @* block.
-** Warning: /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdec.v(249): (vlog-2182) 'next_stall_to_instructionfetch' might be read before written in always_comb or always @* block.
+-- Compiling module memory_interface_v2
 
 Top level modules:
-	irdecode
+	memory_interface_v2
 
-} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench5.sv} {1 {vlog -work work -vopt -sv -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench5.sv}
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
--- Compiling module testbench5
+-- Compiling module testbench
 
 Top level modules:
-	testbench5
+	testbench
 
-} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_interface.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_interface.v}
-<<<<<<< HEAD
-=======
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/regfile/register_file_v2.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/regfile/register_file_v2.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
--- Compiling module memory_interface
+-- Compiling module register_file_v2
 
 Top level modules:
-	memory_interface
+	register_file_v2
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench6.sv} {1 {vlog -work work -vopt -sv -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench6.sv}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module testbench6
+
+Top level modules:
+	testbench6
 
 } {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/regfile/register_file.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/regfile/register_file.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
@@ -71,15 +113,12 @@ Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
 Top level modules:
 	register_file
 
-} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdefines.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/irdefines.v}
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_interface.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_interface.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
-
-} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench7.sv} {1 {vlog -work work -vopt -sv -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench7.sv}
-Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
--- Compiling module testbench7
+-- Compiling module memory_interface
 
 Top level modules:
-	testbench7
+	memory_interface
 
 } {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench8.sv} {1 {vlog -work work -vopt -sv -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench8.sv}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
@@ -95,12 +134,47 @@ Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
 Top level modules:
 	memory
 
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory_simple/memory_interface_simple.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory_simple/memory_interface_simple.v}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module memory_interface_simple
+
+Top level modules:
+	memory_interface_simple
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/memory.sv} {1 {vlog -work work -vopt -sv -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/memory.sv}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module memory
+
+Top level modules:
+	memory
+
 } {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/STACK/STACK.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/STACK/STACK.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
 -- Compiling module STACK
 
 Top level modules:
 	STACK
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench10.sv} {1 {vlog -work work -vopt -sv -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench10.sv}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module testbench10
+
+Top level modules:
+	testbench10
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/top20.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/top20.v}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module top20
+
+Top level modules:
+	top20
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench20.sv} {1 {vlog -work work -vopt -sv -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench20.sv}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module testbench20
+
+Top level modules:
+	testbench20
 
 } {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/ALU_VARIABLE/ALU_VARIABLE.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/ALU_VARIABLE/ALU_VARIABLE.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
@@ -109,8 +183,20 @@ Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
 Top level modules:
 	ALU_VARIABLE
 
-<<<<<<< HEAD
-=======
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench12.sv} {1 {vlog -work work -vopt -sv -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench12.sv}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module testbench12
+
+Top level modules:
+	testbench12
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/irdec.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/irdec.v}
+Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
+-- Compiling module irdecode
+
+Top level modules:
+	irdecode
+
 } {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/top4.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/top4.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
 -- Compiling module top4
@@ -125,15 +211,6 @@ Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
 Top level modules:
 	memory_control_fsm
 
-<<<<<<< HEAD
-} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/irdec.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/irdec.v}
-Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
--- Compiling module irdecode
-
-Top level modules:
-	irdecode
-
->>>>>>> 7cd49b442bac8aba1f3989a90871cc691068edb0
 } {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/top5.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/top5.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
 -- Compiling module top5
@@ -144,10 +221,9 @@ Top level modules:
 } {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench5.sv} {1 {vlog -work work -vopt -sv -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench5.sv}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
 -- Compiling module testbench5
->>>>>>> 7cd49b442bac8aba1f3989a90871cc691068edb0
 
 Top level modules:
-	top4
+	testbench5
 
 } {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/controller/controller.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
@@ -156,24 +232,15 @@ Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
 Top level modules:
 	controller
 
-} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/top4.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/top4.v}
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/irdefines.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/irdefines.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
--- Compiling module top4
-=======
-} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/top5.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/top5.v}
+
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/top7.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/top7.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
--- Compiling module top5
+-- Compiling module top7
 
 Top level modules:
-	top5
-=======
-} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench.v}
-Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
--- Compiling module testbench
-
-<<<<<<< HEAD
-Top level modules:
-	testbench
+	top7
 
 } {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench7.sv} {1 {vlog -work work -vopt -sv -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench7.sv}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
@@ -182,19 +249,11 @@ Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
 Top level modules:
 	testbench7
 
-} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench6.sv} {1 {vlog -work work -vopt -sv -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne ALU/testbench6.sv}
+} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench2.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/testbench2.v}
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
--- Compiling module testbench6
+-- Compiling module testbench2
 
 Top level modules:
-	testbench6
-
-} {} {}} {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/top7.v} {1 {vlog -work work -vopt -stats=none {/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU/top7.v}
-Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
--- Compiling module top7
-
-Top level modules:
-	top7
->>>>>>> 7cd49b442bac8aba1f3989a90871cc691068edb0
+	testbench2
 
 } {} {}}

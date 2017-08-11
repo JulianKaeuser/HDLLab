@@ -15,7 +15,9 @@ output reg instruction_valid,
 
 output reg [12:0] memory_address, 
 output reg [31:0] incremented_pc_out, 
-output reg [15:0] instruction_out
+output reg [15:0] instruction_out,
+
+output reg  if_memory_active
 
 //  *disabled*// synthesis translate_off
 ,
@@ -60,6 +62,9 @@ case(currentState)
 		instruction_out = 16'b1011_1111_0000_0000;
 		update_instruction_reg = 1'b0;
 		instruction_valid = 1'b0;
+		
+		if_memory_active = 1'b0;
+		
 		//  *disabled*// synthesis translate_off
 		next_finish_out = 1'b0;
 		//  *disabled*// synthesis translate_on
@@ -73,6 +78,9 @@ case(currentState)
 		instruction_out = fetched_instruction_reg;
 		update_instruction_reg = 1'b0;
 		instruction_valid = 1'b0;
+		
+		if_memory_active = 1'b0;
+		
         //  *disabled*// synthesis translate_off
 		next_finish_out = 1'b0;
 		//  *disabled*// synthesis translate_on
@@ -86,6 +94,9 @@ case(currentState)
 		update_instruction_reg = (memory_output_valid == 1) ? 1'b1 : 1'b0;
 		memory_address = current_pc_modified[12:0];
 		instruction_valid = (memory_output_valid == 1) ? 1'b1 : 1'b0;
+		
+		if_memory_active = 1'b1;
+		
         //  *disabled*// synthesis translate_off
 		next_finish_out = 1'b0;
 		//  *disabled*// synthesis translate_on
@@ -107,6 +118,9 @@ case(currentState)
 		update_instruction_reg = (memory_output_valid == 1) ? 1'b1 : 1'b0;
 		memory_address = current_pc_modified[12:0];
 		instruction_valid = (memory_output_valid == 1) ? 1'b1 : 1'b0;
+		
+		if_memory_active = 1'b1;
+		
         //  *disabled*// synthesis translate_off
 		next_finish_out = 1'b0;
 		//  *disabled*// synthesis translate_on
@@ -120,6 +134,9 @@ case(currentState)
 		update_instruction_reg = 1'b0;
 		memory_address = 13'b0_0000_0000_0000;
 		instruction_valid = 1'b0;
+		
+		if_memory_active = 1'b0;
+		
         //  *disabled*// synthesis translate_off
 		next_finish_out = 1'b1;
 		//  *disabled*// synthesis translate_on
@@ -132,6 +149,9 @@ case(currentState)
 		nextState = WAIT_FOR_DEC;
 		incremented_pc_out = 32'bx;
 		instruction_valid = 0;
+		
+		if_memory_active = 1'b0;
+		
         //  *disabled*// synthesis translate_off
 		next_finish_out = 1'b0;
 		//  *disabled*// synthesis translate_on

@@ -6,7 +6,7 @@
 
 `timescale 1 ns / 1 ps
 
-module testbench7();
+module testbench20();
 
 // PARAMETERS
 parameter MEM_DEPTH   		= 2**12;	//8192 Bytes 4096*2B
@@ -48,7 +48,7 @@ logic			reset;
 // =================
 // CPU Instantiation
 // =================
-top7 UUT (
+top20 UUT (
                                                                                             
     /* input */          .clock                              ( clock                               ),
     /* input */          .reset                              ( reset                               ),

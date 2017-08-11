@@ -261,24 +261,23 @@ register_file_v2 # (
     assign ALU_IN_c =  DEC_ALU_alu_opcode[4] ? carry_none : RF_OUT_c;
     assign carry_none = (DEC_ALU_alu_opcode[3:0] == 4'b0110)? 1'b1 : 1'b0;
     
-    // set lowest 2 bits to zero if PC 
-    
+    // set bit 1 of pc to zero if required
     wire [31:0] RF_ALU_operand_a_pc_modified;
     assign RF_ALU_operand_a_pc_modified = (DEC_MISC_OUT_pc_mask_bit) ? {RF_ALU_operand_a[31:2], 1'b0, RF_ALU_operand_a[0]} : RF_ALU_operand_a;
-
-
+    
+    
 ALU_VARIABLE  # (
 ) ALU_VARIABLE_inst1 (
     
-    .a          ( RF_ALU_operand_a_pc_modified    ),
-    .b          ( RF_ALU_operand_b                ),
-    .op         ( DEC_ALU_alu_opcode[3:0]         ),
-    .c_in       ( ALU_IN_c                        ),
-    .c_out      ( ALU_OUT_c                       ),
-    .z          ( ALU_OUT_z                       ),
-    .n          ( ALU_OUT_n                       ),
-    .v          ( ALU_OUT_v                       ),
-    .result     ( ALU_MISC_OUT_result             )
+    .a          ( RF_ALU_operand_a_pc_modified       ),
+    .b          ( RF_ALU_operand_b                   ),
+    .op         ( DEC_ALU_alu_opcode[3:0]            ),
+    .c_in       ( ALU_IN_c                           ),
+    .c_out      ( ALU_OUT_c                          ),
+    .z          ( ALU_OUT_z                          ),
+    .n          ( ALU_OUT_n                          ),
+    .v          ( ALU_OUT_v                          ),
+    .result     ( ALU_MISC_OUT_result                )
                                                  
 
 );

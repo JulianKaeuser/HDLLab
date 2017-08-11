@@ -404,7 +404,7 @@ end
 // r13 = sp
 always @(*) begin
     if(reset)
-        spin= 32'b0000_0000_0000_0000_0001_1111_1111_1110;
+        spin= 32'b0000_0000_0000_0000_0001_1111_1111_1100;
     else if (write1_sel==SP && write1_en)
         spin = write1_in;
     else if (write2_sel==SP && write2_en)
