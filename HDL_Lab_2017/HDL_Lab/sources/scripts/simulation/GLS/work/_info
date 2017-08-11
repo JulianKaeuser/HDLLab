@@ -22,7 +22,7 @@ Z3 8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/0.70
 Z4 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/0.70ns_FINAL/designs/top20_gl.v
 L0 5941
 Z5 OL;L;10.3d;59
-Z6 !s108 1502451227.661844
+Z6 !s108 1502458101.437120
 Z7 !s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench21.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/0.70ns_FINAL/designs/top20_gl.v|
 Z8 !s90 -reportprogress|300|-work|work|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/0.70ns_FINAL/designs/top20_gl.v|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench21.sv|
 !i113 0
@@ -194,17 +194,17 @@ r1
 !s85 0
 31
 !i10b 1
-!s100 L?>NS`_b>V05?50[F;^3c2
-I2F`I_d3FdMS1Hf:2;m^FY1
+!s100 U<V2^go:FnUUA1Q5ERd2K1
+I0WXk@zR^fkSY_O;i9;C7T2
 !s105 testbench20_sv_unit
 S1
 R1
-w1502451127
+w1502451176
 8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench20.sv
 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench20.sv
 L0 9
 R5
-!s108 1502451133.682382
+!s108 1502457956.710071
 !s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench20.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/0.70ns_FINAL/designs/top20_gl.v|
 !s90 -reportprogress|300|-work|work|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/0.70ns_FINAL/designs/top20_gl.v|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench20.sv|
 !i113 0
