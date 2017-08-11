@@ -1,0 +1,32 @@
+ 
+****************************************
+Report : resources
+Design : top20
+Version: I-2013.12-SP5-3
+Date   : Fri Aug 11 13:24:36 2017
+****************************************
+
+
+Resource Report for this hierarchy in file
+        /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/top20.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_238      | DW01_sub       | width=32   | Instruction_Fetch_v2_inst1/sub_39 (Instruction_Fetch_v2.v:39) |
+| add_x_239      | DW01_add       | width=32   | Instruction_Fetch_v2_inst1/add_89 (Instruction_Fetch_v2.v:89) |
+| eq_x_252       | DW_cmp         | width=31   | Instruction_Fetch_v2_inst1/eq_155 (Instruction_Fetch_v2.v:155) |
+|          | Instruction_Fetch_v2_inst1/eq_80 (Instruction_Fetch_v2.v:80) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_238          | DW01_sub         | apparch (area)     |                |
+| add_x_239          | DW01_add         | pparch (area,speed)                 |
+| eq_x_252           | DW_cmp           | apparch (area)     |                |
+===============================================================================
+
+1

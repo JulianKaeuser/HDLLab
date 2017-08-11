@@ -1,0 +1,95 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : top20
+Version: I-2013.12-SP5-3
+Date   : Fri Aug 11 13:24:22 2017
+****************************************
+
+Operating Conditions: NCCOM   Library: tcbn45gsbwp12ttc_ccs
+Wire Load Model Mode: segmented
+
+  Startpoint: irdecode_inst1_operand_b_reg_4_
+              (rising edge-triggered flip-flop clocked by CLOCK)
+  Endpoint: register_file_v2_inst1/pc_reg_31_
+            (rising edge-triggered flip-flop clocked by CLOCK)
+  Path Group: CLOCK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  memory_interface_simple
+                     ZeroWireload          tcbn45gsbwp12ttc_ccs
+  top20              ZeroWireload          tcbn45gsbwp12ttc_ccs
+  register_file_v2   ZeroWireload          tcbn45gsbwp12ttc_ccs
+  ALU_VARIABLE       ZeroWireload          tcbn45gsbwp12ttc_ccs
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLOCK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  irdecode_inst1_operand_b_reg_4_/CP (DFKCNQD4BWP12T)     0.00       0.00 r
+  irdecode_inst1_operand_b_reg_4_/Q (DFKCNQD4BWP12T)      0.05       0.05 f
+  register_file_v2_inst1/readB_sel[4] (register_file_v2)
+                                                          0.00       0.05 f
+  register_file_v2_inst1/U1240/ZN (TPNR3D4BWP12T)         0.03       0.08 r
+  register_file_v2_inst1/U1024/ZN (TPND2D2BWP12T)         0.02       0.09 f
+  register_file_v2_inst1/U1072/ZN (INVD6BWP12T)           0.02       0.11 r
+  register_file_v2_inst1/U955/ZN (INVD3BWP12T)            0.01       0.12 f
+  register_file_v2_inst1/U192/ZN (OAI22D1BWP12T)          0.02       0.14 r
+  register_file_v2_inst1/U2232/ZN (NR4D1BWP12T)           0.03       0.17 f
+  register_file_v2_inst1/U2233/ZN (CKND2D2BWP12T)         0.02       0.19 r
+  register_file_v2_inst1/regB_out[18] (register_file_v2)
+                                                          0.00       0.19 r
+  U1301/ZN (AOI22D2BWP12T)                                0.02       0.20 f
+  U1327/ZN (ND3D2BWP12T)                                  0.02       0.22 r
+  ALU_VARIABLE_inst1/b[10] (ALU_VARIABLE)                 0.00       0.22 r
+  ALU_VARIABLE_inst1/U1360/ZN (DCCKND4BWP12T)             0.01       0.23 f
+  ALU_VARIABLE_inst1/U1593/ZN (INVD8BWP12T)               0.01       0.24 r
+  ALU_VARIABLE_inst1/U1859/Z (CKBD1BWP12T)                0.03       0.27 r
+  ALU_VARIABLE_inst1/U1860/ZN (INVD1BWP12T)               0.02       0.29 f
+  ALU_VARIABLE_inst1/U1861/ZN (TPNR2D1BWP12T)             0.02       0.31 r
+  ALU_VARIABLE_inst1/U1943/ZN (OAI21D1BWP12T)             0.02       0.33 f
+  ALU_VARIABLE_inst1/U1945/ZN (TPAOI21D1BWP12T)           0.03       0.36 r
+  ALU_VARIABLE_inst1/U2751/ZN (OAI21D1BWP12T)             0.02       0.37 f
+  ALU_VARIABLE_inst1/U4102/ZN (CKND1BWP12T)               0.01       0.38 r
+  ALU_VARIABLE_inst1/U4103/ZN (TPOAI21D0BWP12T)           0.01       0.40 f
+  ALU_VARIABLE_inst1/U4104/ZN (AOI21D1BWP12T)             0.03       0.42 r
+  ALU_VARIABLE_inst1/U4105/Z (XOR2XD1BWP12T)              0.03       0.46 f
+  ALU_VARIABLE_inst1/U4106/ZN (ND2D1BWP12T)               0.01       0.47 r
+  ALU_VARIABLE_inst1/U4109/ZN (INR2D2BWP12T)              0.02       0.49 r
+  ALU_VARIABLE_inst1/U4110/ZN (OAI211D1BWP12T)            0.02       0.51 f
+  ALU_VARIABLE_inst1/U4111/ZN (AOI21D2BWP12T)             0.03       0.54 r
+  ALU_VARIABLE_inst1/U1304/ZN (RCOAI21D2BWP12T)           0.02       0.57 f
+  ALU_VARIABLE_inst1/result[17] (ALU_VARIABLE)            0.00       0.57 f
+  register_file_v2_inst1/write1_in[17] (register_file_v2)
+                                                          0.00       0.57 f
+  register_file_v2_inst1/U966/ZN (TPAOI21D4BWP12T)        0.03       0.59 r
+  register_file_v2_inst1/U1988/ZN (CKND4BWP12T)           0.01       0.60 f
+  register_file_v2_inst1/U1991/ZN (TPND2D2BWP12T)         0.01       0.61 r
+  register_file_v2_inst1/U1992/ZN (NR3XD4BWP12T)          0.01       0.63 f
+  register_file_v2_inst1/U2004/ZN (INVD2P3BWP12T)         0.01       0.63 r
+  register_file_v2_inst1/U2005/ZN (NR2D2BWP12T)           0.01       0.64 f
+  register_file_v2_inst1/U3575/ZN (CKND2D2BWP12T)         0.01       0.65 r
+  register_file_v2_inst1/U1063/ZN (IND3D1BWP12T)          0.02       0.67 r
+  register_file_v2_inst1/U3579/ZN (IOA21D2BWP12T)         0.01       0.68 f
+  register_file_v2_inst1/U3590/ZN (ND3D1BWP12T)           0.01       0.69 r
+  register_file_v2_inst1/pc_reg_31_/D (DFXD1BWP12T)       0.00       0.69 r
+  data arrival time                                                  0.69
+
+  clock CLOCK (rise edge)                                 0.70       0.70
+  clock network delay (ideal)                             0.00       0.70
+  register_file_v2_inst1/pc_reg_31_/CP (DFXD1BWP12T)      0.00       0.70 r
+  library setup time                                     -0.01       0.69
+  data required time                                                 0.69
+  --------------------------------------------------------------------------
+  data required time                                                 0.69
+  data arrival time                                                 -0.69
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1

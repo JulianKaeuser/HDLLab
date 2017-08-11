@@ -7,29 +7,43 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-# Loading project instruciondecoder
-# reading /home/Lukas/Programme/FPGA/MentorGraphics/Modelsim/modelsim/10.3d/modeltech/linux_x86_64/../modelsim.ini
 # Loading project rtl_sim
-# Compile of cpu.v was successful.
-# Compile of topdefines.v was successful.
-# Compile of ALU_VARIABLE.v was successful.
-# Compile of condition_defines.v was successful.
-# Compile of f_flageval.v failed with 1 errors.
-# Compile of irdec.v was successful.
-# Compile of irdefines.v was successful.
-# Compile of topdefines.v was successful.
-# Compile of Instruction_Fetch_v2.v was successful.
-# Compile of memory_interface_simple.v was successful.
-# Compile of register_file_v2.v was successful.
-# 11 compiles, 1 failed with 1 error.
-# Compile of cpu.v was successful.
-# Compile of topdefines.v was successful.
-# Compile of ALU_VARIABLE.v was successful.
-# Compile of condition_defines.v was successful.
-# Compile of irdec.v was successful.
-# Compile of irdefines.v was successful.
-# Compile of topdefines.v was successful.
-# Compile of Instruction_Fetch_v2.v was successful.
-# Compile of memory_interface_simple.v was successful.
-# Compile of register_file_v2.v was successful.
-# 10 compiles, 0 failed with no errors.
+vsim -novopt work.testbench_count32
+# vsim 
+# Start time: 14:56:36 on Aug 11,2017
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading sv_std.std
+# Loading work.testbench_count32
+# Loading work.cpu
+# Loading work.irdecode
+# Loading work.register_file_v2
+# Loading work.ALU_VARIABLE
+# Loading work.memory_interface_simple
+# Loading work.Instruction_Fetch_v2
+# Loading work.memory
+# ** Warning: (vsim-3017) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/cpu.v(359): [TFMPC] - Too few port connections. Expected 13, found 12.
+#         Region: /testbench_count32/UUT/Instruction_Fetch_v2_inst1
+# ** Warning: (vsim-3722) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/cpu.v(359): [TFMPC] - Missing connection for port 'finish_out'.
+do wave_count32.do
+run 4us
+quit -sim
+vsim -novopt work.testbench_memcpy46
+# vsim 
+# Start time: 15:06:23 on Aug 11,2017
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading sv_std.std
+# Loading work.testbench_memcpy46
+# Loading work.cpu
+# Loading work.irdecode
+# Loading work.register_file_v2
+# Loading work.ALU_VARIABLE
+# Loading work.memory_interface_simple
+# Loading work.Instruction_Fetch_v2
+# Loading work.memory
+# ** Warning: (vsim-3017) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/cpu.v(359): [TFMPC] - Too few port connections. Expected 13, found 12.
+#         Region: /testbench_memcpy46/UUT/Instruction_Fetch_v2_inst1
+# ** Warning: (vsim-3722) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/cpu.v(359): [TFMPC] - Missing connection for port 'finish_out'.
+do wave_memcpy46.do
+run 4us
+run 4us
+run 2us

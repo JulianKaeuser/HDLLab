@@ -6,12 +6,12 @@
 
 `timescale 1 ns / 1 ps
 
-module testbench20();
+module testbench_count32();
 
 // PARAMETERS
 parameter MEM_DEPTH   		= 2**12;	//8192 Bytes 4096*2B
 parameter ADDR_WIDTH   		= $clog2(MEM_DEPTH);
-parameter string filename	= "mem_count32.bin";
+parameter string filename	= "../../stimulus/count32.bin";
 
 // ================
 // Internal Signals
@@ -48,7 +48,7 @@ logic			reset;
 // =================
 // CPU Instantiation
 // =================
-top20 UUT (
+cpu UUT (
                                                                                             
     /* input */          .clock                              ( clock                               ),
     /* input */          .reset                              ( reset                               ),
@@ -76,7 +76,7 @@ memory #(
 memory_i (
    	.clk 	(clock),
     .addr	(MEMCTRL_MEM_to_mem_address),
-    .en  	(MEMCTRL_MEM_to_mem_mem_enable),
+    .en  	(1'b1),
     .rd_en  (MEMCTRL_MEM_to_mem_read_enable),
     .wr_en  (MEMCTRL_MEM_to_mem_write_enable),
     .din (MEMCTRL_MEM_to_mem_data),
@@ -86,16 +86,16 @@ memory_i (
 // CLOCK GENERATOR
 initial begin
 	clock = 1'b0;
-	forever #1  clock = !clock;
+	forever #0.63  clock = !clock;
 end
 
 // RESET GENERATOR  
 initial begin
 	reset			= 1'b0;
 	file		= $fopen(filename, "r");
-	#3 reset		= 1'b1;     // 3   ns
+	#1.26 reset		= 1'b1;     // 3   ns
 	status		= $fread(memory_i.ram, file);
-	#2.1 reset	= 1'b0;  //2.1 ns
+	#2.52 reset	= 1'b0;  //2.1 ns
 //	$finish;
 end
 
