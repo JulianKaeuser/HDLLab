@@ -14,17 +14,17 @@ r1
 !s85 0
 31
 !i10b 1
-!s100 MYidg@8Njz:ZU3l9:08c_1
-I]i]JaE<MgZBCRd9>jN2kR3
+!s100 2cVP[RcUf<<IYjIb[M]N73
+IQ`Aoe=U7A9gLG<40c<baJ0
 Z1 d/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS
-Z2 w1502375983
-Z3 8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/1ns/designs/top7_gl.v
-Z4 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/1ns/designs/top7_gl.v
-L0 4953
+Z2 w1502450660
+Z3 8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/0.70ns_FINAL/designs/top20_gl.v
+Z4 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/0.70ns_FINAL/designs/top20_gl.v
+L0 5941
 Z5 OL;L;10.3d;59
-Z6 !s108 1502378533.950724
-Z7 !s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench7.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/1ns/designs/top7_gl.v|
-Z8 !s90 -reportprogress|300|-work|work|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/1ns/designs/top7_gl.v|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench7.sv|
+Z6 !s108 1502451227.661844
+Z7 !s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench21.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/0.70ns_FINAL/designs/top20_gl.v|
+Z8 !s90 -reportprogress|300|-work|work|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/0.70ns_FINAL/designs/top20_gl.v|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench21.sv|
 !i113 0
 Z9 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 n@a@l@u_@v@a@r@i@a@b@l@e
@@ -84,9 +84,9 @@ Z17 w1501854282
 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv
 L0 9
 R5
-Z18 !s108 1502379809.238555
-Z19 !s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/designs/memory_interface_gl.v|
-Z20 !s90 -reportprogress|300|-work|work|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/designs/memory_interface_gl.v|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv|
+R6
+R7
+R8
 !i113 0
 R9
 vmemory_interface
@@ -103,9 +103,28 @@ w1502379275
 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/designs/memory_interface_gl.v
 L0 2
 R5
-R18
-R19
-R20
+Z18 !s108 1502379809.238555
+Z19 !s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/designs/memory_interface_gl.v|
+Z20 !s90 -reportprogress|300|-work|work|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/designs/memory_interface_gl.v|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv|
+!i113 0
+R9
+vmemory_interface_simple
+R0
+r1
+!s85 0
+31
+!i10b 1
+!s100 ]P<g3S]1F2bkf<PXF=PlW2
+Iam<8KR:>jbUki[;[P39]K3
+R1
+R2
+R3
+R4
+L0 12421
+R5
+R6
+R7
+R8
 !i113 0
 R9
 vregister_file
@@ -114,8 +133,27 @@ r1
 !s85 0
 31
 !i10b 1
-!s100 B4^:Nb2ah]<=oiRkQRmSj3
-IXA1Wjh;lNo4R@WZ6@=nPC3
+!s100 :1f38ClTO8B2mgQ0;4<:j1
+I0@V1E^0HN]=0PD7oDz^8I0
+R1
+Z21 w1502382246
+R11
+R12
+L0 2
+R5
+Z22 !s108 1502436322.117952
+R14
+R15
+!i113 0
+R9
+vregister_file_v2
+R0
+r1
+!s85 0
+31
+!i10b 1
+!s100 l[Hnk:Ndi3<d92D7hBL8h0
+IV3I`VS_Qo66=I<6db:1Xg3
 R1
 R2
 R3
@@ -149,6 +187,50 @@ R19
 R20
 !i113 0
 R9
+vtestbench20
+R16
+R0
+r1
+!s85 0
+31
+!i10b 1
+!s100 L?>NS`_b>V05?50[F;^3c2
+I2F`I_d3FdMS1Hf:2;m^FY1
+!s105 testbench20_sv_unit
+S1
+R1
+w1502451127
+8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench20.sv
+F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench20.sv
+L0 9
+R5
+!s108 1502451133.682382
+!s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench20.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/0.70ns_FINAL/designs/top20_gl.v|
+!s90 -reportprogress|300|-work|work|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/0.70ns_FINAL/designs/top20_gl.v|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench20.sv|
+!i113 0
+R9
+vtestbench21
+R16
+R0
+r1
+!s85 0
+31
+!i10b 1
+!s100 5_9Pm1F[RVG[XN8_3OBO72
+I_gcR48G=3LcH`_VIhG<N12
+!s105 testbench21_sv_unit
+S1
+R1
+w1502451204
+8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench21.sv
+F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench21.sv
+L0 9
+R5
+R6
+R7
+R8
+!i113 0
+R9
 vtestbench7
 R16
 R0
@@ -156,15 +238,34 @@ r1
 !s85 0
 31
 !i10b 1
-!s100 G?QoY_Z_X_gS:kMA:SU>@1
-IPGgFeAPPS^2C0EB03]TgB1
+!s100 <::@adGVfUQem0]U8bg052
+ICB=Ha3jKWbQbfKKBd5WL>1
 !s105 testbench7_sv_unit
 S1
 R1
-w1502370073
+w1502434772
 8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench7.sv
 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench7.sv
 L0 9
+R5
+R22
+R14
+R15
+!i113 0
+R9
+vtop20
+R0
+r1
+!s85 0
+31
+!i10b 1
+!s100 D4?hZ@E[4b4IZbE5N@B@>2
+I^cNTChhjKWNdaH4lf`Wcz3
+R1
+R2
+R3
+R4
+L0 13465
 R5
 R6
 R7
@@ -177,16 +278,16 @@ r1
 !s85 0
 31
 !i10b 1
-!s100 Gh2ImE[<]4RYzfjg=L;AY1
-IOPFmA4XTh[R=OLfnLN1lA3
+!s100 c7?EjIeS_>z6Kz^gE2Okb3
+I>o>=3_[H8Qe0kld@>TF[<1
 R1
-R2
-R3
-R4
-L0 9979
+R21
+R11
+R12
+L0 12760
 R5
-R6
-R7
-R8
+R22
+R14
+R15
 !i113 0
 R9
