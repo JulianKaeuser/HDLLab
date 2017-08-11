@@ -6,12 +6,12 @@
 
 `timescale 1 ns / 1 ps
 
-module testbench_count32();
+module testbench20();
 
 // PARAMETERS
 parameter MEM_DEPTH   		= 2**12;	//8192 Bytes 4096*2B
 parameter ADDR_WIDTH   		= $clog2(MEM_DEPTH);
-parameter string filename	= "../../stimulus/count32.bin";
+parameter string filename	= "mem_count32.bin";
 
 // ================
 // Internal Signals
@@ -48,7 +48,7 @@ logic			reset;
 // =================
 // CPU Instantiation
 // =================
-cpu UUT (
+top20 UUT (
                                                                                             
     /* input */          .clock                              ( clock                               ),
     /* input */          .reset                              ( reset                               ),

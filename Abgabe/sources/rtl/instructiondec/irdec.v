@@ -28,6 +28,7 @@ offset_b,
 alu_opcode,
 
 pc_mask_bit,
+operator_b_modification,
 
 update_flag_n,
 update_flag_z,
@@ -80,6 +81,7 @@ output reg [31:0] offset_b;
 output reg  [4:0] alu_opcode;
 
 output reg        pc_mask_bit;
+output reg  [2:0] operator_b_modification;
 
 output reg update_flag_n;
 output reg update_flag_z;
@@ -119,6 +121,7 @@ reg [31:0] next_offset_b;
 reg  [4:0] next_alu_opcode;
 
 reg        next_pc_mask_bit;
+reg  [2:0] next_operator_b_modification;
 
 reg next_update_flag_n;
 reg next_update_flag_z;
@@ -201,6 +204,7 @@ offset_b                            <=       next_offset_b;
 alu_opcode                          <=       next_alu_opcode;
 
 pc_mask_bit                         <=       next_pc_mask_bit;
+operator_b_modification             <=       next_operator_b_modification;
                                    
 update_flag_n                       <=       next_update_flag_n;
 update_flag_z                       <=       next_update_flag_z;
@@ -292,6 +296,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_offset_a = `IMM_ZERO;
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	                      
 	            next_alu_write_to_reg = {2'b00, instruction[2:0]};
 	            next_alu_write_to_reg_enable = 1'b1;
@@ -378,6 +383,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_offset_b = {24'b0000_0000_0000_0000_0000_0000, instruction[7:0]};
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_memory_write_to_reg = `RF_NONE;
 	            next_memory_write_to_reg_enable = 1'b0;
@@ -453,6 +459,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_offset_b = `IMM_ZERO;
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_memory_write_to_reg = `RF_NONE;
 	            next_memory_write_to_reg_enable = 1'b0;
@@ -642,6 +649,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_offset_b = `IMM_ZERO;
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_memory_write_to_reg = `RF_NONE;
 	            next_memory_write_to_reg_enable = 1'b0;
@@ -735,6 +743,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_alu_opcode = `ADD;
 	            
 	            next_pc_mask_bit = 1'b1;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_update_flag_n = 1'b0;
 	            next_update_flag_z = 1'b0;
@@ -774,6 +783,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_alu_opcode = `ADD;
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_update_flag_n = 1'b0;
 	            next_update_flag_z = 1'b0;
@@ -828,6 +838,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_alu_opcode = `ADD;
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_update_flag_n = 1'b0;
 	            next_update_flag_z = 1'b0;
@@ -905,6 +916,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_alu_opcode = `ADD;
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_update_flag_n = 1'b0;
 	            next_update_flag_z = 1'b0;
@@ -960,6 +972,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_alu_opcode = `ADD;
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_update_flag_n = 1'b0;
 	            next_update_flag_z = 1'b0;
@@ -1011,6 +1024,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_alu_opcode = `ADD; 
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_update_flag_n = 1'b0;
 	            next_update_flag_z = 1'b0;
@@ -1061,6 +1075,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_alu_opcode = `ADD; 
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_update_flag_n = 1'b0;
 	            next_update_flag_z = 1'b0;
@@ -1102,6 +1117,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_offset_b = {23'b0000_0000_0000_0000_0000_000, instruction[6:0], 2'b00};
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_update_flag_n = 1'b0;
 	            next_update_flag_z = 1'b0;
@@ -1147,6 +1163,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_offset_b = 32'b0000_0000_0000_0000_0000_0000_0000_0100;  // möglicherweise anpassen
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_update_flag_n = 1'b0;
 	            next_update_flag_z = 1'b0;
@@ -1745,6 +1762,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_alu_opcode = `ADD;                              // addiert bei jedem load/store 4 zum Base-Register   
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_update_flag_n = 1'b0;
 	            next_update_flag_z = 1'b0;
@@ -2188,6 +2206,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_alu_opcode  = `ADD;
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_update_flag_n = 1'b0;
 	            next_update_flag_z = 1'b0;
@@ -2251,6 +2270,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_alu_opcode  = `ADD;
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_update_flag_n = 1'b0;
 	            next_update_flag_z = 1'b0;
@@ -2284,6 +2304,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_offset_a = `IMM_ZERO;
 	            
 	            next_pc_mask_bit = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_update_flag_n = 1'b0;
 	            next_update_flag_z = 1'b0;
@@ -2409,6 +2430,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_alu_opcode                      = `ORR;
 	            
 	            next_pc_mask_bit                     = 1'b0;
+	            next_operator_b_modification = `NORMAL;
 	            
 	            next_update_flag_n                   = 1'b0;
 	            next_update_flag_z                   = 1'b0;
@@ -2437,47 +2459,47 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_split_instruction               = 1'b0;
 	        end
 	        
-            `FORMAT_21  : begin                               
-	            next_operand_a                       = `RF_NONE;
-	            next_operand_b                       = `RF_NONE;
-	            
-	            next_offset_a                        = `IMM_ZERO;
-	            next_offset_b                        = `IMM_ZERO;
-	            
-	            next_alu_opcode                      = `ORR;
-	            
-	            next_pc_mask_bit                     = 1'b0;
-	            
-	            next_update_flag_n                   = 1'b0;
-	            next_update_flag_z                   = 1'b0;
-	            next_update_flag_c                   = 1'b0;
-	            next_update_flag_v                   = 1'b0;
-	            
-	            next_alu_write_to_reg                = `RF_NONE;
-	            next_alu_write_to_reg_enable         = 1'b0;
-	            
-	            next_memory_write_to_reg             = `RF_NONE;
-	            next_memory_write_to_reg_enable      = 1'b0;
-	
-	            next_memory_store_data_reg           = `RF_NONE;
-	            next_memory_store_address_reg        = `RF_NONE;
-	            next_memory_address_source_is_reg    = 1'b0;
-	            next_load_store_width                = `WORD;
-	            next_memorycontroller_sign_extend    = 1'b0;
-	            
-	            next_memory_load_request             = 1'b0;                                       
-	            next_memory_store_request            = 1'b0;
-	            
-	            next_stall_to_instructionfetch       = 1'b0;
-	
-	            next_step                            = 9'b1_1111_1111;	  
-	            
-	            next_split_instruction               = 1'b0;
-	        end
+//             `FORMAT_21  : begin                               
+// 	            next_operand_a                       = `RF_NONE;
+// 	            next_operand_b                       = `RF_NONE;
+// 	            
+// 	            next_offset_a                        = `IMM_ZERO;
+// 	            next_offset_b                        = `IMM_ZERO;
+// 	            
+// 	            next_alu_opcode                      = `ORR;
+// 	            
+// 	            next_pc_mask_bit                     = 1'b0;
+// 	            
+// 	            next_update_flag_n                   = 1'b0;
+// 	            next_update_flag_z                   = 1'b0;
+// 	            next_update_flag_c                   = 1'b0;
+// 	            next_update_flag_v                   = 1'b0;
+// 	            
+// 	            next_alu_write_to_reg                = `RF_NONE;
+// 	            next_alu_write_to_reg_enable         = 1'b0;
+// 	            
+// 	            next_memory_write_to_reg             = `RF_NONE;
+// 	            next_memory_write_to_reg_enable      = 1'b0;
+// 	
+// 	            next_memory_store_data_reg           = `RF_NONE;
+// 	            next_memory_store_address_reg        = `RF_NONE;
+// 	            next_memory_address_source_is_reg    = 1'b0;
+// 	            next_load_store_width                = `WORD;
+// 	            next_memorycontroller_sign_extend    = 1'b0;
+// 	            
+// 	            next_memory_load_request             = 1'b0;                                       
+// 	            next_memory_store_request            = 1'b0;
+// 	            
+// 	            next_stall_to_instructionfetch       = 1'b0;
+// 	
+// 	            next_step                            = 9'b1_1111_1111;	  
+// 	            
+// 	            next_split_instruction               = 1'b0;
+// 	        end
 	        
             `FORMAT_22  : begin                               
-	            next_operand_a                       = `RF_NONE;
-	            next_operand_b                       = `RF_NONE;
+	            next_operand_a                       = `RF_IMM;
+	            next_operand_b                       = {2'b00, instruction[5:3]};
 	            
 	            next_offset_a                        = `IMM_ZERO;
 	            next_offset_b                        = `IMM_ZERO;
@@ -2491,8 +2513,8 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_update_flag_c                   = 1'b0;
 	            next_update_flag_v                   = 1'b0;
 	            
-	            next_alu_write_to_reg                = `RF_NONE;
-	            next_alu_write_to_reg_enable         = 1'b0;
+	            next_alu_write_to_reg                = {2'b00, instruction[2:0]};
+	            next_alu_write_to_reg_enable         = 1'b1;
 	            
 	            next_memory_write_to_reg             = `RF_NONE;
 	            next_memory_write_to_reg_enable      = 1'b0;
@@ -2511,16 +2533,29 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_step                            = 9'b1_1111_1111;	  
 	            
 	            next_split_instruction               = 1'b0;
+	            
+                casez (instruction[7:6])
+	                `F22_REV   : begin  
+	                    next_operator_b_modification = `REV;
+	                end
+                    `F22_REV16 : begin  
+	                    next_operator_b_modification = `REV16;
+	                end
+                    `F22_REVSH : begin  
+	                    next_operator_b_modification = `REVSH;
+	                end
+	                default  : begin
+	                    next_operator_b_modification = `NORMAL;
+	                end
+	            endcase
+	            
 	        end
 	        
             `FORMAT_23  : begin                               
-	            next_operand_a                       = `RF_NONE;
-	            next_operand_b                       = `RF_NONE;
+	            next_operand_a                       = `RF_IMM;
+	            next_operand_b                       = {2'b00, instruction[5:3]};
 	            
-	            next_offset_a                        = `IMM_ZERO;
 	            next_offset_b                        = `IMM_ZERO;
-	            
-	            next_alu_opcode                      = `ORR;
 	            
 	            next_pc_mask_bit                     = 1'b0;
 	            
@@ -2529,8 +2564,8 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_update_flag_c                   = 1'b0;
 	            next_update_flag_v                   = 1'b0;
 	            
-	            next_alu_write_to_reg                = `RF_NONE;
-	            next_alu_write_to_reg_enable         = 1'b0;
+	            next_alu_write_to_reg                = {2'b00, instruction[2:0]};
+	            next_alu_write_to_reg_enable         = 1'b1;
 	            
 	            next_memory_write_to_reg             = `RF_NONE;
 	            next_memory_write_to_reg_enable      = 1'b0;
@@ -2549,6 +2584,37 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 	            next_step                            = 9'b1_1111_1111;	  
 	            
 	            next_split_instruction               = 1'b0;
+	            
+                casez (instruction[7])
+	                `F23_UNSIGNED : begin  
+                        casez (instruction[6])
+	                        `F23_HALFWORD : begin
+                                next_offset_a = {32'b0000_0000_0000_0000_1111_1111_1111_1111};
+	                        end
+	                        `F23_BYTE     : begin
+                                next_offset_a = {32'b0000_0000_0000_0000_0000_0000_1111_1111};
+	                        end
+	                    endcase
+	                    
+	                    next_alu_opcode = `AND;
+	                    next_operator_b_modification = `NORMAL;
+	                end
+	                `F23_SIGNED  : begin
+                        casez (instruction[6])
+	                        `F23_HALFWORD : begin
+                                next_operator_b_modification = `SXTH;
+	                        end
+	                        `F23_BYTE     : begin
+	                            next_operator_b_modification = `SXTB;
+	                        end
+	                    endcase
+	                    
+	                    next_offset_a = `IMM_ZERO;
+	                    next_alu_opcode = `ORR;
+	                end
+	            endcase
+	            
+
 	        end
 	        
 	        
@@ -2564,6 +2630,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 				next_alu_opcode                      = `ORR;
 				
 				next_pc_mask_bit                     = 1'b0;
+				next_operator_b_modification         = `NORMAL;
 				                                
 				next_update_flag_n                   = 1'b0;
 				next_update_flag_z                   = 1'b0;
@@ -2614,6 +2681,7 @@ if (  ((stall_to_instructionfetch & split_instruction) | instruction_valid) &
 				next_alu_opcode                      = `ORR;
 				
 				next_pc_mask_bit                     = 1'b0;
+				next_operator_b_modification         = `NORMAL;
 				                                
 				next_update_flag_n                   = 1'b0;
 				next_update_flag_z                   = 1'b0;
@@ -2667,6 +2735,7 @@ else if ( // else-if-block memstall
 	next_alu_opcode                      = alu_opcode;
 	
 	next_pc_mask_bit                     = pc_mask_bit;
+	next_operator_b_modification         = operator_b_modification;
 	                                
 	next_update_flag_n                   = 1'b0;
 	next_update_flag_z                   = 1'b0;
@@ -2727,6 +2796,7 @@ else if (reset) begin  // else if-Block reset
 			next_alu_opcode                      = `ORR;
 			
 			next_pc_mask_bit                     = 1'b0;
+			next_operator_b_modification         = `NORMAL;
 			                                
 			next_update_flag_n                   = 1'b0;
 			next_update_flag_z                   = 1'b0;
@@ -2774,6 +2844,7 @@ else begin // else-block auf neue Instruktion warten
 			next_alu_opcode                      = `ORR;
 			
 			next_pc_mask_bit                     = 1'b0;
+			next_operator_b_modification         = `NORMAL;
 			                                
 			next_update_flag_n                   = 1'b0;
 			next_update_flag_z                   = 1'b0;

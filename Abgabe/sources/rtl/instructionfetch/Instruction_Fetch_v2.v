@@ -1,4 +1,4 @@
-module Instruction_Fetch(
+module Instruction_Fetch_v2(
 
 input wire clk, 
 input wire reset, 
@@ -13,7 +13,7 @@ output reg memory_load_request,
 output reg incremented_pc_write_enable, 
 output reg instruction_valid,  
 
-output reg [11:0] memory_address, 
+output reg [12:0] memory_address, 
 output reg [31:0] incremented_pc_out, 
 output reg [15:0] instruction_out
 
@@ -54,7 +54,7 @@ case(currentState)
 		nextState = (reset == 1) ? RESET : FETCH;
 		incremented_pc_out = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 		incremented_pc_write_enable = 1'b0;
-        memory_address = 12'b0000_0000_0000;
+        memory_address = 13'b0_0000_0000_0000;
 		memory_load_request = 1'b0;
 		instruction_out = 16'b1011_1111_0000_0000;
 		update_instruction_reg = 1'b0;
@@ -67,7 +67,7 @@ case(currentState)
 		nextState = (stall_decoder_in == 1) ? WAIT_FOR_DEC : FETCH;
 		incremented_pc_out = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 		incremented_pc_write_enable = 1'b0;
-		memory_address = {1'b0, current_pc_modified[31:1]};
+		memory_address = current_pc_modified[12:0];
 		memory_load_request = 1'b0;
 		instruction_out = fetched_instruction_reg;
 		update_instruction_reg = 1'b0;
@@ -91,7 +91,7 @@ case(currentState)
 		memory_load_request = 1'b1;
 		instruction_out =  (memory_output_valid == 1) ? instruction_in : 16'b1011_1111_0000_0000;
 		update_instruction_reg = (memory_output_valid == 1) ? 1'b1 : 1'b0;
-		memory_address = {1'b0, current_pc_modified[31:1]};
+		memory_address = current_pc_modified[12:0];
 		instruction_valid = (memory_output_valid == 1) ? 1'b1 : 1'b0;
         //  *disabled*// synthesis translate_off
 		next_finish_out = 1'b0;
@@ -104,7 +104,7 @@ case(currentState)
 		memory_load_request = 1'b1;
 		instruction_out = 16'b1011_1111_0000_0000;
 		update_instruction_reg = 1'b0;
-		memory_address = 12'b0000_0000_0000;
+		memory_address = 13'b0_0000_0000_0000;
 		instruction_valid = 1'b0;
         //  *disabled*// synthesis translate_off
 		next_finish_out = 1'b1;
@@ -113,7 +113,7 @@ case(currentState)
 	default: begin
 		memory_load_request = 1'bx;
 		instruction_out = 16'bx;
-		memory_address = 12'bx;
+		memory_address = 13'bx;
 		incremented_pc_write_enable = 1'bx;
 		nextState = WAIT_FOR_DEC;
 		incremented_pc_out = 32'bx;

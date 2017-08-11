@@ -9,204 +9,125 @@ z2
 cModel Technology
 d/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Code/instructiondec/ohne_ALU
 vALU_VARIABLE
-Z0 V`JN@9S9cnhjKRR_L]QIcM3
+Z0 !s110 1502453584
+!i10b 1
+!s100 n5lmK8eQAHab_XoTWIElO3
+IG8L2BUg9WzUmhGimOSDHz3
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+Z2 d/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/source/sim
+w1502346641
+8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/alu/ALU_VARIABLE.v
+F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/alu/ALU_VARIABLE.v
+L0 3
+Z3 OL;L;10.3d;59
 r1
 !s85 0
 31
-!i10b 1
-!s100 DC[oa=fl@WY?9UCz7@do10
-IQ2Cgfo[nIZ?M5PfEz]jkO2
-Z1 d/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/source/sim
-w1502113501
-8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/alu/ALU_VARIABLE.v
-F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/alu/ALU_VARIABLE.v
-L0 3
-Z2 OL;L;10.3d;59
-!s108 1502308634.159571
-!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/alu/ALU_VARIABLE.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/alu/ALU_VARIABLE.v|
+!s108 1502453584.019876
+!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/alu/ALU_VARIABLE.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/alu/ALU_VARIABLE.v|
 !i113 0
-Z3 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z4 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 n@a@l@u_@v@a@r@i@a@b@l@e
 vcpu
-R0
+!s110 1502453583
+!i10b 1
+!s100 ^f8]e79CN2^89S0FlXP6^1
+I7K_Fl4<l_UOIfWcISC=?;0
+R1
+R2
+w1502450412
+8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/cpu.v
+F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/cpu.v
+L0 3
+R3
 r1
 !s85 0
 31
-!i10b 1
-!s100 ed[LA8jzXnCj[o@aX8oV;3
-IlMJRD5TNj^3?g[ljM?NBz3
-R1
-w1502306737
-8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/cpu.v
-F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/cpu.v
-L0 1
-R2
-!s108 1502308634.299104
-!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/cpu.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/cpu.v|
+!s108 1502453583.976642
+!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/topdefines.v|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/cpu.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/cpu.v|
 !i113 0
-R3
-vInstruction_Fetch
+R4
+vInstruction_Fetch_v2
 R0
+!i10b 1
+!s100 PYH3[]cC7eVNSVhdj3GFh0
+I_mV[T6V1?QP:07:XF`H:[0
+R1
+R2
+w1502365283
+8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/instructionfetch/Instruction_Fetch_v2.v
+F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/instructionfetch/Instruction_Fetch_v2.v
+L0 1
+R3
 r1
 !s85 0
 31
-!i10b 1
-!s100 j>K759?;Vaz9^ha;]6O5M2
-I3@a6BWbK2Rmdl><BZEUhC0
-R1
-w1502298593
-8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/instructionfetch/Instruction_Fetch.v
-F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/instructionfetch/Instruction_Fetch.v
-L0 1
-R2
-!s108 1502308634.211562
-!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/instructionfetch/Instruction_Fetch.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/instructionfetch/Instruction_Fetch.v|
+!s108 1502453584.139341
+!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/instructionfetch/Instruction_Fetch_v2.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/instructionfetch/Instruction_Fetch_v2.v|
 !i113 0
-R3
-n@instruction_@fetch
+R4
+n@instruction_@fetch_v2
 virdecode
 R0
-r1
-!s85 0
-31
 !i10b 1
-!s100 WQDLniU23=f5;eOn`HmAZ0
-In6B:hzlJn7]UYm;RN@U`V3
+!s100 ;J_EH`^GlCjE@MZ8CQz>J3
+I9Lg66_>mfkn65g60SaU_z2
 R1
-w1502344722
-8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/instructiondec/irdec.v
-F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/instructiondec/irdec.v
-F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/instructiondec/f_flageval.v
+R2
+w1502442131
+8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/instructiondec/irdec.v
+F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/instructiondec/irdec.v
+F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/instructiondec/f_flageval.v
 L0 6
-R2
-!s108 1502345546.264820
-!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/instructiondec/f_flageval.v|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/instructiondec/irdefines.v|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/instructiondec/irdec.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/instructiondec/irdec.v|
-!i113 0
 R3
-vmemory
-Z4 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
-R0
 r1
 !s85 0
 31
-!i10b 1
-!s100 An=R:H>h3K[onT5[DN1<;0
-I7Mod1_2AfVLkM;D1_ED[c2
-!s105 memory_sv_unit
-S1
-R1
-w1469008824
-8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/source/testbench/memory.sv
-F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/source/testbench/memory.sv
-L0 9
-R2
-!s108 1502308634.319939
-!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/source/testbench/memory.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/source/testbench/memory.sv|
+!s108 1502453584.063267
+!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/instructiondec/f_flageval.v|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/instructiondec/irdefines.v|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/instructiondec/irdec.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/instructiondec/irdec.v|
 !i113 0
-Z5 o-work work -sv -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-vmemory_control_fsm
-R0
-r1
-!s85 0
-31
-!i10b 1
-!s100 NU1Glo<5>cY>^blCGQ4lE1
-If4:1;D>1MhKD4U=QhNJgA2
-R1
-w1502116140
-8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/memcontroller/memory_control_fsm.v
-F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/memcontroller/memory_control_fsm.v
-Z6 L0 35
-R2
-!s108 1502308634.234204
-!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/memcontroller/memory_control_fsm.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/memcontroller/memory_control_fsm.v|
-!i113 0
-R3
-vmemory_interface
-R0
-r1
-!s85 0
-31
-!i10b 1
-!s100 5U1zC6=Lmj=E7@SG;c:`70
-I<BM:BU4HO]gO<4ZHFFNXz0
-R1
-w1502283360
-8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/memcontroller/memory_interface.v
-F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/memcontroller/memory_interface.v
-R6
-R2
-!s108 1502308634.256356
-!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/memcontroller/memory_interface.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/memcontroller/memory_interface.v|
-!i113 0
-R3
-vregister_file
-R0
-r1
-!s85 0
-31
-!i10b 1
-!s100 6:d2Ch;F81eWZg5l2_V]03
-IHbZ`DEmCEz=W=Gj;4[JD@2
-R1
-w1502281508
-8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/registerfile/register_file.v
-F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/registerfile/register_file.v
-L0 14
-R2
-!s108 1502308634.276940
-!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/registerfile/register_file.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/registerfile/register_file.v|
-!i113 0
-R3
-vtestbench_count32
 R4
+vmemory_interface_simple
 R0
+!i10b 1
+!s100 d9alQo0iI`GI>VzP3=6Yz2
+IEUZ0Y<f@WU4oP4D4G>azD3
+R1
+R2
+w1502440461
+8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/memory_simple/memory_interface_simple.v
+F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/memory_simple/memory_interface_simple.v
+Z5 L0 14
+R3
 r1
 !s85 0
 31
-!i10b 1
-!s100 ePAlYIN65kNh1[RQc_@<E2
-I:Dobz4M_78Rf1NYJc[>c=2
-!s105 testbench_count32_sv_unit
-S1
-R1
-w1502308301
-8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/source/testbench/testbench_count32.sv
-F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/source/testbench/testbench_count32.sv
-L0 9
-R2
-!s108 1502308634.341559
-!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/source/testbench/testbench_count32.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/source/testbench/testbench_count32.sv|
+!s108 1502453584.162231
+!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/memory_simple/memory_interface_simple.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/memory_simple/memory_interface_simple.v|
 !i113 0
-R5
-vtestbench_memcpy46
 R4
+vregister_file_v2
 R0
+!i10b 1
+!s100 MTe?W5Dg5TV[QLUNXZ`HK3
+IRnD0V[?:bej914V=:CZ2V0
+R1
+R2
+w1502425286
+8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/registerfile/register_file_v2.v
+F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/registerfile/register_file_v2.v
+R5
+R3
 r1
 !s85 0
 31
-!i10b 1
-!s100 Saig=4Q1NK_l6efEk_l<g3
-IohZE=mo9iBO[oT3b2]3=W0
-!s105 testbench_memcpy46_sv_unit
-S1
-R1
-w1502308403
-8/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/source/testbench/testbench_memcpy46.sv
-F/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/source/testbench/testbench_memcpy46.sv
-L0 9
-R2
-!s108 1502308634.362932
-!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/source/testbench/testbench_memcpy46.sv|
-!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/source/testbench/testbench_memcpy46.sv|
+!s108 1502453584.189571
+!s107 /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/registerfile/register_file_v2.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/registerfile/register_file_v2.v|
 !i113 0
-R5
+R4

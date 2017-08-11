@@ -11,7 +11,7 @@
 
 
 
-module register_file (
+module register_file_v2 (
 readA_sel,
 readB_sel,
 readC_sel,
@@ -64,32 +64,32 @@ localparam NONE   = 5'b11101;  // für synthese auf 5'b????? ändern
 localparam TMP1   = 5'b11110;
 localparam IMM    = 5'b11111; // immediate A can only be routed to out A, b only to output B
 
-input [4:0] readA_sel;
-input [4:0] readB_sel;
-input [4:0] readC_sel;
-input [4:0] readD_sel;
-input [4:0] write1_sel;
-input [4:0] write2_sel;
-input write1_en;
-input write2_en;
-input [WIDE-1:0] write1_in;
-input [WIDE-1:0] write2_in;
-input [WIDE-1:0] immediate1_in;
-input [WIDE-1:0] immediate2_in;
-input [WIDE-1:0] next_pc_in;
-input [3:0] next_cpsr_in;
-input [WIDE-1:0] next_sp_in;
-input next_pc_en;
-input clk;
-input reset;
+input wire [4:0] readA_sel;
+input wire [4:0] readB_sel;
+input wire [4:0] readC_sel;
+input wire [4:0] readD_sel;
+input wire [4:0] write1_sel;
+input wire [4:0] write2_sel;
+input wire write1_en;
+input wire write2_en;
+input wire [WIDE-1:0] write1_in;
+input wire [WIDE-1:0] write2_in;
+input wire [WIDE-1:0] immediate1_in;
+input wire [WIDE-1:0] immediate2_in;
+input wire [WIDE-1:0] next_pc_in;
+input wire [3:0] next_cpsr_in;
+input wire [WIDE-1:0] next_sp_in;
+input wire next_pc_en;
+input wire clk;
+input wire reset;
 
 output reg [WIDE-1:0] regA_out;
 output reg [WIDE-1:0] regB_out;
 output reg [WIDE-1:0] regC_out;
 output reg [WIDE-1:0] regD_out;
-output [WIDE-1:0] pc_out;
-output [3:0]      cpsr_out;
-output [WIDE-1:0] sp_out;
+output wire [WIDE-1:0] pc_out;
+output wire [3:0]      cpsr_out;
+output wire [WIDE-1:0] sp_out;
 
 
 
@@ -404,7 +404,7 @@ end
 // r13 = sp
 always @(*) begin
     if(reset)
-        spin= 32'b0000_0000_0000_0000_0001_1111_1111_1110;
+        spin= 32'b0000_0000_0000_0000_0001_1111_1111_1100;
     else if (write1_sel==SP && write1_en)
         spin = write1_in;
     else if (write2_sel==SP && write2_en)
@@ -437,10 +437,12 @@ assign pc_write_in     = (write1_en && write1_sel==PC) ? write1_in : write2_in;
 
 wire [WIDE-1:0] pc_write_in_plus_two;
 assign pc_write_in_plus_two = pc_write_in + 2;
+//assign pc_write_in_plus_two = pc_write_in;
 
 always @(*) begin
   if(reset)
     pcin = 32'b0000_0000_0000_0000_0000_0000_0000_0010;
+    //pcin = 32'b0000_0000_0000_0000_0000_0000_0000_0100;
   else
     pcin = pc_write_select ? pc_write_in_plus_two : pc_pc_in;
 end
