@@ -438,6 +438,6 @@ memory_control_fsm_v3 fsm (
   .direct_or_modified_address_sel(direct_or_modified_address_sel)
   );
 
-
+assign to_mem_mem_enable = fsm_mem_en;
 
 endmodule
