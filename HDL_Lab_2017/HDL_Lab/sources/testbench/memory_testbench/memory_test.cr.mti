@@ -1,9 +1,9 @@
-/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory_v3/memory_interface_v3.v {1 {vlog -work work -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory_v3/memory_interface_v3.v
+/home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv {1 {vlog -work mem_tb -vopt -sv -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
--- Compiling module memory_interface_v3
+-- Compiling module testbench
 
 Top level modules:
-	memory_interface_v3
+	testbench
 
 } {} {}} /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_interface.v {1 {vlog -work mem_tb -vopt -stats=none /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/memory_interface.v
 Model Technology ModelSim SE-64 vlog 10.3d Compiler 2014.10 Oct  6 2014
