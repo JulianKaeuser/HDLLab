@@ -354,13 +354,13 @@ always @(*) begin
     end // endcase byte
 
     HALFWORD: begin
-      r =  load || address[0];
-      w = !(load || address[0]);
+      r =  load | address[0];
+      w = !(load | address[0]) & store ;
     end // end case HALFWORD
 
     WORD: begin
-      r =  load || address[0];
-      w = !(load || address[0]);
+      r =  load | address[0];
+      w = !(load | address[0]) & store;
     end // end case WORD
   endcase
 end
