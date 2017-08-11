@@ -24,8 +24,8 @@ module memory_control_fsm_v3 (
   is_signed_buffer_sel,
   word_type_buffer_sel,
   from_mem_feedback_sel,
-  tomem_data_in_top8_feedback_sel,
-  tomem_data_in_low8_feedback_sel,
+  to_mem_data_in_top8_feedback_sel,
+  to_mem_data_in_low8_feedback_sel,
   from_cpu_low8_input_sel,
   from_cpu_top8_input_sel,
   l8_t8_buffer_sel,
@@ -86,8 +86,8 @@ module memory_control_fsm_v3 (
 
 // input selection in mem interface
   output reg from_mem_feedback_sel;
-  output reg tomem_data_in_top8_feedback_sel;
-  output reg tomem_data_in_low8_feedback_sel;
+  output reg to_mem_data_in_top8_feedback_sel;
+  output reg to_mem_data_in_low8_feedback_sel;
   output reg [2:0] from_cpu_low8_input_sel;
   output reg [2:0] from_cpu_top8_input_sel;
 
@@ -187,8 +187,8 @@ localparam DELAYED_L8  = 3'b100;
 localparam FEEDBACK_LOW8 = 1'b1;
 localparam FEEDBACK_TOP8 = 1'b0;
 
-// tomem_data_in_top8_feedback_sel;
-// tomem_data_in_low8_feedback_sel;
+// to_mem_data_in_top8_feedback_sel;
+// to_mem_data_in_low8_feedback_sel;
 localparam FEEDBACK_TO_MEM = 1'b1;
 localparam INPUT_TO_MEM    = 1'b0;
 
@@ -296,7 +296,7 @@ always @(*) begin
       nextstate = IDLE;
    end // end case LOAD WORD C
 
-   STORE BYTE_A: begin
+   STORE_BYTE_A: begin
      nextstate = STORE_BYTE_B;
    end // end case STORE BYTE A
 
@@ -319,7 +319,7 @@ always @(*) begin
    end // end case STORE_HW_C
 
    STORE_WORD_A: begin
-    nextstate = STORE_WORD_B
+    nextstate = STORE_WORD_B;
    end // end case STORE_WORD_A
 
    STORE_WORD_B: begin
@@ -383,8 +383,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = DC;
-         tomem_data_in_top8_feedback_sel = INPUT_TO_MEM;
-         tomem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
          from_cpu_low8_input_sel    = DIRECT_L8;
@@ -437,8 +437,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = DC;
-         tomem_data_in_top8_feedback_sel = INPUT_TO_MEM;
-         tomem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
          from_cpu_low8_input_sel    = DIRECT_L8;
@@ -491,8 +491,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = DC;
-         tomem_data_in_top8_feedback_sel = INPUT_TO_MEM;
-         tomem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
          from_cpu_low8_input_sel    = DIRECT_L8;
@@ -545,8 +545,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = DC;
-         tomem_data_in_top8_feedback_sel = INPUT_TO_MEM;
-         tomem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
          from_cpu_low8_input_sel    = DIRECT_L8;
@@ -599,8 +599,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = DC;
-         tomem_data_in_top8_feedback_sel = INPUT_TO_MEM;
-         tomem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
 
@@ -652,8 +652,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = DC;
-         tomem_data_in_top8_feedback_sel = INPUT_TO_MEM;
-         tomem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
          from_cpu_low8_input_sel    = DIRECT_L8;
@@ -706,8 +706,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = DC;
-         tomem_data_in_top8_feedback_sel = INPUT_TO_MEM;
-         tomem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
          from_cpu_low8_input_sel    = DIRECT_L8;
@@ -725,7 +725,7 @@ always @(*) begin
 
          // output assignment
          data_out_pre_L8_sel            = L8_DELAYED2_T8; // 2 bit
-         data_out_pre_ML8_sel           = ML8_DELAYED1_L8 // 3 bit
+         data_out_pre_ML8_sel           = ML8_DELAYED1_L8; // 3 bit
          data_out_pre_MT8_sel           = MT8_DELAYED1_T8; // 3 bit
          data_out_pre_T8_sel            = T8_DIRECT_L8; // 3 bit
 
@@ -760,8 +760,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = bit0_delayed1 ? FEEDBACK_LOW8   : FEEDBACK_TOP8;
-         tomem_data_in_top8_feedback_sel = bit0_delayed1 ? INPUT_TO_MEM    : FEEDBACK_TO_MEM;
-         tomem_data_in_low8_feedback_sel = bit0_delayed1 ? FEEDBACK_TO_MEM : INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = bit0_delayed1 ? INPUT_TO_MEM    : FEEDBACK_TO_MEM;
+         to_mem_data_in_low8_feedback_sel = bit0_delayed1 ? FEEDBACK_TO_MEM : INPUT_TO_MEM;
 
          // input selection
         from_cpu_low8_input_sel         = DELAYED_L8;
@@ -815,8 +815,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = DC;
-         tomem_data_in_top8_feedback_sel = INPUT_TO_MEM;
-         tomem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
          from_cpu_low8_input_sel    = DIRECT_L8;
@@ -834,7 +834,7 @@ always @(*) begin
 
          // output assignment
          data_out_pre_L8_sel            = DC2; // 2 bit
-         data_out_pre_ML8_sel           = DC3 // 3 bit
+         data_out_pre_ML8_sel           = DC3; // 3 bit
          data_out_pre_MT8_sel           = DC3; // 3 bit
          data_out_pre_T8_sel            = DC3; // 3 bit
 
@@ -869,8 +869,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = FEEDBACK_LOW8;
-         tomem_data_in_top8_feedback_sel = INPUT_TO_MEM;
-         tomem_data_in_low8_feedback_sel = bit0_delayed1 ? FEEDBACK_TO_MEM : INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_low8_feedback_sel = bit0_delayed1 ? FEEDBACK_TO_MEM : INPUT_TO_MEM;
 
          // input selection
          from_cpu_low8_input_sel    = DELAYED_L8;
@@ -922,8 +922,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = DC;
-         tomem_data_in_top8_feedback_sel = DC;
-         tomem_data_in_low8_feedback_sel = DC;
+         to_mem_data_in_top8_feedback_sel = DC;
+         to_mem_data_in_low8_feedback_sel = DC;
 
          // input selection
          from_cpu_low8_input_sel    = DC3;
@@ -936,7 +936,7 @@ always @(*) begin
          t8_mt8_buffer_sel          = BUFFER;
          t8_ml8_buffer_sel          = BUFFER;
          t8_l8_buffer_sel           = BUFFER;
-         end
+         
 
          // output assignment
          data_out_pre_L8_sel            = DC2; // 2 bit
@@ -975,8 +975,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = FEEDBACK_TOP8;
-         tomem_data_in_top8_feedback_sel = FEEDBACK_TO_MEM;
-         tomem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = FEEDBACK_TO_MEM;
+         to_mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
          from_cpu_low8_input_sel    = DELAYED_ML8;
@@ -1026,8 +1026,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = DC;
-         tomem_data_in_top8_feedback_sel = INPUT_TO_MEM;
-         tomem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
          from_cpu_low8_input_sel    = DIRECT_L8;
@@ -1081,8 +1081,8 @@ always @(*) begin
 
             // input selection feedback
             from_mem_feedback_sel          = FEEDBACK_LOW8;
-            tomem_data_in_top8_feedback_sel = INPUT_TO_MEM;
-            tomem_data_in_low8_feedback_sel = bit0_delayed1 ? FEEDBACK_TO_MEM : INPUT_TO_MEM;
+            to_mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+            to_mem_data_in_low8_feedback_sel = bit0_delayed1 ? FEEDBACK_TO_MEM : INPUT_TO_MEM;
 
             // input selection
             from_cpu_low8_input_sel    = DELAYED_L8;
@@ -1134,8 +1134,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = FEEDBACK_LOW8;
-         tomem_data_in_top8_feedback_sel = INPUT_TO_MEM;
-         tomem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
          from_cpu_low8_input_sel    = bit0_delayed2 ? DELAYED_ML8: DELAYED_MT8;
@@ -1187,8 +1187,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = FEEDBACK_LOW8;
-         tomem_data_in_top8_feedback_sel = INPUT_TO_MEM;
-         tomem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
          from_cpu_low8_input_sel    =  DC3;
@@ -1240,8 +1240,8 @@ always @(*) begin
 
          // input selection feedback
          from_mem_feedback_sel          = FEEDBACK_TOP8;
-         tomem_data_in_top8_feedback_sel = FEEDBACK_TOP8;
-         tomem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = FEEDBACK_TOP8;
+         to_mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
          from_cpu_low8_input_sel    =  DELAYED_T8;
@@ -1289,12 +1289,12 @@ always @(*) begin
 
          // status in buffering
          is_signed_buffer_sel           = UPDATE;
-         word_type_buffer_sel           = UPDATE;  
+         word_type_buffer_sel           = UPDATE;
 
          // input selection feedback
          from_mem_feedback_sel          = FEEDBACK_TOP8;
-         tomem_data_in_top8_feedback_sel = INPUT_TO_MEM;
-         tomem_data_in_low8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_top8_feedback_sel = INPUT_TO_MEM;
+         to_mem_data_in_low8_feedback_sel = INPUT_TO_MEM;
 
          // input selection
          from_cpu_low8_input_sel    =  DIRECT_L8;

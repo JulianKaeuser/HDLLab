@@ -239,16 +239,16 @@ assign from_mem_feedback = from_mem_feedback_sel ? from_mem_data_low8 : from_mem
 wire [7:0] tomem_data_in_top8;
 wire [7:0] tomem_data_in_low8;
 
-wire 2mem_data_in_top8_feedback_sel;
-wire 2mem_data_in_low8_feedback_sel;
+wire to_mem_data_in_top8_feedback_sel;
+wire to_mem_data_in_low8_feedback_sel;
 localparam FEEDBACK_TO_MEM = 1'b1;
 localparam INPUT_TO_MEM    = 1'b0;
 
 reg [7:0] from_cpu_low8_input;
 reg [7:0] from_cpu_top8_input;
 
-assign tomem_data_in_low8 = 2mem_data_in_low8_feedback_sel ? from_mem_feedback : from_cpu_low8_input;
-assign tomem_data_in_top8 = 2mem_data_in_top8_feedback_sel ? from_mem_feedback : from_cpu_top8_input;
+assign tomem_data_in_low8 = to_mem_data_in_low8_feedback_sel ? from_mem_feedback : from_cpu_low8_input;
+assign tomem_data_in_top8 = to_mem_data_in_top8_feedback_sel ? from_mem_feedback : from_cpu_top8_input;
 
 // 1st stage: select inputs
 
@@ -297,7 +297,7 @@ end
 
 // #### higher (top) 8 bits select
 
-wire [2:0] from_cpu_top8_input_sel
+wire [2:0] from_cpu_top8_input_sel;
 
 reg [7:0] t8_t8_buffer;
 reg [7:0] t8_mt8_buffer;
@@ -333,52 +333,6 @@ end
 // #################################################################################
 // and some related stuff
 
-memory_control_fsm fsm (
-  .clk(clk),
-  .reset(reset),
-  .load(load),
-  .store(store),
-  .word_type(word_type),
-  .word_type_buffered(word_type_buffer),
-  .is_signed(is_signed),
-  .is_signed_buffered(is_signed_buffer),
-  .bit0(address[0]),
-  .bit0_delayed1(bit0_delayed1),
-  .bit0_delayed2(bit0_delayed2),
-  .busy(busy),
-  .output_valid(output_valid),
-  .write_ready(write_ready),
-  .fsm_rd(fsm_rd),
-  .fsm_wr(fsm_wr),
-  .fsm_wr_en(fsm_wr_en),
-  .fsm_rd_en(fsm_rd_en),
-  .fsm_mem_en(fsm_mem_en),
-  .is_signed_buffer_sel(is_signed_buffer_sel),
-  .word_type_buffer_sel(word_type_buffer_sel),
-  .from_mem_feedback_sel(from_mem_feedback_sel),
-  .2mem_data_in_top8_feedback_sel(2mem_data_in_top8_feedback_sel),
-  .2mem_data_in_low8_feedback_sel(2mem_data_in_low8_feedback_sel),
-  .from_cpu_low8_input_sel(from_cpu_low8_input_sel),
-  .from_cpu_top8_input_sel(from_cpu_top8_input_sel),
-  .l8_t8_buffer_sel(l8_t8_buffer_sel),
-  .l8_mt8_buffer_sel(l8_mt8_buffer_sel),
-  .l8_ml8_buffer_sel(l8_ml8_buffer_sel),
-  .l8_l8_buffer_sel(l8_l8_buffer_sel),
-  .t8_t8_buffer_sel(t8_t8_buffer_sel),
-  .t8_mt8_buffer_sel(t8_mt8_buffer_sel),
-  .t8_ml8_buffer_sel(t8_ml8_buffer_sel),
-  .t8_l8_buffer_sel(t8_l8_buffer_sel),
-  .data_out_pre_L8_sel(data_out_pre_L8_sel),
-  .data_out_pre_ML8_sel(data_out_pre_ML8_sel),
-  .data_out_pre_MT8_sel(data_out_pre_MT8_sel),
-  .data_out_pre_T8_sel(data_out_pre_T8_sel),
-  .output_shuffle_sel(output_shuffle_sel),
-  .adder_summand_sel(adder_summand_sel),
-  .added_address_buffer_sel(added_address_buffer_sel),
-  .delayed_address_buffer_sel(delayed_address_buffer_sel),
-  .delayed_or_added_address_sel(delayed_or_added_address_sel),
-  .direct_or_modified_address_sel(direct_or_modified_address_sel)
-  );
 
 
 wire fsm_rd_en;
@@ -426,7 +380,7 @@ always @ (posedge clk) begin
   word_type_buffer <= word_type_buffer_sel ? word_type_buffer : word_type;
 end
 
-
+wire bit0;
 reg bit0_delayed1;
 reg bit0_delayed2;
 reg bit0_delayed3;
@@ -436,6 +390,54 @@ always @ (posedge clk) begin
   bit0_delayed2 <= bit0_delayed1;
   bit0_delayed3 <= bit0_delayed2;
 end
+
+memory_control_fsm_v3 fsm (
+  .clk(clk),
+  .reset(reset),
+  .load(load),
+  .store(store),
+  .word_type(word_type),
+  .word_type_buffered(word_type_buffer),
+  .is_signed(is_signed),
+  .is_signed_buffered(is_signed_buffer),
+  .bit0(address[0]),
+  .bit0_delayed1(bit0_delayed1),
+  .bit0_delayed2(bit0_delayed2),
+  .busy(busy),
+  .output_valid(output_valid),
+  .write_ready(write_ready),
+  .fsm_rd(fsm_rd),
+  .fsm_wr(fsm_wr),
+  .fsm_wr_en(fsm_wr_en),
+  .fsm_rd_en(fsm_rd_en),
+  .fsm_mem_en(fsm_mem_en),
+  .is_signed_buffer_sel(is_signed_buffer_sel),
+  .word_type_buffer_sel(word_type_buffer_sel),
+  .from_mem_feedback_sel(from_mem_feedback_sel),
+  .to_mem_data_in_top8_feedback_sel(to_mem_data_in_top8_feedback_sel),
+  .to_mem_data_in_low8_feedback_sel(to_mem_data_in_low8_feedback_sel),
+  .from_cpu_low8_input_sel(from_cpu_low8_input_sel),
+  .from_cpu_top8_input_sel(from_cpu_top8_input_sel),
+  .l8_t8_buffer_sel(l8_t8_buffer_sel),
+  .l8_mt8_buffer_sel(l8_mt8_buffer_sel),
+  .l8_ml8_buffer_sel(l8_ml8_buffer_sel),
+  .l8_l8_buffer_sel(l8_l8_buffer_sel),
+  .t8_t8_buffer_sel(t8_t8_buffer_sel),
+  .t8_mt8_buffer_sel(t8_mt8_buffer_sel),
+  .t8_ml8_buffer_sel(t8_ml8_buffer_sel),
+  .t8_l8_buffer_sel(t8_l8_buffer_sel),
+  .data_out_pre_L8_sel(data_out_pre_L8_sel),
+  .data_out_pre_ML8_sel(data_out_pre_ML8_sel),
+  .data_out_pre_MT8_sel(data_out_pre_MT8_sel),
+  .data_out_pre_T8_sel(data_out_pre_T8_sel),
+  .output_shuffle_sel(output_shuffle_sel),
+  .adder_summand_sel(adder_summand_sel),
+  .added_address_buffer_sel(added_address_buffer_sel),
+  .delayed_address_buffer_sel(delayed_address_buffer_sel),
+  .delayed_or_added_address_sel(delayed_or_added_address_sel),
+  .direct_or_modified_address_sel(direct_or_modified_address_sel)
+  );
+
 
 
 endmodule
