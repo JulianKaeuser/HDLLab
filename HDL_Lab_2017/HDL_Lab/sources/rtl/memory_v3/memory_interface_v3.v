@@ -249,7 +249,7 @@ reg [7:0] from_cpu_top8_input;
 
 assign tomem_data_in_low8 = to_mem_data_in_low8_feedback_sel ? from_mem_feedback : from_cpu_low8_input;
 assign tomem_data_in_top8 = to_mem_data_in_top8_feedback_sel ? from_mem_feedback : from_cpu_top8_input;
-
+assign to_mem_data = {tomem_data_in_top8, tomem_data_in_low8};
 // 1st stage: select inputs
 
 wire [2:0] from_cpu_low8_input_sel;
