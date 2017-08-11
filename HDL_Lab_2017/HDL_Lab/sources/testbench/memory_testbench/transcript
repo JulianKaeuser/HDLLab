@@ -1,0 +1,189 @@
+# //  ModelSim SE-64 10.3d Oct  6 2014 Linux 3.16.0-0.bpo.4-amd64
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading project memory_test
+# Compile of memory.sv was successful.
+# Compile of testbench.sv was successful.
+# Compile of memory_control_fsm.v was successful.
+# Compile of memory_interface.v was successful.
+# 4 compiles, 0 failed with no errors.
+vsim mem_tb.testbench
+# vsim 
+# Start time: 15:22:57 on Aug 07,2017
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading sv_std.std
+# Loading work.testbench(fast)
+# Loading work.memory_interface(fast)
+do wave.do
+# ** Error: (vish-4014) No objects found matching '/testbench/clk'.
+# Executing ONERROR command at macro ./wave.do line 3
+# ** Error: (vish-4014) No objects found matching '/testbench/rst'.
+# Executing ONERROR command at macro ./wave.do line 4
+# ** Error: (vish-4014) No objects found matching '/testbench/data_mem2cpu'.
+# Executing ONERROR command at macro ./wave.do line 6
+# ** Error: (vish-4014) No objects found matching '/testbench/load'.
+# Executing ONERROR command at macro ./wave.do line 11
+# ** Error: (vish-4014) No objects found matching '/testbench/store'.
+# Executing ONERROR command at macro ./wave.do line 12
+# ** Error: (vish-4014) No objects found matching '/testbench/is_signed'.
+# Executing ONERROR command at macro ./wave.do line 13
+# ** Error: (vish-4014) No objects found matching '/testbench/word_type'.
+# Executing ONERROR command at macro ./wave.do line 14
+# ** Error: (vish-4014) No objects found matching '/testbench/addr_input'.
+# Executing ONERROR command at macro ./wave.do line 15
+# ** Error: (vish-4014) No objects found matching '/testbench/data_input'.
+# Executing ONERROR command at macro ./wave.do line 16
+# ** Error: (vish-4014) No objects found matching '/testbench/mem_iface/fsm/state'.
+# Executing ONERROR command at macro ./wave.do line 18
+# ** Error: (vish-4014) No objects found matching '/testbench/mem_iface/fsm/nextstate'.
+# Executing ONERROR command at macro ./wave.do line 19
+# ** Error: (vish-4014) No objects found matching '/testbench/memory_i/en'.
+# Executing ONERROR command at macro ./wave.do line 20
+# ** Error: (vish-4014) No objects found matching '/testbench/memory_i/rd_en'.
+# Executing ONERROR command at macro ./wave.do line 21
+# ** Error: (vish-4014) No objects found matching '/testbench/memory_i/wr_en'.
+# Executing ONERROR command at macro ./wave.do line 22
+# ** Error: (vish-4014) No objects found matching '/testbench/memory_i/din'.
+# Executing ONERROR command at macro ./wave.do line 23
+# ** Error: (vish-4014) No objects found matching '/testbench/memory_i/dout'.
+# Executing ONERROR command at macro ./wave.do line 24
+# ** Error: (vish-4014) No objects found matching '/testbench/memory_i/addr'.
+# Executing ONERROR command at macro ./wave.do line 25
+run
+# ** Note: $stop    : /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv(309)
+#    Time: 41 ns  Iteration: 0  Instance: /testbench
+# Break at /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv line 309
+quit -sim
+vsim -novopt mem_tb.testbench
+# vsim 
+# Start time: 15:27:26 on Aug 07,2017
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Refreshing /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/mem_tb.testbench
+# Loading sv_std.std
+# Loading mem_tb.testbench
+# Refreshing /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/mem_tb.memory
+# Loading mem_tb.memory
+# Refreshing /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/mem_tb.memory_interface
+# Loading mem_tb.memory_interface
+# Refreshing /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/mem_tb.memory_control_fsm
+# Loading mem_tb.memory_control_fsm
+run
+# ** Note: $stop    : /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv(309)
+#    Time: 41 ns  Iteration: 0  Instance: /testbench
+# Break in Module testbench at /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv line 309
+do wave.do
+run
+restart -f
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading sv_std.std
+# Loading mem_tb.testbench
+# Loading mem_tb.memory
+run
+# ** Note: $stop    : /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv(309)
+#    Time: 41 ns  Iteration: 0  Instance: /testbench
+# Break in Module testbench at /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv line 309
+add wave -position end sim:/testbench/memory_i/*
+add wave -position end sim:/testbench/*
+add wave -position end  sim:/testbench/memory_i/ram
+restart -f
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading sv_std.std
+# Loading mem_tb.testbench
+# Loading mem_tb.memory
+run
+# ** Note: $stop    : /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv(309)
+#    Time: 41 ns  Iteration: 0  Instance: /testbench
+# Break in Module testbench at /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv line 309
+add wave -position 52  sim:/testbench/memory_i/din
+add wave -position 53  sim:/testbench/memory_i/addr
+add wave -position 54  sim:/testbench/memory_i/wr_en
+add wave -position 55  sim:/testbench/memory_i/rd_en
+add wave -position 56  sim:/testbench/memory_i/dout
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/wave.do
+quit -sim
+# Compile of memory.sv was successful.
+# Compile of testbench.sv failed with 1 errors.
+# Compile of memory_control_fsm.v was successful.
+# Compile of memory_interface.v was successful.
+# 4 compiles, 1 failed with 1 error.
+# Load canceled
+vsim -novopt mem_tb.testbench
+# vsim 
+# Start time: 15:41:09 on Aug 07,2017
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading sv_std.std
+# Loading mem_tb.testbench
+# Refreshing /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/mem_tb.memory
+# Loading mem_tb.memory
+# Refreshing /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/mem_tb.memory_interface
+# Loading mem_tb.memory_interface
+# Refreshing /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/mem_tb.memory_control_fsm
+# Loading mem_tb.memory_control_fsm
+do wave.do
+run
+# ** Note: $stop    : /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv(309)
+#    Time: 41 ns  Iteration: 0  Instance: /testbench
+# Break in Module testbench at /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv line 309
+# Compile of memory.sv was successful.
+# Compile of testbench.sv failed with 1 errors.
+# Compile of memory_control_fsm.v was successful.
+# Compile of memory_interface.v was successful.
+# 4 compiles, 1 failed with 1 error.
+# Load canceled
+restart -f
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading sv_std.std
+# Loading mem_tb.testbench
+# Refreshing /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/mem_tb.memory
+# Loading mem_tb.memory
+# Refreshing /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/mem_tb.memory_interface
+# Loading mem_tb.memory_interface
+# Refreshing /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/mem_tb.memory_control_fsm
+# Loading mem_tb.memory_control_fsm
+run
+# ** Note: $stop    : /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv(309)
+#    Time: 41 ns  Iteration: 0  Instance: /testbench
+# Break in Module testbench at /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv line 309
+quit -sim
+# Compile of testbench.sv was successful with warnings.
+# Compile of memory.sv was successful.
+# Compile of testbench.sv was successful with warnings.
+# Compile of memory_control_fsm.v was successful.
+# Compile of memory_interface.v was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -novopt mem_tb.testbench
+# vsim 
+# Start time: 15:44:30 on Aug 07,2017
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Refreshing /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/mem_tb.testbench
+# Loading sv_std.std
+# Loading mem_tb.testbench
+# Refreshing /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/mem_tb.memory
+# Loading mem_tb.memory
+# Refreshing /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/mem_tb.memory_interface
+# Loading mem_tb.memory_interface
+# Refreshing /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/mem_tb.memory_control_fsm
+# Loading mem_tb.memory_control_fsm
+run
+# ** Note: $stop    : /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv(309)
+#    Time: 41 ns  Iteration: 0  Instance: /testbench
+# Break in Module testbench at /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv line 309
+do wave.do
+run
+restart -f
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading sv_std.std
+# Loading mem_tb.testbench
+# Loading mem_tb.memory
+run
+# ** Note: $stop    : /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv(309)
+#    Time: 41 ns  Iteration: 0  Instance: /testbench
+# Break in Module testbench at /home/vhdlp22/Desktop/HDLLab_Git/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench.sv line 309
+# End time: 21:00:43 on Aug 09,2017, Elapsed time: 53:16:13
+# Errors: 0, Warnings: 2

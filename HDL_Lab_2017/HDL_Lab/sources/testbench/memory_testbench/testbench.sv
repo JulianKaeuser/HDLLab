@@ -196,7 +196,7 @@ word_type    = HALFWORD;
 #2;
 rst 				 = 0;
 data_input   = 32'h00000000;
-addr_input   = 12'heed;
+addr_input   = 12'h0011;
 load 				 = 1;
 store				 = 0;
 is_signed    = 1;
