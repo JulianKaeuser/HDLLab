@@ -82,12 +82,12 @@ reg [11:0] added_address_buffer_reg;
 
 always @(posedge clk) begin    // make buffers flipflops
     // assign buffers according to muxes
-    delayed_address_buffer_reg <= delayed_address_buffer_sel ? delayed_address_buffer_reg : address[12:1];
-    added_address_buffer_reg <= added_address_buffer_sel ? added_address_buffer_reg : address[12:1];
+    delayed_address_buffer_reg <= delayed_address_buffer_sel ? delayed_address_buffer_reg : {address[11:1],1'b0};
+    added_address_buffer_reg <= added_address_buffer_sel ? added_address_buffer_reg : {address[11:1],1'b0};
 end
 
 wire [11:0] modified_address;
-assign to_mem_address = direct_or_modified_address_sel ? address[12:1] : modified_address;
+assign to_mem_address = direct_or_modified_address_sel ? {address[11:1],1'b0} : modified_address;
 
 wire [11:0] added_address;
 assign modified_address = delayed_or_added_address_sel ? delayed_address_buffer_reg : added_address;
