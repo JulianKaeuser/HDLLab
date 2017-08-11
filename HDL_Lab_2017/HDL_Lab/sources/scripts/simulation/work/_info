@@ -1,0 +1,96 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS
+vmemory
+Z0 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+r1
+!s85 0
+31
+!i10b 1
+!s100 An=R:H>h3K[onT5[DN1<;0
+ILKS<b?K08=X4h[eND`9G@1
+!s105 memory_sv_unit
+S1
+Z2 d/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation
+w1501854282
+8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv
+F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv
+L0 9
+Z3 OL;L;10.3d;59
+Z4 !s108 1502439725.456239
+Z5 !s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench_simple.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory_simple/designs/memory_interface_simple_gl.v|
+Z6 !s90 -reportprogress|300|-work|work|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory_simple/designs/memory_interface_simple_gl.v|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench_simple.sv|
+!i113 0
+Z7 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vmemory_interface_simple
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 b[LYOf7HaRb][OhGVlW@E0
+I]`zVD6NDCmiHB9WVXkin@1
+R2
+w1502435490
+8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory_simple/designs/memory_interface_simple_gl.v
+F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory_simple/designs/memory_interface_simple_gl.v
+L0 2
+R3
+R4
+R5
+R6
+!i113 0
+R7
+vtestbench
+R0
+!s110 1502436530
+!i10b 1
+!s100 aF9CZ<dGR2mA`F7P7P75o0
+INOAYf1QF_DlFDPM4F3FdO3
+R1
+Z8 !s105 testbench_simple_sv_unit
+S1
+R2
+w1502436117
+Z9 8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench_simple.sv
+Z10 F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory_testbench/testbench_simple.sv
+Z11 L0 13
+R3
+r1
+!s85 0
+31
+!s108 1502436530.349281
+R5
+R6
+!i113 0
+R7
+vtestbench_simple
+R0
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 FMM9oMbR0NN@86=i6m]=72
+I4@QHXFf]U>[LC>JhS2PB>3
+R8
+S1
+R2
+w1502439720
+R9
+R10
+R11
+R3
+R4
+R5
+R6
+!i113 0
+R7

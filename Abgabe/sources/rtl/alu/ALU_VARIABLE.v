@@ -1,6 +1,6 @@
 `define BIT_SIZE 32
 
-module ALU_VARIABLE (input signed [`BIT_SIZE-1:0] a, b, input[3:0] op, input c_in, output reg signed [`BIT_SIZE-1:0] result, output reg c_out, z, n, v);
+module ALU_VARIABLE (input wire signed [`BIT_SIZE-1:0] a, b, input wire [3:0] op, input wire c_in, output reg signed [`BIT_SIZE-1:0] result, output reg c_out, z, n, v);
 
 
 	always @(a, b, c_in, op) begin

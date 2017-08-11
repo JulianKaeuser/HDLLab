@@ -7,30 +7,43 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-# Loading project cpu_test
+# Loading project rtl_sim
 vsim -novopt work.testbench_count32
 # vsim 
-# Start time: 22:11:01 on Aug 09,2017
+# Start time: 14:56:36 on Aug 11,2017
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.testbench_count32
 # Loading work.cpu
 # Loading work.irdecode
-# Loading work.register_file
+# Loading work.register_file_v2
 # Loading work.ALU_VARIABLE
-# Loading work.memory_interface
-# Loading work.memory_control_fsm
-# Loading work.Instruction_Fetch
+# Loading work.memory_interface_simple
+# Loading work.Instruction_Fetch_v2
 # Loading work.memory
-# ** Warning: (vsim-3015) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/cpu.v(178): [PCDPC] - Port size (16) does not match connection size (32) for port 'instruction'. The port definition is at: /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/instructiondec/irdec.v(9).
-#         Region: /testbench_count32/UUT/irdecode_inst1
-# ** Warning: (vsim-3017) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/cpu.v(335): [TFMPC] - Too few port connections. Expected 13, found 12.
-#         Region: /testbench_count32/UUT/Instruction_Fetch_inst1
-# ** Warning: (vsim-3015) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/cpu.v(335): [PCDPC] - Port size (16) does not match connection size (32) for port 'instruction_out'. The port definition is at: /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/instructionfetch/Instruction_Fetch.v(18).
-#         Region: /testbench_count32/UUT/Instruction_Fetch_inst1
-# ** Warning: (vsim-3722) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/Abgabe/sources/rtl/cpu.v(335): [TFMPC] - Missing connection for port 'finish_out'.
+# ** Warning: (vsim-3017) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/cpu.v(359): [TFMPC] - Too few port connections. Expected 13, found 12.
+#         Region: /testbench_count32/UUT/Instruction_Fetch_v2_inst1
+# ** Warning: (vsim-3722) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/cpu.v(359): [TFMPC] - Missing connection for port 'finish_out'.
 do wave_count32.do
 run 4us
-# Causality operation skipped due to absence of debug database file
-# End time: 22:28:31 on Aug 09,2017, Elapsed time: 0:17:30
-# Errors: 0, Warnings: 6
+quit -sim
+vsim -novopt work.testbench_memcpy46
+# vsim 
+# Start time: 15:06:23 on Aug 11,2017
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading sv_std.std
+# Loading work.testbench_memcpy46
+# Loading work.cpu
+# Loading work.irdecode
+# Loading work.register_file_v2
+# Loading work.ALU_VARIABLE
+# Loading work.memory_interface_simple
+# Loading work.Instruction_Fetch_v2
+# Loading work.memory
+# ** Warning: (vsim-3017) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/cpu.v(359): [TFMPC] - Too few port connections. Expected 13, found 12.
+#         Region: /testbench_memcpy46/UUT/Instruction_Fetch_v2_inst1
+# ** Warning: (vsim-3722) /home/Lukas/Dateien/Studium/Master/1. Semester/HDL Lab/github-repo/HDLLab/Abgabe/sources/rtl/cpu.v(359): [TFMPC] - Missing connection for port 'finish_out'.
+do wave_memcpy46.do
+run 4us
+run 4us
+run 2us

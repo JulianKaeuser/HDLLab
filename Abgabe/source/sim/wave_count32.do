@@ -83,6 +83,17 @@ radix define IF_STATE {
     "2'b11" "FINISHED    " -color "red",
     -default default
 }
+radix define IF_STATE_V3 {
+    "3'b000" "RESET       " -color "blue",
+    "3'b001" "WAIT_FOR_DEC" -color "orange",
+    "3'b010" "FETCH1      " -color "orange",
+    "3'b011" "FETCH2      " -color "orange",
+    "3'b000" "ILLEGAL     " -color "red",
+    "3'b001" "ILLEGAL     " -color "red",
+    "3'b010" "ILLEGAL     " -color "red",
+    "3'b111" "FINISHED    " -color "purple",
+    -default default
+}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate /testbench_count32/clock
 add wave -noupdate /testbench_count32/reset
@@ -90,29 +101,30 @@ add wave -noupdate /testbench_count32/MEM_MEMCTRL_from_mem_data
 add wave -noupdate /testbench_count32/MEMCTRL_MEM_to_mem_read_enable
 add wave -noupdate /testbench_count32/MEMCTRL_MEM_to_mem_write_enable
 add wave -noupdate /testbench_count32/MEMCTRL_MEM_to_mem_mem_enable
-add wave -noupdate /testbench_count32/MEMCTRL_MEM_to_mem_address
+add wave -noupdate -radix unsigned /testbench_count32/MEMCTRL_MEM_to_mem_address
 add wave -noupdate /testbench_count32/MEMCTRL_MEM_to_mem_data
 add wave -noupdate /testbench_count32/clock
-add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_inst1/stall_decoder_in
-add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_inst1/memory_output_valid
-add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_inst1/memory_output_valid
-add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_inst1/current_pc_in
-add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_inst1/instruction_in
-add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_inst1/memory_load_request
-add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_inst1/incremented_pc_write_enable
-add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_inst1/instruction_valid
-add wave -noupdate -expand -group Instruction_Fetch -radix decimal /testbench_count32/UUT/Instruction_Fetch_inst1/memory_address
-add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_inst1/incremented_pc_out
-add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_inst1/instruction_out
-add wave -noupdate -expand -group Instruction_Fetch -radix IF_STATE /testbench_count32/UUT/Instruction_Fetch_inst1/currentState
-add wave -noupdate -expand -group Instruction_Fetch -radix IF_STATE /testbench_count32/UUT/Instruction_Fetch_inst1/nextState
-add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_inst1/finish_out
+add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_v2_inst1/stall_decoder_in
+add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_v2_inst1/memory_output_valid
+add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_v2_inst1/memory_output_valid
+add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_v2_inst1/current_pc_in
+add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_v2_inst1/instruction_in
+add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_v2_inst1/memory_load_request
+add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_v2_inst1/incremented_pc_write_enable
+add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_v2_inst1/instruction_valid
+add wave -noupdate -expand -group Instruction_Fetch -radix decimal /testbench_count32/UUT/Instruction_Fetch_v2_inst1/memory_address
+add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_v2_inst1/incremented_pc_out
+add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_v2_inst1/instruction_out
+add wave -noupdate -expand -group Instruction_Fetch -radix IF_STATE /testbench_count32/UUT/Instruction_Fetch_v2_inst1/currentState
+add wave -noupdate -expand -group Instruction_Fetch -radix IF_STATE /testbench_count32/UUT/Instruction_Fetch_v2_inst1/nextState
+add wave -noupdate -expand -group Instruction_Fetch /testbench_count32/UUT/Instruction_Fetch_v2_inst1/finish_out
 add wave -noupdate /testbench_count32/clock
-add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/state
-add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/next_state
+add wave -noupdate -expand -group Instruction_Decoder -radix binary /testbench_count32/UUT/irdecode_inst1/state
+add wave -noupdate -expand -group Instruction_Decoder -radix binary /testbench_count32/UUT/irdecode_inst1/next_state
 add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/instruction
 add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/instruction_valid
 add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/stall_to_instructionfetch
+add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/split_instruction
 add wave -noupdate -expand -group Instruction_Decoder -radix binary /testbench_count32/UUT/irdecode_inst1/itstate
 add wave -noupdate -expand -group Instruction_Decoder -radix binary /testbench_count32/UUT/irdecode_inst1/step
 add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/exec_cond_true
@@ -127,11 +139,12 @@ add wave -noupdate -expand -group Instruction_Decoder -radix REG_SELECTION /test
 add wave -noupdate -expand -group Instruction_Decoder -radix decimal /testbench_count32/UUT/irdecode_inst1/offset_a
 add wave -noupdate -expand -group Instruction_Decoder -radix decimal /testbench_count32/UUT/irdecode_inst1/offset_b
 add wave -noupdate -expand -group Instruction_Decoder -radix ALU_OPCODE /testbench_count32/UUT/irdecode_inst1/alu_opcode
+add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/pc_mask_bit
 add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/update_flag_n
 add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/update_flag_z
 add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/update_flag_c
 add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/update_flag_v
-add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/alu_write_to_reg
+add wave -noupdate -expand -group Instruction_Decoder -radix REG_SELECTION /testbench_count32/UUT/irdecode_inst1/alu_write_to_reg
 add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/alu_write_to_reg_enable
 add wave -noupdate -expand -group Instruction_Decoder -radix REG_SELECTION /testbench_count32/UUT/irdecode_inst1/memory_write_to_reg
 add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/memory_write_to_reg_enable
@@ -142,50 +155,50 @@ add wave -noupdate -expand -group Instruction_Decoder -radix WIDTH /testbench_co
 add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/memorycontroller_sign_extend
 add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/memory_load_request
 add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/memory_store_request
-add wave -noupdate -expand -group Instruction_Decoder /testbench_count32/UUT/irdecode_inst1/split_instruction
 add wave -noupdate /testbench_count32/clock
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/r0
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/r1
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/r2
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/r3
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/r4
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/r5
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/r6
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/r7
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/r8
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/r9
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/r10
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/r11
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/r12
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/lr
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/sp
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/pc
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/cpsr
-add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_inst1/tmp1
-add wave -noupdate -expand -group Memory_Controller -radix unsigned /testbench_count32/UUT/memory_interface_inst1/address
-add wave -noupdate -expand -group Memory_Controller -radix decimal /testbench_count32/UUT/memory_interface_inst1/data_in
-add wave -noupdate -expand -group Memory_Controller /testbench_count32/UUT/memory_interface_inst1/load
-add wave -noupdate -expand -group Memory_Controller /testbench_count32/UUT/memory_interface_inst1/store
-add wave -noupdate -expand -group Memory_Controller /testbench_count32/UUT/memory_interface_inst1/is_signed
-add wave -noupdate -expand -group Memory_Controller /testbench_count32/UUT/memory_interface_inst1/word_type
-add wave -noupdate -expand -group Memory_Controller -radix decimal /testbench_count32/UUT/memory_interface_inst1/from_mem_data
-add wave -noupdate -expand -group Memory_Controller /testbench_count32/UUT/memory_interface_inst1/to_mem_read_enable
-add wave -noupdate -expand -group Memory_Controller /testbench_count32/UUT/memory_interface_inst1/to_mem_write_enable
-add wave -noupdate -expand -group Memory_Controller /testbench_count32/UUT/memory_interface_inst1/to_mem_mem_enable
-add wave -noupdate -expand -group Memory_Controller -radix decimal /testbench_count32/UUT/memory_interface_inst1/to_mem_address
-add wave -noupdate -expand -group Memory_Controller -radix decimal /testbench_count32/UUT/memory_interface_inst1/to_mem_data
-add wave -noupdate -expand -group Memory_Controller -radix binary /testbench_count32/UUT/memory_interface_inst1/data_out
-add wave -noupdate -expand -group Memory_Controller /testbench_count32/UUT/memory_interface_inst1/write_ready
-add wave -noupdate -expand -group Memory_Controller /testbench_count32/UUT/memory_interface_inst1/output_valid
-add wave -noupdate -expand -group Memory_Controller /testbench_count32/UUT/memory_interface_inst1/busy
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/r0
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/r1
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/r2
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/r3
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/r4
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/r5
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/r6
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/r7
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/r8
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/r9
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/r10
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/r11
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/r12
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/lr
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/sp
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/pc
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/cpsr
+add wave -noupdate -expand -group Registers -radix decimal /testbench_count32/UUT/register_file_v2_inst1/tmp1
+add wave -noupdate -expand -group Memory_Interface -radix binary /testbench_count32/UUT/memory_interface_simple_inst1/state
+add wave -noupdate -expand -group Memory_Interface -radix binary /testbench_count32/UUT/memory_interface_simple_inst1/next_state
+add wave -noupdate -expand -group Memory_Interface /testbench_count32/UUT/memory_interface_simple_inst1/interface_cpu_sign_extend
+add wave -noupdate -expand -group Memory_Interface -radix WIDTH /testbench_count32/UUT/memory_interface_simple_inst1/interface_cpu_word_type
+add wave -noupdate -expand -group Memory_Interface /testbench_count32/UUT/memory_interface_simple_inst1/interface_cpu_load_request
+add wave -noupdate -expand -group Memory_Interface /testbench_count32/UUT/memory_interface_simple_inst1/interface_cpu_store_request
+add wave -noupdate -expand -group Memory_Interface -radix unsigned /testbench_count32/UUT/memory_interface_simple_inst1/interface_cpu_address_in
+add wave -noupdate -expand -group Memory_Interface -radix decimal /testbench_count32/UUT/memory_interface_simple_inst1/interface_cpu_data_in
+add wave -noupdate -expand -group Memory_Interface -radix decimal /testbench_count32/UUT/memory_interface_simple_inst1/from_mem_data_out
+add wave -noupdate -expand -group Memory_Interface /testbench_count32/UUT/memory_interface_simple_inst1/interface_cpu_read_finished
+add wave -noupdate -expand -group Memory_Interface /testbench_count32/UUT/memory_interface_simple_inst1/interface_cpu_write_finished
+add wave -noupdate -expand -group Memory_Interface -radix decimal /testbench_count32/UUT/memory_interface_simple_inst1/interface_cpu_data_out
+add wave -noupdate -expand -group Memory_Interface -radix unsigned /testbench_count32/UUT/memory_interface_simple_inst1/to_mem_address
+add wave -noupdate -expand -group Memory_Interface -radix decimal /testbench_count32/UUT/memory_interface_simple_inst1/to_mem_data_in
+add wave -noupdate -expand -group Memory_Interface /testbench_count32/UUT/memory_interface_simple_inst1/to_mem_read_enable
+add wave -noupdate -expand -group Memory_Interface /testbench_count32/UUT/memory_interface_simple_inst1/to_mem_write_enable
+add wave -noupdate -expand -group Memory_Interface /testbench_count32/UUT/memory_interface_simple_inst1/to_mem_enable
 add wave -noupdate /testbench_count32/memory_i/ram
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {97742 ps} 0}
+WaveRestoreCursors {{Cursor 1} {87596 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 448
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
-configure wave -signalnamewidth 0
+configure wave -signalnamewidth 1
 configure wave -snapdistance 10
 configure wave -datasetprefix 0
 configure wave -rowmargin 4
@@ -196,4 +209,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {23872 ps}
+WaveRestoreZoom {0 ps} {21673 ps}
