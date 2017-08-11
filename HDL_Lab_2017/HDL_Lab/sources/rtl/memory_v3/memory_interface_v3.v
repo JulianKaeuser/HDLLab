@@ -82,12 +82,12 @@ reg [11:0] added_address_buffer_reg;
 
 always @(posedge clk) begin    // make buffers flipflops
     // assign buffers according to muxes
-    delayed_address_buffer_reg <= delayed_address_buffer_sel ? delayed_address_buffer_reg : address[12:1];
-    added_address_buffer_reg <= added_address_buffer_sel ? added_address_buffer_reg : address[12:1];
+    delayed_address_buffer_reg <= delayed_address_buffer_sel ? delayed_address_buffer_reg : {address[11:1],1'b0};
+    added_address_buffer_reg <= added_address_buffer_sel ? added_address_buffer_reg : {address[11:1],1'b0};
 end
 
 wire [11:0] modified_address;
-assign to_mem_address = direct_or_modified_address_sel ? address[12:1] : modified_address;
+assign to_mem_address = direct_or_modified_address_sel ? {address[11:1],1'b0} : modified_address;
 
 wire [11:0] added_address;
 assign modified_address = delayed_or_added_address_sel ? delayed_address_buffer_reg : added_address;
@@ -210,11 +210,11 @@ assign sign_hw_t8_extension = data_out_pre[15] ? 8'hff : 8'h00;
 
 always @(*) begin
     case (data_out_pre_T8_sel)
-      T8_ZERO:        data_out_pre[23:16] = 8'h00;
-      T8_SIGN_HW:     data_out_pre[23:16] = sign_hw_t8_extension;
-      T8_DELAYED1_T8: data_out_pre[23:16] = top8_buffer1cycle;
-      T8_DIRECT_L8: data_out_pre[23:16] = low8_buffer1cycle;
-      T8_SIGN_BYTE:   data_out_pre[23:16] = sign_byte_t8_extension;
+      T8_ZERO:        data_out_pre[31:24] = 8'h00;
+      T8_SIGN_HW:     data_out_pre[31:24] = sign_hw_t8_extension;
+      T8_DELAYED1_T8: data_out_pre[31:24] = top8_buffer1cycle;
+      T8_DIRECT_L8: data_out_pre[31:24] = low8_buffer1cycle;
+      T8_SIGN_BYTE:   data_out_pre[31:24] = sign_byte_t8_extension;
     endcase
 end
 
@@ -239,17 +239,17 @@ assign from_mem_feedback = from_mem_feedback_sel ? from_mem_data_low8 : from_mem
 wire [7:0] tomem_data_in_top8;
 wire [7:0] tomem_data_in_low8;
 
-wire 2mem_data_in_top8_feedback_sel;
-wire 2mem_data_in_low8_feedback_sel;
+wire to_mem_data_in_top8_feedback_sel;
+wire to_mem_data_in_low8_feedback_sel;
 localparam FEEDBACK_TO_MEM = 1'b1;
 localparam INPUT_TO_MEM    = 1'b0;
 
 reg [7:0] from_cpu_low8_input;
 reg [7:0] from_cpu_top8_input;
 
-assign tomem_data_in_low8 = 2mem_data_in_low8_feedback_sel ? from_mem_feedback : from_cpu_low8_input;
-assign tomem_data_in_top8 = 2mem_data_in_top8_feedback_sel ? from_mem_feedback : from_cpu_top8_input;
-
+assign tomem_data_in_low8 = to_mem_data_in_low8_feedback_sel ? from_mem_feedback : from_cpu_low8_input;
+assign tomem_data_in_top8 = to_mem_data_in_top8_feedback_sel ? from_mem_feedback : from_cpu_top8_input;
+assign to_mem_data = {tomem_data_in_top8, tomem_data_in_low8};
 // 1st stage: select inputs
 
 wire [2:0] from_cpu_low8_input_sel;
@@ -297,7 +297,7 @@ end
 
 // #### higher (top) 8 bits select
 
-wire [2:0] from_cpu_top8_input_sel
+wire [2:0] from_cpu_top8_input_sel;
 
 reg [7:0] t8_t8_buffer;
 reg [7:0] t8_mt8_buffer;
@@ -333,7 +333,66 @@ end
 // #################################################################################
 // and some related stuff
 
-memory_control_fsm fsm (
+
+
+wire fsm_rd_en;
+wire fsm_rd;
+wire fsm_wr_en;
+wire fsm_wr;
+wire fsm_mem_en;
+
+// dependency of load/store/read/write
+reg w;
+reg r;
+wire word_dep;
+
+always @(*) begin
+  case (word_type)
+    BYTE: begin
+      r = 1'b1;
+      w = 1'b0;
+    end // endcase byte
+
+    HALFWORD: begin
+      r =  load | address[0];
+      w = !(load | address[0]) & store ;
+    end // end case HALFWORD
+
+    WORD: begin
+      r =  load | address[0];
+      w = !(load | address[0]) & store;
+    end // end case WORD
+  endcase
+end
+
+assign to_mem_read_enable  = fsm_rd_en ? fsm_rd : r;
+assign to_mem_write_enable = fsm_wr_en ? fsm_wr : w;
+
+// buffering of signals
+reg is_signed_buffer;
+wire is_signed_buffer_sel;
+
+reg [1:0] word_type_buffer;
+wire word_type_buffer_sel;
+
+always @ (posedge clk) begin
+  is_signed_buffer <= is_signed_buffer_sel ? is_signed_buffer : is_signed;
+  word_type_buffer <= word_type_buffer_sel ? word_type_buffer : word_type;
+end
+
+wire bit0;
+assign bit0 = address[0];
+reg bit0_delayed1;
+reg bit0_delayed2;
+reg bit0_delayed3;
+// delay bit0 signal
+always @ (posedge clk) begin
+  bit0_delayed1 <= bit0;
+  bit0_delayed2 <= bit0_delayed1;
+  bit0_delayed3 <= bit0_delayed2;
+end
+
+memory_control_fsm_v3 fsm (
   .clk(clk),
   .reset(reset),
   .load(load),
@@ -356,8 +415,8 @@ memory_control_fsm fsm (
   .is_signed_buffer_sel(is_signed_buffer_sel),
   .word_type_buffer_sel(word_type_buffer_sel),
   .from_mem_feedback_sel(from_mem_feedback_sel),
-  .2mem_data_in_top8_feedback_sel(2mem_data_in_top8_feedback_sel),
-  .2mem_data_in_low8_feedback_sel(2mem_data_in_low8_feedback_sel),
+  .to_mem_data_in_top8_feedback_sel(to_mem_data_in_top8_feedback_sel),
+  .to_mem_data_in_low8_feedback_sel(to_mem_data_in_low8_feedback_sel),
   .from_cpu_low8_input_sel(from_cpu_low8_input_sel),
   .from_cpu_top8_input_sel(from_cpu_top8_input_sel),
   .l8_t8_buffer_sel(l8_t8_buffer_sel),
@@ -380,62 +439,6 @@ memory_control_fsm fsm (
   .direct_or_modified_address_sel(direct_or_modified_address_sel)
   );
 
-
-wire fsm_rd_en;
-wire fsm_rd;
-wire fsm_wr_en;
-wire fsm_wr;
-wire fsm_mem_en;
-
-// dependency of load/store/read/write
-reg w;
-reg r;
-wire word_dep;
-
-always @(*) begin
-  case (word_type)
-    BYTE: begin
-      r = 1'b1;
-      w = 1'b0;
-    end // endcase byte
-
-    HALFWORD: begin
-      r =  load || address[0];
-      w = !(load || address[0]);
-    end // end case HALFWORD
-
-    WORD: begin
-      r =  load || address[0];
-      w = !(load || address[0]);
-    end // end case WORD
-  endcase
-end
-
-assign to_mem_read_enable  = fsm_rd_en ? fsm_rd : r;
-assign to_mem_write_enable = fsm_wr_en ? fsm_wr : w;
-
-// buffering of signals
-reg is_signed_buffer;
-wire is_signed_buffer_sel;
-
-reg [1:0] word_type_buffer;
-wire word_type_buffer_sel;
-
-always @ (posedge clk) begin
-  is_signed_buffer <= is_signed_buffer_sel ? is_signed_buffer : is_signed;
-  word_type_buffer <= word_type_buffer_sel ? word_type_buffer : word_type;
-end
-
-
-reg bit0_delayed1;
-reg bit0_delayed2;
-reg bit0_delayed3;
-// delay bit0 signal
-always @ (posedge clk) begin
-  bit0_delayed1 <= bit0;
-  bit0_delayed2 <= bit0_delayed1;
-  bit0_delayed3 <= bit0_delayed2;
-end
-
+assign to_mem_mem_enable = fsm_mem_en;
 
 endmodule
