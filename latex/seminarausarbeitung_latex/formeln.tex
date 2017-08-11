@@ -1,0 +1,70 @@
+\chapter{Formeln in Latex}
+\label{cha:formeln}
+
+
+Im Prinzip ist die Syntax relativ einfach aufgebaut. Wenn man eine Formel in LaTeX eingeben möchte, muss eine entsprechende Umgebung gewählt werden. Die bekanntesten sind math und displaymath. 
+\begin{itemize}
+\item displaymath setzt die Formel ab und zentriert sie 
+\item math baut die Formel mehr in den Text ein.
+\end{itemize}
+
+Eingeleitet wird eine solche Umgebung durch {\textbackslash begin} also z.B. {\textbackslash begin\{displaymath\}} und durch {\textbackslash end} beendet. Anhand folgenden Beispiels  lässt sich zeigen wie ein Bruch aufbaut und dargestellt wird. \\
+\\
+Mit den Befehlen,\\
+\\
+\textbackslash begin\{math\}\\
+\textbackslash frac\{1\}\{2\}  \\
+\textbackslash end\{math\}\\
+\\
+wird der Bruch 
+\begin{math} 
+\frac{1}{2} 
+\end{math} 
+mitten im Text erscheinen. Gibt man die Befehle,\\
+\\
+\textbackslash begin\{displaymath\}\\
+\textbackslash frac\{1\}\{2\}  \\
+\textbackslash end\{displaymath\}\\
+\\
+erscheint der Bruch zentriert als separate Formel, nämlich,
+\begin{displaymath} 
+\frac{1}{2} 
+\end{displaymath} 
+ 
+
+Andere Konstruktionselemente lassen sich besser an konkreten Formeln darstellen. Daher hier einige bekannte Formel aus Naturwissenschaft und Statistik.
+	
+\vspace{1cm} 
+Formel für das arithmetische Mittel einer Stichprobe: 
+\begin{displaymath} 
+\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i 
+\end{displaymath} 
+Formel für die Varianz einer Stichprobe: 
+\begin{displaymath} 
+s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x}) 
+\end{displaymath} 
+Formel für die Standardabweichung: 
+\begin{displaymath} 
+s = \sqrt{s^2} = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2} 
+\end{displaymath} 
+oder: 
+\begin{displaymath} 
+= \sqrt{\frac{ \sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}} 
+\end{displaymath} 
+Geometrisches Mittel: 
+\begin{displaymath} 
+G = \sqrt[n]{ \prod^n_{i=1} x_i} 
+\end{displaymath} 
+Binomialkoeffizient: 
+\begin{displaymath} 
+{n \choose k} = \frac{ n! }{ k! (n-k) !} 
+\end{displaymath} 
+Zeitunabhängige dreidimensionale Schrödingergleichung: 
+\begin{displaymath} 
+\frac{\partial^2 \psi}{\partial x ^2} + \frac{\partial^2 \psi}{\partial y ^2} + \frac{\partial^2 \psi}{\partial z ^2} = - \frac{2m}{\hbar^2}(E -U)\psi. 
+\end{displaymath} 
+Faradaysches Induktionsgesetz: 
+\begin{displaymath} 
+\oint \bf{E} \cdot ds = -\int \frac{\partial \mathcal{B}}{\partial t} \cdot \bf{A} 
+\end{displaymath} 
+

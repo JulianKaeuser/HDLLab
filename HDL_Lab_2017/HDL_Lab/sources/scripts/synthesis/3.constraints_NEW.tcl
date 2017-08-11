@@ -1,3 +1,3 @@
-create_clock -name "CLOCK" -period 0.5 { clk }
+create_clock -name "CLOCK" -period 0.7 { clock }
 
 # period in ns

@@ -1,0 +1,9 @@
+\BOOKMARK [1][-]{section.1}{Overview}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Pipeline Stages}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Control}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Memory Access}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{ALU and Flags}{section.1}% 5
+\BOOKMARK [2][-]{subsection.1.5}{Instruction Decoder}{section.1}% 6
+\BOOKMARK [2][-]{subsection.1.6}{Register File}{section.1}% 7
+\BOOKMARK [2][-]{subsection.1.7}{Instruction Fetch}{section.1}% 8
+\BOOKMARK [1][-]{section.2}{Performance}{}% 9

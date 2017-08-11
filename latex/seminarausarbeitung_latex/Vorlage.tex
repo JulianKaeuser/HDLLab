@@ -1,0 +1,86 @@
+\documentclass[parskip,
+							 oneside,
+% 							 longdoc,
+							 11pt,
+							 noheadingspace,
+							 accentcolor=tud1d,
+							 bigchapter,
+							 %draft,
+							 enabledeprecatedfontcommands,
+							 colorback]{tudexercise}
+
+
+%% Spracheinstellungen
+\usepackage[ngerman]{babel}
+%\usepackage[applemac]{inputenc} % Input-Encodung: applemac fuer Mac
+%\IfFileExists{latin1.sty}{\usepackage{latin1}}{\usepackage{isolatin1}}
+%\usepackage[latin1]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}  % Input-Encodung: ansinew fuer Windows
+\usepackage{microtype} % optischer Randausgleich bei pdflatex mit Zeichendehnung
+
+%% Grafikeinstellungen
+\usepackage{float} % u.a. genaue Plazierung von Gleitobjekten mit H
+%\usepackage[latin1]{inputenc}
+
+
+%% Tabelleneinstellungen
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{tabularx}
+
+%% State Chart
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+
+%% Mathematik
+\usepackage{amsmath}
+\usepackage{nicefrac}
+\usepackage{icomma}
+
+%% sonstige Einstellungen
+\usepackage{paralist}% erweiterte Listenumgebung (z.B. compactitem)
+\usepackage{textcomp} % verschiedene Symbole
+\usepackage[nottoc, numbib]{tocbibind}
+\usepackage{hyperref}
+\renewcommand\plparsep{1ex}
+\usepackage{enumerate}
+
+
+\title{\textbf{Hardware Design Lab 2017}\\
+\textbf{Short Report}}
+\subtitle{Group 6: Lukas Boland, Sven Str\"oher, Ana Carolina Ferreira, Julian K\"auser}
+\subsubtitle{Supervisor: M.Sc. Sarath Kundumattathil Mohanan, M.Sc.
+\\
+			 Start: 08/01/2017 \textbar\ Submission: 08/11/2017\\
+			 Institute of Computer Engineering \textbar\   Integrated Electronic Systems Lab \\  Prof.\,Dr.-Ing.\, Klaus Hofmann}
+\setinstitutionlogo{images/logo.png}
+% \institution{Institut f\"ur Datentechnik\hfill\textbar\hfill Fachgebiet Rechnersysteme\hfill\textbar\hfill Prof.\,Dr.-Ing.\, Hans Eveking}
+%\settitlepicture{images/spartan}
+\begin{document}
+
+%% Titel %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+%\cleardoublepage
+
+%% Vorgeplnkel %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\pagestyle{empty}
+%\pagenumbering{roman}
+
+
+%% Hauptteil %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{headings}
+\pagenumbering{arabic}
+\include{General}
+
+%% Anhang %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\appendix
+\bibliographystyle{plain}
+%\clearpage
+% \nocite{*}
+\bibliography{literaturverzeichnis}
+
+
+\end{document}

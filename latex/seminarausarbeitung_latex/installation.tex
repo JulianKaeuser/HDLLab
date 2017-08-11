@@ -1,0 +1,272 @@
+\chapter{Installation von Latex}
+\label{cha:installation}
+
+Um LaTeX verwenden zu können braucht man das ``Satzprogramm'' an sich und einen Editor um den Quellcode zu erstellen. Das Satzprogramm nennt sich unter Windows MiKTeX, unter Linux heißt die Tex-Distribution TeX Live (Nachfolger von teTeX). Als Editor genügt an sich das Notepad, mehr Komfort wie Syntaxhighlighting bieten Editoren wie z.B. xEMACS, TeXnicCenter und Winedt.  
+
+\section{Wie beschaffe ich mir LaTeX?}
+Da die meisten Latex-Distributionen Freeware sind kann die Software ohne Probleme aus dem Internet geladen werden. 
+
+\subsection{tudfonts und tuddesign}
+
+Im Hauptordner dieser Vorlage befinden sich zwei Zip-Dateien. Diese Dateien beinhalten die ``Fonts'' und das ``Design'' der TU-Darmstadt und sind sehr wichtig für die Formatierung dieser Arbeit. Um die Fonts und das Design der TU richtig zu setzten, müssen die Schritte unter dem nächsten Unterkapitel \ref{sec:TUDesign} genau befolgt werden. Es ist darauf zu achten dass eine falsche Installation zu Fehlermeldungen in Latex bzw. zu einer falschen Formatierung führen kann.
+\\
+Nach einer erfolgreichen Installation von Latex und der TU-Fonts sollte die Dokumentation ohne Probleme in Latex geöffnet werden können. Da die Beispielbilder in dieser Vorlage in .pdf und .jpg vorliegen, muss im Menü von Latex unter ``Setzen'' , die Option ``\textbf{Pdftex}'' gewählt werden.
+
+\section{Installation des TUD-Design}
+\label{sec:TUDesign}
+
+Im folgenden werden die Installationsanleitungen für die verschiedenen Betriebssysteme gründlich erläutert. Befolgen Sie bitte die Schritte so genau wie möglich.\\{\footnotesize *Dieses Kapitel wurde komplett aus der TU-Homepage übernommen}
+
+\subsection{WinXP / MiKTeX}
+
+Die vorliegende Anleitung wurde mit MikTeX 2.7 unter Windows XP sowie Vista getestet. Über ältere MikTeX-Versionen kann ich derzeit keine Aussage treffen, ich hatte allerdings unter der Version 2.5 Fehlermeldungen. Es ist daher zu empfehlen, die aktuelle Version zu installieren.
+
+\paragraph{Installation}
+
+
+%\renewcommand{\labelenumii}{\arabic{enumi}. (\alph{enumii})}
+
+\begin{enumerate}
+\item In einen beliebigen Ordner die Zip-Dateien mit den Schriftarten (tudfonts-tex\_current.zip)  und dem TUD-Design (latex-tuddesign\_current.zip) herunter laden und entpacken.
+
+\item Den Ordner texmf\textbackslash fonts\textbackslash map\textbackslash dvipdfm inklusive seines Inhalts löschen.
+
+\item Kopieren der Unterverzeichnisse von texmf in den MikTeX-Ordner.
+(i. d. R. C: / Programme/MikTex 2.7 oder C:/ Program Files/ MikTex 2.7).\\
+Das Verzeichnis updmap.d wird nicht benötigt.
+
+\item Eine Konsole öffnen (z. B. mit der Eingabe von cmd unter Ausführen im Startmenü)
+
+\item Auf der Konsole erst den Befehl\\
+\\
+\texttt{cd \%PROGRAMFILES\% /MikTex 2.7}\\
+\\
+und dann den Befehl\\
+\\
+\texttt{texhash}\\
+\\
+ausführen.
+
+\item Dannach den Befehl\\
+\\
+\texttt{initexmf --edit-config-file updmap}
+\\
+\\ausführen.
+
+\item Folgende Zeilen in die sich öffnende Datei einfügen und speichern:\\
+\\
+\texttt{Map 5ch.map}\\
+\texttt{Map 5fp.map}\\
+\texttt{Map 5sf.map}\\
+\\
+(Entspricht dem Inhalt der Datei updmap.d/20tex-tudfonts.cfg.)
+
+\item Zuletzt den Befehl\\
+\\
+\texttt{initexmf --mkmaps}\\
+\\
+ausführen.
+\\
+\\Danach sollte alles funktionieren. Happy Working! :-)
+
+\end{enumerate}
+
+\paragraph {Kontrollmöglichkeit für die Schriftarten}
+
+Sollte es zu Problemen mit den Schriftarten kommen, empfiehlt sich ein Blick in die Datei psfonts.map, die man unter
+C: /Dokumente und Einstellungen/All Users/Anwendungsdaten/MiKTeX/2.7/dvips/config
+findet. In ihr sollten folgende Einträge, i. d. R. in den ersten Zeilen zu finden sein:
+
+\texttt{5chb8r Charter-Bold "TeXBase1Encoding ReEncodeFont" <8r.enc <5chb8a.pfb} \\
+\texttt{5chbo8r Charter-Bold "TeXBase1Encoding ReEncodeFont 0.167 SlantFont" <8r.enc <5chb8a.pfb}\\
+\texttt{5chr8r Charter "TeXBase1Encoding ReEncodeFont" <8r.enc <5chr8a.pfb}\\
+\texttt{5chri8r Charter-Italic "TeXBase1Encoding ReEncodeFont" <8r.enc <5chri8a.pfb}\\
+\texttt{5chro8r Charter "TeXBase1Encoding ReEncodeFont 0.167 SlantFont" <8r.enc <5chr8a.pfb}\\
+\texttt{5fpm8r FrontPageMedium "TeXBase1Encoding ReEncodeFont" <8r.enc <5fpm8a.pfb}\\
+\texttt{5fpmo8r FrontPageMedium "TeXBase1Encoding ReEncodeFont 0.167 SlantFont" <8r.enc <5fpm8a.pfb}\\
+\texttt{5fpr8r FrontPage "TeXBase1Encoding ReEncodeFont" <8r.enc <5fpr8a.pfb}\\
+\texttt{5fpro8r FrontPage "TeXBase1Encoding ReEncodeFont 0.167 SlantFont" <8r.enc <5fpr8a.pfb}\\
+\texttt{5sfr8r Stafford "TeXBase1Encoding ReEncodeFont" <8r.enc <5sfr8a.pfb}\\
+\texttt{5sfro8r Stafford "TeXBase1Encoding ReEncodeFont 0.167 SlantFont" <8r.enc <5sfr8a.pfb}\\
+\\
+Ist dies nicht der Fall oder stehen dort zwar die TU Schriftarten, aber mit wesentlich kürzeren Einträgen, so ist zu überprüfen ob das Verzeichniss texm/fonts/map/dvipdfm/tex-tudfonts existiert. Es sollte nicht vorhanden bzw. leer sein.
+
+\subsection{Apple OS-X}
+
+Um LaTeX-Dokumente im TUD Design auf einem Apple-Rechner zu erstellen ist die LaTeX-Distribution TeXLive zu empfehlen. Diese lässt sich entweder bei der TUG (http://www.tug.org/mactex/) herunterladen und installieren oder per MacPorts (http://www.macports.org/) hinzufügen. Hier wird die zweite Möglichkeit beschrieben, erstere sollte aber analog funktionieren.  An dieser Stelle empfiehlt sich die LaTeX-Distribution manuell zu laden und installieren da die Datei über die MacPorts von der Grösse her kleiner ist als in die Datei unter www.tug.org/mactex/.
+Nach erfolgreicher Installation von MacPorts öffne man Terminal.app (zu finden unter /Programme/Dienstprogramme bzw. /Applications/Utilities). Hier sind nun die folgenden Befehle einzugeben:\\
+\\
+\texttt{\$ sudo port selfupdate}\\
+\texttt{\$ sudo port -d install texlive\_texmf-full}\\
+\\
+Nachdem die Installation von TeXLive und dessen Abhängigkeiten abgeschlossen ist lege man die gepackten Schriften (tudfonts-tex\_current.zip) sowie das eigentliche TUDDesign (latex-tuddesign\_current.zip) direkt im Stammverzeichnis des eigenen Benutzers ab. In Terminal.app sind anschlie§end folgende Befehle abzusetzen:\\
+\\
+\texttt{\$ unzip latex-tuddesign\_current.zip -d ~/ Library/}\\
+\texttt{\$ unzip tudfonts-tex\_current.zip -d ~/ Library/}\\
+\\
+Dies resultiert in einem neuen ~/Library/texmf Verzeichnis, in dem sich alle notwendigen Daten befinden. Indiziert und für LaTeX bereitgestellt werden diese durch die Eingabe von:\\
+\\
+\texttt{\$ sudo mktexlsr}\\
+\\
+Der letzte Schritt ist das Erstellen der Fontmaps für die TUD-Schriften. Dafür führe man folgendes aus:\\
+\\
+\texttt{\$ sudo updmap --enable Map 5ch.map}\\
+\texttt{\$ sudo updmap --enable Map 5fp.map}\\
+\texttt{\$ sudo updmap --enable Map 5sf.map}
+
+\subsection{Debian / Ubuntu (Global)}
+
+Für Ubuntu können die lenny Pakete verwendet werden.
+Tragen Sie für etch\\
+\\
+\texttt{deb http://exp1.fkp.physik.tu-darmstadt.de/tuddesign/ etch tud-design}\\
+\texttt{deb-src http://exp1.fkp.physik.tu-darmstadt.de/tuddesign/ etch tud-design}\\
+\\
+bzw. für lenny\\
+\\
+\texttt{deb http://exp1.fkp.physik.tu-darmstadt.de/tuddesign/ lenny tud-design}\\
+\texttt{deb-src http://exp1.fkp.physik.tu-darmstadt.de/tuddesign/ lenny tud-design}\\
+\\
+in die /etc/apt/sources.list ein und führen Sie\\
+\\
+\texttt{apt-get update ; / } \\ 
+\texttt{apt-get install debian-tuddesign-keyring ; / }\\
+\texttt{apt-get update}\\
+\\
+aus. Dannach können Sie die gewünschten Pakete installieren.\\
+Architekturen: alpha amd64 arm hppa i386 ia64 mips mipsel powerpc sparc s390 source\\
+
+\paragraph{TUD Schriftarten für Debian (etch / lenny)}
+
+Die TUD Schriftarten sind auf drei Pakete aufgeteilt: 
+
+\begin{itemize}
+
+\item Das Paket t1-tudfonts beinhaltet die Type1 Schriftarten und macht sie unter X11 zugänglich, so dass sie z.B. unter scribus verwendet werden können.
+\item Das Paket tex-tudfonts macht die TUD Schriftarten unter LaTeX und Programmen wie z.B. dvips nutzbar.
+\item Das Paket ttf-tudfonts beinhaltet die TrueType Schriftarten und macht sie unter X11 nutzbar, so dass sie z.B. unter OpenOffice oder StarOffice (kostenfrei für Uni-Angehörige und Studenten nutzbar) zur Verfügung stehen.
+\end{itemize}
+Installieren können Sie die Pakete mit
+
+\texttt{apt-get install t1-tudfonts tex-tudfonts ttf-tudfonts}
+
+\paragraph{TUD-Design für Debian (etch / lenny)}
+
+Zur Zeit gibt es nur ein Paket. Eventuell wird diese Paket später in mehrere aufgeteilt.\\
+Das Paket latex-tuddesign enthält die folgenden LaTeX-Klasse:\\
+\begin{itemize}
+\item tudreport für Texte, wie z.B. Diplomarbeiten
+\item tudbeamer für Präsentationen z.B. mit einem Beamer
+\item tudposter für Aushänge und Poster, z.B. für Konferenzbeiträge
+\item tudletter für Briefe
+\item tudexercise für Übungsblätter
+
+\end{itemize}
+
+Die Dokumentation befindet sich nach der Installation im Verzeichnis /usr/share/doc/latex-tuddesign. 
+Installieren können Sie die Pakete mit\\
+
+\texttt{apt-get install latex-tuddesign}\\
+\\
+\textbf{Hinweis für Ubuntu: } Es muß das Paket texlive-fonts-recommended oder tetex-extra installiert sein
+
+\subsection{Linux (Global)}
+
+Um LaTeX-Dokumente im TUD Design auf einem Linux-Rechner zu erstellen ist die LaTeX-Distribution TeXLive oder TeTeX zu empfehlen. Diese sind in fast allen Distributionen vorhanden.\\
+\\
+Nachdem die Installation von TeXLive/TeTex und deren Abhängigkeiten abgeschlossen ist entpackt man die Schriften (tudfonts-tex\_current.zip) sowie das eigentliche TUDDesign (latex-tuddesign\_current.zip) in das Verzeichnis /usr/share/texmf. Dabei ist darauf zu achten, dass die Leserechte richtig gesetzt sind. Das geht am einfachsten, wenn man auf einer Konsole als root folgende Befehle ausführt:\\
+\\
+\texttt{> umask 022}\\
+\texttt{> unzip latex-tuddesign\_current.zip -d /usr/share/}\\
+\texttt{> unzip tudfonts-tex\_current.zip -d /usr/share/}\\
+\\
+Anschließend muss ebenfalls als root der Befehl\\
+\\
+\texttt{> texhash}\\
+\\
+ausgeführt werden. Sollte das Verzeichnis /usr/share/texmf nicht in der Liste der aktualisierten Verzeichnisse aufgeführt werden hilft:\\
+\\
+\texttt{> texhash /usr/share/texmf}\\
+\\
+Der letzte Schritt ist das Einbinden der Fontmaps für die TUD-Schriften. Dafür führe man folgendes als root aus:\\
+\\
+\texttt{> updmap-sys --enable Map 5ch.map}\\
+\texttt{> updmap-sys --enable Map 5fp.map}\\
+\texttt{> updmap-sys --enable Map 5sf.map}\\
+\\
+Ob die Schriften installiert sind, kann man mit\\
+\\
+\texttt{> updmap-sys --listmaps | egrep ``\textasciicircum Map[[:blank:]]*5''}\\
+\\
+überprüfen. Der Befehl sollte folgendes zurückliefern:\\
+\\
+  \texttt{updmap: This is updmap, version 1122009795-debian}\\
+  \texttt{updmap: no permissions for writing `/var/lib/texmf/web2c/updmap.log', so no transcript}\\
+ \texttt{ Map 5ch.map}\\
+ \texttt{ Map 5fp.map}\\
+ \texttt{ Map 5sf.map}\\
+  \\
+Ist dies der Fall, sollte alles funktioniren.
+
+\subsection{Linux (Lokal)}
+
+Um LaTeX-Dokumente im TUD Design auf einem Linux-Rechner zu erstellen ist die LaTeX-Distribution TeXLive oder TeTeX zu empfehlen. Diese sind in fast allen Distributionen vorhanden. Wenden Sie Sich an Ihren Administrator, damit er sie installiert oder installieren Sie sie lokal nach Anleitung der LaTeX-Distribution.\\
+\\
+Nachdem die Installation von TeXLive/TeTex und deren Abhängigkeiten abgeschlossen ist entpackt man die Schriften (tudfonts-tex\_current.zip) sowie das eigentliche TUDDesign (latex-tuddesign\_current.zip) in das Verzeichnis \texttt{ \$HOME}. Das geht am einfachsten, wenn man auf einer Konsole folgende Befehle ausführt:\\
+\\
+\texttt{> unzip latex-tuddesign\_current.zip -d \$HOME/}\\
+\texttt{> unzip tudfonts-tex\_current.zip -d \$HOME/}\\
+\\
+Unter Debian muss noch das Verzeichnis \texttt{\$HOME/updmap.d} nach \texttt{\$HOME/.texmf-config/} verschoben werden und aus der Datei \texttt{\$HOME/.texmf-config/updmap.d/20tex-tudfonts.cfg} die Zeile, falls vorhanden, \texttt{\# -\_- DebPkgProvidedMaps -\_-} entfernt werden.\\
+In andere Distributionen kann diese Verzeichnis inklusive Inhalt gelšscht werden.\\
+\\
+Wenn das Verzeichnis \texttt{\$HOME/.texmf-var} nicht existiert, muss es mit\\
+\\
+\texttt{> mkdir \$HOME/.texmf-var}\\
+\\
+angelegt werden. Anschließend ist der Befehl\\
+\\
+\texttt{> texhash}\\
+\\
+auszuführen. Sollte das Verzeichnis \texttt{\$HOME/texmf} nicht aufgeführt werden hilft:\\
+\\
+\texttt{> texhash \$HOME/texmf} \textemdash\\
+\\
+Der letzte Schritt ist das Einbinden der Fontmaps für die TUD-Schriften. Unter Debian wird das mit\\
+\\
+\texttt{> update-updmap}\\
+\texttt{> updmap}\\
+\\
+erreicht. Unter andere Distributionen mit\\
+\\
+\texttt{> updmap --enable Map 5ch.map}\\
+\texttt{> updmap --enable Map 5fp.map}\\
+\texttt{> updmap --enable Map 5sf.map}\\
+\\
+Ob die Schriften installiert sind, kann man mit\\
+\\
+\texttt{> updmap --listmaps | egrep ``\textasciicircum Map[[:blank:]]*5''}\\
+\\
+überprüfen. Der Befehl sollte folgendes zurückliefern:\\
+\\
+  \texttt{updmap: This is updmap, version 1122009795-debian}\\
+ \texttt{ updmap: using transcript file}\\
+  \texttt{\textasciigrave \$HOME/.texmf-var/web2c/updmap.log\textquotesingle}\\
+  \texttt{Map 5ch.map}\\
+  \texttt{Map 5fp.map}\\
+  \texttt{Map 5sf.map}\\
+  \\
+Ist dies der Fall, sollte alles funktioniren.
+
+
+
+
+%\ref{fig:speicherhierarchie} zu sehen ist.
+
+%\begin{figure}[!ht]
+%	\centering
+%		\includegraphics{images/speicherhierarchie}
+%	\caption{Aufbau einer typischen Speicher-Hierarchie in Rechnersystemen (aus \cite{hennessy}).}
+%	\label{fig:speicherhierarchie}
+%\end{figure}
+
