@@ -210,11 +210,11 @@ assign sign_hw_t8_extension = data_out_pre[15] ? 8'hff : 8'h00;
 
 always @(*) begin
     case (data_out_pre_T8_sel)
-      T8_ZERO:        data_out_pre[23:16] = 8'h00;
-      T8_SIGN_HW:     data_out_pre[23:16] = sign_hw_t8_extension;
-      T8_DELAYED1_T8: data_out_pre[23:16] = top8_buffer1cycle;
-      T8_DIRECT_L8: data_out_pre[23:16] = low8_buffer1cycle;
-      T8_SIGN_BYTE:   data_out_pre[23:16] = sign_byte_t8_extension;
+      T8_ZERO:        data_out_pre[31:24] = 8'h00;
+      T8_SIGN_HW:     data_out_pre[31:24] = sign_hw_t8_extension;
+      T8_DELAYED1_T8: data_out_pre[31:24] = top8_buffer1cycle;
+      T8_DIRECT_L8: data_out_pre[31:24] = low8_buffer1cycle;
+      T8_SIGN_BYTE:   data_out_pre[31:24] = sign_byte_t8_extension;
     endcase
 end
 
