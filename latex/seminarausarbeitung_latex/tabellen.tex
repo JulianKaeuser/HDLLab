@@ -1,0 +1,113 @@
+\chapter{Tabellen}
+\label{cha:tabellen}
+
+Um eine einfache Tabelle in Latex zu erzeugen, kann man sich zunächst mit der tabular Ð 
+Umgebung begnügen. Die Syntax dafür ist die folgende: \\
+ \\
+\textbackslash begin \{tabular\}\{cols\} \\
+Tabelleneinträge \\
+\textbackslash end\{tabular\}\\
+ \\
+Im Argument ``cols'' gibt man für jede Spalte, die in der Tabelle stehen soll, die Ausrichtung 
+an. Man hat dabei folgende Optionen: 
+ 
+
+
+ 
+Will man die Spalten durch einen oder mehrere Striche trennen, so fügt man mittels der 
+Tastenkombination AltGr + ``<'' einen senkrechten Strich (|) zwischen (bzw. vor oder nach) 
+den Ausrichtungsangaben ein (siehe Beispiele).  
+Die Breite der Spalten bestimmt LATEX selbst, es sei denn man gibt eine Parbox an. Die 
+Parbox hat den weiteren Vorteil, dass in einer Zelle der Tabelle mehrere Zeilen möglich sind. 
+Weiters kann man mittels Parboxen auch Tabulatoren wie im Word erzeugen. 
+ 
+Die Tabelleneinträge werden zeilenweise eingegeben. Dabei erfolgt die Trennung innerhalb 
+der Zeile mit ``\&''. Um in die nächste Zeile zu springen hat man den Befehl ``\textbackslash \textbackslash''. Will man 
+auch die Zeilen mittels Strichen trennen, so sind diese mit dem Befehl``\textbackslash hline'' an die 
+entsprechende Stelle zu setzen.  
+ 
+Das folgenden Beispiele erläutern die tabular-Umgebung:  
+Mit diesen Kommandos 
+
+\textbackslash begin\{tabular\}\{1p\{10cm\}\}\\
+\textbackslash textbf\{tabular\} \& Die Umgebung tabular wird in Latex gewählt um einfache Tabellen zu erzeugen\textbackslash\textbackslash\\
+\textbackslash textbf\{table\} \& table wird gebraucht um abgesetzte Tabellen zu erzeugen. Die Tabelle kann damit als Gleitobjekt eingefügt werden\textbackslash\textbackslash\\
+\textbackslash textbf\{hline\} \& Mit diesem Befehl kann man mit einem Strich Zeilen trennen\textbackslash\textbackslash\\
+\textbackslash textbf\{\textbackslash textbackslash\textbackslash textbackslash\} \& Um auf die nächste Zeile zu springen\textbackslash\textbackslash\\
+\textbackslash end \{tabular\}\textbackslash\textbackslash\\
+\\
+wird folgende Tabelle erzeugt:\\
+
+\begin{tabular}{lp{10cm}}
+\textbf{tabular} & Die Umgebung tabular wird in Latex gewählt um einfache Tabellen zu erzeugen\\
+\textbf{table}& table wird gebraucht um abgesetzte Tabellen zu erzeugen. Die Tabelle kann damit als Gleitobjekt eingefügt werden\\
+\textbf{hline}& Mit diesem Befehl kann man mit einem Strich Zeilen trennen\\
+\textbf{\textbackslash\textbackslash}& Um auf die nächste Zeile zu springen\\
+\end {tabular}\\
+\\
+\\
+Dies ist ein Beispiel, wie man Parboxen zur ``Erzeugung'' von Tabulatoren benutzt werden 
+kann. \\
+\\
+Tabellen, welche mittels der tabular-Umgebung geschrieben werden, werden einfach, wie ein 
+großer Buchstabe in den Text eingefügt. Um abgesetzte Tabellen zu erzeugen bedient man 
+sich zusätzlich der table-Umgebung, die die Tabelle als sogenanntes Gleitobjekt einfügt. Sie 
+hat folgende Syntax: 
+ 
+\textbackslash begin\{table\}[Ausrichtung] \\
+tabular-Umgebung \\
+\textbackslash end\{table\}\\ 
+\\
+In die eckigen Klammern steht die Ausrichtung. Dafür hat man folgende Optionen: 
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{|l|p{8cm}|}
+\hline
+h&``here''- Tabelle soll an der selben Stelle wie im Quelltext eingerichtet werden\\
+\hline
+t&``top''- Tabelle wird an den unteren Rand der Seite gestellt\\
+\hline
+b&``bottom''- Tabelle wird an den unteren Rand der Seite gestellt\\
+\hline
+p&``page''- Tabelle wird auf einer Gleitobjektseite eingerichtet\\
+\hline
+\end{tabular}
+\end{center}
+\caption{table-Ausrichtung }
+\label{tab: table Ausrichtung}
+\end{table}%
+
+\paragraph{Weiteres Beispiel}
+ 
+Die folgenden Befehle erzeugen eine Tabelle mit Linien: 
+
+\textbackslash begin\{table\}[!h]\\
+\textbackslash begin\{center\}\\
+\textbackslash begin\{tabular\}\{|l|r|r|r|r|r|\}\\
+\textbackslash hline\&\$x\_\{min\}\$\&\$x\_\{0,25\}\$\&\$x\_\{0,5\}\$\&\$x\_\{0,75\}\$\&\$x\_\{max\}\$\textbackslash\textbackslash\\
+\textbackslash hline
+\textbackslash hline Alter \&14\&19\&20,5\&23\&70\textbackslash\textbackslash\\
+\textbackslash hline Semester \&0\&2\&2\&4\&14\textbackslash\textbackslash\\
+\textbackslash hline
+\textbackslash end\{tabular\}\\
+
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{|l|r|r|r|r|r|}
+\hline&$x_{min}$&$x_{0,25}$&$x_{0,5}$&$x_{0,75}$&$x_{max}$\\
+\hline
+\hline Alter &14&19&20,5&23&70\\
+\hline Semester &0&2&2&4&14\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Verteilung von Alter und Semesteranzahl}
+\end{table}
+
+
+Mehr Informationen über Tabellen finden sie \htmladdnormallink{\underline{hier}}{http://www.ifas.jku.at/Portale/Institute/SOWI_Institute/ifas/content/e3413/e3414/files7134/TabelleninLATEX.pdf}.
+
+
+
