@@ -381,6 +381,7 @@ always @ (posedge clk) begin
 end
 
 wire bit0;
+assign bit0 = address[0];
 reg bit0_delayed1;
 reg bit0_delayed2;
 reg bit0_delayed3;
