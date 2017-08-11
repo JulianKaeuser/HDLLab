@@ -1,0 +1,8 @@
+## filters the display values in the testbench
+
+0 INIT_R7
+1 INIT_R3
+2 INIT_R0
+3 PUSH_FIRST_R7_LR
+4 CHANGE_R7
+5 POP_SECOND_R7_LR

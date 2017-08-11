@@ -1,0 +1,635 @@
+(DELAYFILE
+(SDFVERSION "OVI 2.1")
+(DESIGN "controller")
+(DATE "Tue Aug  8 15:29:29 2017")
+(VENDOR "tcbn45gsbwp12ttc_ccs")
+(PROGRAM "Synopsys Design Compiler cmos")
+(VERSION "I-2013.12-SP5-3")
+(DIVIDER /)
+(VOLTAGE 0.90:0.90:0.90)
+(PROCESS "NCCOM")
+(TEMPERATURE 25.00:25.00:25.00)
+(TIMESCALE 1ns)
+(CELL
+  (CELLTYPE "controller")
+  (INSTANCE)
+  (DELAY
+    (ABSOLUTE
+    (INTERCONNECT C284/Z I_16/A (0.000:0.000:0.000))
+    (INTERCONNECT I_2/Z C284/A (0.000:0.000:0.000))
+    (INTERCONNECT I_3/Z C284/B (0.000:0.000:0.000))
+    (INTERCONNECT fetch_load_in C283/A (0.000:0.000:0.000))
+    (INTERCONNECT I_15/Z C283/B (0.000:0.000:0.000))
+    (INTERCONNECT C220/Z I_15/A (0.000:0.000:0.000))
+    (INTERCONNECT mem_write_ready_in I_14/A (0.000:0.000:0.000))
+    (INTERCONNECT decoder_src_mem_addr_in I_13/A (0.000:0.000:0.000))
+    (INTERCONNECT mem_output_valid_in I_12/A (0.000:0.000:0.000))
+    (INTERCONNECT turn_reg/Q I_11/A (0.000:0.000:0.000))
+    (INTERCONNECT C79/Z I_10/A (0.000:0.000:0.000))
+    (INTERCONNECT C76/Z I_9/A (0.000:0.000:0.000))
+    (INTERCONNECT decoder_store_in C246/A (0.000:0.000:0.000))
+    (INTERCONNECT C245/Z C246/B (0.000:0.000:0.000))
+    (INTERCONNECT I_7/Z C245/A (0.000:0.000:0.000))
+    (INTERCONNECT I_8/Z C245/B (0.000:0.000:0.000))
+    (INTERCONNECT decoder_load_in I_8/A (0.000:0.000:0.000))
+    (INTERCONNECT decoder_load_in C243/A (0.000:0.000:0.000))
+    (INTERCONNECT I_7/Z C243/B (0.000:0.000:0.000))
+    (INTERCONNECT C231/Z I_7/A (0.000:0.000:0.000))
+    (INTERCONNECT C238/Z I_6/A (0.000:0.000:0.000))
+    (INTERCONNECT decoder_store_in C238/A (0.000:0.000:0.000))
+    (INTERCONNECT C237/Z C238/B (0.000:0.000:0.000))
+    (INTERCONNECT decoder_load_in C237/A (0.000:0.000:0.000))
+    (INTERCONNECT C231/Z C237/B (0.000:0.000:0.000))
+    (INTERCONNECT fetch_load_in I_5/A (0.000:0.000:0.000))
+    (INTERCONNECT C220/Z I_4/A (0.000:0.000:0.000))
+    (INTERCONNECT I_4/Z C231/A (0.000:0.000:0.000))
+    (INTERCONNECT I_5/Z C231/B (0.000:0.000:0.000))
+    (INTERCONNECT C24/Z I_3/A (0.000:0.000:0.000))
+    (INTERCONNECT C21/Z I_2/A (0.000:0.000:0.000))
+    (INTERCONNECT state_reg_0_/Q I_1/A (0.000:0.000:0.000))
+    (INTERCONNECT state_reg_1_/Q I_0/A (0.000:0.000:0.000))
+    (INTERCONNECT decoder_store_in C220/A (0.000:0.000:0.000))
+    (INTERCONNECT decoder_load_in C220/B (0.000:0.000:0.000))
+    (INTERCONNECT I_10/Z B_13/A (0.000:0.000:0.000))
+    (INTERCONNECT I_9/Z B_12/A (0.000:0.000:0.000))
+    (INTERCONNECT C74/Z B_11/A (0.000:0.000:0.000))
+    (INTERCONNECT C71/Z B_10/A (0.000:0.000:0.000))
+    (INTERCONNECT I_11/Z B_9/A (0.000:0.000:0.000))
+    (INTERCONNECT turn_reg/Q B_8/A (0.000:0.000:0.000))
+    (INTERCONNECT I_4/Z B_7/A (0.000:0.000:0.000))
+    (INTERCONNECT C220/Z B_6/A (0.000:0.000:0.000))
+    (INTERCONNECT C16/Z B_5/A (0.000:0.000:0.000))
+    (INTERCONNECT I_2/Z B_4/A (0.000:0.000:0.000))
+    (INTERCONNECT C204/Z B_3/A (0.000:0.000:0.000))
+    (INTERCONNECT I_3/Z B_2/A (0.000:0.000:0.000))
+    (INTERCONNECT C19/Z B_1/A (0.000:0.000:0.000))
+    (INTERCONNECT C202/Z B_0/A (0.000:0.000:0.000))
+    (INTERCONNECT C16/Z C204/A (0.000:0.000:0.000))
+    (INTERCONNECT I_3/Z C204/B (0.000:0.000:0.000))
+    (INTERCONNECT C16/Z C202/A (0.000:0.000:0.000))
+    (INTERCONNECT I_2/Z C202/B (0.000:0.000:0.000))
+    (INTERCONNECT C243/Z C200/A (0.000:0.000:0.000))
+    (INTERCONNECT C246/Z C200/B (0.000:0.000:0.000))
+    (INTERCONNECT C243/Z C197/A (0.000:0.000:0.000))
+    (INTERCONNECT I_6/Z C197/B (0.000:0.000:0.000))
+    (INTERCONNECT state_reg_1_/Q C79/A (0.000:0.000:0.000))
+    (INTERCONNECT I_1/Z C79/B (0.000:0.000:0.000))
+    (INTERCONNECT I_0/Z C76/A (0.000:0.000:0.000))
+    (INTERCONNECT state_reg_0_/Q C76/B (0.000:0.000:0.000))
+    (INTERCONNECT I_0/Z C74/A (0.000:0.000:0.000))
+    (INTERCONNECT I_1/Z C74/B (0.000:0.000:0.000))
+    (INTERCONNECT state_reg_1_/Q C71/A (0.000:0.000:0.000))
+    (INTERCONNECT state_reg_0_/Q C71/B (0.000:0.000:0.000))
+    (INTERCONNECT state_reg_1_/Q C24/A (0.000:0.000:0.000))
+    (INTERCONNECT I_1/Z C24/B (0.000:0.000:0.000))
+    (INTERCONNECT I_0/Z C21/A (0.000:0.000:0.000))
+    (INTERCONNECT state_reg_0_/Q C21/B (0.000:0.000:0.000))
+    (INTERCONNECT I_0/Z C19/A (0.000:0.000:0.000))
+    (INTERCONNECT I_1/Z C19/B (0.000:0.000:0.000))
+    (INTERCONNECT state_reg_1_/Q C16/A (0.000:0.000:0.000))
+    (INTERCONNECT state_reg_0_/Q C16/B (0.000:0.000:0.000))
+    (INTERCONNECT reset state_reg_0_/preset (0.000:0.000:0.000))
+    (INTERCONNECT C207/Z_0 state_reg_0_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk state_reg_0_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT reset state_reg_1_/preset (0.000:0.000:0.000))
+    (INTERCONNECT C208/Z_0 state_reg_1_/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk state_reg_1_/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT reset turn_reg/clear (0.000:0.000:0.000))
+    (INTERCONNECT C209/Z_0 turn_reg/next_state (0.000:0.000:0.000))
+    (INTERCONNECT clk turn_reg/clocked_on (0.000:0.000:0.000))
+    (INTERCONNECT I_16/Z turn_reg/synch_enable (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_16)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C284)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_AND2")
+  (INSTANCE C283)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_15)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_14)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_13)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_12)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_11)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_10)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_9)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_AND2")
+  (INSTANCE C246)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_AND2")
+  (INSTANCE C245)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_8)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_AND2")
+  (INSTANCE C243)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_7)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_6)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C238)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C237)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_5)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_4)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_AND2")
+  (INSTANCE C231)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_3)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_2)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_NOT")
+  (INSTANCE I_0)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C220)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_13)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_12)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_11)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_10)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_9)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_8)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_7)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_6)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_5)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_4)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_3)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_2)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_BUF")
+  (INSTANCE B_0)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C204)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C202)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C200)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C197)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C79)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C76)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_AND2")
+  (INSTANCE C74)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_AND2")
+  (INSTANCE C71)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C24)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_OR2")
+  (INSTANCE C21)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_AND2")
+  (INSTANCE C19)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "GTECH_AND2")
+  (INSTANCE C16)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Z (0.000:0.000:0.000))
+    (IOPATH B Z (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE state_reg_0_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE state_reg_1_)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "\*\*SEQGEN\*\*")
+  (INSTANCE turn_reg)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH (posedge clocked_on) Q (0.000:0.000:0.000))
+    (IOPATH data_in Q (0.000:0.000:0.000))
+    (IOPATH (posedge enable) Q (0.000:0.000:0.000))
+    (IOPATH (posedge clocked_on) QN (0.000:0.000:0.000))
+    (IOPATH data_in QN (0.000:0.000:0.000))
+    (IOPATH (posedge enable) QN (0.000:0.000:0.000))
+    )
+  )
+)
+)

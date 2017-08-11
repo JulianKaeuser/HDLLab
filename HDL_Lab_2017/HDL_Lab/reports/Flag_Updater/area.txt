@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : Flag_Updater
+Version: I-2013.12-SP5-3
+Date   : Tue Aug  8 13:17:32 2017
+****************************************
+
+Library(s) Used:
+
+    tcbn45gsbwp12ttc_ccs (File: /cad/synopsys/libs/TSMC_40nm/digital/Front_End/timing_power_noise/CCS/tcbn45gsbwp12t_200a/tcbn45gsbwp12ttc_ccs.db)
+
+Number of ports:                           72
+Number of nets:                            72
+Number of cells:                           32
+Number of combinational cells:             32
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                         28
+Number of references:                       2
+
+Combinational area:                 35.750400
+Buf/Inv area:                       26.342400
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                    35.750400
+Total area:                 undefined
+1

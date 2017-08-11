@@ -6,7 +6,10 @@ compile_ultra
 # Before saving out the post-sysnthesis netlist, the instance names need to be converted to legal verilog
 change_names -rules verilog -hierarchy
 
-# write mapped .ddc file:
+# create design folder
+mkdir ${PROJECT_PATH}/designs
+
+# writse mapped .ddc file:
 write -hierarchy -format ddc -output ${PROJECT_PATH}/designs/${TOP_LEVEL_MODULE}.ddc
 
 # export mapped design as verilog netlist file for gate-level simulation:

@@ -7,7 +7,7 @@
 `define BYTE 2'b00
 
 // codes for first_two_bytes_out_select
-`define TOP_HALFWORD 2'b00
+`define TOP_HALFWORD 2'b10
 `define SIGN_B 2'b01
 `define SIGN_A 2'b11
 `define ZEROS 2'b00
@@ -26,14 +26,14 @@
 `define TOP16 31:16
 `define LOW16 15:0
 
-`define DC 1'b1
+`define DC_ONE 1'b1
 
 
 
 
 
 module memory_control_fsm(
-  is_signed,
+  is_signed_fsm,
   word_type,
   load,
   store,
@@ -47,6 +47,7 @@ module memory_control_fsm(
   added_or_delayed_address,
   first_two_bytes_out_select,
   third_byte_out_select,
+  output_shuffle,
   mem_read_enable,
   mem_write_enable,
   mem_enable,
@@ -55,12 +56,12 @@ module memory_control_fsm(
   busy
   );
 
-  input is_signed;
-  input [1:0] word_type;
-  input load;
-  input store;
-  input clk;
-  input reset;
+  input wire is_signed_fsm;
+  input wire [1:0] word_type;
+  input wire load;
+  input wire store;
+  input wire clk;
+  input wire reset;
 
   output reg output_valid;
   output reg [1:0] direct_or_delayed_din;
@@ -70,7 +71,7 @@ module memory_control_fsm(
   output reg added_or_delayed_address;
   output reg [1:0] first_two_bytes_out_select;
   output reg [1:0] third_byte_out_select;
-
+  output reg output_shuffle;
   output reg mem_read_enable;
   output reg mem_write_enable;
   output reg mem_enable;
@@ -117,6 +118,7 @@ module memory_control_fsm(
           `WORD:     nextstate = LOAD_WORD_A;
           `HALFWORD: nextstate = LOAD_HW;
           `BYTE:     nextstate = LOAD_BYTE;
+			default: nextstate = IDLE;
         endcase
        end //if load
        else if(store) begin
@@ -124,6 +126,7 @@ module memory_control_fsm(
            `WORD:      nextstate = STORE_WORD_A;
            `HALFWORD:  nextstate = STORE_HW;
            `BYTE:      nextstate = STORE_BYTE_A;
+			default: nextstate = IDLE;
          endcase
        end //else if store
        else begin
@@ -167,6 +170,10 @@ module memory_control_fsm(
         nextstate = IDLE;
      end //case store_byte b
 
+	default: begin
+		nextstate = IDLE;
+	end
+
    endcase // state
   end
 
@@ -180,12 +187,13 @@ module memory_control_fsm(
       write_ready                   =0                   ;
       old_or_new_byte_remainder     =1                ; // old =0, new =1 (where new is that which was not in the memory before)
       modified_or_original_address  =1                   ; // 1= original, 0 = modified
-      added_or_delayed_address      =`DC                 ; // 1 = added, 0 = delayed
-      first_two_bytes_out_select    ={`DC,`DC}           ; // 2 signals
-      third_byte_out_select         ={`DC,`DC}           ; // 2 signals
+      added_or_delayed_address      =`DC_ONE                 ; // 1 = added, 0 = delayed
+      first_two_bytes_out_select    ={`DC_ONE,`DC_ONE}           ; // 2 signals
+      third_byte_out_select         ={`DC_ONE,`DC_ONE}           ; // 2 signals
+      output_shuffle                =0                   ;
 
-      mem_read_enable               =`DC      ;
-      mem_write_enable              =`DC      ;
+      mem_read_enable               =`DC_ONE      ;
+      mem_write_enable              =`DC_ONE      ;
       mem_enable                    =1        ;
       fsm_read_control              =0        ;
       fsm_write_control             =0        ;
@@ -195,13 +203,14 @@ module memory_control_fsm(
     // newcase: LOAD HW
     LOAD_HW: begin
       output_valid                  =1                   ;
-      direct_or_delayed_din         ={`DC,`DC}           ; // 2 signals
+      direct_or_delayed_din         ={`DC_ONE,`DC_ONE}           ; // 2 signals
       write_ready                   =0                   ;
-      old_or_new_byte_remainder     =`DC                 ;
-      modified_or_original_address  =`DC                 ; // 1= original, 0 = modified
-      added_or_delayed_address      =`DC                 ; // 1 = added, 0 = delayed
-      first_two_bytes_out_select    =is_signed ? `SIGN_B : `ZEROS;    // 2 signals
+      old_or_new_byte_remainder     =`DC_ONE                 ;
+      modified_or_original_address  =`DC_ONE                 ; // 1= original, 0 = modified
+      added_or_delayed_address      =`DC_ONE                 ; // 1 = added, 0 = delayed
+      first_two_bytes_out_select    =is_signed_fsm ? `SIGN_B : `ZEROS;    // 2 signals
       third_byte_out_select         =`THIRD_BYTE_ORIGINAL ; // 2 signals
+      output_shuffle                =0                   ;
 
       mem_read_enable               =1        ;
       mem_write_enable              =0        ;
@@ -215,13 +224,14 @@ module memory_control_fsm(
     //newcase LOAD_BYTE
     LOAD_BYTE: begin
       output_valid                  =1                   ;
-      direct_or_delayed_din         ={`DC,`DC}           ; // 2 signals
+      direct_or_delayed_din         ={`DC_ONE,`DC_ONE}           ; // 2 signals
       write_ready                   =0                   ;
-      old_or_new_byte_remainder     =`DC                 ;
-      modified_or_original_address  =`DC                 ; // 1= original, 0 = modified
-      added_or_delayed_address      =`DC                 ; // 1 = added, 0 = delayed
-      first_two_bytes_out_select    =is_signed ? `SIGN_A : `ZEROS;    // 2 signals
-      third_byte_out_select         =is_signed ? `THIRD_BYTE_SIGN_EXTENDED : `THIRD_BYTE_ZERO_EXTENDED; // 2 signals
+      old_or_new_byte_remainder     =`DC_ONE                 ;
+      modified_or_original_address  =`DC_ONE                 ; // 1= original, 0 = modified
+      added_or_delayed_address      =`DC_ONE                 ; // 1 = added, 0 = delayed
+      first_two_bytes_out_select    =is_signed_fsm ? `SIGN_A : `ZEROS;    // 2 signals
+      third_byte_out_select         =is_signed_fsm ? `THIRD_BYTE_SIGN_EXTENDED : `THIRD_BYTE_ZERO_EXTENDED; // 2 signals
+      output_shuffle                =0                   ;
 
       mem_read_enable               =1        ;
       mem_write_enable              =0        ;
@@ -235,13 +245,14 @@ module memory_control_fsm(
     //newcase LOAD_WORD_A
     LOAD_WORD_A: begin
       output_valid                  =0                   ;
-      direct_or_delayed_din         ={`DC,`DC}           ; // 2 signals
+      direct_or_delayed_din         ={`DC_ONE,`DC_ONE}           ; // 2 signals
       write_ready                   =0                   ;
-      old_or_new_byte_remainder     =`DC                 ;
+      old_or_new_byte_remainder     =`DC_ONE                 ;
       modified_or_original_address  =0                   ; // 1= original, 0 = modified
       added_or_delayed_address      =1                   ;   // 1 = added, 0 = delayed
-      first_two_bytes_out_select    ={`DC,`DC}           ; // 2 signals
-      third_byte_out_select         ={`DC,`DC}           ; // 2 signals
+      first_two_bytes_out_select    ={`DC_ONE,`DC_ONE}           ; // 2 signals
+      third_byte_out_select         ={`DC_ONE,`DC_ONE}           ; // 2 signals
+      output_shuffle                =0                   ;
 
       mem_read_enable               =1        ;
       mem_write_enable              =0        ;
@@ -255,13 +266,14 @@ module memory_control_fsm(
     //newcase LOAD_WORD_B
     LOAD_WORD_B: begin
       output_valid                  =1                   ;
-      direct_or_delayed_din         ={`DC,`DC}           ; // 2 signals
+      direct_or_delayed_din         ={`DC_ONE,`DC_ONE}           ; // 2 signals
       write_ready                   =0                   ;
-      old_or_new_byte_remainder     =`DC                 ;
-      modified_or_original_address  =`DC                 ; // 1= original, 0 = modified
-      added_or_delayed_address      =`DC                 ; // 1 = added, 0 = delayed
+      old_or_new_byte_remainder     =`DC_ONE                 ;
+      modified_or_original_address  =`DC_ONE                 ; // 1= original, 0 = modified
+      added_or_delayed_address      =`DC_ONE                 ; // 1 = added, 0 = delayed
       first_two_bytes_out_select    =`TOP_HALFWORD       ; // 2 signals
       third_byte_out_select         =`THIRD_BYTE_ORIGINAL; // 2 signals
+      output_shuffle                =1                   ;
 
       mem_read_enable               =1        ;
       mem_write_enable              =0        ;
@@ -275,13 +287,13 @@ module memory_control_fsm(
     // newcase STORE_HW
     STORE_HW: begin
       output_valid                  =0                   ;
-      direct_or_delayed_din         ={`DC,`DC}           ; // 2 signals
+      direct_or_delayed_din         ={`DC_ONE,`DC_ONE}           ; // 2 signals
       write_ready                   =1                   ;
-      old_or_new_byte_remainder     =`DC                 ; // old =0, new =1 (where new is that which was not in the memory before)
-      modified_or_original_address  =`DC                 ; // 1= original, 0 = modified
-      added_or_delayed_address      =`DC                 ; // 1 = added, 0 = delayed
-      first_two_bytes_out_select    ={`DC,`DC}           ; // 2 signals
-      third_byte_out_select         ={`DC,`DC}           ; // 2 signals
+      old_or_new_byte_remainder     =`DC_ONE                 ; // old =0, new =1 (where new is that which was not in the memory before)
+      modified_or_original_address  =`DC_ONE                 ; // 1= original, 0 = modified
+      added_or_delayed_address      =`DC_ONE                 ; // 1 = added, 0 = delayed
+      first_two_bytes_out_select    ={`DC_ONE,`DC_ONE}           ; // 2 signals
+      third_byte_out_select         ={`DC_ONE,`DC_ONE}           ; // 2 signals
 
       mem_read_enable               =0        ;
       mem_write_enable              =0        ;
@@ -289,6 +301,7 @@ module memory_control_fsm(
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
       busy                          =1        ;
+      output_shuffle                =0                   ;
 
     end // endcase STORE_HW
 
@@ -300,8 +313,8 @@ module memory_control_fsm(
       old_or_new_byte_remainder     =1                   ; // old =0, new =1 (where new is that which was not in the memory before)
       modified_or_original_address  =0                   ; // 1= original, 0 = modified
       added_or_delayed_address      =1                   ; // 1 = added, 0 = delayed
-      first_two_bytes_out_select    ={`DC,`DC}           ; // 2 signals
-      third_byte_out_select         ={`DC,`DC}           ; // 2 signals
+      first_two_bytes_out_select    ={`DC_ONE,`DC_ONE}           ; // 2 signals
+      third_byte_out_select         ={`DC_ONE,`DC_ONE}           ; // 2 signals
 
       mem_read_enable               =0        ;
       mem_write_enable              =1        ;
@@ -309,19 +322,20 @@ module memory_control_fsm(
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
       busy                          =1        ;
+      output_shuffle                =0                   ;
 
     end // endcase STORE_WORD_A
 
     //newcase STORE_WORD_B
     STORE_WORD_B: begin
       output_valid                  =0                   ;
-      direct_or_delayed_din         ={`DC,`DC}           ; // 2 signals
+      direct_or_delayed_din         ={`DC_ONE,`DC_ONE}           ; // 2 signals
       write_ready                   =1                   ;
-      old_or_new_byte_remainder     =`DC                 ; // old =0, new =1 (where new is that which was not in the memory before)
-      modified_or_original_address  =`DC                 ; // 1= original, 0 = modified
-      added_or_delayed_address      =`DC                 ; // 1 = added, 0 = delayed
-      first_two_bytes_out_select    ={`DC,`DC}           ; // 2 signals
-      third_byte_out_select         ={`DC,`DC}           ; // 2 signals
+      old_or_new_byte_remainder     =`DC_ONE                 ; // old =0, new =1 (where new is that which was not in the memory before)
+      modified_or_original_address  =`DC_ONE                 ; // 1= original, 0 = modified
+      added_or_delayed_address      =`DC_ONE                 ; // 1 = added, 0 = delayed
+      first_two_bytes_out_select    ={`DC_ONE,`DC_ONE}           ; // 2 signals
+      third_byte_out_select         ={`DC_ONE,`DC_ONE}           ; // 2 signals
 
       mem_read_enable               =0        ;
       mem_write_enable              =0        ;
@@ -329,6 +343,7 @@ module memory_control_fsm(
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
       busy                          =1        ;
+      output_shuffle                =0                   ;
 
     end // endcase STORE_WORD_B
 
@@ -340,8 +355,8 @@ module memory_control_fsm(
       old_or_new_byte_remainder     =0                   ; // old =0, new =1 (where new is that which was not in the memory before)
       modified_or_original_address  =0                   ; // 1= original, 0 = modified
       added_or_delayed_address      =0                   ; // 1 = added, 0 = delayed
-      first_two_bytes_out_select    ={`DC,`DC}           ; // 2 signals
-      third_byte_out_select         ={`DC,`DC}           ; // 2 signals
+      first_two_bytes_out_select    ={`DC_ONE,`DC_ONE}           ; // 2 signals
+      third_byte_out_select         ={`DC_ONE,`DC_ONE}           ; // 2 signals
 
       mem_read_enable               =0        ;
       mem_write_enable              =1        ;
@@ -349,19 +364,20 @@ module memory_control_fsm(
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
       busy                          =1        ;
+      output_shuffle                =0                   ;
 
     end //endcase STORE_BYTE_A
 
     //newcase STORE_BYTE_B
     STORE_BYTE_B: begin
       output_valid                  =0                   ;
-      direct_or_delayed_din         ={`DC,`DC}           ; // 2 signals
+      direct_or_delayed_din         ={`DC_ONE,`DC_ONE}           ; // 2 signals
       write_ready                   =1                   ;
-      old_or_new_byte_remainder     =`DC                 ; // old =0, new =1 (where new is that which was not in the memory before)
-      modified_or_original_address  =`DC                 ; // 1= original, 0 = modified
-      added_or_delayed_address      =`DC                 ; // 1 = added, 0 = delayed
-      first_two_bytes_out_select    ={`DC,`DC}           ; // 2 signals
-      third_byte_out_select         ={`DC,`DC}           ; // 2 signals
+      old_or_new_byte_remainder     =`DC_ONE                 ; // old =0, new =1 (where new is that which was not in the memory before)
+      modified_or_original_address  =`DC_ONE                 ; // 1= original, 0 = modified
+      added_or_delayed_address      =`DC_ONE                 ; // 1 = added, 0 = delayed
+      first_two_bytes_out_select    ={`DC_ONE,`DC_ONE}           ; // 2 signals
+      third_byte_out_select         ={`DC_ONE,`DC_ONE}           ; // 2 signals
 
       mem_read_enable               =0        ;
       mem_write_enable              =0        ;
@@ -369,8 +385,28 @@ module memory_control_fsm(
       fsm_read_control              =1        ;
       fsm_write_control             =1        ;
       busy                          =1        ;
+      output_shuffle                =0                   ;
 
     end //endcase STORE_BYTE_B
+
+	default: begin
+	  output_valid                  =1'bx                ;
+      direct_or_delayed_din         =2'bx          		 ;
+      write_ready                   =1'bx                ;
+      old_or_new_byte_remainder     =1'bx                ;
+      modified_or_original_address  =1'bx                ;
+      added_or_delayed_address      =1'bx                ;
+      first_two_bytes_out_select    =2'bx          		 ;
+      third_byte_out_select         =2'bx       	     ;
+
+      mem_read_enable               =1'bx        ;
+      mem_write_enable              =1'bx        ;
+      mem_enable                    =1'bx        ;
+      fsm_read_control              =1'bx        ;
+      fsm_write_control             =1'bx        ;
+      busy                          =1'bx        ;
+      output_shuffle                =0                   ;
+	end
    endcase//state
   end
 

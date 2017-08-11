@@ -1,0 +1,32 @@
+ 
+****************************************
+Report : area
+Design : controller
+Version: I-2013.12-SP5-3
+Date   : Tue Aug  8 15:29:29 2017
+****************************************
+
+Library(s) Used:
+
+    gtech (File: /cad/synopsys/tools/syn_vI-2013.12-SP5-3/libraries/syn/gtech.db)
+
+Number of ports:                           14
+Number of nets:                            77
+Number of cells:                           66
+Number of combinational cells:             52
+Number of sequential cells:                14
+Number of macros/black boxes:               0
+Number of buf/inv:                         31
+Number of references:                       9
+
+Combinational area:                  0.000000
+Buf/Inv area:                        0.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                     0.000000
+Total area:                 undefined
+
+Information: This design contains unmapped logic. (RPT-7)
+1

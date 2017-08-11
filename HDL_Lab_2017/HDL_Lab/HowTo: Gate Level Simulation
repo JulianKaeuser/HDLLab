@@ -1,0 +1,16 @@
+1. Synthese:
+- Skript /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/synthesis/0.setup_NEW.tcl im Bereich "set your own values here" an eigene Wünsche anpassen (Timing contraints werden in 3.constraints_NEW.tcl angepasst):
+	- PROJECT_NAME = Name des Ordners des Projekts
+	- FILE_NAME = Name der Verilog Datei
+	- MODULE_NAME = Name des Moduls
+	- in FILE_LIST alle Module angeben, die zur Ausführung des gewünschten Moduls benötigt werden
+-  alle Dateien bis auf design_vision.sh und readme.txt aus Ordner /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/syn löschen
+-  design_vision.sh ausführen: File ? execute Script: /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/synthesis/run_all_NEW.tcl
+	- falls Lizenzen fehlen: im System Monitor design_vision.v beenden
+- nachschauen, ob timing contraints eingehalten werden:
+/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/reports/MODUL_NAME
+
+2. Gate Level Simulation:
+- Skript /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/modelsim_gl_sim.tcl anpassen
+- in Modelsim mittels Kommandozeile in entsprechenden Ordner wechseln, wo sich Skript befindet und "source modelsim_gl_sim.tcl" ausführen
+- Simulation wie gewohnt starten/testen

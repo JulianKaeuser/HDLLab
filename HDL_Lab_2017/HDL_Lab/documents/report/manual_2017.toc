@@ -1,0 +1,13 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}Implementation}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Design}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}RTL Verification}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Synthesis}{3}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}GL Verification}{3}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}We can go crazy here!!!!}{3}{subsection.2.5}
+\contentsline {section}{\numberline {3}Evaluation}{4}{section.3}
+\contentsline {section}{\numberline {A}Timing report}{5}{appendix.A}
+\contentsline {section}{\numberline {B}Resource report}{5}{appendix.B}
+\contentsline {section}{\numberline {C}Area report}{5}{appendix.C}
+\contentsline {section}{\numberline {D}Power report}{5}{appendix.D}

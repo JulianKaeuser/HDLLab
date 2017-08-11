@@ -14,7 +14,7 @@
 `define SIGN_BIT_HW 15 // the bit of a halfword which is the sign in K2 complement
 
 // codes for multiplexor which assigns sign extensions
-`define TOP_HALFWORD 2'b00
+`define TOP_HALFWORD 2'b10
 `define SIGN_B 2'b01
 `define SIGN_A 2'b11
 `define ZEROS 2'b00
@@ -58,29 +58,29 @@ localparam LARGE = 32;
 localparam ADDR_WIDTH = 12;
 
 
-input [ADDR_WIDTH-1:0] address;
-input [LARGE-1:0] data_in;
-input load;
-input store;
-input clk;
-input reset;
-input is_signed;
-input [1:0] word_type;
+input wire [ADDR_WIDTH-1:0] address;
+input wire [LARGE-1:0] data_in;
+input wire load;
+input wire store;
+input wire clk;
+input wire reset;
+input wire is_signed;
+input wire [1:0] word_type;
 
 // inputs from memory
-input [WIDE-1:0] from_mem_data;
+input wire [WIDE-1:0] from_mem_data;
 
 // outputs going to the memory
-output  to_mem_read_enable;
-output to_mem_write_enable;
-output to_mem_mem_enable;
-output [ADDR_WIDTH-1:0] to_mem_address;
-output [WIDE-1:0] to_mem_data;
+output wire to_mem_read_enable;
+output wire to_mem_write_enable;
+output wire to_mem_mem_enable;
+output wire [ADDR_WIDTH-1:0] to_mem_address;
+output wire [WIDE-1:0] to_mem_data;
 
-output [LARGE-1:0] data_out;
-output write_ready;
-output output_valid;
-output busy;
+output wire [LARGE-1:0] data_out;
+output wire write_ready;
+output wire output_valid;
+output wire busy;
 //output reg addr_overflow;
 
 // mux control wires
@@ -91,11 +91,13 @@ wire old_or_new_byte_remainder;
 wire [1:0] first_two_bytes_out_select;
 wire [1:0] third_byte_out_select;
 
+
 // delay registers
 reg [11:0] delay_addr_for_adder;
 reg [11:0] delay_addr_single;
 reg [31:0] delay_data_in32;
 reg [15:0] delay_first_two_bytes_out;
+reg delayed_is_signed;
 
 // memory connect wires
 wire [11:0] mem_addr_in;
@@ -142,16 +144,25 @@ assign mem_addr_in = modified_or_original_address ? address : modified_address;
 assign direct_data_in16 = (direct_or_delayed_din[0]) ? data_in[15:0] : data_in[31:16];
 assign delayed_data_in16 = (direct_or_delayed_din[0]) ? delay_data_in32[15:0] : delay_data_in32[31:16];
 
-assign data_bus_to_mem = direct_or_delayed_din[1] ?  direct_data_in16 : delayed_data_in16;
+assign data_bus_to_mem = direct_or_delayed_din[1] ?  delayed_data_in16 : direct_data_in16;
 assign mem_data_in[7:0] = data_bus_to_mem[7:0];
 assign mem_data_in[15:8] = old_or_new_byte_remainder ? data_bus_to_mem[15:8] : mem_data_out[15:8];
 
+
+
 // data_out path
 // general
-assign data_out[7:0] = mem_data_out[7:0]; // fourth_byte_out
-assign data_out[15:8] = third_byte_out;
-assign data_out[31:16] = first_two_bytes_out;
+wire output_shuffle;
 
+wire [15:0] data_top_out;
+wire [15:0] data_low_out;
+
+assign data_top_out[7:0] = mem_data_out[7:0]; // fourth_byte_out
+assign data_top_out[15:8] = third_byte_out;
+assign data_low_out = first_two_bytes_out;
+
+assign data_out[31:16] = output_shuffle ? data_top_out : data_low_out;
+assign data_out[15:0]  = output_shuffle ? data_low_out : data_top_out;
 // third byte of the outoput
 assign third_byte_out = third_byte_out_select[1] ? mem_data_out[15:8] : sign_extended_third_byte;
 assign sign_extended_third_byte = third_byte_out_select[0] ? 8'b0 : sign_extension_byte;
@@ -192,18 +203,25 @@ always @(posedge clk) begin
    delay_addr_single <= address;
 end
 
+// delay signed signal
+always @(posedge clk) begin
+   delayed_is_signed <= is_signed;
+end
+
 // memory instantiation/ connections
 assign to_mem_address = mem_addr_in;
-assign to_mem_data = mem_data_in;
+//assign to_mem_data = mem_data_in;
+assign to_mem_data = {mem_data_in[7:0], mem_data_in[15:8]}; // values are stored in little endian order in the memory
 assign to_mem_mem_enable = mem_enable;
 assign to_mem_read_enable = mem_read_enable;
 assign to_mem_write_enable = mem_write_enable;
-assign mem_data_out = from_mem_data;
+//assign mem_data_out = from_mem_data;
+assign mem_data_out = {from_mem_data[7:0], from_mem_data[15:8]}; // values are stored in little endian order in the memory
 
 // state machine for control
 
 memory_control_fsm fsm (
-  .is_signed(is_signed),
+  .is_signed_fsm(delayed_is_signed),
   .word_type(word_type),
   .load(load),
   .store(store),
@@ -217,6 +235,7 @@ memory_control_fsm fsm (
   .added_or_delayed_address(added_or_delayed_address),
   .first_two_bytes_out_select(first_two_bytes_out_select),
   .third_byte_out_select(third_byte_out_select),
+  .output_shuffle(output_shuffle),
   .mem_read_enable(fsm_read_out),
   .mem_write_enable(fsm_write_out),
   .mem_enable(mem_enable),

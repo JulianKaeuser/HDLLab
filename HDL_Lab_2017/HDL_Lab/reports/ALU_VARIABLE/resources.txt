@@ -1,0 +1,113 @@
+ 
+****************************************
+Report : resources
+Design : ALU_VARIABLE
+Version: I-2013.12-SP5-3
+Date   : Tue Aug  8 13:51:32 2017
+****************************************
+
+
+Resource Report for this hierarchy in file
+        /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/ALU_VARIABLE/ALU_VARIABLE.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| ash_1          | DW_leftsh      | A_width=32 | sll_21 (ALU_VARIABLE.v:21) |
+|                |                | SH_width=32 |                           |
+| eq_x_2         | DW_cmp         | width=32   | eq_22 (ALU_VARIABLE.v:22)  |
+| ashr_3         | DW_rightsh     | A_width=32 | srl_27 (ALU_VARIABLE.v:27) |
+|                |                | SH_width=32 |                           |
+| eq_x_4         | DW_cmp         | width=32   | eq_28 (ALU_VARIABLE.v:28)  |
+| ashr_5         | DW_rightsh     | A_width=32 | sra_33 (ALU_VARIABLE.v:33) |
+|                |                | SH_width=32 |                           |
+| eq_x_6         | DW_cmp         | width=32   | eq_34 (ALU_VARIABLE.v:34)  |
+| eq_x_7         | DW_cmp         | width=32   | eq_40 (ALU_VARIABLE.v:40)  |
+| eq_x_8         | DW_cmp         | width=32   | eq_46 (ALU_VARIABLE.v:46)  |
+| ashr_9         | DW_rightsh     | A_width=32 | srl_51 (ALU_VARIABLE.v:51) |
+|                |                | SH_width=5 |                            |
+| sub_x_10       | DW01_sub       | width=7    | sub_51 (ALU_VARIABLE.v:51) |
+| ash_11         | DW_leftsh      | A_width=32 | sll_51 (ALU_VARIABLE.v:51) |
+|                |                | SH_width=32 |                           |
+| sub_x_12       | DW01_sub       | width=33   | sub_63 (ALU_VARIABLE.v:63) |
+| eq_x_13        | DW_cmp         | width=32   | eq_64 (ALU_VARIABLE.v:64)  |
+| sub_x_14       | DW01_sub       | width=33   | sub_69 (ALU_VARIABLE.v:69) |
+| eq_x_15        | DW_cmp         | width=32   | eq_70 (ALU_VARIABLE.v:70)  |
+| add_x_16       | DW01_add       | width=33   | add_75 (ALU_VARIABLE.v:75) |
+| eq_x_17        | DW_cmp         | width=32   | eq_76 (ALU_VARIABLE.v:76)  |
+| mult_x_18      | DW_mult_tc     | a_width=32 | mult_87 (ALU_VARIABLE.v:87) |
+                |                | b_width=32 |                            |
+| eq_x_19        | DW_cmp         | width=32   | eq_88 (ALU_VARIABLE.v:88)  |
+| DP_OP_80J12_122_2374            |            |                            |
+|                | DP_OP_80J12_122_2374 |      |                            |
+| DP_OP_81J12_123_2374            |            |                            |
+|                | DP_OP_81J12_123_2374 |      |                            |
+=============================================================================
+
+Datapath Report for DP_OP_80J12_122_2374
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_80J12_122_2374 | add_39 (ALU_VARIABLE.v:39)                          |
+|                      | add_39_2 (ALU_VARIABLE.v:39)                        |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Unsigned | 32    |                                          |
+| I2    | PI   | Unsigned | 32    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| O1    | PO   | Unsigned | 33    | I1 + I2 + I3 (ALU_VARIABLE.v:39)         |
+==============================================================================
+
+Datapath Report for DP_OP_81J12_123_2374
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_81J12_123_2374 | sub_45 (ALU_VARIABLE.v:45)                          |
+|                      | sub_45_2 (ALU_VARIABLE.v:45)                        |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| O1    | PO   | Signed   | 33    | I1 - I2 - I3 (ALU_VARIABLE.v:45)         |
+==============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| ash_1              | DW_leftsh        | astr (area)        |                |
+| eq_x_2             | DW_cmp           | apparch (area)     |                |
+| ashr_3             | DW_rightsh       | astr (area)        |                |
+| eq_x_4             | DW_cmp           | apparch (area)     |                |
+| ashr_5             | DW_rightsh       | astr (area)        |                |
+| eq_x_6             | DW_cmp           | apparch (area)     |                |
+| eq_x_7             | DW_cmp           | apparch (area)     |                |
+| eq_x_8             | DW_cmp           | apparch (area)     |                |
+| ashr_9             | DW_rightsh       | astr (area)        |                |
+| sub_x_10           | DW01_sub         | apparch (area)     |                |
+| ash_11             | DW_leftsh        | astr (area)        |                |
+| sub_x_12           | DW01_sub         | apparch (area)     |                |
+| eq_x_13            | DW_cmp           | apparch (area)     |                |
+| sub_x_14           | DW01_sub         | apparch (area)     |                |
+| eq_x_15            | DW_cmp           | apparch (area)     |                |
+| add_x_16           | DW01_add         | apparch (area)     |                |
+| eq_x_17            | DW_cmp           | apparch (area)     |                |
+| mult_x_18          | DW_mult_tc       | apparch (area)     |                |
+| eq_x_19            | DW_cmp           | apparch (area)     |                |
+| DP_OP_80J12_122_2374                  |                    |                |
+|                    | DP_OP_80J12_122_2374 | str (area)     |                |
+| DP_OP_81J12_123_2374                  |                    |                |
+|                    | DP_OP_81J12_123_2374 | str (area)     |                |
+===============================================================================
+
+1

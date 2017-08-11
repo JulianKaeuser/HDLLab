@@ -1,0 +1,70 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/vhdlp9
+T_opt
+!s110 1501761454
+Vc7M1S=`XP^YzOeeIK8haB3
+Z1 04 20 4 work Instruction_Fetch_tb fast 0
+=1-001e67589ce5-59830fae-d4eac-1fcfd
+Z2 o-quiet -auto_acc_if_foreign -work work
+n@_opt
+Z3 OL;O;10.3d;59
+R0
+T_opt1
+!s110 1502204365
+Vk[:Mc;EdPdf[ij;<J`f?^0
+R1
+=1-001e67589ce5-5989d1cd-ba76a-2348d
+R2
+n@_opt1
+R3
+R0
+vInstruction_Fetch
+Z4 !s110 1502270329
+!i10b 1
+!s100 7ihlKWdzDzV^UXhPa7@UY3
+ITZkCCiEK1_kQ93=zDDKGW1
+Z5 V`JN@9S9cnhjKRR_L]QIcM3
+Z6 d/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch
+w1502207158
+8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v
+F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v
+L0 1
+Z7 OL;L;10.3d;59
+r1
+!s85 0
+31
+!s108 1502270329.676404
+!s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v|
+!i113 0
+Z8 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+n@instruction_@fetch
+vInstruction_Fetch_tb
+R4
+!i10b 1
+!s100 =FV]Sa>g@9>_zz2fF@kHW0
+I;mfmgB87[mGQ0QBJk8;?k1
+R5
+R6
+w1502204347
+8/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_tb.v
+F/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_tb.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1502270329.737561
+!s107 /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_tb.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch_tb.v|
+!i113 0
+R8
+n@instruction_@fetch_tb

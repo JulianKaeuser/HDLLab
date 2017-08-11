@@ -1,0 +1,144 @@
+Information: Updating design information... (UID-85)
+Information: Timing loop detected. (OPT-150)
+	irdecode_inst1_C2476/A1 irdecode_inst1_C2476/Z U1027/I U1027/ZN U1026/A1 U1026/ZN U1416/A1 U1416/ZN U1050/A1 U1050/ZN U1054/A1 U1054/ZN 
+Information: Timing loop detected. (OPT-150)
+	U1484/A1 U1484/ZN U1046/A1 U1046/ZN U1596/A1 U1596/ZN U1344/A1 U1344/ZN U1598/I U1598/ZN irdecode_inst1_C2476/A2 irdecode_inst1_C2476/Z U1027/I U1027/ZN U1026/A1 U1026/ZN U1416/A1 U1416/ZN U1050/A1 U1050/ZN U1054/A1 U1054/ZN irdecode_inst1_C5199/A1 irdecode_inst1_C5199/Z U1091/A1 U1091/ZN U1465/A1 U1465/ZN U1480/I U1480/ZN U1271/A1 U1271/ZN U1041/A1 U1041/ZN U1040/A1 U1040/ZN U1483/A1 U1483/ZN 
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C2476'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C5199'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C5281'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Z' on cell 'irdecode_inst1_C2476'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C5280'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C5197'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C5196'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C5193'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Z' on cell 'irdecode_inst1_C2482'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C2484'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C5200'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C5198'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C5284'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C5283'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C5282'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C5195'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C5285'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C5194'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A2' and 'Z' on cell 'irdecode_inst1_C2484'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C5286'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Z' on cell 'irdecode_inst1_C2482'
+         to break a timing loop. (OPT-314)
+ 
+****************************************
+Report : design
+Design : top7
+Version: I-2013.12-SP5-3
+Date   : Thu Aug 10 18:24:08 2017
+****************************************
+
+Design allows ideal nets on clock nets.
+
+Library(s) Used:
+
+    tcbn45gsbwp12ttc_ccs (File: /cad/synopsys/libs/TSMC_40nm/digital/Front_End/timing_power_noise/CCS/tcbn45gsbwp12t_200a/tcbn45gsbwp12ttc_ccs.db)
+
+Local Link Library:
+
+    {/cad/synopsys/libs/TSMC_40nm/digital/Front_End/timing_power_noise/CCS/tcbn45gsbwp12t_200a/tcbn45gsbwp12ttc_ccs.db}
+
+Flip-Flop Types:
+
+    No flip-flop types specified.
+
+Latch Types:
+
+    No latch types specified.
+
+Operating Conditions:
+
+
+    Operating Condition Name : NCCOM
+    Library : tcbn45gsbwp12ttc_ccs
+    Process :   1.00
+    Temperature :  25.00
+    Voltage :   0.90
+    Interconnect Model : balanced_tree
+
+Wire Loading Model:
+
+    Selected automatically from the total cell area.
+
+Name           :   ZeroWireload
+Location       :   tcbn45gsbwp12ttc_ccs
+Resistance     :   1e-05
+Capacitance    :   1
+Area           :   0
+Slope          :   0
+Fanout   Length   Points Average Cap Std Deviation
+--------------------------------------------------------------
+     1     0.00
+     2     0.00
+     3     0.00
+     4     0.00
+     5     0.00
+     6     0.00
+     7     0.00
+     8     0.00
+     9     0.00
+    10     0.00
+    11     0.00
+    12     0.00
+    13     0.00
+    14     0.00
+    15     0.00
+    16     0.00
+    17     0.00
+    18     0.00
+    19     0.00
+    20     0.00
+
+
+
+Wire Loading Model Mode: segmented.
+
+Timing Ranges:
+
+    No timing ranges specified.
+
+Pin Input Delays:
+
+    None specified.
+
+Pin Output Delays:
+
+    None specified.
+
+Disabled Timing Arcs:
+
+    No arcs disabled.
+
+Required Licenses:
+
+    DesignWare
+
+Design Parameters:
+
+    None specified.
+1

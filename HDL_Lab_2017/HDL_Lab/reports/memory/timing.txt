@@ -1,0 +1,55 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : memory_interface
+Version: I-2013.12-SP5-3
+Date   : Wed Aug  9 11:44:15 2017
+****************************************
+
+Operating Conditions: NCCOM   Library: tcbn45gsbwp12ttc_ccs
+Wire Load Model Mode: segmented
+
+  Startpoint: fsm_state_reg_3_
+              (rising edge-triggered flip-flop clocked by CLOCK)
+  Endpoint: fsm_state_reg_2_
+            (rising edge-triggered flip-flop clocked by CLOCK)
+  Path Group: CLOCK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  memory_interface   ZeroWireload          tcbn45gsbwp12ttc_ccs
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock CLOCK (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  fsm_state_reg_3_/CP (DFXD1BWP12T)        0.00       0.00 r
+  fsm_state_reg_3_/Q (DFXD1BWP12T)         0.07       0.07 f
+  U193/ZN (NR3D1BWP12T)                    0.04       0.11 r
+  U194/ZN (INVD1BWP12T)                    0.01       0.12 f
+  U196/ZN (NR2D1BWP12T)                    0.07       0.19 r
+  U195/ZN (INVD1BWP12T)                    0.02       0.20 f
+  U200/ZN (NR3D1BWP12T)                    0.04       0.24 r
+  U211/ZN (INR2D0BWP12T)                   0.03       0.27 r
+  U212/ZN (AOI31D0BWP12T)                  0.01       0.28 f
+  U213/ZN (AOI21D0BWP12T)                  0.02       0.31 r
+  fsm_state_reg_2_/D (DFXD1BWP12T)         0.00       0.31 r
+  data arrival time                                   0.31
+
+  clock CLOCK (rise edge)                  1.00       1.00
+  clock network delay (ideal)              0.00       1.00
+  fsm_state_reg_2_/CP (DFXD1BWP12T)        0.00       1.00 r
+  library setup time                      -0.02       0.98
+  data required time                                  0.98
+  -----------------------------------------------------------
+  data required time                                  0.98
+  data arrival time                                  -0.31
+  -----------------------------------------------------------
+  slack (MET)                                         0.68
+
+
+1

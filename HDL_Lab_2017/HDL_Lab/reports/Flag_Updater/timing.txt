@@ -1,0 +1,35 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : Flag_Updater
+Version: I-2013.12-SP5-3
+Date   : Tue Aug  8 13:17:19 2017
+****************************************
+
+Operating Conditions: NCCOM   Library: tcbn45gsbwp12ttc_ccs
+Wire Load Model Mode: segmented
+
+  Startpoint: update_n (input port)
+  Endpoint: flags[31] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Flag_Updater       ZeroWireload          tcbn45gsbwp12ttc_ccs
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  update_n (in)                            0.00       0.00 f
+  U21/Z (MUX2D1BWP12T)                     0.02       0.02 r
+  flags[31] (out)                          0.00       0.02 r
+  data arrival time                                   0.02
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

@@ -1,0 +1,15 @@
+ 
+****************************************
+check_design summary:
+Version:     I-2013.12-SP5-3
+Date:        Wed Aug  9 13:58:36 2017
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      1
+    Unconnected ports (LINT-28)                                     1
+--------------------------------------------------------------------------------
+
+Warning: In design 'irdecode', port 'stall_from_instructionfetch' is not connected to any nets. (LINT-28)
+1

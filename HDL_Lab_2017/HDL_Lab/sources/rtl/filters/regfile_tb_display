@@ -1,0 +1,15 @@
+## filter for display values in register file tb
+
+00000 CPSR_PASSTHROUGH     
+00001 SP_PASSTHROUGH       
+00010 PC_PASSTHROUGH       
+00011 PC_NO_PASS           
+00100 PC_WRITE1            
+00101 PC_WRITE2            
+00110 PC_WRITE3            
+00111 REG_A_IMM            
+01000 REG_B_IMM            
+01001 REG_C_R0             
+01010 REG_A_R0             
+01100 WRITE_2_SIMULT       
+01101 WRITE_2_SAME_REG     

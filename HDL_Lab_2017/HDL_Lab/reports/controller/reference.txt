@@ -1,0 +1,33 @@
+ 
+****************************************
+Report : reference
+Design : controller
+Version: I-2013.12-SP5-3
+Date   : Tue Aug  8 15:29:29 2017
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+**SEQGEN**                        0.000000       3      0.000000  n, u
+*SELECT_OP_2.1_2.1_1              0.000000       4      0.000000  s, u
+*SELECT_OP_3.1_3.1_1              0.000000       2      0.000000  s, u
+*SELECT_OP_4.1_4.1_1              0.000000       4      0.000000  s, u
+*SELECT_OP_4.2_4.1_2              0.000000       1      0.000000  s, u
+GTECH_AND2         gtech          0.000000       9      0.000000  u
+GTECH_BUF          gtech          0.000000      14      0.000000  u
+GTECH_NOT          gtech          0.000000      17      0.000000  u
+GTECH_OR2          gtech          0.000000      12      0.000000  u
+-----------------------------------------------------------------------------
+Total 9 references                                      0.000000
+1

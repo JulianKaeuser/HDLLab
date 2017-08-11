@@ -1,17 +1,23 @@
 ### assigns names for select signals in register file
 
 #common registers
-0000 R0
-0001 R1
-0010 R2
-0011 R3
-0100 R4
-0101 R5
-0110 R6
-0111 R7
-
-# special registers
-1000 SP
-1001 PC
-1010 LR
-1111 IMM
+00000 R0
+00001 R1
+00010 R2
+00011 R3
+00100 R4
+00101 R5
+00110 R6
+00111 R7
+01000 R8
+01001 R9
+01010 R10
+01011 R11
+01100 R12
+01101 SP
+01110 LR
+01111 PC
+     
+11101 NONE     ## für synthese auf 5'b????? ändern
+11110 TMP1
+11111 IMM

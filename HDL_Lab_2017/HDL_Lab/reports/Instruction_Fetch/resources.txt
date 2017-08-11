@@ -1,0 +1,29 @@
+ 
+****************************************
+Report : resources
+Design : Instruction_Fetch
+Version: I-2013.12-SP5-3
+Date   : Wed Aug  9 11:40:19 2017
+****************************************
+
+
+Resource Report for this hierarchy in file
+        /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/Instruction_Fetch/Instruction_Fetch.v
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=13   | sub_31 (Instruction_Fetch.v:31) |
+| add_x_2        | DW01_add       | width=32   | add_60 (Instruction_Fetch.v:60) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_1            | DW01_sub         | apparch (area)     |                |
+| add_x_2            | DW01_add         | apparch (area)     |                |
+===============================================================================
+
+1

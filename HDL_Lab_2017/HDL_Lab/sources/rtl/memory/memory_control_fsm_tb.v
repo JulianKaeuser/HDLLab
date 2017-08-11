@@ -4,6 +4,8 @@
 `timescale 1ns/10ps
 module memory_fsm_tb ();
 
+integer i = 0;
+
 localparam output_file = "memory_control_fsm_tb.vcd";
 
 // data display helper values
@@ -58,6 +60,7 @@ wire write_ready;
 wire old_or_new_byte_remainder;
 wire modified_or_original_address;
 wire added_or_delayed_address;
+wire output_shuffle;
 
 wire mem_read_enable;
 wire mem_write_enable;
@@ -94,12 +97,19 @@ reg store;
 reg clk;
 reg reset;
 
+reg is_signed_fsm;
+reg is_signed_temp;
+always @(posedge clk) begin
+  is_signed_temp <= is_signed;
+  is_signed_fsm <= is_signed_temp;
+end
+
 // reg to ease the simulation abstraction
 reg [4:0] display;
 
 
-memory_control_fsm dut (
- .is_signed(is_signed),
+memory_control_fsm_v2 dut (
+ .is_signed_fsm(is_signed_fsm),
  .word_type(word_type),
  .load(load),
  .store(store),
@@ -113,6 +123,7 @@ memory_control_fsm dut (
  .added_or_delayed_address(added_or_delayed_address),
  .first_two_bytes_out_select(first_two_bytes_out_select),
  .third_byte_out_select(third_byte_out_select),
+ .output_shuffle(output_shuffle),
  .mem_read_enable(fsm_read_out),
  .mem_write_enable(fsm_write_out),
  .mem_enable(mem_enable),
@@ -123,16 +134,17 @@ memory_control_fsm dut (
 
 initial begin
 $dumpfile(output_file);
-$dumpvars;
+$dumpvars(output_valid);
 
 //$display("\t\ttime,\tclk");
-$monitor("%d, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b",
+$monitor("%d, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%b, \t%d",
 $time,
  output_valid,
  write_ready,
  old_or_new_byte_remainder,
  modified_or_original_address,
  added_or_delayed_address,
+ output_shuffle,
  mem_read_enable,
  mem_write_enable,
  mem_enable,
@@ -140,13 +152,16 @@ $time,
  third_byte_out_select,
  direct_or_delayed_din,
  is_signed,
+ is_signed_fsm,
+ is_signed_temp,
  word_type,
  load,
  store,
  clk,
  reset,
  display,
- busy
+ busy,
+ i
  );
 
 end
@@ -155,8 +170,11 @@ always begin
   #5 clk = ~clk;
 end
 
+
+
 initial begin
 clk = 1;
+
 
 // initial values
 display   = INIT;
@@ -167,7 +185,8 @@ store     = 0   ;
 reset     = 1   ;
 
 #10;
-// initial values
+// initial values,
+
 display   = INIT;
 is_signed = DC  ;
 word_type = DC2 ;
@@ -188,9 +207,10 @@ reset     = 0   ;
 // check if it goes into state
 // 1
 #10;
-display   = LOAD_HW_TEST_SIGNED;
-is_signed = 1  ;
-word_type = DC  ;
+i=i+1;
+display   = LOAD_HW_TEST_UNSIGNED;
+is_signed = 0  ;
+word_type = HW  ;
 load      = 1   ;
 store     = 0   ;
 reset     = 0   ;
@@ -198,6 +218,7 @@ reset     = 0   ;
 // check if it goes into state
 //2
 #10;
+i=i+1;
 display   = LOAD_HW_TEST_RESET;
 is_signed = DC  ;
 word_type = HW  ;
@@ -208,6 +229,7 @@ reset     = 1   ;
 // check if it goes into state
 //3
 #10;
+i=i+1;
 display   = LOAD_W_TEST;
 is_signed = DC   ;
 word_type = WORD ;
@@ -218,16 +240,18 @@ reset     = 0   ;
 // check if it goes into state
 //4
 #10;
+i=i+1;
 display   = LOAD_W_TEST;
 is_signed = DC   ;
 word_type = WORD ;
-load      = 1   ;
+load      = 0   ;
 store     = 0   ;
 reset     = 0   ;
 
 // check if it goes into state IDLE again
 //5
 #10;
+i=i+1;
 display   = LOAD_W_TEST;
 is_signed = DC   ;
 word_type = WORD ;
@@ -238,6 +262,7 @@ reset     = 0   ;
 // check if it goes into state IDLE at reset
 //6
 #10;
+i=i+1;
 display   = LOAD_W_TEST_RESET;
 is_signed = DC   ;
 word_type = WORD ;
@@ -249,6 +274,7 @@ reset     = 1   ;
 // check if it goes into state
 //7
 #10;
+i=i+1;
 display   = LOAD_BYTE_TEST_SIGNED;
 is_signed = 1   ;
 word_type = BYTE ;
@@ -259,8 +285,9 @@ reset     = 0   ;
 // check if it goes into state IDLE again
 //8
 #10;
-display   = LOAD_BYTE_TEST_SIGNED;
-is_signed = 1   ;
+i=i+1;
+display   = LOAD_BYTE_TEST_UNSIGN;
+is_signed = 0   ;
 word_type = BYTE ;
 load      = 1   ;
 store     = 0   ;
@@ -269,6 +296,7 @@ reset     = 0   ;
 // check if it goes into state
 //9
 #10;
+i=i+1;
 display   = LOAD_BYTE_TEST_SIGNED;
 is_signed = 1   ;
 word_type = BYTE ;
@@ -279,6 +307,7 @@ reset     = 0   ;
 // check if it goes into state
 //10
 #10;
+i=i+1;
 display   = LOAD_BYTE_TEST_RESET;
 is_signed = 1   ;
 word_type = BYTE ;
@@ -289,6 +318,7 @@ reset     = 1   ;
 // check if it goes into state
 //11
 #10;
+i=i+1;
 display   = LOAD_BYTE_TEST_UNSIGN;
 is_signed = 0   ;
 word_type = BYTE ;
@@ -299,8 +329,9 @@ reset     = 0   ;
 // check if it goes into state IDLE again
 //12
 #10;
-display   = LOAD_BYTE_TEST_UNSIGN;
-is_signed = 0   ;
+i=i+1;
+display   = LOAD_BYTE_TEST_SIGNED;
+is_signed = 1   ;
 word_type = BYTE ;
 load      = 1   ;
 store     = 0   ;
@@ -309,6 +340,7 @@ reset     = 0   ;
 // check if it goes into state IDLE again
 //13
 #10;
+i=i+1;
 display   = LOAD_BYTE_TEST_UNSIGN;
 is_signed = 0   ;
 word_type = BYTE ;
@@ -319,6 +351,7 @@ reset     = 0   ;
 // check if it goes into state
 //14
 #10;
+i=i+1;
 display   = LOAD_BYTE_TEST_RESET;
 is_signed = 1   ;
 word_type = BYTE ;
@@ -329,6 +362,7 @@ reset     = 1   ;
 // check if it goes into state LOAD_BYTE
 //15
 #10;
+i=i+1;
 display   = LOAD_BYTE_TEST_UNSIGN;
 is_signed = 0   ;
 word_type = BYTE ;
@@ -339,6 +373,7 @@ reset     = 0   ;
 // check if it goes into state IDLE again
 //16
 #10;
+i=i+1;
 display   = LOAD_BYTE_TEST_UNSIGN;
 is_signed = 0   ;
 word_type = BYTE ;
@@ -349,6 +384,7 @@ reset     = 0   ;
 // check if it goes into state LOAD_WORD_A
 //17
 #10;
+i=i+1;
 display   = LOAD_W_TEST;
 is_signed = 0   ;
 word_type = WORD ;
@@ -359,6 +395,7 @@ reset     = 0   ;
 // check if it goes into state LOAD_WORD_B
 //18
 #10;
+i=i+1;
 display   = LOAD_W_TEST;
 is_signed = 0   ;
 word_type = WORD ;
@@ -370,6 +407,7 @@ reset     = 0   ;
 // check if it goes into state LOAD_HW
 //19
 #10;
+i=i+1;
 display   = LOAD_HW_TEST_UNSIGNED;
 is_signed = 0   ;
 word_type = HW ;
@@ -380,9 +418,10 @@ reset     = 0   ;
 // check if it goes into state LOAD_HW
 //20
 #10;
-display   = LOAD_HW_TEST_UNSIGNED;
-is_signed = 0   ;
-word_type = HW ;
+i=i+1;
+display   = LOAD_BYTE_TEST_SIGNED;
+is_signed = 1   ;
+word_type = BYTE ;
 load      = 1   ;
 store     = 0   ;
 reset     = 0   ;
@@ -393,6 +432,7 @@ reset     = 0   ;
 // check if it goes into state STORE_HW
 //0
 #10;
+i=i+1;
 display   = STORE_HW_TEST;
 is_signed = 0   ;
 word_type = HW ;
@@ -403,6 +443,7 @@ reset     = 1   ;
 // check if it goes into state
 //1
 #10;
+i=i+1;
 display   = STORE_HW_TEST;
 is_signed = 0   ;
 word_type = HW ;
@@ -413,8 +454,9 @@ reset     = 0   ;
 // check if it goes into state
 //2
 #10;
+i=i+1;
 display   = STORE_HW_TEST;
-is_signed = 0   ;
+is_signed = 1   ;
 word_type = HW ;
 load      = 0   ;
 store     = 1   ;
@@ -423,6 +465,7 @@ reset     = 0   ;
 // check if it goes into state
 //3
 #10;
+i=i+1;
 display   = STORE_HW_TEST_RESET;
 is_signed = 0   ;
 word_type = HW ;
@@ -433,6 +476,7 @@ reset     = 1   ;
 // check if it goes into state
 //4
 #10;
+i=i+1;
 display   = STORE_WORD_TEST;
 is_signed = 0   ;
 word_type = WORD ;
@@ -443,6 +487,7 @@ reset     = 0   ;
 // check if it goes into state
 //4
 #10;
+i=i+1;
 display   = STORE_WORD_TEST;
 is_signed = 0   ;
 word_type = WORD ;
@@ -453,8 +498,9 @@ reset     = 0   ;
 // check if it goes into state
 //5
 #10;
+i=i+1;
 display   = STORE_WORD_TEST;
-is_signed = 0   ;
+is_signed = 1   ;
 word_type = WORD ;
 load      = 0   ;
 store     = 1   ;
@@ -463,6 +509,7 @@ reset     = 0   ;
 // check if it goes into state
 //6
 #10;
+i=i+1;
 display   = STORE_WORD_TEST_RESET;
 is_signed = 0   ;
 word_type = BYTE ;
@@ -473,6 +520,7 @@ reset     = 1   ;
 // check if it goes into state
 //7
 #10;
+i=i+1;
 display   = STORE_BYTE_TEST;
 is_signed = 0   ;
 word_type = BYTE ;
@@ -483,6 +531,7 @@ reset     = 0   ;
 // check if it goes into state
 //8
 #10;
+i=i+1;
 display   = STORE_BYTE_TEST;
 is_signed = 0   ;
 word_type = BYTE ;
@@ -493,6 +542,7 @@ reset     = 0   ;
 // check if it goes into state
 //9
 #10;
+i=i+1;
 display   = STORE_BYTE_TEST;
 is_signed = 0   ;
 word_type = BYTE ;
@@ -503,6 +553,7 @@ reset     = 0   ;
 // check if it goes into state
 //10
 #10;
+i=i+1;
 display   = STORE_BYTE_TEST;
 is_signed = 0   ;
 word_type = BYTE ;

@@ -1,0 +1,52 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : Instruction_Fetch
+Version: I-2013.12-SP5-3
+Date   : Wed Aug  9 11:40:06 2017
+****************************************
+
+Operating Conditions: NCCOM   Library: tcbn45gsbwp12ttc_ccs
+Wire Load Model Mode: segmented
+
+  Startpoint: currentState_reg_1_
+              (rising edge-triggered flip-flop clocked by CLOCK)
+  Endpoint: currentState_reg_0_
+            (rising edge-triggered flip-flop clocked by CLOCK)
+  Path Group: CLOCK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Instruction_Fetch  ZeroWireload          tcbn45gsbwp12ttc_ccs
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLOCK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  currentState_reg_1_/CP (DFCNXD1BWP12T)                  0.00       0.00 r
+  currentState_reg_1_/QN (DFCNXD1BWP12T)                  0.07       0.07 f
+  U100/Z (OR2XD1BWP12T)                                   0.05       0.12 f
+  U102/ZN (INVD1BWP12T)                                   0.05       0.17 r
+  U99/ZN (ND2D1BWP12T)                                    0.02       0.19 f
+  U101/ZN (INVD1BWP12T)                                   0.03       0.22 r
+  U103/Z (OA22D1BWP12T)                                   0.03       0.25 r
+  currentState_reg_0_/D (DFCNQD1BWP12T)                   0.00       0.25 r
+  data arrival time                                                  0.25
+
+  clock CLOCK (rise edge)                                 1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  currentState_reg_0_/CP (DFCNQD1BWP12T)                  0.00       1.00 r
+  library setup time                                     -0.01       0.99
+  data required time                                                 0.99
+  --------------------------------------------------------------------------
+  data required time                                                 0.99
+  data arrival time                                                 -0.25
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.73
+
+
+1

@@ -12,7 +12,7 @@ vlib work
 vlog -work tsmc40 /cad/synopsys/libs/TSMC_40nm/digital/Front_End/verilog/tcbn45gsbwp12t_200a/tcbn45gsbwp12t.v
 
 # Compile the gate level netlist, memory compiler and testbench into the library work
-vlog -work work ../designs/netlist/cpu_gl.v ../sources/testbench/memory.sv ../sources/testbench/testbench.sv
+vlog -work work /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/designs/memory_interface_gl.v /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/testbench/memory.sv /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/instruction_decode/ohne_ALU/testbench7.sv
 
 # Perform the simulation with timing information annotated from the sdf file
-vsim -L tsmc40 -sdftyp /top_i=../sources/designs/mapped/cpu_timing.sdf -novopt work.testbench
+vsim -L tsmc40 -sdftyp /UUT=/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/rtl/memory/designs/top7_timing.sdf -novopt work.testbench7

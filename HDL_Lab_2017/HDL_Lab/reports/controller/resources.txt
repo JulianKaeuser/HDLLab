@@ -1,0 +1,14 @@
+ 
+****************************************
+Report : resources
+Design : controller
+Version: I-2013.12-SP5-3
+Date   : Tue Aug  8 15:29:29 2017
+****************************************
+
+
+Resource sharing reports are created during the compile command,
+so the design must be compiled before resource sharing can be reported.
+
+No implementations to report
+1

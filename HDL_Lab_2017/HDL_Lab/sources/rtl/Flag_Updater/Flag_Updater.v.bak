@@ -1,0 +1,13 @@
+`define BIT_SIZE 32
+
+module Flag_Updater (input z, n, v, c, update_z, update_n, update_v, update_c, input [`BIT_SIZE-1:0] flags_old, output reg [`BIT_SIZE-1:0] flags) ;
+
+	always @(*) begin
+		flags[27:0] = flags_old[27:0];
+		flags[31] = (update_n == 1)? n : flags_old[31];
+		flags[30] = (update_z == 1)? z : flags_old[30];
+		flags[29] = (update_c == 1)? c : flags_old[29];
+		flags[28] = (update_v == 1)? v : flags_old[28];
+	end
+
+endmodule
