@@ -1,6 +1,6 @@
 \section{Design}
 \label{sec:design}
-Our design is built of relatively large submodules, so that not many additional elements are necessary in the top module. The structure can be seen in Fig. \ref{fig:processoroverview}. The main modules are the instruction decoder, the register file, the ALU, the memory interface and the inctruction fetch module. These modules will be described in detail in the following.
+Our design is built of relatively large submodules, so that not many additional elements are necessary in the top module. The structure can be seen in Fig. \ref{fig:processoroverview}. The main modules are the instruction decoder, the register file, the ALU, the memory interface and the instruction fetch module. These modules are described in detail in the following sections.
 
 \begin{figure}[ht]
 \centering
@@ -15,7 +15,7 @@ In the block structure, the modules are connected with several connections, but 
 \label{subsec:processorcontrol}
 The control of the execution and memory access is performed by a state machine in the decoder module. Initially, a dedicated controller for the memory access and pipeline stalls was planned; while integrating and testing the decoder, the function of the controller was integrated into the decoder. It yet had many control functions in order to perform multi-cycle instruction like \texttt{MULTI-PUSH/-POP}.
 
-In general, all control signals are outputs of the decoder. These include the ALU opcode, register selects, the flag updates and memory access signals. As the memory access must be arbitrated, the decoder controls the multiplexors assigning the read request and address signals from itself and the instruction fetch module. When the current instruction accesses the memory, a stall signal to the instruction fetch can be set by the decoder. On the other hand, the instruction fetch may stall the decoder (which then stalls the rest of the processor) if the next instruction is not loaded yet. With this mechanisms, we tried to keep the control of the processor as simple as possible.
+Almost all control signals are outputs of the decoder. These include the ALU opcode, register selects, the flag updates and memory access signals. As the memory access must be arbitrated, the instruction fetch controls the multiplexors assigning the read request and address signals from itself and the decoder module. When the current instruction accesses the memory, a stall signal to the instruction fetch can be set by the decoder. On the other hand, the instruction fetch may stall the decoder (which then stalls the rest of the processor) if the next instruction is not loaded yet. With this mechanisms, we tried to keep the control of the processor as simple as possible.
 
 \subsection{Pipeline Stages}
 \label{subsec:pipelinestages}
@@ -51,7 +51,7 @@ If the execution of an instruction is already finished after a single clock cycl
 \label{subsubsec:instructiondecoder}
 The instruction decoder generates all necessary control signals for the execution stage (register file, alu, memory controller, multiplexers, flag updater). The instructions have different formats that are characterized by specific bit patterns in the instruction bitstring. The instruction decoder tests the instruction againts these bit patterns to recognize the instrution format and extract the instruction parameters (alu operation, operation sources and target).
 
-It can decode all instructions on the "Thumb 16-bit Instruction Set Quick Reference Card" except the CBNZ and CBZ instructions, for which there was no time left to implement them, and the instructions in the "Processor state change" and "Hints" sections which should not be implemented. Also, the change to ARM state is not implemented because the processor can only work in Thumb mode.
+It can decode all instructions on the\glqq  Thumb 16-bit Instruction Set Quick Reference Card\grqq except the CBNZ and CBZ instructions, for which there was no time left to implement them, and the instructions in the \glqq Processor state change\grqq   and \glqq Hints\grqq  sections which should not be implemented. Also, the change to ARM state is not implemented because the processor can only work in Thumb mode.
 
 For operations that access the memory or the program counter, it stalls the instruction fetch to prevent interfering with the memory access of the execution stage or using a wrong program counter value for fetching a new instruction. 
 
@@ -80,6 +80,6 @@ The remainder of the necessarry hardware for the processor is divided over only 
 \item \textbf{Update of flags: }The required flags are either updated or left in their old state, depending on control flags from the decoder.
 \item \textbf{Input modification of ALU:} The inputs of the ALU always come from outputs A and B of the register file. Nevertheless, some instructions require manipulations on one or more bits. These are selected via multiplexors.
 \item \textbf{Address select for memory interface:} The address which is fed into the memory interface can be chosen from the instruction fetch, a register (output D of register file) or the ALU output with a multiplexor.
-\item \textbf{Memory load select:} As for the address, the laod signal for the memory can be selected between decoder load and instruction fetch load.
+\item \textbf{Memory load select:} As for the address, the load signal for the memory can be selected between decoder load and instruction fetch load.
 \end{itemize}
 

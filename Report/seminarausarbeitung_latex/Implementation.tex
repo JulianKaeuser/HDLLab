@@ -1,9 +1,9 @@
 \chapter{Implementation}
 \label{cha:implementation}
 
-In this chapter, the designed micro-architecture are be presented. Achievements from verification (both RTL and gate levelare shown. Additionally, a view on the synthesis process and results is taken.
+In this chapter, the designed micro-architecture is presented. Achievements from verification (both RTL and gate level) are shown. Additionally, a view on the synthesis process and results is taken.
 
-Our design implements the Thumb2-architecture almost completely. It is capable of executing all instructions except the \texttt{CMPZ} and \texttt{CMPNZ}, and \texttt{HINT} and \texttt{STATE CHANGE} (the last two types are explicitly not required and at least \texttt{STATE CHANGE} acnnot be implemented without an ARM-capable micro-architecture). We focused on implementing all instructions, since we interpreted the lab manual in this way. With these instructions, our processor is capable of executing both the \texttt{count32} and the \texttt{memcp46} benchmark applications.
+Our design implements the Thumb architecture almost completely. It is capable of executing all instructions except \texttt{CBZ} and \texttt{CBNZ}, and all instruction related to \texttt{HINT} and \texttt{STATE CHANGE} (the last two types are explicitly not required and at least \texttt{STATE CHANGE} cannot be implemented without an ARM-capable micro-architecture). We focused on implementing all instructions, since we interpreted this as a primary objective from the lab manual. With these instructions, our processor is capable of executing both the \texttt{count32} and the \texttt{memcp46} benchmark applications.
 
 \input{Design}
 \input{RTL_Verification}
@@ -12,3 +12,5 @@ Our design implements the Thumb2-architecture almost completely. It is capable o
 
 \section{Other}
 \label{sec:other}
+
+- 
