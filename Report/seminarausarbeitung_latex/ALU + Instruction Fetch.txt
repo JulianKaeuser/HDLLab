@@ -1,0 +1,32 @@
+ALU:
+
+The arithmetic logic unit (ALU) performs the calculations stated in the instructions.\\
+Its 32-bit structure is purely combinatorial. All logical and arithmetical operations defined in chapter 5.4.1 in the THUMB instruction set (\ref{…}) are supported. Each computation can be executed within a single clock cycle.\\
+\newline
+Which operation to perform by the ALU is decided by the 4-bit opcode from the instruction fetch. This determines also if along the two signed input signals the input carry flag is needed.\\
+The result consists of a 32-bit signed output value, as well as the four condition code flags negative (n), zero (z), carry (c) and overflow (v). Depending on the computed instruction, the application program status register (APSR) in the register file gets updated by the Flag Updater with those flags.
+
+
+
+
+Instruction Fetch:
+
+The instruction fetch (IF) is used for loading new instructions from the memory and passing them to the instruction decoder.\\
+The module itself is build as a finite state machine and consists of four separate states. One of them is for reset, two are working states (wait and fetch) and the last one is entered when the executed program is finished.\\
+\newline
+At the startup, the decoder does not posses any instruction to perform, so the IF begins in fetch state. To get the first instruction, an address, which is two less than the current value of the program counter (PC), and a load request is sent to the memory interface.\\
+When the wanted data arrives back, it gets passed to the decoder for one clock cycle. Furthermore the PC gets incremented by two, which matches the length of one instruction, 16 bit. The IF switches to wait state.\\
+As long as the decoder is executing the new instruction, the IF gets stalled and remains in its current state. When finished, the instruction fetch switches back to fetch state again and starts to load the next instruction.\\
+When the last instruction got performed, the instruction fetch switches to finish state and stops gathering new instructions.\\
+\newline
+If the execution of an instruction is already finished after a single clock cycle, the decoder does not have to stall the instruction fetch. Thus the IF is able to gather a new instruction every second cycle. While there is no new instruction to pass to the decoder, the no operation signal is sent.
+
+
+
+
+Used Acronym:
+
+ALU:  Arithmetic Logic Unit
+APSR: Application Program Status Register
+IF:   Instruction Fetch
+PC:   Program Counter
