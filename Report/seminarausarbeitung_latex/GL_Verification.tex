@@ -1,0 +1,9 @@
+\section{Gate Level Verification}
+\label{sec:glverification}
+
+After the synthesis, a gate level simulation is required to check if the behaviour of the final hardware corresponds to the logic simulation performed in the RTL coding stage, as well as to determine the maximum clock frequency under which the processor can run without any timing violations. 
+
+The two timing violations that must be avoided are the setup and hold time violations. A setup violation occurs when a signal does not arrive at a flip-flop with sufficient time, the so called setup time, before the next rising edge of the clock cycle. This means that the circuit is too slow for the critical path. On the other hand, the hold time of a flip-flop is the time that the input signal must remain there after the rising edge of the clock for the output to be safely switched. Therefore, a hold time violation occurs in the shortest paths and means that the circuit is too fast in that region.
+
+With these concepts in mind, a testbench was run for each of the benchmark programs provided for the validation of the final synthesized processor design. Both testbenches were repeatedly run for increasing values of clock speed until any of them presented any timing violations. With this method, the lowest reached clock period under which the processor ran without any errors was 1.26 ns, which corresponds to a maximum frequency of 793 MHz. 
+The final value of the clock period is way different than the one used as a timing constraint during the synthesis process, which was 0.7 ns.

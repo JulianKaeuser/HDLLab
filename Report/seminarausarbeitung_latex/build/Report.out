@@ -1,0 +1,11 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Tasks and Work Distribution}{chapter.1}% 2
+\BOOKMARK [0][-]{chapter.2}{Implementation}{}% 3
+\BOOKMARK [1][-]{section.2.1}{Design}{chapter.2}% 4
+\BOOKMARK [2][-]{subsection.2.1.1}{Processor Control}{section.2.1}% 5
+\BOOKMARK [2][-]{subsection.2.1.2}{Pipeline Stages}{section.2.1}% 6
+\BOOKMARK [1][-]{section.2.2}{RTL Verification}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.3}{Synthesis}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.4}{Gate Level Verification}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.5}{Other}{chapter.2}% 10
+\BOOKMARK [0][-]{chapter.3}{Evaluation}{}% 11

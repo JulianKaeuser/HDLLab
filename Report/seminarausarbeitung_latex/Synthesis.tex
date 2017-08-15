@@ -1,0 +1,11 @@
+\section{Synthesis}
+\label{sec:synthesis}
+
+During RTL coding, special attention was given to good coding practice for synthesis, in order to ensure that the synthesized hardware would behave exactly as specified, without any glitches or timing issues. Therefore, each module was separately and iteratively synthesized to make the debugging process more clear and modular. 
+The main concern and reason for iterations was the need to avoid using latches in our design, which was solved by carefully assigning all outputs for all input conditions in case or if-else statements. The main reason to avoid the usage of latches is that they are asynchronous storage elements, which would potentially cause timing issues and racing in a fully synchronous design.
+
+Once the final top module was completed, the synthesis iterations were started in order to obtain the fastest hardware possible based on the informations given in the timing report. Starting with a period of 1ns as a constraint, the value was continuously reduced until it was no longer possible to obtain a slack greater than or equal to zero. A negative slack in the timing report means that it is not possible to generate a hardware to the given design that do not violate any timing request with the given period, while a positive or zero slack means that the synthesized hardware could be further optimized.  The value used to synthesize the final hardware was 0.7 ns.
+
+After the synthesis of the final hardware, an analysis of the schematic and the critical path was made in order to compare with the expected from the designed architecture. According to the timing report, the critical path consists of the instruction decoder reading a value from the register file, which is then processed by the ALU and written back to the register file. This path is expected due to the huge amount of combinational logic involved in the process, and the corresponding delay of the critical path is 0.69 ns.
+
+As the guideline was to obtain a processor with the highest possible maximum frequency, there was no concern in optimizing the area or the energy consumption of the final hardware, nor to balance the three performance indicators. As a result, a processor with an area of 22453.12  $\mu m^{2}$ and a power of 6,9367 mW was obtained.
