@@ -16,5 +16,5 @@ vlog -work work /home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulat
 
 # Perform the simulation with timing information annotated from the sdf file
 vsim -L tsmc40 -sdftyp /UUT=/home/vhdlp9/HDLLab/HDL_Lab_2017/HDL_Lab/sources/scripts/simulation/GLS/0.70ns_FINAL/designs/top20_timing.sdf -novopt work.testbench21
-do wave21.do
-run 20us
+#do wave21.do
+#run 20us
