@@ -22,5 +22,48 @@ In general, all control signals are outputs of the decoder. These include the AL
 
 Our processor is comprised of two pipeline stages. One stage includes the instruction fetch and decoder, the other one does the execution and writeback tasks. These two stages have been chosen because of the structure of the benchmark applications and the 1-port memory. The applications are both relatively memory-access-loaded. The memory allows only one access per cycle; additionally, it is halfword-aligned, while the architecture uses byte-aligned addresses. The benchmarks both frequently access whole words in the memory, so that in many cycles, the memory would be the bottleneck in the execution. With only two pipeline stages, few stalls would occur. 
 
+\subsection{Modules}
+\label{subsec:modules}
+In the following, an insight view into the single modules' implementation is given.
 
+\subsubsection{ALU}
+\label{subsubsec:alu}
+The arithmetic logic unit (ALU) performs the calculations stated in the instructions.\\
+Its 32-bit structure is purely combinatorial. All logical and arithmetical operations defined in chapter 5.4.1 in the THUMB instruction set (\textbf{TODO} are supported. Each computation can be executed within a single clock cycle.\\
+\newline
+Which operation to perform by the ALU is decided by the 4-bit opcode from the instruction fetch. This determines also if along the two signed input signals the input carry flag is needed.\\
+The result consists of a 32-bit signed output value, as well as the four condition code flags negative (n), zero (z), carry (c) and overflow (v). Depending on the computed instruction, the application program status register (APSR) in the register file gets updated by the Flag Updater with those flags.
+
+
+\subsubsection{Instruction Fetch}
+\label{subsubsec:instructionfetch}
+The instruction fetch (IF) is used for loading new instructions from the memory and passing them to the instruction decoder.\\
+The module itself is build as a finite state machine and consists of four separate states. One of them is for reset, two are working states (wait and fetch) and the last one is entered when the executed program is finished.\\
+\newline
+At the startup, the decoder does not posses any instruction to perform, so the IF begins in fetch state. To get the first instruction, an address, which is two less than the current value of the program counter (PC), and a load request is sent to the memory interface.\\
+When the wanted data arrives back, it gets passed to the decoder for one clock cycle. Furthermore the PC gets incremented by two, which matches the length of one instruction, 16 bit. The IF switches to wait state.\\
+As long as the decoder is executing the new instruction, the IF gets stalled and remains in its current state. When finished, the instruction fetch switches back to fetch state again and starts to load the next instruction.\\
+When the last instruction got performed, the instruction fetch switches to finish state and stops gathering new instructions.\\
+\newline
+If the execution of an instruction is already finished after a single clock cycle, the decoder does not have to stall the instruction fetch. Thus the IF is able to gather a new instruction every second cycle. While there is no new instruction to pass to the decoder, the no operation signal is sent.
+
+\subsubsection{Instruction Decoder}
+\label{subsubsec:instructiondecoder}
+
+\subsubsection{Register File}
+\label{subsubsec:regfisterfile}
+
+\subsubsection{Memory Interface}
+\label{subsubsec:memoryinterface}
+
+\subsubsection{Other Modules}
+\label{subsubsec:othermodules}
+
+The remainder of the necessarry hardware for the processor is divided over only few parts, which are not all part of a distinct module. These include:
+\begin{itemize}
+\item \textbf{Update of flags: }The required flags are either updated or left in their old state, depending on control flags from the decoder.
+\item \textbf{Input modification of ALU:} The inputs of the ALU always come from outputs A and B of the register file. Nevertheless, some instructions require manipulations on one or more bits. These are selected via multiplexors.
+\item \textbf{Address select for memory interface:} The address which is fed into the memory interface can be chosen from the instruction fetch, a register (output D of register file) or the ALU output with a multiplexor.
+\item \textbf{Memory load select:} As for the address, the laod signal for the memory can be selected between decoder load and instruction fetch load.
+\end{itemize}
 
