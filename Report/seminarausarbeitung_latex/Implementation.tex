@@ -12,5 +12,14 @@ Our design implements the Thumb architecture almost completely. It is capable of
 
 \section{Other}
 \label{sec:other}
+In this section, other points not fitting in the previous categories, but worth a mention, are outlined.
 
-- 
+\subsection{Hardware Stack}
+\label{subsec:hardwarestack}
+In our first overall processor design, we planned on implementing the stack as a register bank in hardware. The module has been designed, tested and integrated. Finally, we decided on switching to a software stack (in the common memory), because the instructions reading and writing to memory lines relative to the stack pointer were too hard to implement in hardware. 
+
+\subsection{Memory Interface Versions}
+\label{subsec:memoryinterfaceversions}
+Over the time of the lab, we worked with 3 different versions of the memory interface. The final design uses the most simple one, which has the largest delay in the access cycles. This version works for byte-aligned addresses. In the first version, the differences between byte-aligned and halfword-aligned addresses in the memory and the instruction set were not given credit. Malfunctions for the \texttt{memcp46} benchmark resulted from that.
+
+Another version of the memory interface has been designed. This version had the shortest possible access cycles (pipelined requests). Additionally, the byte-alignment was implemented in this version. Despite the speedup, we could not manage to integrate the accelerated memory interface due to communication problems between the modules. By the time this version was finished, the decoder was not capable of using the speedup. Therefore, we decided to use the version of the memory interface which was working well, but slower.

@@ -68,7 +68,7 @@ The decoder also has two outputs that control two multiplexers in the two operan
 
 \subsubsection{Register File}
 \label{subsubsec:regfisterfile}
-In order to gather the registers specified by the thumb architecture, a register file is introduced in our processor. It contains the registers 0-13, the PC, LR and CPSR registers, and a temporary register. Four nereal purpose read and two general purpose write ports are available.
+In order to gather the registers specified by the thumb architecture, a register file is introduced in our processor. It contains the registers 0-13, the PC, LR, SP and CPSR registers, and a temporary register. Four nereal purpose read and two general purpose write ports are available.
 
 All registers can be assigned to one of four read ports, which are controlled by their own select signals. Additionally, the PC and CPSR registers have their own outputs, so that cycles can be saved for reading the PC or status. These registers also feature separately writeable inputs, although these have a lower priority than a write from a common write port.
 Since the inputs of the ALU are hardwired to the register file read ports A and B, inputs for immediate values can be connected to these read ports.
