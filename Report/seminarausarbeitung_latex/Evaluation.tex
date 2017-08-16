@@ -1,19 +1,25 @@
 \chapter{Evaluation}
 \label{cha:evaluation}
 
-here some stuff on how good this processor is
+Finally, a view on 
+\section{Improvements}
+\label{sec:improvements}
+As we presented the micro-architecture and the design of our processor, there are yet possible improvements we encountered in the design phase. 
 
-- what could be better:
-  - IT-instruction in fetch
-  - better memory controller -lacks time
-  - ALU with better solution for multiply (not single cycle)
-  - decoder frees fetch earlier
-  - 
-  
-  - process:
-    -first benchmarks, then the rest
-    -better look at rewuirements
-    -better overview on what should happen
+In the design, we particularly detected the following points for improvement:
+\begin{itemize}
+\item The \texttt{IT}-Instruction could have been implemented in the instruction fetch module more easily than in the decoder.
+\item The utilized memory interface is the slowest version we have, due to problems with the alignment and the communication with the rest of the CPU. The faster interface would have accelerated the benchmark execution.
+\item In our ALU, the \texttt{MULTIPLY}-operations are performed in a single cycle. This enlarges the ALU very much, so that a multi-cycle implementation would have decreased the ALU and also would have shortened the critical path.
+\item In the current state of the design the instruction fetch is unstalled by the decoder unnecessarily late. This could be revised.
+\end{itemize}
+
+Regarding our design process in the group, we recognized some room for improvement, although this cannot be stated as clear as the technical details. In retrospect, we should have focused on making the benchmarks work on our processor first. Instead, we focused on the implementation of all instruction. This implies that we have to review the requirements more thoroughly before the start of work. With these information in hand, a more clear idea of what we had to design to make the processor work would have been present. Related to this observation is the fact that we had to revise the memory interface and throw away the hardware stack and the processor controller, so unnecessary work could have been avoided.
+ 
+Most of the above mentioned improvements in the design or the design process  could not be included due to the tight time schedule. Nevertheless, especially the possible process changes could only be found out at a relatively late time in the lab or even afterwards, so that these have to be  applied in the next similar projects.
+
+\section{Conclusion}
+\label{sec:conclusion}
     
 - conclusion:
   - very much work, lack of time

@@ -73,10 +73,10 @@ In order to gather the registers specified by the thumb architecture, a register
 All registers can be assigned to one of four read ports, which are controlled by their own select signals. Additionally, the PC and CPSR registers have their own outputs, so that cycles can be saved for reading the PC or status. These registers also feature separately writeable inputs, although these have a lower priority than a write from a common write port.
 Since the inputs of the ALU are hardwired to the register file read ports A and B, inputs for immediate values can be connected to these read ports.
 
-As a necessary control mechanism, the write ports feature separate enable signals. 
+As a necessary control mechanism, the write ports feature separate enable signals.
 
 The register file is thus only built of basic elements. Its largest feature is the number of port useable in parallel. 
-
+http://paforum.de/forum/
 \subsubsection{Memory Interface}
 \label{subsubsec:memoryinterface}
 We decided to include a memory interface to abstract memory accesses from the CPU. This decision is mainly based on the different procedures which are necessary in read and write cases for every word type (word, halfword, byte). Given that the 16-bit wide memory has halfword-aligned addresses, while the instruction set requires access to byte-aligned addresses, the abstraction is even more beneficial. 
