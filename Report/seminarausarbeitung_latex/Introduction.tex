@@ -6,18 +6,18 @@ This semester's task in the HDL Lab is to design a general purpose processor imp
 \section{Tasks and Work Distribution}
 \label{sec:tasksandworkdistribution}
 
-The task of the HDL Lab can be split into two major parts: micro-architecture design and rtl coding, and standard cell synthesis. Since the second part requires results of the first one, we started with the rtl design. 
+The task of the HDL Lab can be split into two major parts: micro-architecture design and RTL coding, and standard cell synthesis. Since the second part requires results of the first one, we started with the rtl design. 
 
 First, the necessary submodules in the processor were agreed upon, and each team member was assigned one or more modules to work on. Creating and running a testbench for each designed module must always be performed in time with the module itself, so we assigned that task to everyone designing a module. Along with the module design, requirements regarding the Thumb-architecture had to be checked and built in. 
 
-In the next step on the rtl level, finished and tested modules were integrated to verify their function. If necessary, a step back to the rtl design was taken in order to fix malfunctions in single modules or to adapt them to changing requirements (e.g. changing communication between modules, new necessary signals).
+In the next step on the RTL level, finished and tested modules were integrated to verify their function. If necessary, a step back to the RTL design was taken in order to fix malfunctions in single modules or to adapt them to changing requirements (e.g. changing communication between modules, new necessary signals).
 
-The second major part, standard cell synthesis, was performed from the point where some modules were finished with the rtl design. Of course, for every change in the rtl design, the synthesis had to be re-done. With regard to the synthesis results for every module, some minor adaptions in the Verilog code had to be done to guarantee the synthesizeability.
+The second major part, standard cell synthesis, was performed from the point where some modules were finished with the RTL design. Of course, for every change in the rtl design, the synthesis had to be re-done. With regard to the synthesis results for every module, some minor adaptions in the Verilog code had to be done to guarantee the synthesizeability.
 
 While the synthesis processes could only be started three days into the lab, they lasted until the final day. The RTL design also lasted until the end, since we tried to improve the design as far as possible. The approximate work distribution among the team members is shown below.
 
 \begin{itemize}
-\item \textbf{Lukas Boland:} RTL design (decoder) and rtl top level verification/intergration
+\item \textbf{Lukas Boland:} RTL design (decoder) and RTL top level verification/intergration
 \item \textbf{Sven Str\"oher:} RTL design (ALU, stack, fetch), synthesis, gate level verification
 \item \textbf{Ana Carolina Ferreira:} RTL design (ALU, fetch, controller), synthesis, gate level verification
 \item \textbf{Julian K\"auser:} RTL design (memory interface, register file, controller), short report
