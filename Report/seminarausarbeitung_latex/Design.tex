@@ -68,9 +68,22 @@ The decoder also has two outputs that control two multiplexers in the two operan
 
 \subsubsection{Register File}
 \label{subsubsec:regfisterfile}
+In order to gather the registers specified by the thumb architecture, a register file is introduced in our processor. It contains the registers 0-13, the PC, LR and CPSR registers, and a temporary register. Four nereal purpose read and two general purpose write ports are available.
+
+All registers can be assigned to one of four read ports, which are controlled by their own select signals. Additionally, the PC and CPSR registers have their own outputs, so that cycles can be saved for reading the PC or status. These registers also feature separately writeable inputs, although these have a lower priority than a write from a common write port.
+Since the inputs of the ALU are hardwired to the register file read ports A and B, inputs for immediate values can be connected to these read ports.
+
+As a necessary control mechanism, the write ports feature separate enable signals. 
+
+The register file is thus only built of basic elements. Its largest feature is the number of port useable in parallel. 
 
 \subsubsection{Memory Interface}
 \label{subsubsec:memoryinterface}
+We decided to include a memory interface to abstract memory accesses from the CPU. This decision is mainly based on the different procedures which are necessary in read and write cases for every word type (word, halfword, byte). Given that the 16-bit wide memory has halfword-aligned addresses, while the instruction set requires access to byte-aligned addresses, the abstraction is even more beneficial. 
+
+The memory interface controls the signals to and from the memory and only takes address, data (as 32 bit wide bus) and load/store inputs from the cpu. With a state machine, all steps for the requested access are controlled. The memory interface also performs sign extensions and the conversion between byte-aligned and halfword-aligned addresses, if necessary.
+
+To signal the CPU about the memory access, three output signals are used. \texttt{busy} signals that no further request can be processed in this cycle. \texttt{Output valid} indicates that the last requested load from the memory is completed, and the value at the data output may be used. \texttt{Write ready} indicates that the last store operation is finished. 
 
 \subsubsection{Other Modules}
 \label{subsubsec:othermodules}
