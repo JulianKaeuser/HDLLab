@@ -29,7 +29,7 @@ In the following, an insight view into the single modules' implementation is giv
 \subsubsection{ALU}
 \label{subsubsec:alu}
 The arithmetic logic unit (ALU) performs the calculations stated in the instructions.\\
-Its 32-bit structure is purely combinatorial. All logical and arithmetical operations defined in chapter 5.4.1 in the THUMB instruction set (\textbf{TODO} are supported. Each computation can be executed within a single clock cycle.\\
+Its 32-bit structure is purely combinatorial. All logical and arithmetical operations defined in chapter 5.4.1 in the ``Thumb 16-bit Instruction Set Quick Reference Card'' are supported. Each computation can be executed within a single clock cycle.\\
 \newline
 Which operation to perform by the ALU is decided by the 4-bit opcode from the instruction fetch. This determines also if along the two signed input signals the input carry flag is needed.\\
 The result consists of a 32-bit signed output value, as well as the four condition code flags negative (n), zero (z), carry (c) and overflow (v). Depending on the computed instruction, the application program status register (APSR) in the register file gets updated by the Flag Updater with those flags.
@@ -41,9 +41,9 @@ The instruction fetch (IF) is used for loading new instructions from the memory 
 The module itself is build as a finite state machine and consists of four separate states. One of them is for reset, two are working states (wait and fetch) and the last one is entered when the executed program is finished.\\
 \newline
 At the startup, the decoder does not posses any instruction to perform, so the IF begins in fetch state. To get the first instruction, an address, which is two less than the current value of the program counter (PC), and a load request is sent to the memory interface.\\
-When the wanted data arrives back, it gets passed to the decoder for one clock cycle. Furthermore the PC gets incremented by two, which matches the length of one instruction, 16 bit. The IF switches to wait state.\\
+When the wanted data arrives back, it gets passed, together with a vaild signal, to the decoder for one clock cycle. Furthermore the PC gets incremented by two, which matches the length of one instruction, 16 bit. The IF switches to wait state.\\
 As long as the decoder is executing the new instruction, the IF gets stalled and remains in its current state. When finished, the instruction fetch switches back to fetch state again and starts to load the next instruction.\\
-When the last instruction got performed, the instruction fetch switches to finish state and stops gathering new instructions.\\
+After the last instruction got performed, the instruction fetch switches to finish state and stops gathering new instructions.\\
 \newline
 If the execution of an instruction is already finished after a single clock cycle, the decoder does not have to stall the instruction fetch. Thus the IF is able to gather a new instruction every second cycle. While there is no new instruction to pass to the decoder, the no operation signal is sent.
 
@@ -51,24 +51,24 @@ If the execution of an instruction is already finished after a single clock cycl
 \label{subsubsec:instructiondecoder}
 The instruction decoder generates all necessary control signals for the execution stage (register file, alu, memory controller, multiplexers, flag updater). The instructions have different formats that are characterized by specific bit patterns in the instruction bitstring. The instruction decoder tests the instruction againts these bit patterns to recognize the instrution format and extract the instruction parameters (alu operation, operation sources and target).
 
-It can decode all instructions on the\glqq  Thumb 16-bit Instruction Set Quick Reference Card\grqq except the CBNZ and CBZ instructions, for which there was no time left to implement them, and the instructions in the \glqq Processor state change\grqq   and \glqq Hints\grqq  sections which should not be implemented. Also, the change to ARM state is not implemented because the processor can only work in Thumb mode.
+It can decode all instructions on the ``Thumb 16-bit Instruction Set Quick Reference Card'' except the CBNZ and CBZ instructions, for which there was no time left to implement them, and the instructions in the ``Processor state change''   and ``Hints'' sections which should not be implemented. Also, the change to ARM state is not implemented because the processor can only work in Thumb mode.
 
 For operations that access the memory or the program counter, it stalls the instruction fetch to prevent interfering with the memory access of the execution stage or using a wrong program counter value for fetching a new instruction. 
 
-Instructions that can not be executed in one step are split into multiple smaller steps. This is the case for the instructions PUSH, POP, LDMIA and STMIA because they can store or load up to eight values in the memory, and for the BL instruction because the execution of its second part needs three consecutive alu operations on registers. During the execution of the steps of a split instruction, the instruction fetch ist stalled by the decoder.
+Instructions that can not be executed in one step are split into multiple smaller steps. This is the case for the instructions PUSH, POP, LDMIA and STMIA because they can store or load up to eight values in the memory, and for the BL instruction because the execution of its second part needs three consecutive ALU operations on registers. During the execution of the steps of a split instruction, the instruction fetch is stalled by the decoder.
 
-For the split of the instructions, a step register is used which masks the already executed steps with zeros. A one-hot-encoding was chosen instead of binary encoding to allow using a part of the instruction bitstring as a selector for the steps to execute (e. g. for bits [7:0] = 1000 0001 of an STMIA instruction, only the steps \glqq store register R0\grqq and \glqq store register R7\grqq are executed and after the first step, the step register ist set to 1111 1110 to mask bit 0 which corresponds to the first step).
+For the split of the instructions, a step register is used which masks the already executed steps with zeros. A one-hot-encoding was chosen instead of binary encoding to allow using a part of the instruction bitstring as a selector for the steps to execute (e.g. for bits [7:0] = 1000 0001 of an STMIA instruction, only the steps ``store register R0'' and ``store register R7'' are executed and after the first step, the step register is set to 1111 1110 to mask bit 0 which corresponds to the first step).
 
-For the conditional execution of up to four instructions in an IT block, a register "itstate" is used that stores the execution condition for up to four instructions. The following instructions which are subject to the execution condition are executed only if the correspondig condition is true. Otherwise a NOP ist executed. This register is set when an IT instruction is executed and shifts left with every following instruction until all execution coditions loaded by the IT instruction are shifted out. Then it is reset to zero. 
+For the conditional execution of up to four instructions in an IT block, a register ``itstate'' is used that stores the execution condition for up to four instructions. The following instructions which are subject to the execution condition are executed only if the correspondig condition is true. Otherwise a NOP ist executed. This register is set when an IT instruction is executed and shifts left with every following instruction until all execution coditions loaded by the IT instruction are shifted out. Then it is reset to zero. 
 
 
 In retrospect, it would have been better to place the logic for conditional execution in the instruction fetch module because it would have been possible to fetch only the instructions that are really executed. That logic would have needed the capability to identify CMP instructions because they update the condition flags which are used to determine if an instruction is executed or not despite being in an IT block and could have altered the instructions to fetch. Other instructions that normally update the condition flags do not do so when in an IT block.
 
-The decoder also has two outputs that control two multiplexers in the two operand paths to the alu. they can select modified versions of the operands as inputs to the alu which are used for some instructions, e. g. REV16 or REVSH.
+The decoder also has two outputs that control two multiplexers in the two operand paths to the ALU. They can select modified versions of the operands as inputs to the ALU which are used for some instructions, e.g. REV16 or REVSH.
 
 \subsubsection{Register File}
 \label{subsubsec:regfisterfile}
-In order to gather the registers specified by the thumb architecture, a register file is introduced in our processor. It contains the registers 0-13, the PC, LR and CPSR registers, and a temporary register. Four nereal purpose read and two general purpose write ports are available.
+In order to gather the registers specified by the thumb architecture, a register file is introduced in our processor. It contains the registers 0-13, the PC, LR and CPSR registers, and a temporary register. Four general purpose read and two general purpose write ports are available.
 
 All registers can be assigned to one of four read ports, which are controlled by their own select signals. Additionally, the PC and CPSR registers have their own outputs, so that cycles can be saved for reading the PC or status. These registers also feature separately writeable inputs, although these have a lower priority than a write from a common write port.
 Since the inputs of the ALU are hardwired to the register file read ports A and B, inputs for immediate values can be connected to these read ports.
@@ -88,7 +88,7 @@ To signal the CPU about the memory access, three output signals are used. \textt
 \subsubsection{Other Modules}
 \label{subsubsec:othermodules}
 
-The remainder of the necessarry hardware for the processor is divided over only few parts, which are not all part of a distinct module. These include:
+The remainder of the necessary hardware for the processor is divided over only few parts, which are not all part of a distinct module. These include:
 \begin{itemize}
 \item \textbf{Update of flags: }The required flags are either updated or left in their old state, depending on control flags from the decoder.
 \item \textbf{Input modification of ALU:} The inputs of the ALU always come from outputs A and B of the register file. Nevertheless, some instructions require manipulations on one or more bits. These are selected via multiplexors.
